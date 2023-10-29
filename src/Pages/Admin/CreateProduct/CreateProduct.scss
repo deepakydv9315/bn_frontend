@@ -1,0 +1,194 @@
+.dashboard {
+  width: 100vw;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 20fr;
+  position: absolute;
+  background-color: #f4f4f8;
+  min-height: 100vh;
+
+  .add_product_form {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+
+      .col-lg-12 {
+        width: 90%;
+        box-sizing: border-box;
+      }
+
+      .image-input {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .image-preview {
+          max-width: 30%;
+          padding: 10px;
+          height: auto;
+          margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+          display: none;
+        }
+
+        .image-button {
+          cursor: pointer;
+          padding: 10px;
+          background-color: #201a1a;
+          border: 1px solid #ccc;
+          color: #ffffff;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+
+          i.fa.fa-image {
+            margin-right: 5px;
+            
+          }
+        }
+
+        img{
+          width: 70%;
+          padding: 10px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .col-lg-5 {
+        width: calc(33.3333% - 20px);
+        margin-right: 20px;
+        box-sizing: border-box;
+
+        .fotm-group {
+          label {
+            font-weight: bold;
+          }
+
+          input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .col-lg-3 {
+        width: calc(25% - 20px);
+        margin-right: 60px;
+        margin-left: 30px;
+        box-sizing: border-box;
+
+        .fotm-group {
+          label {
+            font-weight: bold;
+          }
+
+          select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+          }
+
+          input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .col-lg-3:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      .col-lg-6 {
+        width: calc(50% - 20px);
+        margin-right: 20px;
+        box-sizing: border-box;
+
+        .fotm-group {
+          label {
+            font-weight: bold;
+          }
+
+          input[type="text"],
+          textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+          }
+
+          textarea {
+            resize: vertical;
+          }
+        }
+      }
+
+      .col-lg-6:last-child {
+        margin-right: 0;
+      }
+
+      .col-lg-12.add_price-screen {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px 20px;
+        margin-bottom: 20px;
+
+        span {
+          padding: 7px 18px;
+          background-color: #f9f5cc;
+          border-radius: 5px;
+          position: relative;
+          border: 1px solid black;
+
+          svg {
+            background-color: #f4f4f8;
+            border-radius: 5px;
+            position: absolute;
+            color: red;
+            cursor: pointer;
+            top: 0px;
+            right: 0px;
+            transform: translate(50%, -50%);
+          }
+        }
+      }
+
+      .btn_right_table {
+        text-align: right;
+
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #000;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #333;
+          }
+        }
+      }
+    }
+  }
+}

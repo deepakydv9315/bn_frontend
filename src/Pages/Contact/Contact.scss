@@ -1,0 +1,89 @@
+.contacthead {
+  padding: 40px;
+  font-family: "Goldman", cursive;
+  font-weight: 700;
+  font-size: 48px;
+  color: #000000;
+  span {
+    font-family: "Goldman", cursive;
+    font-weight: 700;
+    font-size: 48px;
+    color: #ffd626;
+  }
+}
+
+.contact-us-page {
+  display: flex;
+  flex-wrap: wrap;
+
+  .left-section,
+  .right-section {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .left-section {
+    .contact-form {
+      padding: 20px;
+
+      .getin {
+        font-family: "Goldman", cursive;
+        margin-bottom: 25px;
+        font-size: 24px;
+      }
+
+      .form-field {
+        display: block;
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+          background-color: transparent;
+          width: 100%;
+          max-width: 100%;
+          padding: 10px;
+          border: 1px solid #545454;
+          border-radius: 2px;
+        }
+      }
+
+      .send-button {
+        background-color: #212121;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .right-section {
+    .supp {
+      margin-top: 20px;
+      font-family: "Goldman", cursive;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .contact-info {
+      .info {
+        font-size: 18px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        span{
+          font-weight: 400;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

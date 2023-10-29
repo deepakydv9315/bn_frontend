@@ -1,0 +1,24 @@
+.custom-popup {
+  width: 200px !important;
+  border-top: 4px solid #FFFDE8;
+  background-color: #38AAB5;
+  padding: 7px;
+  margin: 0px;
+  font-size: 12px !important;
+  color: #fff !important;
+}
+
+.custom-close-button {
+  font-size: 20px;
+  color: #999;
+}
+
+.s-title {
+  padding: 0px;
+  margin: 0px;
+  color: #fff !important;
+  font-size: 10px !important;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+

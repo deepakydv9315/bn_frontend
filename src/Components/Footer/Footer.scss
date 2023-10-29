@@ -1,0 +1,154 @@
+  ul{
+    text-align: left;
+  }  
+  li {
+    list-style: none;
+    text-align: left;
+  }
+
+  h3{
+    padding: 2px;
+  }
+  
+  input {
+    // position: relative;
+    height: 100%;
+    display: inline;
+    width: 100%;
+  }
+  
+  input[type="email"] {
+    padding: 7px 8px;
+    border: 1px solid rgb(206, 206, 206);
+  }
+  button {
+    border: none;
+    padding: 7px 12px;
+    background: #FFD626;
+    color: #121212;
+    border: 1px solid #FFD626;
+    cursor: pointer;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  footer {
+    bottom: 0;
+    background: #090909;
+    color: white;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Bottom - Copyright Part  */
+  
+  footer .bottom {
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // position: relative;
+    flex-direction: column;
+  }
+  
+  footer .bottom:before {
+    position: absolute;
+    content: "";
+    width: 90%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.192);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Top - pages, email newsletter form ... */
+  
+  footer .top {
+    padding: 2rem 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  
+  footer .top .pages {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  footer .top .pages ul {
+    margin: 20px;
+  }
+  
+  footer .top .pages ul li {
+    margin: 5px;
+  }
+
+  footer .newsletter {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer .newsletter h3 {
+    margin-bottom: 10px;
+  }
+  footer .newsletter form {
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // text-align: left;
+    // flex-direction: column;
+
+  }
+
+  footer .bottom .payment-cards {
+    display: flex;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    footer .top {
+      flex-direction: column;
+    }
+    footer .top .newsletter {
+      padding-top: 1rem;
+    }
+    footer .top .pages ul {
+      margin: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    footer .top .pages {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+  
+    footer .info {
+      flex-direction: column;
+    }
+  
+    footer .info > .copyright {
+      margin-top: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 380px) {
+    footer .top .pages {
+      justify-content: center;
+      flex-direction: column;
+    }
+  
+    footer .info .legal {
+      justify-content: center;
+    }
+  
+    footer .info .legal a {
+      margin: 0;
+      text-align: center;
+    }
+  }

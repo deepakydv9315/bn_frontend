@@ -1,0 +1,29 @@
+/* TablePage.scss */
+
+.table-page {
+    text-align: center;
+    padding: 110px ;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+
+    th, td {
+      border: 1px solid #6b6b6b;
+      padding: 10px;
+    }
+    th {
+      background-color: #333;
+      color: #ffffff;
+    }
+    td {
+      background-color: #ffffff;
+    }
+  }
+  

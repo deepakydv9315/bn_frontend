@@ -1,0 +1,38 @@
+.product-list {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .product-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+
+      img {
+        width: 70px;
+        height: 100px;
+        margin-right: 20px;
+      }
+
+      .product-info {
+        h3 {
+          font-size: 18px;
+          margin: 0;
+        }
+
+        p {
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

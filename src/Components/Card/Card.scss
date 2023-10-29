@@ -1,0 +1,143 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 230px;
+  height: 320px;
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  transition: var(--transition);
+  position: relative;
+
+  .card__top {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    border-bottom: 1px solid #ededed;
+
+    p {
+      position: absolute;
+      border-radius: 0px 10px 0px 10px;
+      top: 0px;
+      right: 0px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      padding: 7px;
+      color: #f2fef2;
+      background-color: #51aa1b;
+      z-index: 99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .card__img {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      background-color: #ffffff;
+      position: relative;
+
+      img {
+        max-width: 151px;
+        max-height: 180px;
+      }
+    }
+  }
+
+  .card__bottom {
+    padding: 10px 12px;
+
+    .card__info {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ededed;
+
+      h3 {
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 0rem;
+      }
+
+      span {
+        color: #ffaf02;
+        font-size: 15px;
+      }
+    }
+
+    .card__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // padding-top: 8px;
+
+      .card__price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 0px 4px;
+
+        // .price {
+        //   text-decoration: line-through;
+        //   font-weight: 400;
+        //   font-size: 11px;
+        // }
+
+        .sale__price {
+          font-size: 16px;
+          margin-top: 15px;
+          font-weight: 600;
+          color: #000000;
+        }
+      }
+
+      .btn {
+        padding: 0.4vmax 0.7vmax;
+        font-size: 14px;
+        border: 1px solid #000000;
+        background-color: transparent;
+        color: #000000;
+        font-weight: 500;
+        border-radius: 3px;
+        transform-origin: bottom;
+        transition: all 0.2s linear;
+      }
+
+      .btn:hover {
+        // background-color: #ffe602e4;
+        color: rgb(163, 147, 0);
+      }
+    }
+  }
+}
+
+.update__btn {
+  background-color: #f3f9fb;
+  padding: 4px 7px;
+  margin: 0 3px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+// @media screen and (max-width : 400px) {
+//   .Card {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     width: 195px;
+//     height: 320px;
+//     background-color: white;
+//     border: 1px solid #D9D9D9;
+//     border-radius: 10px;
+//     transition: var(--transition);
+//     position: relative;
+//   }
+// }

@@ -1,0 +1,223 @@
+
+.top__nav {
+  padding: 5px 40px 3px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  background-color: #FFD626;
+
+  .header-sale {
+    color: #121212;
+    margin: 0;
+  }
+
+  .social__icon {
+    .track_order {
+      color: #121212;
+      font-size: small;
+    }
+    svg {
+      color: #121212;
+      margin-left: 20px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  }
+
+  p {
+    color: #ffffff;
+    font-size: 16px;
+  }
+}
+
+nav {
+  background-color: #212321;
+  box-shadow: 0 0 20px rgba(17, 17, 17, 0.15);
+  padding: 10px 5px;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
+  .nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 5px 15px;
+    width: auto;
+
+    .logo {
+      img {
+        width: 60px;
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      font-size: 14px;
+      font-weight: 300;
+      li {
+        list-style: none;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 19px;
+        }
+        
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 0px 15px;
+
+      svg {
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+
+  .app__navbar-menu-icon {
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.app__navbar-menu {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: relative;
+  right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFD626;
+
+  .mobile {
+    font-weight: 500;
+    gap: 4px;
+  }
+
+  svg {
+    width: 58%;
+    height: 70%;
+    color: #ffffff;
+  }
+
+  div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    padding: 1rem;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    background-color: #ffffff;
+    background-size: cover;
+    background-repeat: repeat;
+    box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+
+    svg {
+      width: 35px;
+      height: 35px;
+      color: #313bac;
+      margin: 0.5rem 1rem;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+
+      a {
+        margin: 1rem;
+        color: #6b7688;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1rem;
+
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: #313bac;
+        }
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+}
+.responsive__menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg{
+    color: white;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .top__nav {
+    margin-top: 7px;
+    display: flex;
+    height: 35px;
+    padding: 0px 1%;
+    background-color: #FFD626;
+
+    .header-sale {
+      font-size: 11px !important;
+      color: #121212;
+    }
+    .social__icon {
+      svg {
+        color: #121212;
+        margin-left: 10px !important;
+        font-size: 14px !important;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.payment-information {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    .form-group {
+      margin-bottom: 25px;
+
+      label {
+        display: block;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      input {
+        background-color: transparent;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .radio-group {
+        label {
+          display: block;
+          font-size: 16px;
+        }
+        input {
+          background-color: #1d1515;
+        }
+      }
+    }
+
+    .form-actions {
+      margin-top: 20px;
+
+      button {
+        background-color: #1d1515;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}

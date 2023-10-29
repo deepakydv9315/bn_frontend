@@ -1,0 +1,42 @@
+.shipping-address {
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      .form-group {
+        margin-bottom: 15px;
+  
+        label {
+          display: block;
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+  
+        input {
+          width: 100%;
+          background-color: transparent;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+      }
+  
+      .form-actions {
+        margin-top: 20px;
+  
+        button {
+          background-color: #1d1515;
+          color: #fff;
+          padding: 10px 20px;
+          font-size: 18px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,44 @@
+.filter-section {
+  margin-top: 20px;
+  width: 310px;
+  padding: 10px;
+
+  .filter-category {
+    margin-bottom: 15px;
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      .arrow {
+        margin-right: 15px;
+        transform: rotate(0deg);
+        transition: transform 0.3s;
+      }
+
+      .open {
+        transform: rotate(180deg);
+      }
+    }
+
+    .filter-options {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 8px 0;
+        cursor: pointer;
+
+        &.selected {
+          font-weight: bold;
+        }
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+  }
+}
