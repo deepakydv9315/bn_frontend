@@ -4,7 +4,7 @@ import Sidebar from "../../Components/Filter/Filter";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import ProductList from "../../Components/ProductList/ProductList";
 
-import { getAllProducts } from "../../src/Redux/slices/productSlice";
+import { getAllProducts } from "../../../src/Redux/slices/productSlice";
 import { useDispatch } from "react-redux";
 
 export default function Product() {

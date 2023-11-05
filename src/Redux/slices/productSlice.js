@@ -8,6 +8,7 @@ import { setLoading } from "./appConfigSlice";
 // import axios from "axios";
 import "./product.css";
 
+// to get all products
 export const getAllProducts = createAsyncThunk(
   "/api/v1/auth/products",
   async (body, thunkAPI) => {
@@ -28,6 +29,7 @@ export const getAllProducts = createAsyncThunk(
   }
 );
 
+// product fetch be Id
 export const getProductDetail = createAsyncThunk(
   "/api/v1/product/:id",
   async (body, thunkAPI) => {
@@ -45,6 +47,7 @@ export const getProductDetail = createAsyncThunk(
   }
 );
 
+// get All Admin Products
 export const getAdminProducts = createAsyncThunk(
   "/api/v1/admin/products",
   async (body, thunkAPI) => {
@@ -62,6 +65,7 @@ export const getAdminProducts = createAsyncThunk(
   }
 );
 
+// get All Categories
 export const getAllCategories = createAsyncThunk(
   "/api/v1/categoires",
   async (_, thunkAPI) => {
@@ -78,7 +82,7 @@ export const getAllCategories = createAsyncThunk(
   }
 );
 
-//create Product
+// to create Product
 export const createProduct = createAsyncThunk(
   "/api/v1/admin/product/new",
   async (body, thunkAPI) => {
@@ -98,7 +102,8 @@ export const createProduct = createAsyncThunk(
     }
   }
 );
-//create Product
+
+//create Product by Admin only
 export const updateProduct = createAsyncThunk(
   "/api/v1/product/admin/update/:id",
   async (body, thunkAPI) => {
@@ -118,7 +123,7 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
-//Delete Product
+//Delete Product by admin only
 export const deleteProduct = createAsyncThunk(
   "/api/v1/product/admin/:id",
   async (body, thunkAPI) => {
@@ -290,7 +295,7 @@ const productSlice = createSlice({
     builder
       .addCase(getAllProducts.fulfilled, (state, action) => {
         if (action.payload.statusCode == 200) {
-          console.log(action.payload, "aman")
+          console.log(action.payload, "aman");
           state.products = action.payload.result;
         }
       })
@@ -304,7 +309,7 @@ const productSlice = createSlice({
       })
       .addCase(getAdminProducts.fulfilled, (state, action) => {
         if (action.payload.statusCode === 200) {
-          console.log(action.payload, "aman")
+          console.log(action.payload, "aman");
           state.products = action.payload.result;
         }
       })
