@@ -10,7 +10,7 @@ import "./product.css";
 
 // to get all products
 export const getAllProducts = createAsyncThunk(
-  "/api/v1/auth/products",
+  "/api/v1/products",
   async (body, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
@@ -67,7 +67,7 @@ export const getAdminProducts = createAsyncThunk(
 
 // get All Categories
 export const getAllCategories = createAsyncThunk(
-  "/api/v1/categoires",
+  "/api/v1/categories",
   async (_, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));

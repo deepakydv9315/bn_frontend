@@ -8,6 +8,7 @@ import whyCP from "../../Assets/Images/why-clean-protein.png";
 import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
+import bg from "../../Assets/Images/temp.jpg";
 import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import {
   getAllCategories,
@@ -89,19 +90,20 @@ const Home = () => {
   return (
     <div className="home-page">
       <main className="home">
-        <div className="home-content">
-          {/* <h1>STAY FIT,</h1>
+        {/* <div className="home-content">
+          <h1>STAY FIT,</h1>
           <h1>STAY ULTIMATE</h1>
           <h4>A Leader in Sporta Nutrition and an Active Lifestyle Brand</h4>
-          <button>Shop Now</button> */}
+          <button>Shop Now</button>
           <h1></h1>
           <h1></h1>
           <h4></h4>
           <button></button>
-        </div>
+        </div> */}
       </main>
       
       <div className="home-2">
+       <img src={bg} alt="" />
       <br></br> <br></br>
         <div className="info-grid">
           <InfoGrid />

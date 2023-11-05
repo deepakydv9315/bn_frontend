@@ -28,6 +28,10 @@ const Navbar = () => {
   function open() {
     navigate("/login");
   }
+ 
+  const handleNavigation = () => {
+    navigate('/');
+  };
 
   return (
     <div className="wrapper__nav ">
@@ -57,8 +61,8 @@ const Navbar = () => {
       </div>
       <nav className="navbar-items nav-contain">
         <div className="container nav__container">
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
+          <div className="logo" onClick={handleNavigation}>
+            <img src={Logo} alt="Logo"/>
           </div>
           <ul className="app__navbar-links">
             <Link to="/about">ABOUT US</Link>
