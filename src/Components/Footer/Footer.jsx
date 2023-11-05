@@ -29,7 +29,7 @@ const Footer = () => {
           <h3>EXPLORE</h3>
            <li><Link to="/about">Track Order</Link></li>
            <li><Link to="/about">About Us</Link></li>
-           <li><Link to="/about">Contact Us</Link></li>
+           <li><Link to="/contact">Contact Us</Link></li>
            <li><Link to="/about">Terms & Conditions</Link></li>
            <li><Link to="/about">Privacy Policy</Link></li>
            <li><Link to="/about">Frequently Asked Questions on Whey</Link></li>
