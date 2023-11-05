@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import "./ProductList.scss";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const products = [
+/* const products = [
   {
     id: 1,
-    name: 'Product 1',
-    title: 'Description for Product 1',
+    name: "Product 1",
+    title: "Description for Product 1",
     price: "999",
-    image: require('../../Assets/Images/main1.png'),
+    image: require("../../Assets/Images/main1.png"),
   },
   {
     id: 2,
@@ -53,37 +53,38 @@ const products = [
     image: require('../../Assets/Images/main1.png'),
   },
   // Add more products as needed
-];
+]; 
+*/
 
-function ProdcuctCardPrice() {
-
+function ProdcuctCardPrice({ products }) {
   const navigate = useNavigate();
 
-  const handleImageClick = () => {
-    navigate('/productdetails');
+  const handleImageClick = (_id) => {
+    navigate(`/productdetails/${_id}`);
   };
 
   return (
-    <div className='ethnic'>
-      {products.map(product => (
+    <div className="ethnic">
+      {products.map((product) => (
         <div key={product.id} className="pc-price">
-          <div className='pc-price-img'>
-            <img src={product.image} alt={product.name} onClick={handleImageClick} />
+          <div className="pc-price-img">
+            <img
+              src={product.images[0].url}
+              alt={product.name}
+              onClick={handleImageClick.bind(this, product._id)}
+              width={"100px"}
+              height={"100px"}
+            />
           </div>
-          <div className='pc-price-footer'>
-            <p className='pc-price-name'>{product.name}</p>
-            <p className='pc-price-title'>{product.title}</p>
-            <p className='pc-price-price'>₹{product.price}</p>
+          <div className="pc-price-footer">
+            <p className="pc-price-name">{product.name}</p>
+            <p className="pc-price-title">{product.title}</p>
+            <p className="pc-price-price">₹{product.price}</p>
           </div>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
-export default ProdcuctCardPrice
-
-
-
-
-
+export default ProdcuctCardPrice;

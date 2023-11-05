@@ -295,9 +295,9 @@ const productSlice = createSlice({
     builder
       .addCase(getAllProducts.fulfilled, (state, action) => {
         if (action.payload.statusCode == 200) {
-          console.log(action.payload, "aman");
           state.products = action.payload.result;
         }
+        // console.log("This is Payload", state.products.products);
       })
       .addCase(createProduct.fulfilled, (state, action) => {
         if (action.payload?.statusCode === 200) {
@@ -309,7 +309,6 @@ const productSlice = createSlice({
       })
       .addCase(getAdminProducts.fulfilled, (state, action) => {
         if (action.payload.statusCode === 200) {
-          console.log(action.payload, "aman");
           state.products = action.payload.result;
         }
       })

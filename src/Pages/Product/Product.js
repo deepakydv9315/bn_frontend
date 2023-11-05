@@ -3,11 +3,17 @@ import "./Product.scss";
 import Sidebar from "../../Components/Filter/Filter";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import ProductList from "../../Components/ProductList/ProductList";
-import { getAllProducts } from "../../../src/Redux/slices/productSlice";
-import { useDispatch } from "react-redux";
+import {
+  getAllProducts,
+  getAllCategories,
+} from "../../../src/Redux/slices/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export default function Product() {
   const dispatch = useDispatch();
+  const { categoryname } = useParams();
+  const [filter, setActiveFilter] = useState("All");
   const filters = [
     {
       category: "Category",
@@ -23,53 +29,17 @@ export default function Product() {
     },
   ];
 
-  const [products, setProducts] = React.useState([
-    {
-      id: 1,
-      name: "Product 1",
-      title: "Description for Product 1",
-      price: "199",
-      image: require("../../Assets/Images/main1.png"),
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      title: "Description for Product 2",
-      price: "299",
-      image: require("../../Assets/Images/main2.png"),
-    },
-    {
-      id: 3,
-      name: "Product 3",
-      title: "Description for Product 3",
-      price: "399",
-      image: require("../../Assets/Images/main1.png"),
-    },
-    {
-      id: 4,
-      name: "Product 4",
-      title: "Description for Product 4",
-      price: "499",
-      image: require("../../Assets/Images/main2.png"),
-    },
-    {
-      id: 5,
-      name: "Product 5",
-      title: "Description for Product 5",
-      price: "599",
-      image: require("../../Assets/Images/main1.png"),
-    },
-    {
-      id: 6,
-      name: "Product 6",
-      title: "Description for Product 6",
-      price: "699",
-      image: require("../../Assets/Images/main2.png"),
-    },
-    // Add more products as needed
-  ]);
+  const { products, categories, carts } = useSelector(
+    (state) => state.products
+  );
 
-  /* useEffect(() => {
+  console.log(
+    "product page : ",
+    products && products.products && products.products
+  );
+
+  // ! Code is Used To Fetch And Store Products
+  useEffect(() => {
     if (categoryname) {
       setActiveFilter(categoryname);
       dispatch(getAllProducts({ category: categoryname }));
@@ -78,8 +48,9 @@ export default function Product() {
     }
 
     dispatch(getAllCategories());
-  }, [dispatch, categoryname]); */
+  }, [dispatch, categoryname]);
 
+  // ! Below Code is for Filter
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [sortBy, setSortBy] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -95,15 +66,17 @@ export default function Product() {
     setSortBy(value);
   };
 
-  const filteredProducts = products.filter((product) => {
-    // Apply filters and search query here
-    return (
-      (selectedFilters.length === 0 ||
-        selectedFilters.includes(product.size)) &&
-      (searchQuery === "" ||
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
-  });
+  const filteredProducts = Array.isArray(products)
+    ? products.filter((product) => {
+        // Apply filters and search query here
+        return (
+          (selectedFilters.length === 0 ||
+            selectedFilters.includes(product.size)) &&
+          (searchQuery === "" ||
+            product.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        );
+      })
+    : [];
 
   return (
     <div>
@@ -128,7 +101,9 @@ export default function Product() {
             </div>
             <div className="filters">
               <div className="product-count">
-                {filteredProducts.length} Products
+                {products.products
+                  ? `${products.products.length} Products`
+                  : ""}
               </div>
               {/* <div className="sort-by">
                 <select
@@ -141,7 +116,9 @@ export default function Product() {
                 </select>
               </div> */}
             </div>
-            <ProductList products={filteredProducts} />
+            {products.products && products.products.length !== 0 ? (
+              <ProductList products={products?.products} />
+            ) : null}
           </div>
         </div>
       </section>
