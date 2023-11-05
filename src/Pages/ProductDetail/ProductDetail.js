@@ -108,7 +108,7 @@ const ProductDetails = () => {
                                 </div>
                             ))}
 
-                            <img src={chart} alt="Main Product" className='chart' />
+                            {/* <img src={chart} alt="Main Product" className='chart' /> */}
                         </div>
                     </div>
                     <div className="right-section">

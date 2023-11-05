@@ -15,6 +15,9 @@
 .contact-us-page {
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    display: block;
+  }
 
   .left-section,
   .right-section {
@@ -23,11 +26,20 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    
+    @media (max-width: 768px) {
+      display: block;
+      width: 100%;
+      padding: 0px 10px 20px 10px;
+    }
   }
 
   .left-section {
     .contact-form {
       padding: 20px;
+      @media (max-width: 768px) {
+        padding: 0px 10px 0px 10px;
+      }
 
       .getin {
         font-family: "Goldman", cursive;
@@ -79,7 +91,7 @@
         font-size: 18px;
         font-weight: 900;
         margin-bottom: 10px;
-        span{
+        span {
           font-weight: 400;
           font-size: 18px;
         }
