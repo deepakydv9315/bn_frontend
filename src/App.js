@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import Home from "./Pages/Home/Home.jsx";
@@ -8,9 +7,9 @@ import Home from "./Pages/Home/Home.jsx";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import About from "./Pages/About/About.jsx";
 import Products from "./Pages/Product/Product.js";
-import MenWomen from "./Pages/MenWomen/MenWomen.jsx";
+// import MenWomen from "./Pages/MenWomen/MenWomen.jsx";
 import "./style.scss";
-import Beginner from "./Pages/Beginner/Beginner.jsx";
+// import Beginner from "./Pages/Beginner/Beginner.jsx";
 import Blog from "./Pages/Blog/Blog.js";
 import Contact from "./Pages/Contact/Contact";
 import Authenticate from "./Pages/Authenticate/Authenticate.js";
@@ -55,8 +54,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/productdetails" element={<ProductDetail />} />
-        <Route path="/MenWomen" element={<MenWomen />} />
-        <Route path="/beginner" element={<Beginner />} />
+        {/* <Route path="/MenWomen" element={<MenWomen />} />
+        <Route path="/beginner" element={<Beginner />} /> */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/authenticate" element={<Authenticate />} />

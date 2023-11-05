@@ -28,9 +28,9 @@ const Navbar = () => {
   function open() {
     navigate("/login");
   }
- 
+
   const handleNavigation = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -62,16 +62,18 @@ const Navbar = () => {
       <nav className="navbar-items nav-contain">
         <div className="container nav__container">
           <div className="logo" onClick={handleNavigation}>
-            <img src={Logo} alt="Logo"/>
+            <img src={Logo} alt="Logo" />
           </div>
           <ul className="app__navbar-links">
+            <Link to="/">HOME</Link>
             <Link to="/about">ABOUT US</Link>
             <Link to="/products">PRODUCTS</Link>
-            <Link to="/men-women">MEN/WOMEN</Link>
-            <Link to="/beginner">BEGINNER?</Link>
+            {/* <Link to="/men-women">MEN/WOMEN</Link>
+            <Link to="/beginner">BEGINNER?</Link> */}
             <Link to="/blog">BLOG</Link>
             <Link to="/recipes">RECIPES</Link>
             <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
+            <Link to="/contact">CONTACT</Link>
           </ul>
           <div className="right">
             <AiOutlineSearch />
@@ -102,13 +104,15 @@ const Navbar = () => {
               >
                 <HiX onClick={() => setToggle(false)} />
                 <ul className="mobile">
+                  <Link to="/">HOME</Link>
                   <Link to="/about">ABOUT US</Link>
                   <Link to="/products">PRODUCTS</Link>
-                  <Link to="/men-women">MEN/WOMEN</Link>
-                  <Link to="/beginner">BEGINNER?</Link>
+                  {/* <Link to="/men-women">MEN/WOMEN</Link>
+                  <Link to="/beginner">BEGINNER?</Link> */}
                   <Link to="/blog">BLOG</Link>
                   <Link to="/recipes">RECIPES</Link>
                   <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
+                  <Link to="/contact">CONTACT</Link>
                 </ul>
               </motion.div>
             )}

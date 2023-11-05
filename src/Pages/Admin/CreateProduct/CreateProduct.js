@@ -33,11 +33,6 @@ function NewProduct() {
   // const { isLoading } = useSelector((state) => state.app);
   const { categories } = useSelector((state) => state.categories);
 
-  const subCats = [
-    "Kurti",
-    "Lehnga",
-    "Top",
-  ];
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
@@ -61,8 +56,6 @@ function NewProduct() {
       alert.error("Weight & Price Can't Be Empty !!")
     }
   };
-
-
 
   useEffect(() => {
     if (success) {
@@ -198,9 +191,11 @@ function NewProduct() {
                   onChange={(e) => setFlavour(e.target.value)}
                 >
                   <option>---Select Flavour---</option>
-                  <option>Vanilla</option>
-                  <option>chocolate</option>
+                  <option>Flavoured</option>
+                  <option>Coffee</option>
+                  <option>Chocolate Caramel</option>
                   <option>Unflavoured</option>
+                  <option>Blueberry Muffin</option>
                 </select>
               </div>
             </div>
