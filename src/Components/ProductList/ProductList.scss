@@ -1,36 +1,42 @@
-.ethnic {
+.product-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px 40px;
-  padding-top: 30px;
+  gap: 20px; // Adjust the gap between product cards
+}
 
-  .pc-price {
-    .pc-price-img {
-      img {
-        width: 50%;
-        height: auto;
-      }
+.product-card {
+  width: 25%;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05); // Increase size on hover
+  }
+
+  .product-card-img {
+    img {
+      width: 100%;
+      height: auto;
     }
+  }
 
-    .pc-price-footer {
-      padding: 0px 10px;
-      p {
-        font-family: "Montserrat", sans-serif;
-        font-size: 16px;
-        margin: 4px 151px 5px -10px;
-      }
-      .pc-price-name {
-        font-weight: bolder;
-        color: #4d4d4d;
-      }
-      .pc-price-title {
-        font-weight: 400;
-        margin-bottom: 4px;
-      }
-      .pc-price-price {
-        font-weight: 400;
-        color: #4d4d4d;
-      }
+  .product-card-details {
+    padding: 10px;
+    text-align: left;
+
+    .product-card-name {
+      font-weight: bolder;
+      color: #4d4d4d;
+    }
+    .product-card-title {
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .product-card-price {
+      font-weight: 400;
+      color: #4d4d4d;
     }
   }
 }
