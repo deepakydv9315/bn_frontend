@@ -72,8 +72,6 @@ function ProdcuctCardPrice({ products }) {
               src={product.images[0].url}
               alt={product.name}
               onClick={handleImageClick.bind(this, product._id)}
-              width={"100px"}
-              height={"100px"}
             />
           </div>
           <div className="pc-price-footer">
