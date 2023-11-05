@@ -1,6 +1,5 @@
 import './Budget.scss';
 
-
 const Card = ({ imageSrc, title }) => {
   return (
     <div className="budget-card">

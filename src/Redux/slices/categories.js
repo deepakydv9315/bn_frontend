@@ -4,7 +4,7 @@ import { setLoading } from "./appConfigSlice";
 
 //Get All Categories
 export const getCategories = createAsyncThunk(
-  "/api/v1/admin/categories",
+  "/api/v1/categories",
   async (_, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
@@ -18,7 +18,7 @@ export const getCategories = createAsyncThunk(
 );
 //Create New Category
 export const createNewCategory = createAsyncThunk(
-  "/api/v1/add-cat",
+  "/api/v1/categories/add-cat",
   async (body, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
@@ -33,6 +33,26 @@ export const createNewCategory = createAsyncThunk(
     }
   }
 );
+
+//Create Category by id
+export const createCategory = createAsyncThunk(
+  "/api/v1/category/:id",
+  async (body, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(setLoading(true));
+      console.log("This is Body for Category Section ", body);
+      const response = await axiosClient.delete(`/api/v1/category/${body.id}`);
+      console.log("This is Deleted Category", response);
+      return response.data;
+    } catch (e) {
+      return Promise.reject(e);
+    } finally {
+      thunkAPI.dispatch(setLoading(false));
+    }
+  }
+);
+
+
 //Delete Category
 export const deleteCategory = createAsyncThunk(
   "/api/v1/category/:id",

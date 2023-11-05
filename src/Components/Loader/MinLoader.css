@@ -15,12 +15,12 @@
 .loader:before {
   animation: ball1 1s infinite;
   background-color: #000;
-  box-shadow: 30px 0 0 #231918;
+  box-shadow: 30px 0 0 #54b22c;
   margin-bottom: 10px;
 }
 .loader:after {
   animation: ball2 1s infinite;
-  background-color: #231918;
+  background-color: #54b22c;
   box-shadow: 30px 0 0 #000;
 }
 
@@ -38,15 +38,15 @@
 
 @keyframes ball1 {
   0% {
-    box-shadow: 30px 0 0 #231918;
+    box-shadow: 30px 0 0 #54b22c;
   }
   50% {
-    box-shadow: 0 0 0 #231918;
+    box-shadow: 0 0 0 #54b22c;
     margin-bottom: 0;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 #231918;
+    box-shadow: 30px 0 0 #54b22c;
     margin-bottom: 10px;
   }
 }

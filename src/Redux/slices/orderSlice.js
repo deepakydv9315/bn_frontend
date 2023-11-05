@@ -41,6 +41,55 @@ export const deleteOrder = createAsyncThunk(
     }
 );
 
+
+export const validateCoupon = createAsyncThunk(
+    `/api/v1/util/coupons/:code`,
+    async (body, thunkAPI) => {
+      try {
+        thunkAPI.dispatch(setLoading(true));
+        console.log("This is bOdy", body);
+        const response = await axiosClient.get(`/api/v1/util/coupons/${body}`);
+        return response.data;
+      } catch (error) {
+        return Promise.reject(error.message);
+      } finally {
+        thunkAPI.dispatch(setLoading(false));
+      }
+    }
+  );
+
+  export const couponCode = createAsyncThunk(
+    `/api/v1/util/coupons`,
+    async (body, thunkAPI) => {
+      try {
+        thunkAPI.dispatch(setLoading(true));
+        console.log("This is bOdy", body);
+        const response = await axiosClient.get(`/api/v1/util/coupons/${body}`);
+        return response.data;
+      } catch (error) {
+        return Promise.reject(error.message);
+      } finally {
+        thunkAPI.dispatch(setLoading(false));
+      }
+    }
+  );
+
+  export const createCoupon = createAsyncThunk(
+    `/api/v1/util/coupons/create`,
+    async (body, thunkAPI) => {
+      try {
+        thunkAPI.dispatch(setLoading(true));
+        console.log("This is bOdy", body);
+        const response = await axiosClient.get(`/api/v1/util/coupons/${body}`);
+        return response.data;
+      } catch (error) {
+        return Promise.reject(error.message);
+      } finally {
+        thunkAPI.dispatch(setLoading(false));
+      }
+    }
+  );
+
 //Setting Slice:
 const orderSlice = createSlice({
     name:"order",
