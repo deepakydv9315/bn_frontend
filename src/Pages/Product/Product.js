@@ -70,7 +70,7 @@ export default function Product() {
     // Add more products as needed
   ]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (categoryname) {
       setActiveFilter(categoryname);
       dispatch(getAllProducts({ category: categoryname }));
@@ -79,7 +79,7 @@ export default function Product() {
     }
 
     dispatch(getAllCategories());
-  }, [dispatch, categoryname]);
+  }, [dispatch, categoryname]); */
 
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [sortBy, setSortBy] = useState(null);
@@ -111,25 +111,27 @@ export default function Product() {
       <section className="contain">
         <div className="title1 product">Products</div>
         <div className="app">
-          <Sidebar
+          {/* <Sidebar
             filters={filters}
             selectedFilters={selectedFilters}
             handleFilterChange={handleFilterChange}
-          />
+          /> */}
           <div className="main-content">
             <div className="top-bar">
               <div className="search-bar">
-                <SearchBar
+                {/*
+                 <SearchBar
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
-                />
+                 />
+                */}
               </div>
             </div>
             <div className="filters">
               <div className="product-count">
                 {filteredProducts.length} Products
               </div>
-              <div className="sort-by">
+              {/* <div className="sort-by">
                 <select
                   value={sortBy}
                   onChange={(e) => handleSortChange(e.target.value)}
@@ -138,7 +140,7 @@ export default function Product() {
                   <option value="lowToHigh">Price: Low to High</option>
                   <option value="highToLow">Price: High to Low</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <ProductList products={filteredProducts} />
           </div>
