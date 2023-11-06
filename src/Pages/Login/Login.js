@@ -157,6 +157,10 @@ import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+
+import { getLoggedInrUser } from "../../Redux/slices/user";
+
 export default function LoginForm() {
   const {
     register,
@@ -164,12 +168,16 @@ export default function LoginForm() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleNavigation = () => {
     navigate("/");
   };
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(getLoggedInrUser(data));
+  };
 
   return (
     <section className="si">
@@ -194,11 +202,7 @@ export default function LoginForm() {
             className="flex flex-col"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <input
-              type="text"
-              {...register("username")}
-              placeholder="username"
-            />
+            <input type="text" {...register("email")} placeholder="E-Mail" />
             <input
               type="password"
               {...register("password")}
