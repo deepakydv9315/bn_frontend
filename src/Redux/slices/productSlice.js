@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 // import { ProductData } from "../../Data/productsData";
 import { axiosClient } from "../../utils/axios/axios";
 import { setLoading } from "./appConfigSlice";
@@ -36,7 +36,6 @@ export const getProductDetail = createAsyncThunk(
     try {
       thunkAPI.dispatch(setLoading(true));
       const response = await axiosClient.get(`/api/v1/product/${body.id}`);
-      console.log(response.data);
       return response.data;
     } catch (e) {
       console.log(e);
@@ -167,18 +166,32 @@ const productSlice = createSlice({
       state.isDeleted = false;
     },
     addToCart: (state, action) => {
-      let { id, price, weight } = action.payload;
-      console.log("This is Payload", id);
+      let { id, price, weight, quantity } = action.payload;
+
+      console.error(
+        "id " +
+          id +
+          " price " +
+          price +
+          " weight " +
+          weight +
+          " quantity " +
+          quantity
+      );
+
+      const mainState = current(state);
+
+      console.log("mainState : ", mainState.products.products);
 
       //check Existance
-      let item = state.carts.find((item) => item._id == id);
+      let item = mainState.carts.find((item) => item._id == id);
 
       if (!item) {
-        let arr = state.products.find((item) => item._id == id);
+        let arr = mainState.products.products.find((item) => item._id == id);
         arr.quantity = 1;
         arr.price = price;
         arr.weight = weight;
-        state.carts.push(arr);
+        mainState.carts.push(arr);
 
         // Swal.fire({
         //   title: "Added to your Cart",
@@ -296,6 +309,7 @@ const productSlice = createSlice({
       .addCase(getAllProducts.fulfilled, (state, action) => {
         if (action.payload.statusCode == 200) {
           state.products = action.payload.result;
+          console.log("Products Add in States ");
         }
         // console.log("This is Payload", state.products.products);
       })
@@ -329,9 +343,14 @@ const productSlice = createSlice({
       })
       .addCase(getProductDetail.fulfilled, (state, action) => {
         if (action.payload.statusCode === 200) {
+          console.log("Line 344 : Product Detail : ", action.payload.result);
           state.product = action.payload.result;
-          state.productDefaultPrice = state.product.weightPrice[0];
-          console.log("This is Defualt Price", state.productDefaultPrice);
+          // get max price of product
+          state.productDefaultPrice = state.product.weightPrice.sort((a, b) => {
+            return b.price - a.price;
+          })[0];
+          console.log("product Default Price  : ", state.productDefaultPrice);
+          console.log("Selected Product : ", state.product);
         } else {
           state.error = action.payload?.message;
         }
