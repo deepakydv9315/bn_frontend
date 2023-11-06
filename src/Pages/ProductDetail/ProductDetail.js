@@ -109,7 +109,7 @@ const ProductDetails = () => {
                   <div key={index} className="additional-image">
                     <img
                       src={product.image}
-                      alt={`Additional Image ${index + 1}`}
+                      alt={`AdditionalImage ${index + 1}`}
                     />
                   </div>
                 ))}

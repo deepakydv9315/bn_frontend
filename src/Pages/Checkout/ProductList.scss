@@ -22,6 +22,30 @@
         margin-right: 20px;
       }
 
+      .quantity {
+        margin: 0px 0px 20px 0px;
+        display: flex;
+        align-items: center;
+
+        .quant {
+          padding: 2px;
+          border-radius: 2px;
+          border: 2px solid #333;
+        }
+
+        button {
+          font-size: larger;
+          font-weight: 600;
+          padding: 5px 10px;
+          cursor: pointer;
+          border: 0px solid #333;
+        }
+        span {
+          margin: 0 10px;
+          font-weight: bold;
+        }
+      }
+
       .product-info {
         h3 {
           font-size: 18px;
