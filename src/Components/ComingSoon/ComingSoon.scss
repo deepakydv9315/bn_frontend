@@ -1,0 +1,20 @@
+.coming-soon-container {
+    height: 30vh;
+    background-color: none; /* Choose your preferred background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .center-content {
+    color: #020202; /* Choose your preferred text color */
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
