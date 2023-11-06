@@ -22,7 +22,6 @@ const ProductDetails = () => {
   const Navigate = useNavigate();
   const { isLoading } = useSelector((state) => state.app);
   const { product, productDefaultPrice } = useSelector((state) => {
-    console.log("Data inside Satate : ", state);
     return state.products;
   });
   const [price, setPrice] = useState("");
