@@ -37,10 +37,9 @@ function CartItem({ name, imgUrl, quantity, price, id, weight }) {
         <div className="item__info-fn">
           <h5>
             {name}
-
             <MdDeleteOutline onClick={() => removeCart(id)} />
           </h5>
-          <p className="p-text">{weight}g</p>
+          <p className="p-text">{weight}</p>
 
           <div className="price__functions">
             <h5>₹{price * quantity || 1}</h5>
