@@ -1,6 +1,8 @@
 .contain {
+
   .product {
     display: flex;
+   
     justify-content: center; 
     align-items: center; 
     height: 100%; 
@@ -24,6 +26,7 @@
 
   .main-content {
     padding: 20px 30px 50px 50px;
+    
 
     .filters {
       display: flex;

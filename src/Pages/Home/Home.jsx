@@ -21,37 +21,10 @@ import product from "../../Assets/Images/product.png";
 
 const Home = () => {
   const dummyCategories = [
-    { name: "Category 1" },
-    { name: "Category 2" },
-    { name: "Category 3" },
-    { name: "Category 4" },
-];
-
-  // Dummy data for products
-  const dummyProducts = [
-    {
-      _id: "1",
-      name: "Product 1",
-      images: product,
-      weightPrice: [{ price: 10, weight: "1kg" }],
-      category: "Category 1",
-    },
-    {
-      _id: "2",
-      name: "Product 2",
-      images: product,
-      weightPrice: [{ price: 15, weight: "500g" }],
-      category: "Category 2",
-    },
-    {
-      _id: "3",
-      name: "Product 3",
-      images: product,
-      weightPrice: [{ price: 20, weight: "750g" }],
-      category: "Category 1",
-    },
-    // Add more product entries as needed
+    { name: "Whey" },
+    { name: "Creatine" },
   ];
+
   const { categoryname } = useParams();
 
   const [activeFilter, setActiveFilter] = useState("All");
@@ -101,14 +74,13 @@ const Home = () => {
           <button></button>
         </div> */}
       </main>
-      
+
       <div className="home-2">
-       <img src={bg} alt="" />
-      <br></br> <br></br>
+        <img src={bg} alt="" />
+        <br></br> <br></br>
         <div className="info-grid">
           <InfoGrid />
         </div>
-
         <section className="content-of-category">
           <div className="title">
             Shop by <span>Category</span>
@@ -141,10 +113,10 @@ const Home = () => {
                 style={{
                   width: "30vw",
                   display: "flex",
-                  marginTop:"10px",
-                  fontSize:"20px",
-                  fontStyle:"italic",
-                  fontWeight:"600",
+                  marginTop: "10px",
+                  fontSize: "20px",
+                  fontStyle: "italic",
+                  fontWeight: "600",
                   justifyContent: "center",
                   alignItems: "center",
                 }}
@@ -153,24 +125,13 @@ const Home = () => {
               </div>
             ) : (
               <div className="spr-wrapper">
-                {dummyProducts.map((item, index) => (
-                  <Card
-                    isOnCart={isInCart(item._id) ? true : false}
-                    key={item._id}
-                    imgUrl={item.images}
-                    name={item.name}
-                    price={item.weightPrice[0].price}
-                    // weight={item.weightPrice[0].weight}
-                    salePrice={item.weightPrice[0].price}
-                    category={item.category}
-                    id={item._id}
-                  />
-                ))}
+                {products.products && products.products.length !== 0 ? (
+                  <Card products={products?.products} />
+                ) : null}
               </div>
             )}
           </div>
         </section>
-
         <section className="content-of-goal">
           <div className="title">
             Shop by <span>Goal</span>

@@ -13,7 +13,7 @@ function ProductCard({ products }) {
     <div className="product-cards">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-  
+
           <div className="product-card-img">
             <img
               src={product.images[0].url}
