@@ -68,11 +68,7 @@ const Navbar = () => {
             <Link to="/">HOME</Link>
             <Link to="/about">ABOUT US</Link>
             <Link to="/products">PRODUCTS</Link>
-            {/* <Link to="/men-women">MEN/WOMEN</Link>
-            <Link to="/beginner">BEGINNER?</Link> */}
             <Link to="/blog">BLOG</Link>
-            <Link to="/recipes">RECIPES</Link>
-            <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
             <Link to="/contact">CONTACT</Link>
           </ul>
           <div className="right">
@@ -107,11 +103,7 @@ const Navbar = () => {
                   <Link to="/">HOME</Link>
                   <Link to="/about">ABOUT US</Link>
                   <Link to="/products">PRODUCTS</Link>
-                  {/* <Link to="/men-women">MEN/WOMEN</Link>
-                  <Link to="/beginner">BEGINNER?</Link> */}
                   <Link to="/blog">BLOG</Link>
-                  <Link to="/recipes">RECIPES</Link>
-                  <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
                   <Link to="/contact">CONTACT</Link>
                 </ul>
               </motion.div>

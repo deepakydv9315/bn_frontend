@@ -7,39 +7,77 @@ import './CheckoutPage.scss';
 
 const CheckoutPage = () => {
   const [activeComponent, setActiveComponent] = useState('productList');
+  const [tabCompletion, setTabCompletion] = useState({
+    productList: false,
+    shippingAddress: false,
+    paymentInformation: false,
+    orderSummary: false,
+  });
+
+  const handleTabCompleted = (tab) => {
+    setTabCompletion((prevCompletion) => ({
+      ...prevCompletion,
+      [tab]: true,
+    }));
+  };
 
   return (
-    <main className="checkout-page contain contain-bg ">
+    <main className="checkout-page contain contain-bg">
       <div className="checkout-navigation">
         <button
-          onClick={() => setActiveComponent('productList')}
-          className={`navigation-button ${activeComponent === 'productList' ? 'active' : ''
-            }`}
+          onClick={() => {
+            setActiveComponent('productList');
+            handleTabCompleted('productList');
+          }}
+          className={`navigation-button ${
+            activeComponent === 'productList' ? 'active' : tabCompletion.productList ? 'completed' : ''
+          }`}
         >
           Product List
         </button>
         <button
-          onClick={() => setActiveComponent('shippingAddress')}
-          className={`navigation-button ${activeComponent === 'shippingAddress' ? 'active' : ''
-            }`}
+          onClick={() => {
+            setActiveComponent('shippingAddress');
+            handleTabCompleted('shippingAddress');
+          }}
+          className={`navigation-button ${
+            activeComponent === 'shippingAddress'
+              ? 'active'
+              : tabCompletion.shippingAddress
+              ? 'completed'
+              : ''
+          }`}
         >
           Shipping Address
         </button>
         <button
-          onClick={() => setActiveComponent('paymentInformation')}
-          className={`navigation-button ${activeComponent === 'paymentInformation' ? 'active' : ''
-            }`}
+          onClick={() => {
+            setActiveComponent('paymentInformation');
+            handleTabCompleted('paymentInformation');
+          }}
+          className={`navigation-button ${
+            activeComponent === 'paymentInformation'
+              ? 'active'
+              : tabCompletion.paymentInformation
+              ? 'completed'
+              : ''
+          }`}
         >
           Payment Information
         </button>
         <button
-          onClick={() => setActiveComponent('orderSummary')}
-          className={`navigation-button ${activeComponent === 'orderSummary' ? 'active' : ''
-            }`}
+          onClick={() => {
+            setActiveComponent('orderSummary');
+            handleTabCompleted('orderSummary');
+          }}
+          className={`navigation-button ${
+            activeComponent === 'orderSummary' ? 'active' : tabCompletion.orderSummary ? 'completed' : ''
+          }`}
         >
           Order Summary
         </button>
       </div>
+      
       <div className="checkout-content">
         {activeComponent === 'productList' && <ProductList />}
         {activeComponent === 'shippingAddress' && <ShippingAddress />}

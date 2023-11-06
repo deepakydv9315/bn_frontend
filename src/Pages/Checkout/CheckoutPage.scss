@@ -5,20 +5,27 @@
 
   .checkout-navigation {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: space-between;
     margin-bottom: 20px;
 
     .navigation-button {
-      padding: 10px 20px;
-      background-color: #f0f0f0;
       border: none;
-      border-radius: 5px;
+      background: none;
       cursor: pointer;
+      padding: 10px;
+      font-size: 16px;
+      transition: color 0.2s;
+      margin: 0 10px;
 
       &.active {
-        background-color: #1a1212;
-        color: #fff;
+        background-color: black;
+        color: rgb(226, 192, 0);
+        font-weight: bold;
+      }
+
+      &.completed {
+        color: white;
+        background-color: green; 
       }
     }
   }
@@ -30,11 +37,11 @@
 }
 @media (max-width: 768px) {
   .checkout-navigation {
-    flex-direction: column; 
-    gap: 10px; 
+    flex-direction: column;
+    gap: 10px;
   }
 
   .checkout-navigation .navigation-button {
-    width: 100%; 
+    width: 100%;
   }
 }
