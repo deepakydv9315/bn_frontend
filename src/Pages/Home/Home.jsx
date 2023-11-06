@@ -25,7 +25,7 @@ const Home = () => {
     { name: "Category 2" },
     { name: "Category 3" },
     { name: "Category 4" },
-  ];
+];
 
   // Dummy data for products
   const dummyProducts = [
