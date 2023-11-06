@@ -232,14 +232,14 @@ const Home = () => {
         <div className="whyCP-img">
           <img src={whyCP} alt="Why clean protein?" />
         </div>
-        <div className="why-container">
+        {/* <div className="why-container">
           <h3>The promise of nothing artificial</h3>
           <p>
             When taken over time with regular resistance with regular resistance
             tram over time with regular resistant taken over time with.
           </p>
           <button>Shop Now</button>
-        </div>
+        </div> */}
       </section>
 
       <div className="home-4">

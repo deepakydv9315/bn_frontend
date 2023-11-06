@@ -14,24 +14,25 @@ const AboutPage = () => {
         </div>
       </div>
       <div className="about-text">
-        <h3>Our Story</h3>
+        <h3>About Us</h3>
         <p>
-          Being the pioneers of Effervescent Nutrition and introducing it in our
-          country was not easy. The brand you see today is the amalgamation of
-          every talk that was given to explain the benefits of effervescent
-          nutrition. When we promise a New Start to a Healthy Life, we start
-          with the basics - The Right Nutrition. It begins within. Keeping that
-          in mind, we focus on providing quality nutrition that caters to every
-          individual's needs. We started with a single product - Fast&Up Reload
-          and today we are available in multiple categories with many products.
-          We are proud to say that we provide 100% Quality Plant Based nutrition
-          and are the only brand to be Informed Sport & Choice certified for our
-          flagship products. Every batch of our flagship products are tested in
-          the UK and hence, our promise of quality is tested, validated and
-          trusted. From explaining please don't consume without water to today
-          being synonymous with Drop-Fizz-Drink has only been possible cause of
-          the passionate team that believes in the brand and our promise. We are
-          the original effervescent nutrition brand. We are Fast&Up.
+          Welcome to Burly Nutrition, your trusted partner on your fitness journey. We are dedicated
+          to providing you with the highest quality gym supplements that fuel your workouts
+          and help you achieve your fitness goals. At Burly Nutrition, our team of experts
+          and nutritionists stands by your side, providing knowledge and guidance to help you make
+          informed choices about your health and fitness. We believe that by equipping you with the
+          right information, we're not just selling supplements – we're enabling transformation.
+        </p>
+      </div>
+
+      <div className="about-text">
+        <h3>About</h3>
+        <p>
+          Our mission is to craft gym supplements that redefine your fitness journey. We understand that your dedication, hard work, and goals are unique. That's why we offer a diverse range of supplements, each meticulously designed to cater to your distinct fitness needs, whether it's muscle building, weight loss, or all-around vitality.
+          What sets us apart is our unwavering commitment to quality. We source the finest
+          ingredients and uphold stringent quality standards, ensuring that every product
+          we create stands as a testament to excellence. Whether you're a seasoned athlete or a newcomer to the
+          gym, you can rely on our supplements to empower your workouts and amplify your results
         </p>
       </div>
       <div className="center-heading">

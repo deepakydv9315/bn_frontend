@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <div className="wrapper__nav ">
       <div className="top__nav nav-contain">
-        <p className="header-sale">Earn your Physique</p>
+        <p className="header-sale">हसल 4 मसल</p>
 
         <div className="social__icon">
           {/* <a href="/" className="track_order">

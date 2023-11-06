@@ -409,9 +409,17 @@
   background-color: #000000;
   padding: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
   .whyCP-img {
-    width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 600px;
+    }
   }
 
   .why-container {
