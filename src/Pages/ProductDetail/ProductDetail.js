@@ -224,8 +224,8 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="product-description-reviews">
-              <h3>{product?.description}</h3>
-              <p>{product?.productDescription}</p>
+              <h3>Description</h3>
+              <p>{product?.description}</p>
             </div>
             <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
               <div className="arrow">
@@ -235,7 +235,7 @@ const ProductDetails = () => {
                   style={{ fontSize: "20px", marginTop: "5px" }}
                 />
               </div>
-              <p>{product?.manufacturingDetails}</p>
+              <p>{product?.description}</p>
             </div>
             <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
               <div className="arrow">

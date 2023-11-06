@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faCode } from '@fortawesome/free-solid-svg-icons'; // Import FontAwesome icons
 import './Authenticate.scss';
-import authenticate from "../../Assets/Images/authenticate.png";
+import authenticate from "../../Assets/Images/authenticate.jpeg";
 import repo1 from "../../Assets/Images/repo1.png";
 import repo2 from "../../Assets/Images/repo2.png";
 import { useNavigate } from 'react-router-dom';
+import Coming from "../../Components/ComingSoon/ComingSoon";
 
 const Authenticate = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -72,7 +73,8 @@ const Authenticate = () => {
         )}
         {activeTab === 2 && (
           <div className="tab2-content">
-            <div className="section ">
+            <Coming/>
+            {/* <div className="section ">
               <h2 className='title1' style={{ display: "flex", justifyContent: "space-between" }}>Protein</h2>
               <div className="image-container">
                 <div className="image">
@@ -154,7 +156,7 @@ const Authenticate = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         )}
       </div>

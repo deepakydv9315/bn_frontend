@@ -6,6 +6,7 @@ import r1 from "../../Assets/Images/r1.png";
 import r2 from "../../Assets/Images/r2.png";
 import r3 from "../../Assets/Images/r3.png";
 import r4 from "../../Assets/Images/r4.png";
+import Coming from "../../Components/ComingSoon/ComingSoon";
 
 const Recipes = () => {
     const rData = [
@@ -69,7 +70,7 @@ const Recipes = () => {
 
     return (
         <div className="recipe">
-            <div className="image-with-text-container">
+            {/* <div className="image-with-text-container">
                 <img src={recipe} alt="YourImage" className="image" />
                 <div className="text">
                     Healthy <span>Recipes</span>
@@ -85,7 +86,8 @@ const Recipes = () => {
                         <RecipeCard key={recipe.id} data={recipe} />
                     ))}
                 </div>
-            </section>
+            </section> */}
+            <Coming/>
         </div>
     );
 };
