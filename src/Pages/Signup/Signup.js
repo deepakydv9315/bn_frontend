@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { createUser } from "../../Redux/slices/user";
 
 export default function Form() {
   const {
@@ -15,11 +18,15 @@ export default function Form() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleNavigation = () => {
     navigate("/");
   };
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    dispatch(createUser(data));
+  };
 
   // console.log(watch('username'));
 

@@ -6,11 +6,11 @@ import Swal from "sweetalert2";
 import { setLoading } from "./appConfigSlice";
 
 export const getLoggedInrUser = createAsyncThunk(
-  "/api/v1/login",
+  "/api/v1/auth/login",
   async (body, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
-      const response = await axiosClient.post("/api/v1/login", body);
+      const response = await axiosClient.post("/api/v1/auth/login", body);
       console.log("This is Loggin Data", response);
       return response.data;
     } catch (e) {
@@ -23,12 +23,13 @@ export const getLoggedInrUser = createAsyncThunk(
 );
 
 export const createUser = createAsyncThunk(
-  "/api/v1/register",
+  // "/api/v1/register",
+  "/api/v1/auth/register",
   async (body, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
       console.log("This is bOdy", body);
-      const response = await axiosClient.post("/api/v1/register", body);
+      const response = await axiosClient.post("/api/v1/auth/register", body);
       console.log("This is Response from our APi", response);
       return response.data;
     } catch (error) {
@@ -45,7 +46,7 @@ export const loginGoogleUser = createAsyncThunk(
     try {
       thunkAPI.dispatch(setLoading(true));
       // const response = await axiosClient.get("/api/v1/oauth/google");
-      window.location.href = "https://api.freeofgluten.in/api/v1/auth/login";//Change this base Url to Your Backend URL
+      window.location.href = "https://api.freeofgluten.in/api/v1/auth/login"; //Change this base Url to Your Backend URL
       // console.log("This is Response from our APi", response);
       // return response;
     } catch (error) {
@@ -124,7 +125,10 @@ export const resetPassword = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
-      const response = await axiosClient.put(`/api/v1/password/reset/${body.token}`, body);
+      const response = await axiosClient.put(
+        `/api/v1/password/reset/${body.token}`,
+        body
+      );
       console.log(response.data);
       return response.data;
     } catch (e) {
@@ -175,10 +179,7 @@ const userSlice = createSlice({
     createAddress: (state, action) => {
       const { name, title, address, HNO } = action.payload;
       state.addresses.push({ name, title, address, HNO });
-      localStorage.setItem(
-        "EliniUserAddress",
-        JSON.stringify(state.addresses)
-      );
+      localStorage.setItem("EliniUserAddress", JSON.stringify(state.addresses));
       Swal.fire({
         title: "Success!",
         text: "Successfully added Address",
