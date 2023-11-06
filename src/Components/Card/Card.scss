@@ -1,143 +1,79 @@
 .Card {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 230px;
-  height: 320px;
-  background-color: white;
-  border: 1px solid #d9d9d9;
-  border-radius: 10px;
-  transition: var(--transition);
-  position: relative;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: none;
+  transform: none;
+  justify-content: center;
+  align-items: center;
 
-  .card__top {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 12px;
-    border-radius: 10px 10px 0px 0px;
-    position: relative;
-    border-bottom: 1px solid #ededed;
-
-    p {
-      position: absolute;
-      border-radius: 0px 10px 0px 10px;
-      top: 0px;
-      right: 0px;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      padding: 7px;
-      color: #f2fef2;
-      background-color: #51aa1b;
-      z-index: 99;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .card__img {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 10px;
-      background-color: #ffffff;
-      position: relative;
-
-      img {
-        max-width: 151px;
-        max-height: 180px;
-      }
-    }
+  :hover {
+    transition: none;
+    transform: none;
   }
+  .product-card {
+    width: 20%;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
 
-  .card__bottom {
-    padding: 10px 12px;
-
-    .card__info {
-      padding-bottom: 8px;
-      border-bottom: 1px solid #ededed;
-
-      h3 {
-        font-size: 15px;
-        font-weight: 400;
-        margin-bottom: 0rem;
+    .product-card-img {
+      width: 100%;
+      img {
+        width: 90%;
+        height: auto;
       }
-
-      span {
-        color: #ffaf02;
-        font-size: 15px;
+      @media (max-width: 768px) {
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
 
-    .card__footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      // padding-top: 8px;
+    .product-card-details {
+      padding: 10px;
+      text-align: left;
 
-      .card__price {
+      .space{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 0px 4px;
-
-        // .price {
-        //   text-decoration: line-through;
-        //   font-weight: 400;
-        //   font-size: 11px;
-        // }
-
-        .sale__price {
-          font-size: 16px;
-          margin-top: 15px;
-          font-weight: 600;
-          color: #000000;
+        justify-content: space-between;
+        @media (max-width: 768px) {
+          display: block;
         }
       }
 
-      .btn {
-        padding: 0.4vmax 0.7vmax;
-        font-size: 14px;
-        border: 1px solid #000000;
-        background-color: transparent;
-        color: #000000;
-        font-weight: 500;
-        border-radius: 3px;
-        transform-origin: bottom;
-        transition: all 0.2s linear;
+      .product-card-name {
+        font-weight: bolder;
+        color: #4d4d4d;
+        font-size: 16px;
       }
-
-      .btn:hover {
-        // background-color: #ffe602e4;
-        color: rgb(163, 147, 0);
+      .product-card-title {
+        font-weight: 400;
+        margin-bottom: 4px;
+        font-size: 16px;
+      }
+      .product-card-price {
+        font-weight: 400;
+        color: #4d4d4d;
+        font-size: 16px;
+      }
+      @media (max-width: 768px) {
+        .product-card-name {
+          font-size: 14px;
+        }
+        .product-card-title {
+          font-size: 14px;
+        }
+        .product-card-price {
+          font-size: 14px;
+        }
+        .he {
+          padding: 2px;
+          color: #121212;
+          font-size: 10px;
+        }
       }
     }
   }
 }
-
-.update__btn {
-  background-color: #f3f9fb;
-  padding: 4px 7px;
-  margin: 0 3px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-// @media screen and (max-width : 400px) {
-//   .Card {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     width: 195px;
-//     height: 320px;
-//     background-color: white;
-//     border: 1px solid #D9D9D9;
-//     border-radius: 10px;
-//     transition: var(--transition);
-//     position: relative;
-//   }
-// }

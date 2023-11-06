@@ -50,6 +50,7 @@ export default function Product() {
     dispatch(getAllCategories());
   }, [dispatch, categoryname]);
 
+
   // ! Below Code is for Filter
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [sortBy, setSortBy] = useState(null);
