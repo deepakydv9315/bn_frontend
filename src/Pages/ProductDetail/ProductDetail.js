@@ -26,12 +26,14 @@ const ProductDetails = () => {
   });
   const [price, setPrice] = useState("");
   const [weight, setWeight] = useState("");
+
   // const images = product?.images;
   const [images, setImages] = useState([]);
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
   // State to manage selected color, size, and quantity
   const [selectedFlavour, setSelectedFlavour] = useState("");
+  const [selectedWeight, setselectedWeight] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   const handleFlavourChange = (flavour) => {
@@ -96,6 +98,14 @@ const ProductDetails = () => {
     },
   ];
 
+  const maxPrice = product &&
+    product?.weightPrice &&
+    Math.max(
+      ...product?.weightPrice?.map((item) => parseInt(item.price))
+    );
+
+  const discountedPrice = maxPrice - (0.6 * maxPrice);
+
   return (
     <Fragment>
       {isLoading ? (
@@ -125,23 +135,19 @@ const ProductDetails = () => {
           </div>
           <div className="right-section">
             <div className="product-info">
-              <div className="name">{product?.category}</div>
+              {/* <div className="name">{product?.category}</div> */}
               <p className="head">{product?.name}</p>
               <div className="price">
                 <span className="mrp">
                   {" "}
-                  ₹
-                  {product &&
-                    product?.weightPrice &&
-                    Math.max(
-                      ...product?.weightPrice?.map((item) =>
-                        parseInt(item.price)
-                      )
-                    )}
+                  ₹{maxPrice} (MRP)
                 </span>
                 <span className="discounted-price">
-                  ₹{product?.discountedPrice}(15%OFF)
+                  ₹{discountedPrice.toFixed(2)} (60% OFF)
                 </span>
+                {/* <span className="discounted-price">
+                  ₹{product?.discountedPrice}(15%OFF)
+                </span> */}
               </div>
 
               <div
@@ -152,9 +158,8 @@ const ProductDetails = () => {
                 {products.map((product, index) => (
                   <button
                     key={index}
-                    className={`size-button ${
-                      product.flavour === selectedFlavour ? "selected" : ""
-                    }`}
+                    className={`size-button ${product.flavour === selectedFlavour ? "selected" : ""
+                      }`}
                     onClick={() => handleFlavourChange(product.flavour)}
                   >
                     {product.flavour}
@@ -170,9 +175,8 @@ const ProductDetails = () => {
                   product?.weightPrice?.map((weight, index) => (
                     <button
                       key={index}
-                      className={`size-button ${
-                        weight === setWeight ? "selected" : ""
-                      }`}
+                      className={`size-button ${weight.weight === selectedWeight ? "selected" : ""
+                        }`}
                       onClick={() => handleSelectPrice(weight)}
                     >
                       {weight.weight}
@@ -194,7 +198,7 @@ const ProductDetails = () => {
                   </button>
                 </div>
               </div>
-              <div style={{ display: "flex" }}>
+              <div className="b">
                 {/* <FontAwesomeIcon icon={faHeart} className="wishlist-icon" /> */}
                 {!isAddedOnCart ? (
                   <button
@@ -222,21 +226,24 @@ const ProductDetails = () => {
                 </button>
               </div>
             </div>
+            <br></br>
             <div className="product-description-reviews">
-              <h3>Description</h3>
+              <h3>Short Description</h3>
               <p>{product?.description}</p>
             </div>
             <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
               <div className="arrow">
-                <h3 onClick={toggleAccordion}>Manufacturing Details</h3>
+                <h3 onClick={toggleAccordion}>Long Description</h3>
+
                 <BsArrowDown
                   onClick={toggleAccordion}
                   style={{ fontSize: "20px", marginTop: "5px" }}
                 />
               </div>
-              <p>{product?.description}</p>
+              <br></br>
+              <p>{product?.longDescription}</p>
             </div>
-            <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
+            {/* <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
               <div className="arrow">
                 <h3 onClick={toggleAccordion}>Manufacturing Details</h3>
                 <BsArrowDown
@@ -265,7 +272,7 @@ const ProductDetails = () => {
                 />
               </div>
               <p>{product?.manufacturingDetails}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
