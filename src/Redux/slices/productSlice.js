@@ -165,6 +165,7 @@ const productSlice = createSlice({
       state.message = "";
       state.isDeleted = false;
     },
+    // ! To Add Product In Cart
     addToCart: (state, action) => {
       let { id, price, weight, quantity } = action.payload;
 
@@ -179,19 +180,19 @@ const productSlice = createSlice({
           quantity
       );
 
-      const mainState = current(state);
+      // const mainState = current(state);
 
-      console.log("mainState : ", mainState.products.products);
+      console.log("mainState : ", state.products.products);
 
       //check Existance
-      let item = mainState.carts.find((item) => item._id == id);
+      let item = state.carts.find((item) => item._id == id);
 
       if (!item) {
-        let arr = mainState.products.products.find((item) => item._id == id);
+        let arr = state.products.products.find((item) => item._id == id);
         arr.quantity = 1;
         arr.price = price;
         arr.weight = weight;
-        mainState.carts.push(arr);
+        state.carts.push(arr);
 
         // Swal.fire({
         //   title: "Added to your Cart",

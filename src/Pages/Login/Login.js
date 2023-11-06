@@ -26,7 +26,6 @@
 //   const { status, isAuthenticated, error } = useSelector((state) => state.user);
 //   // const { isLoading } = useSelector((state) => state.app);
 
-
 //   //Login Handler:
 //   const handleSignIn = (e) => {
 //     e.preventDefault();
@@ -86,7 +85,6 @@
 
 //   }, [status, isAuthenticated, error]);
 
-
 //   const [showCreateAccount, setShowCreateAccount] = useState(false);
 //   const [isDialogVisible, setIsDialogVisible] = useState(true);
 
@@ -97,7 +95,6 @@
 //   const handleClose = () => {
 //     setIsDialogVisible(false);
 //   };
-
 
 //   return (
 //     isDialogVisible && (
@@ -151,28 +148,31 @@
 
 // export default LoginDialog;
 
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
-import bgImg from '../../Assets/Images/product.png';
-import { useForm } from 'react-hook-form';
-import { FaTimes } from 'react-icons/fa';
+import bgImg from "../../Assets/Images/product.png";
+import { useForm } from "react-hook-form";
+import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate('/');
+    navigate("/");
   };
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
   return (
-    <section className='si'>
+    <section className="si">
       <div className="register">
         <div className="col-1">
           <div className="close-icon" onClick={handleNavigation}>
@@ -182,34 +182,49 @@ export default function LoginForm() {
           <span>Log in to your account</span>
           <br></br>
           <br></br>
-          <button className="signup-with-mail-btn"><BsGoogle />{'\u00a0\u00a0\u00a0'}Log In with Google</button>
+          <button className="signup-with-mail-btn">
+            <BsGoogle />
+            {"\u00a0\u00a0\u00a0"}Log In with Google
+          </button>
 
           <div className="or-line">or</div>
 
-          <form id='form' className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" {...register("username")} placeholder='username' />
-            <input type="text" {...register("password")} placeholder='password' />
+          <form
+            id="form"
+            className="flex flex-col"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              type="text"
+              {...register("username")}
+              placeholder="username"
+            />
+            <input
+              type="password"
+              {...register("password")}
+              placeholder="password"
+            />
             <div className="forgotten">
-              <Link to="/forgot"><p>Forgot your password?</p></Link>
+              <Link to="/forgot">
+                <p>Forgot your password?</p>
+              </Link>
             </div>
-            <button className='btn'>Log In</button>
+            <button className="btn">Log In</button>
 
             <div className="policy">
               By continuing, I agree to Elini Privacy Policy and Terms of use
             </div>
             <div className="new-customer">
-              <Link to="/signup"><p>
-                New customer? Sign up for an account
-              </p>
+              <Link to="/signup">
+                <p>New customer? Sign up for an account</p>
               </Link>
             </div>
           </form>
-
         </div>
         <div className="col-2">
           <img src={bgImg} alt="" />
         </div>
-      </div >
-    </section >
-  )
+      </div>
+    </section>
+  );
 }
