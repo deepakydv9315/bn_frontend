@@ -9,11 +9,11 @@ function ProductCard({ products }) {
     navigate(`/productdetails/${_id}`);
   };
 
+  console.log("Product Price : ", products[0].weightPrice);
   return (
     <div className="product-cards">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-  
           <div className="product-card-img">
             <img
               src={product.images[0].url}
@@ -24,7 +24,12 @@ function ProductCard({ products }) {
           <div className="product-card-details">
             <p className="product-card-name">{product.name}</p>
             <p className="product-card-title">{product.title}</p>
-            <p className="product-card-price">₹{product.price}</p>
+            <p className="product-card-price">
+              ₹
+              {Math.max(
+                ...product.weightPrice.map((item) => parseInt(item.price))
+              )}
+            </p>
           </div>
         </div>
       ))}

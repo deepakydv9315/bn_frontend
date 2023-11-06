@@ -36,6 +36,7 @@ export const getProductDetail = createAsyncThunk(
     try {
       thunkAPI.dispatch(setLoading(true));
       const response = await axiosClient.get(`/api/v1/product/${body.id}`);
+      console.log(response, response.data, response.data.result);
       return response.data;
     } catch (e) {
       console.log(e);
@@ -127,7 +128,6 @@ export const deleteProduct = createAsyncThunk(
   "/api/v1/product/admin/:id",
   async (body, thunkAPI) => {
     try {
-      console.log(body);
       const { data } = await axiosClient.delete(
         `/api/v1/admin/product/${body.id}`
       );
@@ -310,7 +310,6 @@ const productSlice = createSlice({
       .addCase(getAllProducts.fulfilled, (state, action) => {
         if (action.payload.statusCode == 200) {
           state.products = action.payload.result;
-          console.log("Products Add in States ");
         }
         // console.log("This is Payload", state.products.products);
       })
@@ -344,14 +343,13 @@ const productSlice = createSlice({
       })
       .addCase(getProductDetail.fulfilled, (state, action) => {
         if (action.payload.statusCode === 200) {
-          console.log("Line 344 : Product Detail : ", action.payload.result);
+          console.log("Product Detail : ", action.payload.result);
           state.product = action.payload.result;
           // get max price of product
+          console.log("Product weight Price : ", state.product.weightPrice);
           state.productDefaultPrice = state.product.weightPrice.sort((a, b) => {
             return b.price - a.price;
           })[0];
-          console.log("product Default Price  : ", state.productDefaultPrice);
-          console.log("Selected Product : ", state.product);
         } else {
           state.error = action.payload?.message;
         }

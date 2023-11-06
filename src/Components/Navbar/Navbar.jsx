@@ -45,15 +45,27 @@ const Navbar = () => {
             <BsTwitter />
           </a> */}
 
-          <a href="https://www.facebook.com/burlynutrition.in" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.facebook.com/burlynutrition.in"
+            target="_blank"
+            rel="noreferrer"
+          >
             <BsFacebook />
           </a>
 
-          <a href="https://www.instagram.com/burlynutrition_" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/burlynutrition_"
+            target="_blank"
+            rel="noreferrer"
+          >
             <BsInstagram />
           </a>
 
-          <a href="https://www.youtube.com/@BurlyNutrition" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.youtube.com/@BurlyNutrition"
+            target="_blank"
+            rel="noreferrer"
+          >
             <BsYoutube />
           </a>
         </div>
@@ -67,7 +79,7 @@ const Navbar = () => {
             <Link to="/">HOME</Link>
             <Link to="/about">ABOUT US</Link>
             <Link to="/products">PRODUCTS</Link>
-            <Link to="/blog">BLOG</Link>
+            <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
             <Link to="/contact">CONTACT</Link>
           </ul>
           <div className="right">
@@ -102,7 +114,7 @@ const Navbar = () => {
                   <Link to="/">HOME</Link>
                   <Link to="/about">ABOUT US</Link>
                   <Link to="/products">PRODUCTS</Link>
-                  <Link to="/blog">BLOG</Link>
+                  <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
                   <Link to="/contact">CONTACT</Link>
                 </ul>
               </motion.div>

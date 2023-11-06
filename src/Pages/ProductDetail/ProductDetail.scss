@@ -117,43 +117,50 @@
         }
       }
 
-      .wishlist-icon {
-        margin-right: 40px;
-        font-size: 25px;
-        color: rgb(143, 143, 143);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          color: red;
-          transform: scale(1.2);
+      .b {
+        display: flex;
+        @media (max-width: 480px) {
+          display: block;
         }
-      }
 
-      .cart-button {
-        margin: 0px 0px 20px 0px;
-        padding: 10px 70px 10px 70px;
-        margin-top: 10px;
-        border-radius: 3px;
-        background-color: #212121;
-        color: white;
-        border: none;
-        cursor: pointer;
-        &:hover {
-          background-color: #000000;
+        .wishlist-icon {
+          margin-right: 40px;
+          font-size: 25px;
+          color: rgb(143, 143, 143);
+          cursor: pointer;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            color: red;
+            transform: scale(1.2);
+          }
         }
-      }
-      .wishlist-button {
-        margin: 0px 20px 20px 0px;
-        padding: 10px 70px 10px 70px;
-        margin-top: 10px;
-        border-radius: 3px;
-        background-color: #212121;
-        color: white;
-        border: none;
-        cursor: pointer;
-        &:hover {
-          background-color: #000000;
+
+        .cart-button {
+          margin: 0px 0px 20px 0px;
+          padding: 10px 70px 10px 70px;
+          margin-top: 10px;
+          border-radius: 3px;
+          background-color: #212121;
+          color: white;
+          border: none;
+          cursor: pointer;
+          &:hover {
+            background-color: #000000;
+          }
+        }
+        .wishlist-button {
+          margin: 0px 20px 20px 0px;
+          padding: 10px 70px 10px 70px;
+          margin-top: 10px;
+          border-radius: 3px;
+          background-color: #212121;
+          color: white;
+          border: none;
+          cursor: pointer;
+          &:hover {
+            background-color: #000000;
+          }
         }
       }
     }
@@ -163,7 +170,7 @@
         font-size: 20px;
       }
       p {
-        margin: 0px 20px 20px 0px;
+        margin: -20px 20px 40px 0px;
       }
     }
 

@@ -70,7 +70,7 @@ function App() {
         <Route path="/admin/category/:id" element={<UpdateCategory />} />
 
         <Route path="/admin/users" element={<UserList />} />
-
+        
         <Route path="/admin/pincodes" element={<Pincodes />} />
         <Route path="/admin/pincodes/create" element={<CreatePincode />} />
         <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />

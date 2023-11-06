@@ -15,6 +15,7 @@ export default function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,7 +24,6 @@ export default function LoginForm() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(getLoggedInrUser(data));
   };
 

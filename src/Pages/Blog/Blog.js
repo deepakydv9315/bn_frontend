@@ -5,6 +5,7 @@ import BlogCard from './BlogCard';
 import b1 from "../../Assets/Images/b1.png";
 import b2 from "../../Assets/Images/b2.png";
 import b3 from "../../Assets/Images/b3.png";
+import Coming from "../../Components/ComingSoon/ComingSoon";
 
 const Blog = () => {
 
@@ -91,7 +92,7 @@ const Blog = () => {
 
   return (
     <div className="blog">
-      <div className="image-with-text-container">
+      {/* <div className="image-with-text-container">
         <img src={blog} alt="YourImage" className="image" />
         <div className="text">
           Fitness <span>Blogs</span>
@@ -114,7 +115,8 @@ const Blog = () => {
             <BlogCard key={blog.id} data={blog} />
           ))}
         </div>
-      </section>
+      </section> */}
+      <Coming/>
     </div>
   );
 };
