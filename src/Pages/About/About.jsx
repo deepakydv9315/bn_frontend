@@ -14,7 +14,6 @@ const AboutPage = () => {
         </div>
       </div>
       <div className="about-text">
-        <img src={Icon} alt="YourImage" className="truck" />
         <h3>Our Story</h3>
         <p>
           Being the pioneers of Effervescent Nutrition and introducing it in our

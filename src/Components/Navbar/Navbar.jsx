@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import Logo from "../../Assets/Images/Logo.png";
 import "./Navbar.scss";
-import { BsFacebook, BsInstagram, BsWhatsapp, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from "react-icons/bs";
 import Cart from "../Cart/Cart";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -39,23 +39,23 @@ const Navbar = () => {
         <p className="header-sale">Earn your Physique</p>
 
         <div className="social__icon">
-          <a href="/" className="track_order">
+          {/* <a href="/" className="track_order">
             <u>TRACK ORDER</u>
-          </a>
-          <a href="/" target="_blank" rel="noreferrer">
+          </a> */}
+          {/* <a href="/" target="_blank" rel="noreferrer">
             <BsTwitter />
-          </a>
+          </a> */}
 
-          <a href="/" target="_blank" rel="noreferrer">
+          <a href="https://www.facebook.com/burlynutrition.in" target="_blank" rel="noreferrer">
             <BsFacebook />
           </a>
 
-          <a href="/" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/burlynutrition_" target="_blank" rel="noreferrer">
             <BsInstagram />
           </a>
 
-          <a href="/" target="_blank" rel="noreferrer">
-            <BsWhatsapp />
+          <a href="https://www.youtube.com/@BurlyNutrition" target="_blank" rel="noreferrer">
+            <BsYoutube />
           </a>
         </div>
       </div>
