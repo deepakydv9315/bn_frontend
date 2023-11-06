@@ -52,7 +52,8 @@
   margin: 10px 0;
 
   @media (max-width: 767px) {
-    display :none;
+    // display :none;
+    font-size: 8px;
   }
 
   @media (max-width: 480px) {

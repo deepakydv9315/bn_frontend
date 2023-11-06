@@ -38,6 +38,10 @@ import Checkout from "./Pages/Checkout/CheckoutPage";
 import Recipes from "./Pages/Recipes/Recipes";
 import Report from "./Pages/Authenticate/Report";
 import ForgetPasswordPage from "./Pages/ForgetPassword/ForgetPasswordPage";
+import FAQ from "./Pages/FAQ/Faq.js";
+import RefundPolicy from "./Pages/RefundReturnPolicy/Refund.js";
+import PrivacyPolicy from "./Pages/Privacy/Privacy.js";
+import TermsCondition from "./Pages/Terms/Terms.js";
 
 function App() {
   return (
@@ -51,15 +55,19 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/terms" element={<TermsCondition />} />
         <Route path="/products" element={<Products />} />
         <Route path="/productdetails/:id" element={<ProductDetail />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/authenticate" element={<Authenticate />} />
         <Route path="/report" element={<Report />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
-
+        <Route path="/refund" element={<RefundPolicy />} />
+       
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/products" element={<ProductList />} />
         <Route path="/admin/product/create" element={<CreateProduct />} />
