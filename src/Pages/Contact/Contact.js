@@ -8,7 +8,7 @@ const ContactUsPage = () => {
       <div className="contact-us-page">
         <div className="left-section">
           <div className="contact-form">
-            <div className='getin'>Get in touch</div>
+            <h3 className='getin'>Get in touch</h3>
             <div className="form-field">
               <label htmlFor="name">Name:</label>
               <input type="text" id="name" placeholder="Your Name" />
@@ -25,11 +25,11 @@ const ContactUsPage = () => {
           </div>
         </div>
         <div className="right-section">
-          <div className='supp'>Support</div>
+          <h3 className='supp'>Support</h3>
           <div className="contact-info">
-            <div className='info'>Phone - <span>8882 200 500</span></div><br/>
-            <div className='info'>Email - <span>support@burlynutrition.com</span></div><br/>
-            <div className='info'>Address - <span>Plot no. 23, Pocket C, Sector 27C, Faridabad, Haryana 121003</span></div>
+            <div className='info'>Phone - <span>+91 95403 78443</span></div><br/>
+            <div className='info'>Email - <span>burlynutrition@gmail.com</span></div><br/>
+            <div className='info'>Address - <span>Plot No.119,120 qutub vihar Ph-1, Dwarka sec-19, Delhi-110071</span></div>
           </div>
         </div>
       </div>
