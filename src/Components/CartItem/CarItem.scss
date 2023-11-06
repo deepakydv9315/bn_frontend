@@ -19,14 +19,15 @@
     flex: 1;
     p {
       font-size: 0.8rem;
+      display: flex;
     }
 
-    h5{
+    h5 {
       display: flex;
       justify-content: space-between;
       flex: 1;
 
-      svg{
+      svg {
         cursor: pointer;
         background-color: #d2d4d6;
         color: white;
@@ -47,6 +48,7 @@
 
     .function {
       span {
+        color: white;
         margin-left: 0.6rem;
         background-color: #231616;
         padding: 0.3vmax 0.7vmax;

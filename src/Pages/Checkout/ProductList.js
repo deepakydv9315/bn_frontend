@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ProductList.scss';
+import { useSelector, useDispatch } from "react-redux";
 
 const ProductList = () => {
   const products = [
@@ -28,10 +29,6 @@ const ProductList = () => {
       image: require("../../Assets/Images/main1.png"),
     },
   ];
-  const [quantity, setQuantity] = useState(1);
-  const handleQuantityChange = (newQuantity) => {
-    setQuantity(newQuantity);
-  };
 
   return (
 
@@ -50,21 +47,7 @@ const ProductList = () => {
                 </div>
               </div>
             </div>
-            <div className="quantity">
-              <div className="quant">
-                <button
-                  onClick={() =>
-                    handleQuantityChange(Math.max(1, quantity - 1))
-                  }
-                >
-                  -
-                </button>
-                <span>{quantity}</span>
-                <button onClick={() => handleQuantityChange(quantity + 1)}>
-                  +
-                </button>
-              </div>
-            </div>
+
           </li>
         ))}
       </ul>
