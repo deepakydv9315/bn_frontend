@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let baseURL = "https://api.burlynutrition.com/";
+let baseURL = "https://api.burlynutrition.com";
 
 export const axiosClient = axios.create({
   baseURL,
