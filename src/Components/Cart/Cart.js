@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 
-
 function Cart() {
   const dispatch = useDispatch();
   const { isCartOpen } = useSelector((state) => state.app);
@@ -50,7 +49,7 @@ function Cart() {
         text: "You Need To Login To Proceed Further",
       });
       dispatch(setCartOpen(false));
-      navigate("/auth");
+      navigate("/login");
     }
   };
 
@@ -70,12 +69,13 @@ function Cart() {
 
         <div className="cart__del-info">
           <div className="left__info">
-            <div className="title">My <span>Cart</span></div>
+            <div className="title">
+              My <span>Cart</span>
+            </div>
             <p className="p-text">{carts.length} Items</p>
           </div>
 
           <div className="right__opt">
-            
             <button
               onClick={() => handleClearCart()}
               className="theme-btn-one btn-black-overlay btn_sm"
