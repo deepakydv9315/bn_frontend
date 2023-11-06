@@ -132,7 +132,9 @@ const Home = () => {
             )}
           </div>
         </section>
+       
         <section className="content-of-goal">
+          
           <div className="title">
             Shop by <span>Goal</span>
           </div>

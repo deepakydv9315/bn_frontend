@@ -12,11 +12,14 @@
   }
 
   @media (max-width: 768px) {
+    max-width: 100%;
+    display: flex;
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: 2fr;
+    // grid-template-columns: 2fr;
+    margin-bottom: -48px;
   }
 }
 
@@ -29,7 +32,8 @@
   margin: 10px; /* Add some margin to the items for better spacing */
 
   @media (max-width: 480px) {
-    padding: 5px; /* Reduce padding for smaller screens */
+    padding: 5px ; /* Reduce padding for smaller screens */
+
   }
 }
 
@@ -47,6 +51,10 @@
   font-size: 14px;
   margin: 10px 0;
 
+  @media (max-width: 767px) {
+    display :none;
+  }
+
   @media (max-width: 480px) {
     font-size: 12px; /* Adjust font size for smaller screens */
   }
@@ -56,6 +64,10 @@
   font-family: 'Nunito Sans', sans-serif;
   font-size: 10px;
   color: #777777;
+
+  @media (max-width: 767px) {
+    display :none;
+  }
 
   @media (max-width: 480px) {
     font-size: 8px; /* Adjust font size for smaller screens */
