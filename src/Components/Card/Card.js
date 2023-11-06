@@ -9,37 +9,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 function Card({ products }) {
-  // const dispatch = useDispatch();
-
-  // const { product, productDefaultPrice } = useSelector((state) => {
-  //   console.log("Data inside Satate : ", state);
-  //   return state.products;
-  // });
-  // // const [price, setPrice] = useState("");
-  // const [weight, setWeight] = useState("");
-
-  // const addToCart = () => {
-  //   console.log("Price : ", price, typeof price);
-  //   if (typeof price === "string" && parseInt(price) > 0) {
-  //     dispatch({
-  //       type: "ProductSlice/addToCart",
-  //       payload: { id: product._id, price, weight, quantity },
-  //     });
-  //     setIsAddedOnCart(true);
-  //   } else {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "Please select a Weight And Flavour",
-  //     });
-  //   }
-  // };
-
-  // const handleGoToCart = () => {
-  //   dispatch(setCartOpen(true));
-  // };
-
-  // const [isAddedOnCart, setIsAddedOnCart] = useState(false);
+ 
   const navigate = useNavigate();
 
   const handleImageClick = (_id) => {
