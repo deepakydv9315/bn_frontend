@@ -1,74 +1,82 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./Card.scss";
 import { Link } from "react-router-dom";
 // import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 // import { AiOutlineHeart, AiFillCheckCircle } from "react-icons/ai";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-function Card({
-  imgUrl,
-  name,
-  price,
-  salePrice,
-  category,
-  id,
-  isOnCart,
-}) {
-  const dispatch = useDispatch();
+function Card({ products }) {
+  // const dispatch = useDispatch();
 
-  const addToCart = (id) => {
-    dispatch({
-      type: "ProductSlice/addToCart",
-      payload: { id, price },
-    });
-  };
+  // const { product, productDefaultPrice } = useSelector((state) => {
+  //   console.log("Data inside Satate : ", state);
+  //   return state.products;
+  // });
+  // // const [price, setPrice] = useState("");
+  // const [weight, setWeight] = useState("");
 
-  const handleGoToCart = () => {
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "smooth",
-    // });
-    dispatch(setCartOpen(true));
+  // const addToCart = () => {
+  //   console.log("Price : ", price, typeof price);
+  //   if (typeof price === "string" && parseInt(price) > 0) {
+  //     dispatch({
+  //       type: "ProductSlice/addToCart",
+  //       payload: { id: product._id, price, weight, quantity },
+  //     });
+  //     setIsAddedOnCart(true);
+  //   } else {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "Please select a Weight And Flavour",
+  //     });
+  //   }
+  // };
+
+  // const handleGoToCart = () => {
+  //   dispatch(setCartOpen(true));
+  // };
+
+  // const [isAddedOnCart, setIsAddedOnCart] = useState(false);
+  const navigate = useNavigate();
+
+  const handleImageClick = (_id) => {
+    navigate(`/productdetails/${_id}`);
   };
 
   return (
     <div className="Card">
-      <div className="card__top">
-        {/* <p>
-          <span>20%</span>
-          <span>OFF</span>
-        </p> */}
-        <Link to={`/product/${id}`} className="card__img flex__center">
-          <img src={imgUrl} alt="product" />
-        </Link>
-      </div>
-      <div className="card__bottom">
-        <div className="card__info">
-          <h3>{name}</h3>
-          <span>{category}</span>
+      {products.map((product) => (
+        <div key={product.id} className="product-card">
+          <div className="product-card-img">
+            <img
+              src={product.images[0].url}
+              alt={product.name}
+              onClick={handleImageClick.bind(this, product._id)}
+            />
+          </div>
+          <div className="product-card-details">
+            <p className="product-card-name">{product.name}</p>
+            <p className="product-card-title">{product.title}</p>
+            <div className="space">
+              <p className="product-card-price">
+                ₹
+                {Math.max(
+                  ...product.weightPrice.map((item) => parseInt(item.price))
+                )}
+              </p>
+              <button
+                onClick={handleImageClick.bind(this, product._id)}
+                className="he"
+              >
+                View
+              </button>
+            </div>
+          </div>
         </div>
-
-        <div className="card__footer">
-          <span className="card__price">
-            {/* <p className="price">s</p> */}
-            <p className="sale__price">₹{salePrice}</p>
-          </span>
-          
-          {isOnCart ? (
-            <button onClick={handleGoToCart} className="btn">
-              Go to cart
-            </button>
-          ) : (
-            <button  onClick={() => {
-              addToCart(id);
-              handleGoToCart();
-            }}  className="btn">
-              Add to cart
-            </button>
-          )}
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

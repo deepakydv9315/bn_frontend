@@ -5,7 +5,7 @@ import { BsArrowDown } from "react-icons/bs";
 import m1 from "../../Assets/Images/main1.png";
 import m2 from "../../Assets/Images/main2.png";
 import chart from "../../Assets/Images/chart.png";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetail } from "../../Redux/slices/productSlice";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,6 +19,7 @@ const ProductDetails = () => {
   const id = params.id;
 
   const dispatch = useDispatch();
+  const Navigate = useNavigate();
   const { isLoading } = useSelector((state) => state.app);
   const { product, productDefaultPrice } = useSelector((state) => {
     console.log("Data inside Satate : ", state);
@@ -212,7 +213,14 @@ const ProductDetails = () => {
                   </button>
                 )}
                 <br></br>
-                <button className="cart-button">Buy Now</button>
+                <button
+                  className="cart-button"
+                  onClick={() => {
+                    Navigate("/checkout");
+                  }}
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
             <div className="product-description-reviews">
