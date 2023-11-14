@@ -140,7 +140,7 @@ const ProductDetails = () => {
               <div className="price">
                 <span className="mrp">
                   {" "}
-                  ₹{maxPrice} (MRP)
+                  ₹{maxPrice}
                 </span>
                 <span className="discounted-price">
                   ₹{discountedPrice.toFixed(2)} (60% OFF)
@@ -151,10 +151,9 @@ const ProductDetails = () => {
               </div>
 
               <div
-                className="size-options"
-                style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px" }}
-              >
+                className="size-options">
                 <div className="flavour">Flavour</div>
+                <div className="btn-wrapper">
                 {products.map((product, index) => (
                   <button
                     key={index}
@@ -165,12 +164,13 @@ const ProductDetails = () => {
                     {product.flavour}
                   </button>
                 ))}
+                </div>
+                
               </div>
               <div
-                className="size-options"
-                style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px" }}
-              >
+                className="size-options">
                 <div className="flavour">Weight</div>
+                <div className="btn-wrapper">
                 {product?.weightPrice &&
                   product?.weightPrice?.map((weight, index) => (
                     <button
@@ -182,6 +182,8 @@ const ProductDetails = () => {
                       {weight.weight}
                     </button>
                   ))}
+                </div>
+                
               </div>
               <div className="quantity">
                 <div className="quant">

@@ -7,9 +7,8 @@ import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 // import { AiOutlineHeart, AiFillCheckCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
 function Card({ products }) {
- 
+
   const navigate = useNavigate();
 
   const handleImageClick = (_id) => {
@@ -28,8 +27,10 @@ function Card({ products }) {
             />
           </div>
           <div className="product-card-details">
-            <p className="product-card-name">{product.name}</p>
-            <p className="product-card-title">{product.title}</p>
+            {/* <p className="product-card-name">{product.name}</p>
+            <p className="product-card-title">{product.title}</p> */}
+            <p className="product-card-name">Burly Whey</p>
+            <p className="product-card-title">2kg Chocolate</p>
             <div className="space">
               <p className="product-card-price">
                 ₹
@@ -37,13 +38,17 @@ function Card({ products }) {
                   ...product.weightPrice.map((item) => parseInt(item.price))
                 )}
               </p>
+              <p className="d-price">₹999</p>
+            </div>
+            <div className="card-btns">
               <button
                 onClick={handleImageClick.bind(this, product._id)}
                 className="he"
               >
-                View
+                Add to cart
               </button>
             </div>
+
           </div>
         </div>
       ))}

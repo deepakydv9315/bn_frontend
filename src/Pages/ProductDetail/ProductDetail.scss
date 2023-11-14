@@ -47,6 +47,10 @@
     flex-direction: column;
 
     .product-info {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
       .name {
         font-family: "Nunito Sans", sans-serif;
         font-weight: 100;
@@ -75,14 +79,24 @@
       }
 
       .size-options {
-        margin: 0px 0px 20px 0px;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px 15px;
+        align-items: center;
+        margin-bottom: 13px;
         .flavour {
           font-size: 16px;
+          font-weight: bold;
           font-family: "nunito", sans-serif;
         }
+        .btn-wrapper{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px 12px;
+        }
         .size-button {
-          padding: 8px 13px;
-          margin-right: 10px;
+          padding: 6px 12px;
           background: transparent;
           border: 1px solid #333;
           cursor: pointer;
@@ -166,6 +180,8 @@
     }
 
     .product-description-reviews {
+      // border: 1px solid black;
+      text-align: left;
       h3 {
         font-size: 20px;
       }
@@ -179,6 +195,7 @@
       border-bottom: 1px solid #ccc;
       margin-bottom: 10px;
       padding: 10px;
+      text-align: left;
       margin: 0px 20px 20px 0px;
       cursor: pointer;
 

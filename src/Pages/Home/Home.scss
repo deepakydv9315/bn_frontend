@@ -36,40 +36,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../../Assets/Images/bg1.jpg);
+  background-color: #f7f8f9 !important;
   @media (max-width: 768px) {
     section {
       padding: 20px;
     }
   }
 }
-
+//  shifted in bottom
 .info-grid {
-  position: relative;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
-  z-index: 1;
-  top: -60px;
 }
-
-.info-grid {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  top: -60px;
-}
-
-.bg1 {
-  position: absolute;
-  width: 100%;
-  background-size: auto;
-  z-index: -1;
-}
+// .bg1 {
+//   position: absolute;
+//   width: 100%;
+//   background-size: auto;
+//   z-index: -1;
+// }
 
 .content-of-category {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #f7f8f9;
 
   .title {
     font-family: "Goldman", cursive;
@@ -272,6 +263,7 @@
 }
 
 .content-of-goal {
+  width: 100%;
   display: flex;
   flex-direction: column;
 
@@ -287,7 +279,8 @@
     }
   }
 
-  .description {
+  .desciption {
+    margin-bottom: 20px;
     font-family: Inter;
     font-size: medium;
     font-size: 18px;
