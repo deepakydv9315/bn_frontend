@@ -17,10 +17,11 @@ function Card({ products }) {
 
 
   return (
-    <div className="Card">
+    <div className="Cards">
       {products.map((product) => (
         <div key={product.id} className="product-card">
           <div className="product-card-img">
+            <div className="badge">50% OFF</div>
             <img
               src={product.images[0].url}
               alt={product.name}
@@ -39,7 +40,7 @@ function Card({ products }) {
                   ...product.weightPrice.map((item) => parseInt(item.price))
                 )}
               </p>
-              <p className="d-price">₹999{" "} <span style={{fontSize:"12px"}}>(50% OFF)</span></p>
+              <p className="d-price">₹999{" "}</p>
             </div>
             <div className="card-btns">
               <button
