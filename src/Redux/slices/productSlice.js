@@ -36,7 +36,6 @@ export const getProductDetail = createAsyncThunk(
     try {
       thunkAPI.dispatch(setLoading(true));
       const response = await axiosClient.get(`/api/v1/product/${body.id}`);
-      console.log(response, response.data, response.data.result);
       return response.data;
     } catch (e) {
       console.log(e);
@@ -343,10 +342,8 @@ const productSlice = createSlice({
       })
       .addCase(getProductDetail.fulfilled, (state, action) => {
         if (action.payload.statusCode === 200) {
-          console.log("Product Detail : ", action.payload.result);
           state.product = action.payload.result;
           // get max price of product
-          console.log("Product weight Price : ", state.product.weightPrice);
           state.productDefaultPrice = state.product.weightPrice.sort((a, b) => {
             return b.price - a.price;
           })[0];

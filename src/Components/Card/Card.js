@@ -46,6 +46,18 @@ function Card({ products }) {
     navigate(`/productdetails/${_id}`);
   };
 
+  const PriceAndDiscount = (product) => {
+    console.log(product);
+    console.log(product.weightPrice);
+    const maxPrice = Math.max(
+      ...product.weightPrice.map((item) => parseInt(item.price))
+    );
+
+    const discountPrice = (maxPrice - 0.6 * maxPrice).toFixed(2);
+
+    return { maxPrice, discountPrice };
+  };
+
   return (
     <div className="Card">
       {products.map((product) => (
@@ -62,10 +74,7 @@ function Card({ products }) {
             <p className="product-card-title">{product.title}</p>
             <div className="space">
               <p className="product-card-price">
-                ₹
-                {Math.max(
-                  ...product.weightPrice.map((item) => parseInt(item.price))
-                )}
+                {`₹ ${PriceAndDiscount(product).discountPrice} (60% Off)`}
               </p>
               <button
                 onClick={handleImageClick.bind(this, product._id)}

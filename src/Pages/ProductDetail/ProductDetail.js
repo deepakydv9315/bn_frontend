@@ -24,16 +24,16 @@ const ProductDetails = () => {
   const { product, productDefaultPrice } = useSelector((state) => {
     return state.products;
   });
-  const [price, setPrice] = useState("");
-  const [weight, setWeight] = useState("");
+  const [price, setPrice] = useState(""); // ? Default Price
+  const [weight, setWeight] = useState(""); // ? Default Weight
 
   // const images = product?.images;
   const [images, setImages] = useState([]);
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
   // State to manage selected color, size, and quantity
-  const [selectedFlavour, setSelectedFlavour] = useState("");
-  const [selectedWeight, setselectedWeight] = useState("");
+  const [selectedFlavour, setSelectedFlavour] = useState(""); // ! For selected Flavour
+  const [selectedWeight, setselectedWeight] = useState(""); // ! For selected Weight
   const [quantity, setQuantity] = useState(1);
 
   const handleFlavourChange = (flavour) => {
@@ -44,27 +44,30 @@ const ProductDetails = () => {
     setQuantity(newQuantity);
   };
 
+  // Change Weight and Price
   const handleSelectPrice = (info) => {
     const itemPrice = product?.weightPrice?.find(
       (price) => price.id === info.id
     );
+
     setPrice(itemPrice?.price);
     setWeight(itemPrice?.weight);
+    setselectedWeight(itemPrice?.weight);
   };
 
   // ! To Get Product Details By Id
   useEffect(() => {
     dispatch(getProductDetail({ id }));
-    console.log("Product Id  : ", id);
   }, [dispatch, id]);
 
   // ! For Default Price - Maximum Price
   useEffect(() => {
-    if (productDefaultPrice.length > 0) {
-      setWeight(productDefaultPrice[0].weight);
-      setPrice(productDefaultPrice[0].price);
+    if (productDefaultPrice && productDefaultPrice.length > 0) {
+      setWeight(productDefaultPrice.weight);
+      setPrice(productDefaultPrice.price);
+      setselectedWeight(productDefaultPrice.weight);
     }
-  }, [productDefaultPrice]);
+  }, [price, productDefaultPrice, selectedWeight, weight]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -73,7 +76,6 @@ const ProductDetails = () => {
   };
 
   const addToCart = () => {
-    console.log("Price : ", price, typeof price);
     if (typeof price === "string" && parseInt(price) > 0) {
       dispatch({
         type: "ProductSlice/addToCart",
@@ -98,13 +100,12 @@ const ProductDetails = () => {
     },
   ];
 
-  const maxPrice = product &&
+  const maxPrice =
+    product &&
     product?.weightPrice &&
-    Math.max(
-      ...product?.weightPrice?.map((item) => parseInt(item.price))
-    );
+    Math.max(...product?.weightPrice?.map((item) => parseInt(item.price)));
 
-  const discountedPrice = maxPrice - (0.6 * maxPrice);
+  const discountedPrice = price - 0.6 * price;
 
   return (
     <Fragment>
@@ -138,10 +139,7 @@ const ProductDetails = () => {
               {/* <div className="name">{product?.category}</div> */}
               <p className="head">{product?.name}</p>
               <div className="price">
-                <span className="mrp">
-                  {" "}
-                  ₹{maxPrice} (MRP)
-                </span>
+                <span className="mrp"> ₹{price} (MRP)</span>
                 <span className="discounted-price">
                   ₹{discountedPrice.toFixed(2)} (60% OFF)
                 </span>
@@ -154,18 +152,22 @@ const ProductDetails = () => {
                 className="size-options"
                 style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px" }}
               >
+                {/* Product Flavour */}
                 <div className="flavour">Flavour</div>
                 {products.map((product, index) => (
                   <button
                     key={index}
-                    className={`size-button ${product.flavour === selectedFlavour ? "selected" : ""
-                      }`}
+                    className={`size-button ${
+                      product.flavour === selectedFlavour ? "selected" : ""
+                    }`}
                     onClick={() => handleFlavourChange(product.flavour)}
                   >
                     {product.flavour}
                   </button>
                 ))}
               </div>
+
+              {/* Product Weight */}
               <div
                 className="size-options"
                 style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px" }}
@@ -175,8 +177,9 @@ const ProductDetails = () => {
                   product?.weightPrice?.map((weight, index) => (
                     <button
                       key={index}
-                      className={`size-button ${weight.weight === selectedWeight ? "selected" : ""
-                        }`}
+                      className={`size-button ${
+                        weight.weight === selectedWeight ? "selected" : ""
+                      }`}
                       onClick={() => handleSelectPrice(weight)}
                     >
                       {weight.weight}
