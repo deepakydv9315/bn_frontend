@@ -139,7 +139,7 @@ const ProductDetails = () => {
               {/* <div className="name">{product?.category}</div> */}
               <p className="head">{product?.name}</p>
               <div className="price">
-                <span className="mrp"> ₹{price} (MRP)</span>
+                <span className="mrp"> ₹{maxPrice}</span>
                 <span className="discounted-price">
                   ₹{discountedPrice.toFixed(2)} (60% OFF)
                 </span>
@@ -148,43 +148,40 @@ const ProductDetails = () => {
                 </span> */}
               </div>
 
-              <div
-                className="size-options"
-                style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px" }}
-              >
-                {/* Product Flavour */}
+              <div className="size-options">
                 <div className="flavour">Flavour</div>
-                {products.map((product, index) => (
-                  <button
-                    key={index}
-                    className={`size-button ${
-                      product.flavour === selectedFlavour ? "selected" : ""
-                    }`}
-                    onClick={() => handleFlavourChange(product.flavour)}
-                  >
-                    {product.flavour}
-                  </button>
-                ))}
-              </div>
-
-              {/* Product Weight */}
-              <div
-                className="size-options"
-                style={{ display: "flex", flexWrap: "wrap", gap: "10px 10px" }}
-              >
-                <div className="flavour">Weight</div>
-                {product?.weightPrice &&
-                  product?.weightPrice?.map((weight, index) => (
+                <div className="btn-wrapper">
+                  {products.map((product, index) => (
                     <button
                       key={index}
                       className={`size-button ${
-                        weight.weight === selectedWeight ? "selected" : ""
+                        product.flavour === selectedFlavour ? "selected" : ""
                       }`}
-                      onClick={() => handleSelectPrice(weight)}
+                      onClick={() => handleFlavourChange(product.flavour)}
                     >
-                      {weight.weight}
+                      {product.flavour}
                     </button>
                   ))}
+                </div>
+              </div>
+
+              {/* Product Weight */}
+              <div className="size-options">
+                <div className="flavour">Weight</div>
+                <div className="btn-wrapper">
+                  {product?.weightPrice &&
+                    product?.weightPrice?.map((weight, index) => (
+                      <button
+                        key={index}
+                        className={`size-button ${
+                          weight.weight === selectedWeight ? "selected" : ""
+                        }`}
+                        onClick={() => handleSelectPrice(weight)}
+                      >
+                        {weight.weight}
+                      </button>
+                    ))}
+                </div>
               </div>
               <div className="quantity">
                 <div className="quant">

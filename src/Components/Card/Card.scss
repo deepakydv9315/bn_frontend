@@ -1,27 +1,30 @@
 .Card {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  transition: none;
-  transform: none;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 30px;
 
-  :hover {
-    transition: none;
-    transform: none;
-  }
   .product-card {
-    width: 20%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    // border: 1px solid black;
+    padding: 20px;
+    width: 250px;
+    // height: 300px;
     border-radius: 5px;
+    box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.224);
     overflow: hidden;
     cursor: pointer;
+    background-color: #fff;
 
     .product-card-img {
       width: 100%;
       img {
-        width: 90%;
-        height: auto;
+        width: 100%;
       }
       @media (max-width: 768px) {
         img {
@@ -31,32 +34,63 @@
       }
     }
 
+    .discount-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ff0000; /* Set your desired background color */
+      color: #ffffff; /* Set your desired text color */
+      padding: 4px 8px; /* Adjust the padding as needed */
+      font-size: 12px; /* Set your desired font size */
+      font-weight: bold;
+      border-radius: 4px; /* Adjust as needed */
+    }
+
     .product-card-details {
       padding: 10px;
       text-align: left;
+      width: 100%;
 
-      .space{
+      .space {
+        width: 100%;
         display: flex;
-        justify-content: space-between;
-        @media (max-width: 768px) {
-          display: block;
+        justify-content: flex-start;
+        gap: 10px 15px;
+        .product-card-price {
+          font-weight: 400;
+          color: #4d4d4d;
+          font-size: 18px;
+          text-decoration: line-through;
+          display: inline-block;
+        }
+        .d-price {
+          font-size: 18px;
+          color: red;
+          display: inline-block;
         }
       }
 
       .product-card-name {
         font-weight: bolder;
         color: #4d4d4d;
-        font-size: 16px;
+        font-size: 17px;
       }
       .product-card-title {
         font-weight: 400;
         margin-bottom: 4px;
         font-size: 16px;
       }
-      .product-card-price {
-        font-weight: 400;
-        color: #4d4d4d;
-        font-size: 16px;
+
+      .card-btns {
+        justify-content: center;
+        display: flex;
+        .he {
+          font-family: "rubik";
+          border-radius: 5px;
+          font-size: 16px;
+          width: 100%;
+          margin-top: 3px;
+        }
       }
       @media (max-width: 768px) {
         .product-card-name {

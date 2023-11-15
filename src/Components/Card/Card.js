@@ -7,39 +7,7 @@ import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 // import { AiOutlineHeart, AiFillCheckCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
 function Card({ products }) {
-  // const dispatch = useDispatch();
-
-  // const { product, productDefaultPrice } = useSelector((state) => {
-  //   console.log("Data inside Satate : ", state);
-  //   return state.products;
-  // });
-  // // const [price, setPrice] = useState("");
-  // const [weight, setWeight] = useState("");
-
-  // const addToCart = () => {
-  //   console.log("Price : ", price, typeof price);
-  //   if (typeof price === "string" && parseInt(price) > 0) {
-  //     dispatch({
-  //       type: "ProductSlice/addToCart",
-  //       payload: { id: product._id, price, weight, quantity },
-  //     });
-  //     setIsAddedOnCart(true);
-  //   } else {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "Please select a Weight And Flavour",
-  //     });
-  //   }
-  // };
-
-  // const handleGoToCart = () => {
-  //   dispatch(setCartOpen(true));
-  // };
-
-  // const [isAddedOnCart, setIsAddedOnCart] = useState(false);
   const navigate = useNavigate();
 
   const handleImageClick = (_id) => {
@@ -70,17 +38,24 @@ function Card({ products }) {
             />
           </div>
           <div className="product-card-details">
-            <p className="product-card-name">{product.name}</p>
-            <p className="product-card-title">{product.title}</p>
+            {/* <p className="product-card-name">{product.name}</p>
+            <p className="product-card-title">{product.title}</p> */}
+            <p className="product-card-name">Burly Whey</p>
+            <p className="product-card-title">2kg Chocolate</p>
             <div className="space">
               <p className="product-card-price">
                 {`₹ ${PriceAndDiscount(product).discountPrice} (60% Off)`}
               </p>
+              <p className="d-price">
+                ₹999 <span style={{ fontSize: "12px" }}>(50% OFF)</span>
+              </p>
+            </div>
+            <div className="card-btns">
               <button
                 onClick={handleImageClick.bind(this, product._id)}
                 className="he"
               >
-                View
+                Add to cart
               </button>
             </div>
           </div>

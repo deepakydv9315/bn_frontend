@@ -62,36 +62,19 @@ const Home = () => {
   };
   return (
     <div className="home-page">
-      <main className="home">
-        {/* <div className="home-content">
-          <h1>STAY FIT,</h1>
-          <h1>STAY ULTIMATE</h1>
-          <h4>A Leader in Sporta Nutrition and an Active Lifestyle Brand</h4>
-          <button>Shop Now</button>
-          <h1></h1>
-          <h1></h1>
-          <h4></h4>
-          <button></button>
-        </div> */}
-      </main>
 
       <div className="home-2">
         <img src={bg} alt="" />
-        <br></br> <br></br>
-        <div className="info-grid">
-          <InfoGrid />
-        </div>
         <section className="content-of-category">
           <div className="title">
-            Shop by <span>Category</span>
+            Just <span>Launched</span>
           </div>
           <div className="container menu__container">
             <div className="app__work-filter">
               <div
                 onClick={handleAllProduct}
-                className={`app__work-filter-item app__flex p-text ${
-                  activeFilter === "All" ? "item-active" : ""
-                }`}
+                className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
+                  }`}
               >
                 All
               </div>
@@ -99,9 +82,8 @@ const Home = () => {
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(category.name)}
-                  className={`app__work-filter-item app__flex p-text ${
-                    activeFilter === category.name ? "item-active" : ""
-                  }`}
+                  className={`app__work-filter-item app__flex p-text ${activeFilter === category.name ? "item-active" : ""
+                    }`}
                 >
                   {category.name}
                 </div>
@@ -132,9 +114,9 @@ const Home = () => {
             )}
           </div>
         </section>
-       
+
         <section className="content-of-goal">
-          
+
           <div className="title">
             Shop by <span>Goal</span>
           </div>
@@ -142,11 +124,40 @@ const Home = () => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Laudantium, expedita.
           </div>
+          <div className="goals-section">
+            <Goals />
+          </div>
         </section>
+
       </div>
-      <div className="goals-section">
-        <Goals />
-      </div>
+
+      {/* whey protein sec  */}
+
+      <section className="know-more">
+        <h3>
+          Know more about our <span>Product</span>
+        </h3>
+        <div className="know-more-card">
+          <div className="know-more-bg">
+            <div className="know-more-container">
+              <h3>PROTEIN</h3>
+              <p>
+                Help build muscle and support recovery* with delicious,
+                high-quality protein powders and shakes. Gold Standard is
+                available as a powder and isolate formulas.
+              </p>
+              <p>
+                Post-workout muscle recovery from the world’s number 1. sports
+                nutrition brand
+              </p>
+              <p>*When taken over time with regular resistance training</p>
+              <button>Shop Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       <div className="home-3">
         <section className="shop-by-level">
@@ -166,43 +177,21 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="know-more">
-          <h3>
-            Know more about our <span>Product</span>
-          </h3>
-          <div className="know-more-card">
-            <div className="know-more-bg">
-              <div className="know-more-container">
-                <h3>PROTEIN</h3>
-                <p>
-                  Help build muscle and support recovery* with delicious,
-                  high-quality protein powders and shakes. Gold Standard is
-                  available as a powder and isolate formulas.
-                </p>
-                <p>
-                  Post-workout muscle recovery from the world’s number 1. sports
-                  nutrition brand
-                </p>
-                <p>*When taken over time with regular resistance training</p>
-                <button>Shop Now</button>
-              </div>
-            </div>
-          </div>
-        </section>
+
       </div>
 
       <section className="why-page">
         <div className="whyCP-img">
           <img src={whyCP} alt="Why clean protein?" />
         </div>
-        {/* <div className="why-container">
-          <h3>The promise of nothing artificial</h3>
+        <div className="why-container">
+          {/* <h3>The promise of nothing artificial</h3> */}
           <p>
             When taken over time with regular resistance with regular resistance
             tram over time with regular resistant taken over time with.
           </p>
           <button>Shop Now</button>
-        </div> */}
+        </div>
       </section>
 
       <div className="home-4">
@@ -238,6 +227,10 @@ const Home = () => {
           <ReadBlogs />
         </div>
       </section>
+
+      {/* <div className="info-grid">
+          <InfoGrid />
+        </div> */}
     </div>
   );
 };

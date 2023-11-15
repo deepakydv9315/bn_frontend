@@ -27,9 +27,6 @@ const Footer = () => {
           <ul>
             <h3>EXPLORE</h3>
             <li>
-              <Link to="/about">Track Order</Link>
-            </li>
-            <li>
               <Link to="/about">About Us</Link>
             </li>
             <li>
@@ -42,19 +39,16 @@ const Footer = () => {
               <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <Link to="/about">Terms & Conditions</Link>
+              <Link to="/terms">Terms & Conditions</Link>
             </li>
             <li>
-              <Link to="/about">Privacy Policy</Link>
+              <Link to="/privacy">Privacy Policy</Link>
             </li>
             <li>
-              <Link to="/about">Frequently Asked Questions on Whey</Link>
+              <Link to="/faq">Frequently Asked Questions on Whey</Link>
             </li>
             <li>
-              <Link to="/about">Terms of Service</Link>
-            </li>
-            <li>
-              <Link to="/about">Return & Refund Policy</Link>
+              <Link to="/refund">Return & Refund Policy</Link>
             </li>
           </ul>
         </div>
