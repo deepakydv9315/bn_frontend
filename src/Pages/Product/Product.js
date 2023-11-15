@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./Product.scss";
 import Sidebar from "../../Components/Filter/Filter";
 import SearchBar from "../../Components/SearchBar/SearchBar";
-import ProductList from "../../Components/ProductList/ProductList";
+// import ProductList from "../../Components/ProductList/ProductList";
 import {
   getAllProducts,
   getAllCategories,
 } from "../../../src/Redux/slices/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Card from "../../Components/Card/Card";
 
 export default function Product() {
   const dispatch = useDispatch();
@@ -117,8 +118,9 @@ export default function Product() {
                 </select>
               </div> */}
             </div>
+            <br></br>
             {products.products && products.products.length !== 0 ? (
-              <ProductList products={products?.products} />
+              <Card products={products?.products} />
             ) : null}
           </div>
         </div>

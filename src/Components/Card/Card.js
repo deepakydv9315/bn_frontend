@@ -14,11 +14,18 @@ function Card({ products }) {
     navigate(`/productdetails/${_id}`);
   };
 
+  const disCountPrice = (price) => {
+    // i have to calculate the discount price
+    let disPrice = price - (price * 50) / 100;
+    return disPrice;
+  };
+
   return (
-    <div className="Card">
+    <div className="Cards">
       {products.map((product) => (
         <div key={product.id} className="product-card">
           <div className="product-card-img">
+            <div className="badge">50% OFF</div>
             <img
               src={product.images[0].url}
               alt={product.name}
@@ -28,8 +35,8 @@ function Card({ products }) {
           <div className="product-card-details">
             {/* <p className="product-card-name">{product.name}</p>
             <p className="product-card-title">{product.title}</p> */}
-            <p className="product-card-name">Burly Whey</p>
-            <p className="product-card-title">2kg Chocolate</p>
+            <p className="product-card-name">{product.name}</p>
+            <p className="product-card-title">2kg {product?.flavour}</p>
             <div className="space">
               <p className="product-card-price">
                 ₹
@@ -38,7 +45,11 @@ function Card({ products }) {
                 )}
               </p>
               <p className="d-price">
-                ₹999 <span style={{ fontSize: "12px" }}>(50% OFF)</span>
+                {`₹ ${disCountPrice(
+                  Math.max(
+                    ...product.weightPrice.map((item) => parseInt(item.price))
+                  )
+                )}`}
               </p>
             </div>
             <div className="card-btns">

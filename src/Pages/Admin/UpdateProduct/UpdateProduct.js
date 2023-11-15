@@ -83,6 +83,7 @@ function UpdateProduct() {
   }, [dispatch, success, error, product]);
 
   const addWeightPrice = (e) => {
+    e.preventDefault();
     const newField = {
       weight: weight,
       price: price,
@@ -121,7 +122,6 @@ function UpdateProduct() {
 
   return (
     <Fragment>
-
       <div className="dashboard">
         <Sidebar />
         {isLoading ? (
@@ -205,7 +205,7 @@ function UpdateProduct() {
 
                         <div className="col-lg-3">
                           <div className="fotm-group">
-                            <label >
+                            <label>
                               Flavour
                               <span className="text-danger">*</span>
                             </label>
@@ -242,6 +242,7 @@ function UpdateProduct() {
                           </div>
                         </div>
 
+                        {/* ---------  */}
                         <div className="col-lg-3">
                           <div className="fotm-group">
                             <label htmlFor="product_price">
@@ -279,16 +280,20 @@ function UpdateProduct() {
 
                         <div className="col-lg-3 add_price-btn ">
                           <div className="form-group">
-                            <button style={{ marginLeft: "220%", width: "100px" }}
+                            <button
+                              style={{ marginLeft: "220%", width: "100px" }}
                               className="theme-btn-one btn_sm"
-                              onClick={addWeightPrice}
+                              onClick={(e) => addWeightPrice(e)}
                             >
                               Add Weight
                             </button>
                           </div>
                         </div>
 
-                        <div className="col-lg-12 add_price-screen" style={{ marginLeft: "30%", marginTop: "15px" }}>
+                        <div
+                          className="col-lg-12 add_price-screen"
+                          style={{ marginLeft: "30%", marginTop: "15px" }}
+                        >
                           {weightPrice?.map((item, index) => (
                             <span key={index}>
                               {item.price}₹ - {item.weight}
@@ -311,7 +316,9 @@ function UpdateProduct() {
                               className="form-control"
                               value={discountedPrice}
                               placeholder="Product Discounted Price"
-                              onChange={(e) => setDiscountedPrice(e.target.value)}
+                              onChange={(e) =>
+                                setDiscountedPrice(e.target.value)
+                              }
                             />
                           </div>
                         </div>
@@ -371,7 +378,10 @@ function UpdateProduct() {
 
                         <div className="col-lg-12">
                           <div className="btn_right_table">
-                            <button type="submit" className="theme-btn-one bg-black btn_sm">
+                            <button
+                              type="submit"
+                              className="theme-btn-one bg-black btn_sm"
+                            >
                               Update Product
                             </button>
                           </div>

@@ -60,11 +60,12 @@ const ProductDetails = () => {
 
   // ! For Default Price - Maximum Price
   useEffect(() => {
-    if (productDefaultPrice.length > 0) {
-      setWeight(productDefaultPrice[0].weight);
-      setPrice(productDefaultPrice[0].price);
-    }
-  }, [productDefaultPrice]);
+    if (productDefaultPrice.length === 0 || !product) return;
+    setWeight(productDefaultPrice.weight);
+    setPrice(productDefaultPrice.price);
+    setSelectedFlavour(product.flavour);
+    setselectedWeight(productDefaultPrice.weight);
+  }, [product, productDefaultPrice]);
 
   const [isOpen, setIsOpen] = useState(false);
 
