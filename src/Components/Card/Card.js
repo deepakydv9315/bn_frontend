@@ -15,6 +15,7 @@ function Card({ products }) {
     navigate(`/productdetails/${_id}`);
   };
 
+
   return (
     <div className="Card">
       {products.map((product) => (
@@ -38,7 +39,7 @@ function Card({ products }) {
                   ...product.weightPrice.map((item) => parseInt(item.price))
                 )}
               </p>
-              <p className="d-price">₹999</p>
+              <p className="d-price">₹999{" "} <span style={{fontSize:"12px"}}>(50% OFF)</span></p>
             </div>
             <div className="card-btns">
               <button
