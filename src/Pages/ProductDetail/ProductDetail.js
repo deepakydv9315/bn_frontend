@@ -24,16 +24,16 @@ const ProductDetails = () => {
   const { product, productDefaultPrice } = useSelector((state) => {
     return state.products;
   });
-  const [price, setPrice] = useState(""); // ? Default Price
-  const [weight, setWeight] = useState(""); // ? Default Weight
+  const [price, setPrice] = useState("");
+  const [weight, setWeight] = useState("");
 
   // const images = product?.images;
   const [images, setImages] = useState([]);
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
   // State to manage selected color, size, and quantity
-  const [selectedFlavour, setSelectedFlavour] = useState(""); // ! For selected Flavour
-  const [selectedWeight, setselectedWeight] = useState(""); // ! For selected Weight
+  const [selectedFlavour, setSelectedFlavour] = useState("");
+  const [selectedWeight, setselectedWeight] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   const handleFlavourChange = (flavour) => {
@@ -44,12 +44,10 @@ const ProductDetails = () => {
     setQuantity(newQuantity);
   };
 
-  // Change Weight and Price
   const handleSelectPrice = (info) => {
     const itemPrice = product?.weightPrice?.find(
       (price) => price.id === info.id
     );
-
     setPrice(itemPrice?.price);
     setWeight(itemPrice?.weight);
     setselectedWeight(itemPrice?.weight);
@@ -62,12 +60,11 @@ const ProductDetails = () => {
 
   // ! For Default Price - Maximum Price
   useEffect(() => {
-    if (productDefaultPrice && productDefaultPrice.length > 0) {
-      setWeight(productDefaultPrice.weight);
-      setPrice(productDefaultPrice.price);
-      setselectedWeight(productDefaultPrice.weight);
+    if (productDefaultPrice.length > 0) {
+      setWeight(productDefaultPrice[0].weight);
+      setPrice(productDefaultPrice[0].price);
     }
-  }, [price, productDefaultPrice, selectedWeight, weight]);
+  }, [productDefaultPrice]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -76,6 +73,7 @@ const ProductDetails = () => {
   };
 
   const addToCart = () => {
+    console.log("Price : ", price, typeof price);
     if (typeof price === "string" && parseInt(price) > 0) {
       dispatch({
         type: "ProductSlice/addToCart",
@@ -139,7 +137,7 @@ const ProductDetails = () => {
               {/* <div className="name">{product?.category}</div> */}
               <p className="head">{product?.name}</p>
               <div className="price">
-                <span className="mrp"> ₹{maxPrice}</span>
+                <span className="mrp"> ₹{price}</span>
                 <span className="discounted-price">
                   ₹{discountedPrice.toFixed(2)} (60% OFF)
                 </span>
@@ -164,23 +162,23 @@ const ProductDetails = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Product Weight */}
               <div className="size-options">
                 <div className="flavour">Weight</div>
                 <div className="btn-wrapper">
                   {product?.weightPrice &&
-                    product?.weightPrice?.map((weight, index) => (
-                      <button
-                        key={index}
-                        className={`size-button ${
-                          weight.weight === selectedWeight ? "selected" : ""
-                        }`}
-                        onClick={() => handleSelectPrice(weight)}
-                      >
-                        {weight.weight}
-                      </button>
-                    ))}
+                    product?.weightPrice?.map((weight, index) => {
+                      return (
+                        <button
+                          key={index}
+                          className={`size-button ${
+                            weight.weight === selectedWeight ? "selected" : ""
+                          }`}
+                          onClick={() => handleSelectPrice(weight)}
+                        >
+                          {weight.weight}
+                        </button>
+                      );
+                    })}
                 </div>
               </div>
               <div className="quantity">
