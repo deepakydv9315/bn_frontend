@@ -57,7 +57,7 @@ function Card({ products }) {
                 onClick={handleImageClick.bind(this, product._id)}
                 className="he"
               >
-                Add to cart
+                View cart
               </button>
             </div>
           </div>

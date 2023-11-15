@@ -157,8 +157,6 @@ const Home = () => {
         </div>
       </section>
 
-
-
       <div className="home-3">
         <section className="shop-by-level">
           <div className="level-title">

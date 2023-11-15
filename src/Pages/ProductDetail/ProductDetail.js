@@ -104,7 +104,7 @@ const ProductDetails = () => {
     product?.weightPrice &&
     Math.max(...product?.weightPrice?.map((item) => parseInt(item.price)));
 
-  const discountedPrice = price - 0.6 * price;
+  const discountedPrice = price - 0.5 * price;
 
   return (
     <Fragment>
@@ -140,11 +140,8 @@ const ProductDetails = () => {
               <div className="price">
                 <span className="mrp"> ₹{price}</span>
                 <span className="discounted-price">
-                  ₹{discountedPrice.toFixed(2)} (60% OFF)
+                  ₹{discountedPrice.toFixed(2)} (50% OFF)
                 </span>
-                {/* <span className="discounted-price">
-                  ₹{product?.discountedPrice}(15%OFF)
-                </span> */}
               </div>
 
               <div className="size-options">
@@ -198,7 +195,7 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className="b">
-                {/* <FontAwesomeIcon icon={faHeart} className="wishlist-icon" /> */}
+               
                 {!isAddedOnCart ? (
                   <button
                     onClick={() => addToCart()}
@@ -242,36 +239,7 @@ const ProductDetails = () => {
               <br></br>
               <p>{product?.longDescription}</p>
             </div>
-            {/* <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
-              <div className="arrow">
-                <h3 onClick={toggleAccordion}>Manufacturing Details</h3>
-                <BsArrowDown
-                  onClick={toggleAccordion}
-                  style={{ fontSize: "20px", marginTop: "5px" }}
-                />
-              </div>
-              <p>{product?.manufacturingDetails}</p>
-            </div>
-            <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
-              <div className="arrow">
-                <h3 onClick={toggleAccordion}>Manufacturing Details</h3>
-                <BsArrowDown
-                  onClick={toggleAccordion}
-                  style={{ fontSize: "20px", marginTop: "5px" }}
-                />
-              </div>
-              <p>{product?.manufacturingDetails}</p>
-            </div>
-            <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
-              <div className="arrow">
-                <h3 onClick={toggleAccordion}>Manufacturing Details</h3>
-                <BsArrowDown
-                  onClick={toggleAccordion}
-                  style={{ fontSize: "20px", marginTop: "5px" }}
-                />
-              </div>
-              <p>{product?.manufacturingDetails}</p>
-            </div> */}
+  
           </div>
         </div>
       )}
