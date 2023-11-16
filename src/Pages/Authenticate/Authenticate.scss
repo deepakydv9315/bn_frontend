@@ -138,7 +138,6 @@
 }
 
 .tab2-content {
-  
   h2 {
     font-size: 24px;
   }
@@ -156,16 +155,28 @@
 
   .image-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    // justify-content: space-between;
     margin-bottom: 170px;
+    @media (max-width: 768px) {
+      display: block;
+    }
 
     .image {
       margin: 20px;
       width: 30%; // Adjust the width as needed
+      @media (max-width: 768px) {
+        width: 100%;
+      }
       .image-content {
         position: relative;
+        margin-top: 10px;
+        @media (max-width: 768px) {
+          margin-top: 140px;
+        }
         img {
-          max-width: 100%;
+          width: 80%;
           height: auto;
         }
         .image-button {
@@ -181,6 +192,9 @@
           color: #000;
           padding: 0px 60px 0px 70px;
           margin: 10px;
+          @media (max-width: 768px) {
+            padding: 0px 10px 0px 20px;
+          }
 
           h3 {
             margin-right: 8px;
