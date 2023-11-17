@@ -1,11 +1,11 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import Master from "../../Assets/svgs/master.svg";
-import AmericanExpress from "../../Assets/svgs/american_express.svg";
-import DinersClub from "../../Assets/svgs/diners_club.svg";
-import Maestro from "../../Assets/svgs/maestro.svg";
-import Visa from "../../Assets/svgs/visa.svg";
+// import Master from "../../Assets/svgs/master.svg";
+// import AmericanExpress from "../../Assets/svgs/american_express.svg";
+// import DinersClub from "../../Assets/svgs/diners_club.svg";
+// import Maestro from "../../Assets/svgs/maestro.svg";
+// import Visa from "../../Assets/svgs/visa.svg";
 
 const Footer = () => {
   const [email, setEmail] = useState("");

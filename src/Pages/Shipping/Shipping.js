@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Refund.scss";
+import "../RefundReturnPolicy/Refund.scss";
 
 const RefundPolicy = () => {
     return (
