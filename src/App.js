@@ -40,6 +40,7 @@ import Report from "./Pages/Authenticate/Report";
 import ForgetPasswordPage from "./Pages/ForgetPassword/ForgetPasswordPage";
 import FAQ from "./Pages/FAQ/Faq.js";
 import RefundPolicy from "./Pages/RefundReturnPolicy/Refund.js";
+import Shipping from "./Pages/Shipping/Shipping.js";
 import PrivacyPolicy from "./Pages/Privacy/Privacy.js";
 import TermsCondition from "./Pages/Terms/Terms.js";
 
@@ -65,6 +66,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/shipping" element={<Shipping />} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
         <Route path="/refund" element={<RefundPolicy />} />
        

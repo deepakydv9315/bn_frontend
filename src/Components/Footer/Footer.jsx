@@ -45,7 +45,7 @@ const Footer = () => {
               <Link to="/privacy">Privacy Policy</Link>
             </li>
             <li>
-              <Link to="/faq">Frequently Asked Questions on Whey</Link>
+              <Link to="/shipping">Shipping Policy</Link>
             </li>
             <li>
               <Link to="/refund">Return & Refund Policy</Link>
@@ -67,14 +67,16 @@ const Footer = () => {
         </div>
       </div>
       <div className="bottom">
-        <div className="payment-cards">
+        {/* <div className="payment-cards">
           <img src={Master} alt="Master" />
           <img src={AmericanExpress} alt="American Express" />
           <img src={DinersClub} alt="Donirs CLub" />
           <img src={Maestro} alt="MaestroCard" />
           <img src={Visa} alt="Visa" />
-        </div>
+        </div> */}
         <div className="copyright">COPYRIGHT &copy; 2023</div>
+        <div className="copyright">Manage by HIGHFLYER INC.</div>
+        <div className="copyright">GSTIN- 07HVIPS6644Q2ZD</div>
       </div>
     </footer>
   );
