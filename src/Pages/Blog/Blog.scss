@@ -49,7 +49,7 @@
         align-items: center;
 
         label {
-          margin-right: 10px; 
+          margin-right: 10px;
         }
 
         select {
@@ -65,9 +65,12 @@
     flex-wrap: wrap;
     gap: 30px 10px;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      display: inline-block;
+    }
   }
-
   .blog-card {
+    cursor: pointer;
     width: calc(25% - 20px);
     background-color: #fff;
     border: 1px solid #ddd;

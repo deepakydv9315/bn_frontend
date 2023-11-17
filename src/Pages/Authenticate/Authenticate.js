@@ -76,7 +76,7 @@ const Authenticate = () => {
           <div className="tab2-content">
             {/* <Coming /> */}
             <div className="section ">
-              <h2 className='title1' style={{ display: "flex", justifyContent: "space-between" }}>Protein</h2>
+              {/* <h2 className='title1' style={{ display: "flex", justifyContent: "space-between" }}>Protein</h2> */}
               <div className="image-container">
                 <div className="image">
                   <div className="image-content">

@@ -11,13 +11,26 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px;
+    padding: 2px 15px 15px 15px;
     width: 250px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.224);
     overflow-x: hidden;
     cursor: pointer;
     background-color: #fff;
+
+    .badge {
+      // position: relative;
+      // top: 10px;
+      width: 80px;
+      margin-left: -15px;
+      background-color: #ff0000; // You can change the background color
+      color: #ffffff; // You can change the text color
+      padding: 4px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
 
     .product-card-img {
       width: 100%;
@@ -29,18 +42,6 @@
           width: 100%;
           height: auto;
         }
-      }
-      .badge {
-        // position: absolute;
-        top: 10px;
-        width: 80px;
-        left: 10px;
-        background-color: #ff0000; // You can change the background color
-        color: #ffffff; // You can change the text color
-        padding: 5px;
-        border-radius: 5px;
-        font-size: 12px;
-        font-weight: bold;
       }
     }
 

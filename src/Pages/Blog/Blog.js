@@ -7,9 +7,8 @@ import b2 from "../../Assets/Images/b2.png";
 import b3 from "../../Assets/Images/b3.png";
 import Coming from "../../Components/ComingSoon/ComingSoon";
 
+
 const Blog = () => {
-
-
   const [sortBy, setSortBy] = useState('date'); // Initial sort option
   const blogData = [
     {
@@ -90,9 +89,10 @@ const Blog = () => {
     setSortBy(event.target.value);
   };
 
+
   return (
     <div className="blog">
-      {/* <div className="image-with-text-container">
+      <div className="image-with-text-container">
         <img src={blog} alt="YourImage" className="image" />
         <div className="text">
           Fitness <span>Blogs</span>
@@ -102,21 +102,21 @@ const Blog = () => {
         <div className="upper">
           <div className="headblog">Popular reads
           </div>
-          <div className="sort-by">
+          {/* <div className="sort-by">
             <label>Sort By:</label>
             <select value={sortBy} onChange={handleSortChange}>
               <option value="date">Date</option>
               <option value="month">Month</option>
             </select>
-          </div>
+          </div> */}
         </div>
-        <div className="blog-cards">
+        <div className="blog-cards" >
           {blogData.map((blog) => (
             <BlogCard key={blog.id} data={blog} />
           ))}
         </div>
-      </section> */}
-      <Coming/>
+      </section>
+      {/* <Coming/> */}
     </div>
   );
 };

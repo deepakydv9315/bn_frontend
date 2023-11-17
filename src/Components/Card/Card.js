@@ -24,8 +24,8 @@ function Card({ products }) {
     <div className="Cards">
       {products.map((product) => (
         <div key={product.id} className="product-card">
+          <div className="badge">50% OFF</div>
           <div className="product-card-img">
-            <div className="badge">50% OFF</div>
             <img
               src={product.images[0].url}
               alt={product.name}

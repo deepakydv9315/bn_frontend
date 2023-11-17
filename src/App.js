@@ -34,6 +34,7 @@ import UpdatePincode from "./Pages/Admin/UpdatePincode/UpdatePincode.js";
 import CreateBlog from "./Pages/Admin/CreateBlog/CreateBlog.js";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
+import BlogDetail from "./Pages/Blog/BlogDetail.js";
 import Checkout from "./Pages/Checkout/CheckoutPage";
 import Recipes from "./Pages/Recipes/Recipes";
 import Report from "./Pages/Authenticate/Report";
@@ -56,6 +57,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/terms" element={<TermsCondition />} />
         <Route path="/products" element={<Products />} />
         <Route path="/productdetails/:id" element={<ProductDetail />} />

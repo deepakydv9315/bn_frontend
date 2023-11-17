@@ -62,7 +62,6 @@ const Home = () => {
   };
   return (
     <div className="home-page">
-
       <div className="home-2">
         <img src={bg} alt="" />
         <section className="content-of-category">

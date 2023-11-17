@@ -8,7 +8,7 @@
     to right,
     white #ffd000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 100vh;
+  height: 110vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +66,7 @@
 }
 
 .register .col-2 img {
-  width: 480px;
+  width: 580px;
   height: 100%;
   object-fit: cover;
   align-self: flex-end;
