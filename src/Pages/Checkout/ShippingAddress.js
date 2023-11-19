@@ -25,16 +25,28 @@ const ShippingAddress = () => {
       <h2>Shipping Address</h2>
       <form>
         <div className="form-group">
-          <label htmlFor="fullName">Full Name</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-group">
+          <div className="flex-name">
+            <div className="flex-item">
+              <label htmlFor="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="flex-item">
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
           <label htmlFor="addressLine1">Address Line 1</label>
           <input
             type="text"
@@ -43,7 +55,7 @@ const ShippingAddress = () => {
             value={formData.addressLine1}
             onChange={handleInputChange}
           />
-          <label htmlFor="addressLine1">Address Line 2</label>
+          <label htmlFor="addressLine2">Address Line 2</label>
           <input
             type="text"
             id="addressLine2"
@@ -51,7 +63,7 @@ const ShippingAddress = () => {
             value={formData.addressLine2}
             onChange={handleInputChange}
           />
-          <label htmlFor="addressLine1">City</label>
+          <label htmlFor="city">City & District</label>
           <input
             type="text"
             id="city"
@@ -59,22 +71,28 @@ const ShippingAddress = () => {
             value={formData.city}
             onChange={handleInputChange}
           />
-          <label htmlFor="addressLine1">State</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleInputChange}
-          />
-           <label htmlFor="addressLine1">Postal Code</label>
-          <input
-            type="text"
-            id="postalCode"
-            name="postalCode"
-            value={formData.postalCode}
-            onChange={handleInputChange}
-          />
+          <div className="flex-name">
+            <div className="flex-item">
+              <label htmlFor="state">State</label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                value={formData.state}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="flex-item">
+              <label htmlFor="postalCode">Postal Code</label>
+              <input
+                type="text"
+                id="postalCode"
+                name="postalCode"
+                value={formData.postalCode}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
         </div>
         <div className="form-actions">
           <button type="submit">Save Address</button>

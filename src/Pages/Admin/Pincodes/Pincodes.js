@@ -50,7 +50,7 @@ const ProductList = ({ history }) => {
       minWidth: 350,
       flex: 1,
     },
-   
+
     {
       field: "actions",
       flex: 0.3,
@@ -61,7 +61,7 @@ const ProductList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/pincodes/${params.id}`}>
+            <Link to={`/admin/pincodes/${params.id}`} >
               <EditIcon />
             </Link>
             <Button onClick={() => deletePincodeHandler(params.id)}>
@@ -76,7 +76,7 @@ const ProductList = ({ history }) => {
   const rows = [];
 
   pincodes &&
-  pincodes.forEach((item, index) => {
+    pincodes.forEach((item, index) => {
       rows.push({
         id: item._id,
         pincode: item.pincode,
@@ -87,12 +87,13 @@ const ProductList = ({ history }) => {
     <Fragment>
       <div className="dashboard">
         <Sidebar />
-        <div className="productListContainer">
-          <h1 id="productListHeading">ALL PINCODES</h1>
+        <div className="productListContainer" style={{ width:"1270px" }}>
+          <h1 id="productListHeading" >ALL PINCODES</h1>
           <div className="btn create">
             <Link
               to="/admin/pincodes/create"
               className="theme-btn-one bg-black btn_md"
+              style={{ color: "black", backgroundColor: "yellow" }}
             >
               Create Pincode
             </Link>

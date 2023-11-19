@@ -1,10 +1,11 @@
 .Cards {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-.parentContainer{
+/* .parentContainer{
   width: 100%;
-}
+} */
 
 @media screen and (max-width: 1200px) {
   .Cards{

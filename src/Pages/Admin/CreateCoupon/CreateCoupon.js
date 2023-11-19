@@ -71,7 +71,7 @@ function CreateCoupon() {
                           />
                         </div>
                       </div>
-
+<br></br>
                       <div className="col-lg-12">
                         <div className="fotm-group">
                           <label htmlFor="product_price">
@@ -89,6 +89,7 @@ function CreateCoupon() {
                       </div>
 
                       <div className="col-lg-12">
+                      <br></br><br></br>
                         <div className="btn_right_table">
                           <button
                             className="theme-btn-one bg-black btn_sm"

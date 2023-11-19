@@ -110,14 +110,12 @@ function NewProduct() {
     <Fragment>
       <div className="dashboard">
         <Sidebar />
-        {/* form  */}
         <form
           className="add_product_form"
           onSubmit={createProductSubmitHandler}
         ><p className="sec-head sec-head-ul title1">Create Product</p >
           <div className="row">
             <div className="col-lg-12">
-              {/* image here  */}
               <div className="image-input">
                 {images.length > 0 && (
                   <img
@@ -219,6 +217,7 @@ function NewProduct() {
               </div>
             </div>
 
+            <br></br>
             {/* Product weight  */}
             <div className="col-lg-3">
               <div className="fotm-group">
@@ -279,7 +278,7 @@ function NewProduct() {
             </div>
 
             {/* Product price  */}
-            <div className="col-lg-3">
+            {/* <div className="col-lg-3">
               <div className="fotm-group">
                 <label>
                   Discounted Price
@@ -294,7 +293,7 @@ function NewProduct() {
                   onChange={(e) => setDiscountedPrice(e.target.value)}
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* short des  */}
             <div className="col-lg-6">
@@ -346,6 +345,7 @@ function NewProduct() {
                 />
               ))}
             </div>
+            <br></br>
             <div className="col-lg-12">
               <div className="btn_right_table">
                 <button type="submit" className="theme-btn-one bg-black btn_sm">

@@ -8,95 +8,95 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Tooltip from "@mui/material/Tooltip";
 import Sidebar from "../Sidebar/Sidebar.js";
-import { 
-    getBlogs,
-    deleteBlog
+import {
+  getBlogs,
+  deleteBlog
 } from "../../../Redux/slices/blogSlice.js";
 
 const Blogs = () => {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const { error, blogs, success } = useSelector(
-        (state) => state.blogs
-    );
+  const { error, blogs, success } = useSelector(
+    (state) => state.blogs
+  );
 
-    const deleteBlogHandler = (id) => {
-        dispatch(deleteBlog({ id }));
-    };
+  const deleteBlogHandler = (id) => {
+    dispatch(deleteBlog({ id }));
+  };
 
-    useEffect(() => {
-        dispatch(getBlogs());
-    }, [dispatch, error, success]);
+  useEffect(() => {
+    dispatch(getBlogs());
+  }, [dispatch, error, success]);
 
-    const columns = [
-        {
-            field: "_id",
-            headerName: "Blog Id",
-            minWidth: 350,
-            flex: 1,
-        },
-        {
-            field: "title",
-            headerName: "Blog Title",
-            minWidth: 250,
-            flex: 1,
-        },
-        {
-            field: "content",
-            headerName: "Content",
-            minWidth: 350,
-            flex: 0.3,
-            renderCell: (params) => (
-              <Tooltip title={params.value}>
-                <div
-                  style={{
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {params.value}
-                </div>
-              </Tooltip>
-            ),
-          },
-          {
-            field: "actions",
-            flex: 0.3,
-            headerName: "Actions",
-            minWidth: 150,
-            type: "number",
-            sortable: false,
-            renderCell: (params) => {
-              return (
-                <Fragment>
-                  <Link to={`/admin/blog/${params.id}`}>
-                    <EditIcon />
-                  </Link>
-                  <Button onClick={() => deleteBlogHandler(params.id)}>
-                    <DeleteIcon />
-                  </Button>
-                </Fragment>
-              );
-            },
-          },
-        ];
+  const columns = [
+    {
+      field: "_id",
+      headerName: "Blog Id",
+      minWidth: 350,
+      flex: 1,
+    },
+    {
+      field: "title",
+      headerName: "Blog Title",
+      minWidth: 250,
+      flex: 1,
+    },
+    {
+      field: "content",
+      headerName: "Content",
+      minWidth: 350,
+      flex: 0.3,
+      renderCell: (params) => (
+        <Tooltip title={params.value}>
+          <div
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {params.value}
+          </div>
+        </Tooltip>
+      ),
+    },
+    {
+      field: "actions",
+      flex: 0.3,
+      headerName: "Actions",
+      minWidth: 150,
+      type: "number",
+      sortable: false,
+      renderCell: (params) => {
+        return (
+          <Fragment>
+            <Link to={`/admin/blog/${params.id}`}>
+              <EditIcon />
+            </Link>
+            <Button onClick={() => deleteBlogHandler(params.id)}>
+              <DeleteIcon />
+            </Button>
+          </Fragment>
+        );
+      },
+    },
+  ];
 
-        const row = [];
+  const row = [];
 
-        blogs &&
-           blogs.forEach((item) => {
-            row.push({
-                _id: item._id,
-                title: item.title,
-                content: item.content,
-            });
-        });
+  blogs &&
+    blogs.forEach((item) => {
+      row.push({
+        _id: item._id,
+        title: item.title,
+        content: item.content,
+      });
+    });
 
 
-    return (
-<Fragment>
+  return (
+    <Fragment>
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
@@ -105,6 +105,7 @@ const Blogs = () => {
             <Link
               to="/admin/blog/create"
               className="theme-btn-one bg-black btn_md"
+              style={{ color: "black", backgroundColor: "yellow" }}
             >
               Create Blog
             </Link>
@@ -120,7 +121,7 @@ const Blogs = () => {
         </div>
       </div>
     </Fragment>
-    );
+  );
 };
 
 export default Blogs;

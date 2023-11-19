@@ -94,9 +94,10 @@ const CouponList = ({ history }) => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL PINCODES</h1>
+          <h1 id="productListHeading">ALL COUPONS</h1>
           <div className="btn create">
             <Link
+              style={{ color: "black",backgroundColor:"yellow" }}
               to="/admin/coupon/create"
               className="theme-btn-one bg-black btn_md"
             >

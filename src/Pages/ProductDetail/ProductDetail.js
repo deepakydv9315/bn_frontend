@@ -8,8 +8,6 @@ import chart from "../../Assets/Images/chart.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetail } from "../../Redux/slices/productSlice";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import Loader from "../../Components/Loader/Loader";
 import Swal from "sweetalert2";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";

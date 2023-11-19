@@ -11,8 +11,6 @@ import {
   setStatusResponse,
 } from "../../../Redux/slices/utilsSlice";
 
-// import { createPincode, setStatus } from "../../app/slices/utils";
-
 function CreatePincode() {
   const dispatch = useDispatch();
   const [pinCode, setPincode] = useState("");

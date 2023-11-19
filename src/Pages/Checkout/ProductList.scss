@@ -2,6 +2,10 @@
   h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin-top: 10px;
+    }
   }
 
   ul {
@@ -20,6 +24,10 @@
         width: 70px;
         height: 100px;
         margin-right: 20px;
+        @media (max-width: 768px) {
+          width: 60px;
+          height: 80px;
+        }
       }
 
       .quantity {

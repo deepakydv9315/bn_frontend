@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
-import InfoGrid from "../../Components/InfoGrid/InfoGrid";
-// import QuickLinks from "../../Components/Quick Links/QuickLinks";
 import Goals from "../../Components/Goals/Goals";
 import Levels from "../../Components/Levels/Levels";
 import whyCP from "../../Assets/Images/why-clean-protein.png";
@@ -17,12 +15,11 @@ import {
 import { useParams } from "react-router-dom";
 import MinLoader from "../../Components/Loader/MinLoader.js";
 import { useDispatch, useSelector } from "react-redux";
-import product from "../../Assets/Images/product.png";
 
 const Home = () => {
   const dummyCategories = [
-    { name: "Whey" },
-    { name: "Creatine" },
+    { name: "Burly Whey" },
+    { name: "Burly Creatine" },
   ];
 
   const { categoryname } = useParams();
@@ -44,7 +41,7 @@ const Home = () => {
   useEffect(() => {
     if (categoryname) {
       setActiveFilter(categoryname);
-      dispatch(getAllProducts({ category: categoryname }));
+      dispatch(getAllProducts({ product: categoryname }));
     } else {
       dispatch(getAllProducts());
     }
@@ -53,13 +50,15 @@ const Home = () => {
 
   const categoryChangeHandler = (filterName) => {
     setActiveFilter(filterName);
-    dispatch(getAllProducts({ category: filterName }));
+    dispatch(getAllProducts({product: filterName }));
   };
 
   const handleAllProduct = () => {
     dispatch(getAllProducts());
     setActiveFilter("All");
   };
+
+
   return (
     <div className="home-page">
       <div className="home-2">
@@ -77,14 +76,14 @@ const Home = () => {
               >
                 All
               </div>
-              {dummyCategories.map((category, index) => (
+              {dummyCategories.map((product, index) => (
                 <div
                   key={index}
-                  onClick={() => categoryChangeHandler(category.name)}
-                  className={`app__work-filter-item app__flex p-text ${activeFilter === category.name ? "item-active" : ""
+                  onClick={() => categoryChangeHandler(product.name)}
+                  className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
                     }`}
                 >
-                  {category.name}
+                  {product.name}
                 </div>
               ))}
             </div>

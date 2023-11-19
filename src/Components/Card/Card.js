@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 // import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
-// import { AiOutlineHeart, AiFillCheckCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+
+
 function Card({ products }) {
   const navigate = useNavigate();
 

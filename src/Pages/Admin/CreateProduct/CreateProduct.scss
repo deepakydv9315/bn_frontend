@@ -45,11 +45,10 @@
 
           i.fa.fa-image {
             margin-right: 5px;
-            
           }
         }
 
-        img{
+        img {
           width: 70%;
           padding: 10px;
           margin-bottom: 20px;
@@ -64,6 +63,7 @@
         .fotm-group {
           label {
             font-weight: bold;
+            display: flex;
           }
 
           input[type="text"] {
@@ -87,6 +87,7 @@
         .fotm-group {
           label {
             font-weight: bold;
+            display: flex;
           }
 
           select {
@@ -106,6 +107,10 @@
             font-size: 16px;
             margin-top: 10px;
             margin-bottom: 20px;
+
+            #product_price{
+              width: 80%;
+            }
           }
         }
       }
@@ -122,6 +127,7 @@
         .fotm-group {
           label {
             font-weight: bold;
+            display: flex;
           }
 
           input[type="text"],
@@ -168,6 +174,17 @@
             right: 0px;
             transform: translate(50%, -50%);
           }
+        }
+      }
+
+      #createProductFormImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 50%;
+          height: 80%;
         }
       }
 
