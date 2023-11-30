@@ -4,9 +4,9 @@ import "../RefundReturnPolicy/Refund.scss";
 const RefundPolicy = () => {
     return (
         <div className="refund-policy contain contain-bg">
-            <h1 className='title1'>Return & Refund Policy</h1>
-            <h4 className='title1'><span>Return Policy</span></h4>
-            <p className='sec-para'>
+            <h1 className='title1'>Shipping Policy</h1>
+            {/* <h4 className='title1'><span>Return Policy</span></h4> */}
+            <p className='ship-para'>
                 At Burly Nutrition, we strive to provide reliable and efficient shipping services for our gluten-free food products across India. Here's what you need to know about our shipping policy:
                 <br></br>
                 1. Shipping Zones:<br></br>
