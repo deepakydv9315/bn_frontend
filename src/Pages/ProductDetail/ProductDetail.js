@@ -1,10 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./ProductDetail.scss";
-import image1 from "../../Assets/Images/main.png";
 import { BsArrowDown } from "react-icons/bs";
-import m1 from "../../Assets/Images/main1.png";
-import m2 from "../../Assets/Images/main2.png";
-import chart from "../../Assets/Images/chart.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTruck } from "@fortawesome/free-solid-svg-icons";
+import { faCoffee, faCode, faCogs } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetail } from "../../Redux/slices/productSlice";
@@ -90,7 +89,13 @@ const ProductDetails = () => {
 
   const products = [
     {
-      flavour: "Flavoured",
+      flavour: "Chocolate Caramel",
+    },
+    {
+      flavour: "Coffee",
+    },
+    {
+      flavour: "Blueberry Muffin",
     },
     {
       flavour: "UnFlavoured",
@@ -103,6 +108,12 @@ const ProductDetails = () => {
     Math.max(...product?.weightPrice?.map((item) => parseInt(item.price)));
 
   const discountedPrice = price - 0.5 * price;
+
+  const [deliveryAddress, setDeliveryAddress] = useState("");
+
+  const handleCheckButtonClick = () => {
+    console.log("Checking delivery for:", deliveryAddress);
+  };
 
   return (
     <Fragment>
@@ -122,7 +133,7 @@ const ProductDetails = () => {
                 product.images.map((image, index) => (
                   <div key={index} className="additional-image">
                     <img
-                      src={product.image}
+                      src={product.image[1]}
                       alt={`AdditionalImage ${index + 1}`}
                     />
                   </div>
@@ -131,14 +142,16 @@ const ProductDetails = () => {
               {/* <img src={chart} alt="Main Product" className='chart' /> */}
             </div>
           </div>
+
           <div className="right-section">
             <div className="product-info">
               {/* <div className="name">{product?.category}</div> */}
               <p className="head">{product?.name}</p>
               <div className="price">
-                <span className="mrp"> ₹{price}</span>
+                <span className="mrp" style={{ display: "flex" }}>MRP ₹{price}</span>
+                {/* <br></br> */}
                 <span className="discounted-price">
-                  ₹{discountedPrice.toFixed(2)} (50% OFF)
+                  ₹{discountedPrice.toFixed(2)} (50% OFF) inclusive all taxes
                 </span>
               </div>
 
@@ -148,9 +161,8 @@ const ProductDetails = () => {
                   {products.map((product, index) => (
                     <button
                       key={index}
-                      className={`size-button ${
-                        product.flavour === selectedFlavour ? "selected" : ""
-                      }`}
+                      className={`size-button ${product.flavour === selectedFlavour ? "selected" : ""
+                        }`}
                       onClick={() => handleFlavourChange(product.flavour)}
                     >
                       {product.flavour}
@@ -166,9 +178,8 @@ const ProductDetails = () => {
                       return (
                         <button
                           key={index}
-                          className={`size-button ${
-                            weight.weight === selectedWeight ? "selected" : ""
-                          }`}
+                          className={`size-button ${weight.weight === selectedWeight ? "selected" : ""
+                            }`}
                           onClick={() => handleSelectPrice(weight)}
                         >
                           {weight.weight}
@@ -192,8 +203,8 @@ const ProductDetails = () => {
                   </button>
                 </div>
               </div>
+
               <div className="b">
-               
                 {!isAddedOnCart ? (
                   <button
                     onClick={() => addToCart()}
@@ -219,6 +230,45 @@ const ProductDetails = () => {
                   Buy Now
                 </button>
               </div>
+
+              <section className="delivery-section">
+                <div className="delivery-container">
+                  <h2 className="delivery-heading">
+                    <FontAwesomeIcon icon={faTruck} /> Deliver to
+                  </h2>
+                  <p className="delivery-subheading">Enter pincode to check delivery date:</p>
+                  <div className="delivery-input-container">
+                    <input
+                      type="text"
+                      className="delivery-input"
+                      placeholder="Enter your pincode"
+                      value={deliveryAddress}
+                      onChange={(e) => setDeliveryAddress(e.target.value)}
+                    />
+                    <button className="check-button" onClick={handleCheckButtonClick}>
+                      Check
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section className="icon-section">
+                <div className="icon-container">
+                  <div className="icon-item">
+                    <FontAwesomeIcon icon={faCoffee} className="icon" />
+                    <p className="description">Enjoy a cup of coffee</p>
+                  </div>
+                  <div className="icon-item">
+                    <FontAwesomeIcon icon={faCode} className="icon" />
+                    <p className="description">Write some code</p>
+                  </div>
+                  <div className="icon-item">
+                    <FontAwesomeIcon icon={faCogs} className="icon" />
+                    <p className="description">Configure settings</p>
+                  </div>
+                </div>
+              </section>
+
             </div>
             <br></br>
             <div className="product-description-reviews">
@@ -237,7 +287,7 @@ const ProductDetails = () => {
               <br></br>
               <p>{product?.longDescription}</p>
             </div>
-  
+
           </div>
         </div>
       )}

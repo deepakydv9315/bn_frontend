@@ -18,14 +18,18 @@ function NewProduct() {
   // const alert = useAlert();
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const [length, setLength] = useState("");
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
   const [flavour, setFlavour] = useState("");
   const [price, setPrice] = useState(0);
   const [weight, setWeight] = useState(0);
+  const [sku, setSKU] = useState("");
   const [discountedPrice, setDiscountedPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [longDescription, setLongDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [stockSmall, setStockSmall] = useState(0);
+  const [stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [weightPrice, setWeightPrice] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
@@ -40,9 +44,13 @@ function NewProduct() {
       dispatch(
         createProduct({
           name,
-          stockSmall,
+          stock,
           description,
           images,
+          length,
+          width,
+          height,
+          sku,
           weightPrice: weightPrice,
           longDescription,
           category,
@@ -73,12 +81,20 @@ function NewProduct() {
     const newField = {
       weight: weight,
       price: price,
+      width: width,
+      length: length,
+      sku: sku,
+      height: height,
       id: new Date(),
     };
     const newArr = [...weightPrice, newField];
     setWeightPrice(newArr);
     setPrice("");
     setWeight("");
+    setWidth("");
+    setLength("");
+    setSKU("");
+    setHeight("");
   };
 
   const removeWeightPrice = (id) => {
@@ -189,7 +205,6 @@ function NewProduct() {
                   onChange={(e) => setFlavour(e.target.value)}
                 >
                   <option>---Select Flavour---</option>
-                  <option>Flavoured</option>
                   <option>Coffee</option>
                   <option>Chocolate Caramel</option>
                   <option>Unflavoured</option>
@@ -208,7 +223,7 @@ function NewProduct() {
                 </label>
                 <select
                   className="form-control" style={{ marginBottom: "10px" }}
-                  onChange={(e) => setStockSmall(e.target.value)}
+                  onChange={(e) => setStock(e.target.value)}
                 >
                   <option >---Select Stock---</option>
                   <option>In Stock</option>
@@ -217,11 +232,10 @@ function NewProduct() {
               </div>
             </div>
 
-            <br></br>
             {/* Product weight  */}
             <div className="col-lg-3">
               <div className="fotm-group">
-                <label htmlFor="product_price">
+                <label htmlFor="product_price" >
                   Weight
                   <span className="text-danger">*</span>
                 </label>
@@ -254,22 +268,94 @@ function NewProduct() {
               </div>
             </div>
 
+            {/* Product Height */}
+            <div className="col-lg-3">
+              <div className="fotm-group">
+                <label htmlFor="product_price">
+                  Product Height
+                  <span className="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="product_price"
+                  className="form-control"
+                  placeholder="Product Height"
+                  value={height}
+                  onChange={(e) => setHeight(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Product Length */}
+            <div className="col-lg-3">
+              <div className="fotm-group">
+                <label htmlFor="product_price">
+                  Product Length
+                  <span className="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="product_price"
+                  className="form-control"
+                  placeholder="Product Length"
+                  value={length}
+                  onChange={(e) => setLength(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Product Width */}
+            <div className="col-lg-3">
+              <div className="fotm-group">
+                <label htmlFor="product_price">
+                  Product Width
+                  <span className="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="product_price"
+                  className="form-control"
+                  placeholder="Product Width"
+                  value={width}
+                  onChange={(e) => setWidth(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Product SKU */}
+            <div className="col-lg-3">
+              <div className="fotm-group">
+                <label htmlFor="product_price">
+                  Product SKU
+                  <span className="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="product_price"
+                  className="form-control"
+                  placeholder="Product SKU"
+                  value={sku}
+                  onChange={(e) => setSKU(e.target.value)}
+                />
+              </div>
+            </div>
+
             {/* add price and weight btn  */}
             <div className="col-lg-3 add_price-btn ">
               <div className="form-group">
-                <button style={{ marginLeft: "220%", width: "100px" }}
+                <button style={{ marginLeft: "10%", width: "100px", marginTop: "30px" }}
                   className="theme-btn-one btn_sm"
                   onClick={addWeightPrice}
-                >
-                  Add Weight
+                >Add Weight
                 </button>
               </div>
             </div>
 
-            <div className="col-lg-12 add_price-screen" style={{ marginLeft: "30%", marginTop: "15px" }}>
+            <div className="col-lg-12 add_price-screen" style={{ marginLeft: "20%", marginTop: "15px" }}>
               {weightPrice?.map((item, index) => (
                 <span key={index}>
-                  {item.price}₹ - {item.weight}
+                  {item.price}₹ - {item.weight} - {item.length} -{" "}
+                  {item.width} - {item.height} - {item.sku}
                   <RxCross1
                     onClick={() => removeWeightPrice(item.id)}
                   />

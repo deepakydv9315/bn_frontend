@@ -19,6 +19,9 @@ function UpdateProduct() {
   // const alert = useAlert();
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const [length, setLength] = useState("");
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
   const [flavour, setFlavour] = useState("");
   const [price, setPrice] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -28,6 +31,7 @@ function UpdateProduct() {
   const [category, setCategory] = useState("");
   const [stockSmall, setStockSmall] = useState(0);
   const [images, setImages] = useState([]);
+  const [sku, setSKU] = useState("");
   const [weightPrice, setWeightPrice] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
   const { success, error, message } = useSelector((state) => state.products);
@@ -43,6 +47,10 @@ function UpdateProduct() {
         stockSmall,
         description,
         images,
+        length,
+        width,
+        height,
+        sku,
         weightPrice: weightPrice,
         longDescription,
         category,
@@ -87,12 +95,20 @@ function UpdateProduct() {
     const newField = {
       weight: weight,
       price: price,
+      width: width,
+      length: length,
+      sku: sku,
+      height: height,
       id: new Date(),
     };
     const newArr = [...weightPrice, newField];
     setWeightPrice(newArr);
     setPrice("");
     setWeight("");
+    setWidth("");
+    setLength("");
+    setSKU("");
+    setHeight("");
   };
 
   const removeWeightPrice = (id) => {
@@ -214,7 +230,6 @@ function UpdateProduct() {
                               onChange={(e) => setFlavour(e.target.value)}
                             >
                               <option>---Select Flavour---</option>
-                              <option>Flavoured</option>
                               <option>Coffee</option>
                               <option>Chocolate Caramel</option>
                               <option>Unflavoured</option>
@@ -272,31 +287,100 @@ function UpdateProduct() {
                               id="product_price"
                               className="form-control"
                               value={price}
-                              placeholder="Product Discounted Price"
+                              placeholder="Product Price"
                               onChange={(e) => setPrice(e.target.value)}
                             />
                           </div>
                         </div>
 
+                        {/* Product Height */}
+                        <div className="col-lg-3">
+                          <div className="fotm-group">
+                            <label htmlFor="product_price">
+                              Product Height
+                              <span className="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              id="product_price"
+                              className="form-control"
+                              placeholder="Product Height"
+                              value={height}
+                              onChange={(e) => setHeight(e.target.value)}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Product Length */}
+                        <div className="col-lg-3">
+                          <div className="fotm-group">
+                            <label htmlFor="product_price">
+                              Product Length
+                              <span className="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              id="product_price"
+                              className="form-control"
+                              placeholder="Product Length"
+                              value={length}
+                              onChange={(e) => setLength(e.target.value)}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Product Width */}
+                        <div className="col-lg-3">
+                          <div className="fotm-group">
+                            <label htmlFor="product_price">
+                              Product Width
+                              <span className="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              id="product_price"
+                              className="form-control"
+                              placeholder="Product Width"
+                              value={width}
+                              onChange={(e) => setWidth(e.target.value)}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Product SKU */}
+                        <div className="col-lg-3">
+                          <div className="fotm-group">
+                            <label htmlFor="product_price">
+                              Product SKU
+                              <span className="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              id="product_price"
+                              className="form-control"
+                              placeholder="Product SKU"
+                              value={sku}
+                              onChange={(e) => setSKU(e.target.value)}
+                            />
+                          </div>
+                        </div>
+
+                        {/* add price and weight btn  */}
                         <div className="col-lg-3 add_price-btn ">
                           <div className="form-group">
-                            <button
-                              style={{ marginLeft: "220%", width: "100px" }}
+                            <button style={{ marginLeft: "10%", width: "100px", marginTop: "30px" }}
                               className="theme-btn-one btn_sm"
-                              onClick={(e) => addWeightPrice(e)}
-                            >
-                              Add Weight
+                              onClick={addWeightPrice}
+                            >Add Weight
                             </button>
                           </div>
                         </div>
 
-                        <div
-                          className="col-lg-12 add_price-screen"
-                          style={{ marginLeft: "30%", marginTop: "15px" }}
-                        >
+                        <div className="col-lg-12 add_price-screen" style={{ marginLeft: "20%", marginTop: "15px" }}>
                           {weightPrice?.map((item, index) => (
                             <span key={index}>
-                              {item.price}₹ - {item.weight}
+                              {item.price}₹ - {item.weight} - {item.length} -{" "}
+                              {item.width} - {item.height} - {item.sku}
                               <RxCross1
                                 onClick={() => removeWeightPrice(item.id)}
                               />
@@ -304,7 +388,7 @@ function UpdateProduct() {
                           ))}
                         </div>
 
-                        <div className="col-lg-3">
+                        {/* <div className="col-lg-3">
                           <div className="fotm-group">
                             <label htmlFor="product_price">
                               Discounted Price
@@ -321,7 +405,7 @@ function UpdateProduct() {
                               }
                             />
                           </div>
-                        </div>
+                        </div> */}
 
                         {/* short des  */}
                         <div className="col-lg-6">

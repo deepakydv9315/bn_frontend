@@ -1,13 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
-// import "./createcategory.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import swal2 from "sweetalert2";
-import Button from "@mui/material/Button";
 import Sidebar from "../Sidebar/Sidebar";
 import { createCoupon, setStatusResponse } from "../../../Redux/slices/utilsSlice";
-
 // import { createPincode, setStatus } from "../../app/slices/utils";
 
 function CreateCoupon() {
@@ -15,12 +11,12 @@ function CreateCoupon() {
   const dispatch = useDispatch();
   const [couponNumber, setCouponNumber] = useState("");
   const [discount, setDiscount] = useState(0);
-
+  const [applyrate, setApplyRate] = useState(0);
   const { success, error } = useSelector((state) => state.utils);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    dispatch(createCoupon({ couponNumber, discount }));
+    dispatch(createCoupon({ couponNumber: couponNumber, discount: discount, applyRate: applyrate }));
   };
 
   useEffect(() => {
@@ -71,7 +67,7 @@ function CreateCoupon() {
                           />
                         </div>
                       </div>
-<br></br>
+                      <br></br>
                       <div className="col-lg-12">
                         <div className="fotm-group">
                           <label htmlFor="product_price">
@@ -89,7 +85,23 @@ function CreateCoupon() {
                       </div>
 
                       <div className="col-lg-12">
-                      <br></br><br></br>
+                        <div className="fotm-group">
+                          <label htmlFor="product_price">
+                            Minimum Apply Rate <span className="text-danger">*</span>
+                          </label>
+                          <input
+                            type="number"
+                            id="product_price"
+                            className="form-control"
+                            placeholder="Apply Rate In Ruppees"
+                            required
+                            onChange={(e) => setApplyRate(e.target.value)}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-lg-12">
+                        <br></br><br></br>
                         <div className="btn_right_table">
                           <button
                             className="theme-btn-one bg-black btn_sm"
