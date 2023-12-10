@@ -1,10 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+
 // import "./createcategory.css";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import swal2 from "sweetalert2";
-import Button from "@mui/material/Button";
 import Sidebar from "../Sidebar/Sidebar.js"; 
 import {
   createPincode,
