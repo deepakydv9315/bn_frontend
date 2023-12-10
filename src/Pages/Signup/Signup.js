@@ -50,7 +50,6 @@ export default function Form() {
             <FaTimes />
           </div>
           <h2>Sign Up</h2>
-
           <span>Register</span>
           <br></br>
           <br></br>

@@ -88,18 +88,18 @@ const ProductDetails = () => {
   };
 
   const products = [
-    {
-      flavour: "Chocolate Caramel",
-    },
-    {
-      flavour: "Coffee",
-    },
-    {
-      flavour: "Blueberry Muffin",
-    },
-    {
-      flavour: "UnFlavoured",
-    },
+  //   {
+  //     flavour: "Chocolate Caramel",
+  //   },
+  //   {
+  //     flavour: "Coffee",
+  //   },
+  //   {
+  //     flavour: "Blueberry Muffin",
+  //   },
+  //   {
+  //     flavour: "UnFlavoured",
+  //   },
   ];
 
   const maxPrice =
@@ -231,7 +231,7 @@ const ProductDetails = () => {
                 </button>
               </div>
 
-              <section className="delivery-section">
+              {/* <section className="delivery-section">
                 <div className="delivery-container">
                   <h2 className="delivery-heading">
                     <FontAwesomeIcon icon={faTruck} /> Deliver to
@@ -250,9 +250,9 @@ const ProductDetails = () => {
                     </button>
                   </div>
                 </div>
-              </section>
+              </section> */}
 
-              <section className="icon-section">
+              {/* <section className="icon-section">
                 <div className="icon-container">
                   <div className="icon-item">
                     <FontAwesomeIcon icon={faCoffee} className="icon" />
@@ -267,7 +267,7 @@ const ProductDetails = () => {
                     <p className="description">Configure settings</p>
                   </div>
                 </div>
-              </section>
+              </section> */}
 
             </div>
             <br></br>
