@@ -39,7 +39,7 @@ export default function LoginForm() {
           <br></br>
           <br></br>
           <button className="signup-with-mail-btn">
-            <BsGoogle className="mailicon"/>{"\u00a0\u00a0\u00a0"}Log In with Google
+            <BsGoogle />{"\u00a0\u00a0\u00a0"}Log In with Google
           </button>
 
           <div className="or-line">or</div>

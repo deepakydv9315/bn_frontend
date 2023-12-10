@@ -38,7 +38,7 @@ export default function Form() {
             <FaTimes />
           </div>
           <h2>Sign Up</h2>
-          <span>Register & get exciting offers on your first order</span>
+          <span>Register</span>
           <br></br>
           <br></br>
           <button className="signup-with-mail-btn">
@@ -76,11 +76,12 @@ export default function Form() {
             {errors.email?.type === "required" && "Email is required"}
             <button className="btn">Sign Up</button>
             <div className="policy">
-              By continuing, I agree to Elini Privacy Policy and Terms of use
+              By continuing, you agree to Burly Nutrition's <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
             </div>
             <div className="old-customer">
+              Old customer?
               <Link to="/login">
-                <p>Old customer? LogIn to your existing account</p>
+                <p>LogIn to your existing account</p>
               </Link>
             </div>
           </form>

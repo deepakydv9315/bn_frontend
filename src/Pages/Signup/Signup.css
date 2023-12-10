@@ -1,5 +1,5 @@
 .si {
-  background: white; /* fallback for old browsers */
+  background: white; 
   background: -webkit-linear-gradient(
     to right,
     #ffc21b
@@ -7,7 +7,7 @@
   background: linear-gradient(
     to right,
     white #ffd000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ); 
   /* height: 110vh; */
   display: flex;
   justify-content: center;
@@ -16,8 +16,8 @@
 }
 .register {
   padding: 10px 30px;
-  max-width: 978px;
-  /* width: 100vw; */
+  max-width: 1000px;
+  height: 100vh;
   display: flex;
   border: 1px solid #e9ecef;
   border-radius: 5px;
@@ -25,7 +25,6 @@
   background-color: white;
   /* display:flex;
   justify-content: center; */
-  
 }
 
 .register span {
