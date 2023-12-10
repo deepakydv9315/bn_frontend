@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import bgImg from "../../Assets/Images/product.png";
@@ -39,7 +39,8 @@ export default function LoginForm() {
           <br></br>
           <br></br>
           <button className="signup-with-mail-btn">
-            <BsGoogle className="mailicon"/>{"\u00a0\u00a0\u00a0"}Log In with Google
+            <BsGoogle className="mailicon" />
+            {"\u00a0\u00a0\u00a0"}Log In with Google
           </button>
 
           <div className="or-line">or</div>
@@ -64,7 +65,8 @@ export default function LoginForm() {
             <button className="btn">Log In</button>
 
             <div className="policy">
-              By continuing, you agree to Burly Nutrition's <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
+              By continuing, you agree to Burly Nutrition's{" "}
+              <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
             </div>
             <div className="new-customer">
               New customer?
