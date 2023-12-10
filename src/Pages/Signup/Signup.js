@@ -7,7 +7,8 @@ import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { createUser } from "../../Redux/slices/user";
 
 export default function Form() {
@@ -28,7 +29,18 @@ export default function Form() {
     dispatch(createUser(data));
   };
 
-  // console.log(watch('username'));
+  const handleSignUp = () => {
+    const isUserRegistered = false;
+    const isEmailInvalid = false;
+
+    if (isUserRegistered) {
+      toast.error('Email is already registered!', { position: 'top-right' });
+    } else if (isEmailInvalid) {
+      toast.error('Invalid email address!', { position: 'top-right' });
+    } else {
+      toast.success('🦄 Registration successful!', { position: 'top-right' });
+    }
+  };
 
   return (
     <section className="si">
@@ -38,6 +50,7 @@ export default function Form() {
             <FaTimes />
           </div>
           <h2>Sign Up</h2>
+
           <span>Register</span>
           <br></br>
           <br></br>
@@ -74,7 +87,21 @@ export default function Form() {
               placeholder="confirm password"
             />
             {errors.email?.type === "required" && "Email is required"}
-            <button className="btn">Sign Up</button>
+            <div>
+              <button className="btn" onClick={handleSignUp}>Sign Up</button>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
+            </div>
             <div className="policy">
               By continuing, you agree to Burly Nutrition's <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
             </div>
