@@ -1,0 +1,142 @@
+.dashboard {
+  .productListContainer {
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+
+    #productListHeading {
+      font: 400 2rem "Roboto";
+      box-sizing: border-box;
+      color: rgba(0, 0, 0, 0.637);
+      transition: all 0.5s;
+      text-align: center;
+    }
+
+    button {
+      background-color: var(--fade-blue);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 10px 15px;
+    }
+
+    .add-address-dialog {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 55%;
+      left: 58%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+
+      h4 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        color: #333;
+
+        input {
+          margin-left: 8px;
+        }
+      }
+
+      button {
+        background-color: #4cafa8;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #458ca0;
+        }
+      }
+
+      .close-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+
+        &:hover {
+          color: #888;
+        }
+      }
+    }
+
+    .address-list {
+      margin-top: 20px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 20px;
+
+      .address-item {
+        width: 40%;
+        background-color: #ffffff;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+
+        strong {
+          font-size: 18px;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        .default-address {
+          color: #231918;
+          font-weight: bold;
+        }
+
+        .address-options {
+          margin-left: 10px;
+          button {
+            background-color: transparent;
+            color: #000000;
+            border: 1px solid rgb(39, 39, 39);
+            cursor: pointer;
+            padding: 2px 10px;
+          }
+        }
+      }
+    }
+  }
+}

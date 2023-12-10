@@ -7,7 +7,9 @@ import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { clearError, getLoggedInrUser } from "../../Redux/slices/user";
+import { getLoggedInrUser, clearError } from "../../Redux/slices/user";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { loginGoogleUser } from "../../Redux/slices/user";
 
 export default function LoginForm() {
@@ -26,6 +28,24 @@ export default function LoginForm() {
     if (isAuthenticated) {
       navigate("/");
       dispatch(clearError());
+    }
+  };
+
+  const handleLogin = () => {
+    const isIncorrectPassword = false;
+    const isInvalidEmail = false;
+    const isUserNotFound = false;
+
+    if (isIncorrectPassword) {
+      toast.error("Incorrect password!", { position: "top-right" });
+    } else if (isInvalidEmail) {
+      toast.error("Invalid email address!", { position: "top-right" });
+    } else if (isUserNotFound) {
+      toast.error("User not found. Please register!", {
+        position: "top-right",
+      });
+    } else {
+      toast.success("🎉 Login successful!", { position: "top-right" });
     }
   };
 
@@ -67,7 +87,23 @@ export default function LoginForm() {
               </Link>
             </div>
 
-            <button className="btn">Log In</button>
+            <div>
+              <button className="btn" onClick={handleLogin}>
+                Log In
+              </button>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
+            </div>
 
             <div className="policy">
               By continuing, you agree to Burly Nutrition's{" "}

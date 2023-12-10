@@ -17,23 +17,18 @@ export default function Goals() {
     <div className="goals-container">
       <GridItem
         icon={<img src={Truck} alt="Like" />}
-        title="Body Building"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, autem."
+        title="Bulking Up"
+        description="Build healthy muscle mass with our selection of gainers, designed to help you gain muscle, bulk up, and cultivate a stronger, more robust physique for an overall healthier body."
       />
       <GridItem
         icon={<img src={Truck} alt="Like" />}
         title="Weight Loss"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, autem."
+        description="Achieve healthy weight loss by using our products designed to effectively burn excess fat."
       />
       <GridItem
         icon={<img src={Truck} alt="Like" />}
         title="Lean Muscle Mass"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, autem."
-      />
-      <GridItem
-        icon={<img src={Truck} alt="Like" />}
-        title="Bulking Up"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, autem."
+        description="Refine your physique by building lean muscle mass for a toned, defined, and ripped look."
       />
     </div>
   );

@@ -44,6 +44,10 @@ import RefundPolicy from "./Pages/RefundReturnPolicy/Refund.js";
 import Shipping from "./Pages/Shipping/Shipping.js";
 import PrivacyPolicy from "./Pages/Privacy/Privacy.js";
 import TermsCondition from "./Pages/Terms/Terms.js";
+import User from "./Pages/User/Dashboard.js";
+import Password from "./Pages/User/Password.js";
+import MyOrder from "./Pages/User/MyOrders.js";
+import Address from "./Pages/User/AddressBook.js";
 
 function App() {
   return (
@@ -57,6 +61,10 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/user/password" element={<Password />} />
+        <Route path="/user/orders" element={<MyOrder />} />
+        <Route path="/user/address" element={<Address />} />
         <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/terms" element={<TermsCondition />} />
         <Route path="/products" element={<Products />} />
@@ -71,7 +79,7 @@ function App() {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
         <Route path="/refund" element={<RefundPolicy />} />
-       
+
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/products" element={<ProductList />} />
         <Route path="/admin/product/create" element={<CreateProduct />} />
@@ -82,7 +90,7 @@ function App() {
         <Route path="/admin/category/:id" element={<UpdateCategory />} />
 
         <Route path="/admin/users" element={<UserList />} />
-        
+
         <Route path="/admin/pincodes" element={<Pincodes />} />
         <Route path="/admin/pincodes/create" element={<CreatePincode />} />
         <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />

@@ -119,8 +119,7 @@ const Home = () => {
             Shop by <span>Goal</span>
           </div>
           <div className="desciption">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Laudantium, expedita.
+          Get fit with precision. Explore now for the best results!
           </div>
           <div className="goals-section">
             <Goals />
