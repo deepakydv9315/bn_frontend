@@ -41,13 +41,11 @@ export const createUser = createAsyncThunk(
 );
 
 export const loginGoogleUser = createAsyncThunk(
-  "/api/v1/auth/google/login",
+  "/api/v1/auth/google",
   async (_, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
-      // const response = await axiosClient.get("/api/v1/oauth/google");
-      window.location.href = "https://api.freeofgluten.in/api/v1/auth/login"; //Change this base Url to Your Backend URL
-      // console.log("This is Response from our APi", response);
+      window.location.href = "http://localhost:4000/api/v1/auth/login"; //Change this base Url to Your Backend URL
       // return response;
     } catch (error) {
       return Promise.reject(error.message);

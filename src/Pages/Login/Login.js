@@ -7,9 +7,11 @@ import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getLoggedInrUser } from "../../Redux/slices/user";
+import { clearError, getLoggedInrUser } from "../../Redux/slices/user";
+import { loginGoogleUser } from "../../Redux/slices/user";
 
 export default function LoginForm() {
+  const { isAuthenticated } = useSelector((state) => state.user);
   const {
     register,
     handleSubmit,
@@ -19,26 +21,29 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleNavigation = () => {
-    navigate("/");
-  };
-
   const onSubmit = (data) => {
     dispatch(getLoggedInrUser(data));
+    if (isAuthenticated) {
+      navigate("/");
+      dispatch(clearError());
+    }
   };
 
   return (
     <section className="si">
       <div className="register">
         <div className="col-1">
-          <div className="close-icon" onClick={handleNavigation}>
+          <div className="close-icon" onClick={() => navigate("/")}>
             <FaTimes />
           </div>
           <h2>Log In</h2>
           <span>Log in to your account</span>
           <br></br>
           <br></br>
-          <button className="signup-with-mail-btn">
+          <button
+            className="signup-with-mail-btn"
+            onClick={() => dispatch(loginGoogleUser())}
+          >
             <BsGoogle className="mailicon" />
             {"\u00a0\u00a0\u00a0"}Log In with Google
           </button>

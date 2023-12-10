@@ -6,11 +6,14 @@ import { useForm } from "react-hook-form";
 import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { createUser } from "../../Redux/slices/user";
+import { loginGoogleUser } from "../../Redux/slices/user";
+import { clearError } from "../../Redux/slices/user";
 
 export default function Form() {
+  const { isAuthenticated } = useSelector((state) => state.user);
   const {
     register,
     handleSubmit,
@@ -20,12 +23,12 @@ export default function Form() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleNavigation = () => {
-    navigate("/");
-  };
-
   const onSubmit = (data) => {
     dispatch(createUser(data));
+    if (isAuthenticated) {
+      navigate("/");
+      dispatch(clearError());
+    }
   };
 
   // console.log(watch('username'));
@@ -34,14 +37,17 @@ export default function Form() {
     <section className="si">
       <div className="register">
         <div className="col-1">
-          <div className="close-icon" onClick={handleNavigation}>
+          <div className="close-icon" onClick={() => navigate("/")}>
             <FaTimes />
           </div>
           <h2>Sign Up</h2>
           <span>Register & get exciting offers on your first order</span>
           <br></br>
           <br></br>
-          <button className="signup-with-mail-btn">
+          <button
+            className="signup-with-mail-btn"
+            onClick={() => dispatch(loginGoogleUser())}
+          >
             <BsGoogle />
             {"\u00a0\u00a0\u00a0"}Sign Up with Google
           </button>
