@@ -40,12 +40,15 @@
   padding: 0.9em 1em;
 }
 
-#form > input:focus {
-  outline: none;
-}
-
 #form > .btn {
   background-color: #493f00;
+  color: #e9ecef;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#form > .btn:hover {
+  background-color: #776700;
   color: #e9ecef;
   font-size: 1em;
   cursor: pointer;
@@ -102,7 +105,9 @@
   margin-bottom: 10px;
   font-size: 14px;
 }
-
+.mailicon {
+  padding-top: 2px;
+}
 .or-line {
   margin: 10px 0;
   font-size: 16px;
@@ -128,5 +133,5 @@ p {
   margin-top: 5px;
 }
 p:hover {
-  color: #1f1616;
+  color: #002168;
 }

@@ -8,20 +8,24 @@
     to right,
     white #ffd000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 110vh;
+  /* height: 110vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
 }
 .register {
+  padding: 10px 30px;
   max-width: 978px;
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   border: 1px solid #e9ecef;
   border-radius: 5px;
   /* box-shadow: 1px 3px 10px #e9ecef; */
   background-color: white;
+  /* display:flex;
+  justify-content: center; */
+  
 }
 
 .register span {

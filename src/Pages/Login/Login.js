@@ -39,8 +39,7 @@ export default function LoginForm() {
           <br></br>
           <br></br>
           <button className="signup-with-mail-btn">
-            <BsGoogle />
-            {"\u00a0\u00a0\u00a0"}Log In with Google
+            <BsGoogle className="mailicon"/>{"\u00a0\u00a0\u00a0"}Log In with Google
           </button>
 
           <div className="or-line">or</div>
@@ -61,14 +60,16 @@ export default function LoginForm() {
                 <p>Forgot your password?</p>
               </Link>
             </div>
+
             <button className="btn">Log In</button>
 
             <div className="policy">
-              By continuing, I agree to Elini Privacy Policy and Terms of use
+              By continuing, you agree to Burly Nutrition's <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
             </div>
             <div className="new-customer">
+              New customer?
               <Link to="/signup">
-                <p>New customer? Sign up for an account</p>
+                <p> Sign up for an account</p>
               </Link>
             </div>
           </form>

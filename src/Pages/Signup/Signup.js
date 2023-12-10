@@ -38,7 +38,7 @@ export default function Form() {
             <FaTimes />
           </div>
           <h2>Sign Up</h2>
-          <span>Register & get 10% off on your first order</span>
+          <span>Register & get exciting offers on your first order</span>
           <br></br>
           <br></br>
           <button className="signup-with-mail-btn">
