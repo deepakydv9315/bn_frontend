@@ -105,7 +105,7 @@ const Blogs = () => {
             <Link
               to="/admin/blog/create"
               className="theme-btn-one bg-black btn_md"
-              style={{ color: "black", backgroundColor: "yellow" }}
+              style={{ color: "black"}}
             >
               Create Blog
             </Link>

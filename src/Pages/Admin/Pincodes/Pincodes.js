@@ -93,7 +93,7 @@ const ProductList = ({ history }) => {
             <Link
               to="/admin/pincodes/create"
               className="theme-btn-one bg-black btn_md"
-              style={{ color: "black", backgroundColor: "yellow" }}
+              style={{ color: "black" }}
             >
               Create Pincode
             </Link>
