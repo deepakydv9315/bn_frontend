@@ -35,7 +35,7 @@ import CreateBlog from "./Pages/Admin/CreateBlog/CreateBlog.js";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import BlogDetail from "./Pages/Blog/BlogDetail.js";
-import Checkout from "./Pages/Checkout/index.js";
+import Checkout from "./Pages/Checkout/Ship.js";
 import Recipes from "./Pages/Recipes/Recipes";
 import Report from "./Pages/Authenticate/Report";
 import ForgetPasswordPage from "./Pages/ForgetPassword/ForgetPasswordPage";
