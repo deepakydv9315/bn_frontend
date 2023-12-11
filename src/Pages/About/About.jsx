@@ -15,7 +15,7 @@ const AboutPage = () => {
       </div>
       <div className="ab">
         <div className="about-text">
-          <h3>About Us</h3>
+          <h3>Our Story</h3>
           <p>
             Welcome to Burly Nutrition, your trusted partner on your fitness
             journey. We are dedicated to providing you with the highest quality
@@ -29,7 +29,7 @@ const AboutPage = () => {
         </div>
 
         <div className="about-text">
-          <h3>About</h3>
+          <h3>Our Mission</h3>
           <p>
             Our mission is to craft gym supplements that redefine your fitness
             journey. We understand that your dedication, hard work, and goals
@@ -41,7 +41,7 @@ const AboutPage = () => {
             standards, ensuring that every product we create stands as a
             testament to excellence. Whether you're a seasoned athlete or a
             newcomer to the gym, you can rely on our supplements to empower your
-            workouts and amplify your results
+            workouts and amplify your results
           </p>
         </div>
       </div>

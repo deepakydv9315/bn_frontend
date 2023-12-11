@@ -38,13 +38,6 @@ const Navbar = () => {
       <div className="top__nav nav-contain">
         <p className="header-sale">हसल 4 मसल</p>
         <div className="social__icon">
-          {/* <a href="/" className="track_order">
-            <u>TRACK ORDER</u>
-          </a> */}
-          {/* <a href="/" target="_blank" rel="noreferrer">
-            <BsTwitter />
-          </a> */}
-
           <a
             href="https://www.facebook.com/burlynutrition.in"
             target="_blank"
