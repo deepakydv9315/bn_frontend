@@ -3,7 +3,7 @@ import './Contact.scss';
 
 const ContactUsPage = () => {
   return (
-    <div>
+    <div className='contain'>
       <h1 className='contacthead'>Contact <span>Us</span></h1>
       <div className="contact-us-page">
         <div className="left-section">
@@ -27,9 +27,9 @@ const ContactUsPage = () => {
         <div className="right-section">
           <h3 className='supp'>Support</h3>
           <div className="contact-info">
-            <div className='info'>Phone - <span>+91 95403 78443</span></div><br/>
-            <div className='info'>Email - <span>burlynutrition@gmail.com</span></div><br/>
-            <div className='info'>Address - <span>Plot No.119,120 qutub vihar Ph-1, Dwarka sec-19, Delhi-110071</span></div>
+            <div className='info'>Phone - <br></br>+91 95403 78443</div><br/>
+            <div className='info'>Email - <br></br>burlynutrition@gmail.com</div><br/>
+            <div className='info'>Address - <br></br>Plot No.119,120 qutub vihar Ph-1, Dwarka sec-19, Delhi-110071</div>
           </div>
         </div>
       </div>

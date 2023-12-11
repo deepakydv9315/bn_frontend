@@ -97,7 +97,7 @@ const CouponList = ({ history }) => {
           <h1 id="productListHeading">ALL COUPONS</h1>
           <div className="btn create">
             <Link
-              style={{ color: "black",backgroundColor:"yellow" }}
+              style={{ color: "black" }}
               to="/admin/coupon/create"
               className="theme-btn-one bg-black btn_md"
             >

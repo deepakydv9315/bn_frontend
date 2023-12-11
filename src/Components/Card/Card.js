@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 
-function Card({ products }) {
+function Card({products}) {
   const navigate = useNavigate();
 
   const handleImageClick = (_id) => {
@@ -23,12 +23,17 @@ function Card({ products }) {
 
   return (
     <div className="Cards">
-      {products.map((product) => (
-        <div key={product.id} className="product-card">
-          <div className="badge">50% OFF</div>
+      {products && products.map((product, index) => {
+        console.log("Prdsuct images => ", index, product.name , product.images);
+        return (
+        <div key={index} className="product-card">
+          <div className="badge">
+            <span className="badge_top">50%</span>
+            <span className="badge_btm">OFF</span>
+          </div>
           <div className="product-card-img">
             <img
-              src={product.images[0].url}
+              src={product.images.lenght >= 0 ? product.images[0].url : product.images.url}
               alt={product.name}
               onClick={handleImageClick.bind(this, product._id)}
             />
@@ -50,7 +55,7 @@ function Card({ products }) {
                   Math.max(
                     ...product.weightPrice.map((item) => parseInt(item.price))
                   )
-                )}`}
+                )}}`}
               </p>
             </div>
             <div className="card-btns">
@@ -63,7 +68,7 @@ function Card({ products }) {
             </div>
           </div>
         </div>
-      ))}
+     )}) }
     </div>
   );
 }

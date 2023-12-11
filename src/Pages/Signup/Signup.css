@@ -1,13 +1,10 @@
 .si {
-  background: white; 
+  background: white;
   background: -webkit-linear-gradient(
     to right,
     #ffc21b
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    white #ffd000
-  ); 
+  background: linear-gradient(to right, white #ffd000);
   /* height: 110vh; */
   display: flex;
   justify-content: center;
@@ -40,7 +37,10 @@
 #form > input,
 .btn {
   border: 1px solid #e9ecef;
-  padding: 0.9em 1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  background-color: #dabd00;
+  margin-bottom: 20px;
 }
 
 #form > input:focus {

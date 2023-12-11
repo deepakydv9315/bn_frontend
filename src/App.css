@@ -1,7 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-  
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -37,8 +36,10 @@
     transform: rotate(360deg);
   }
 }
-.contain{
-  padding: 50px 30px 50px 50px ;
+
+.contain {
+  padding: 50px 60px;
+  width: 100%;
 }
 
 .AppGlass {
@@ -53,14 +54,14 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .AppGlass{
+  .AppGlass {
     grid-template-columns: 10% 50% auto;
     overflow-y: scroll;
-  } 
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .AppGlass{
+  .AppGlass {
     grid-template-columns: 1fr;
-  } 
+  }
 }

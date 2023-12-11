@@ -17,13 +17,8 @@ import MinLoader from "../../Components/Loader/MinLoader.js";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-  const dummyCategories = [
-    { name: "Burly Whey" },
-    { name: "Burly Creatine" },
-  ];
-
   const { categoryname } = useParams();
-
+  let category = useSelector((state) => state.products.categories);
   const [activeFilter, setActiveFilter] = useState("All");
 
   const dispatch = useDispatch();
@@ -50,14 +45,13 @@ const Home = () => {
 
   const categoryChangeHandler = (filterName) => {
     setActiveFilter(filterName);
-    dispatch(getAllProducts({product: filterName }));
+    dispatch(getAllProducts({ product: filterName }));
   };
 
   const handleAllProduct = () => {
     dispatch(getAllProducts());
     setActiveFilter("All");
   };
-
 
   return (
     <div className="home-page">
@@ -71,17 +65,19 @@ const Home = () => {
             <div className="app__work-filter">
               <div
                 onClick={handleAllProduct}
-                className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
-                  }`}
+                className={`app__work-filter-item app__flex p-text ${
+                  activeFilter === "All" ? "item-active" : ""
+                }`}
               >
                 All
               </div>
-              {dummyCategories.map((product, index) => (
+              {category.map((product, index) => (
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
-                    }`}
+                  className={`app__work-filter-item app__flex p-text ${
+                    activeFilter === product.name ? "item-active" : ""
+                  }`}
                 >
                   {product.name}
                 </div>
@@ -114,18 +110,16 @@ const Home = () => {
         </section>
 
         <section className="content-of-goal">
-
           <div className="title">
             Shop by <span>Goal</span>
           </div>
           <div className="desciption">
-          Get fit with precision. Explore now for the best results!
+            Get fit with precision. Explore now for the best results!
           </div>
           <div className="goals-section">
             <Goals />
           </div>
         </section>
-
       </div>
 
       {/* whey protein sec  */}
@@ -171,8 +165,6 @@ const Home = () => {
             <Levels />
           </div>
         </section>
-
-
       </div>
 
       <section className="why-page">

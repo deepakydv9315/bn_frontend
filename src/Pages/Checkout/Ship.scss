@@ -1,0 +1,92 @@
+.checkout-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+
+  .ship-address {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 400px;
+
+    .ship-tittle {
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .ship-form {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px 0px;
+
+      .input-group {
+        width: 100%;
+
+        .input-label {
+          text-align: left;
+          margin-bottom: 2px !important;
+        }
+
+        input {
+          border: 1px solid #b4b3b3;
+          padding: 7px 10px;
+          font-size: 16px;
+          border-radius: 2px;
+          outline: none;
+        }
+      }
+
+      .ig {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px 20px;
+        .ig-1 {
+          width: 50%;
+        }
+      }
+
+      .checkbox {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0px 5px;
+
+        input {
+          width: 18px;
+          height: 18px;
+          padding: 0px;
+        }
+
+        div {
+          margin-bottom: 0px !important;
+        }
+      }
+
+      .ship-btn {
+        font-size: 18px;
+        font-weight: 400;
+        border: none;
+        padding: 10px 20px;
+        background: #ffd626;
+        color: #121212;
+        cursor: pointer;
+        border-radius: 2px;
+        margin-top: 20px;
+      }
+    }
+  }
+}

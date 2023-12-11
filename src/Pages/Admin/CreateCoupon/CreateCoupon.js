@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import swal2 from "sweetalert2";
+import "./Coupon.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import { createCoupon, setStatusResponse } from "../../../Redux/slices/utilsSlice";
-// import { createPincode, setStatus } from "../../app/slices/utils";
 
 function CreateCoupon() {
   const navigate = useNavigate();
@@ -68,6 +68,7 @@ function CreateCoupon() {
                         </div>
                       </div>
                       <br></br>
+                      
                       <div className="col-lg-12">
                         <div className="fotm-group">
                           <label htmlFor="product_price">

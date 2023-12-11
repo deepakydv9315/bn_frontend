@@ -1,5 +1,4 @@
 .contacthead {
-  padding: 40px;
   font-family: "Goldman", cursive;
   font-weight: 700;
   font-size: 48px;
@@ -15,6 +14,7 @@
 .contact-us-page {
   display: flex;
   flex-wrap: wrap;
+  padding: 50px 70px 30px 70px;
   @media (max-width: 768px) {
     display: block;
   }
@@ -22,11 +22,11 @@
   .left-section,
   .right-section {
     width: 50%;
-    padding: 20px;
+    padding:0px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    
+
     @media (max-width: 768px) {
       display: block;
       width: 100%;
@@ -37,15 +37,15 @@
   .left-section {
     .contact-form {
       text-align: left;
-      padding: 20px;
+      // padding: 20px;
       @media (max-width: 768px) {
-        padding: 0px 10px 0px 10px;
+        // padding: 0px 10px 0px 10px;
       }
 
       .getin {
         font-family: "Goldman", cursive;
         margin-bottom: 25px;
-        font-size:30px;
+        font-size: 30px;
         text-align: left;
       }
 
@@ -78,7 +78,7 @@
 
       .send-button {
         background-color: #212121;
-      
+
         color: #fff;
         padding: 10px 20px;
         border: none;
@@ -91,10 +91,10 @@
   .right-section {
     text-align: left;
     .supp {
-      margin-top: 20px;
       font-family: "Goldman", cursive;
       margin-bottom: 25px;
-      font-size: 24px;
+      font-size: 30px;
+      text-align: left;
     }
 
     .contact-info {
