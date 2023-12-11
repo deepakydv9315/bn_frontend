@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from "../../Components/Card/Card";
+import product from "../../Assets/Images/pr.png";
 
 export default function Product() {
   const dispatch = useDispatch();
@@ -70,44 +71,59 @@ export default function Product() {
 
   const filteredProducts = Array.isArray(products)
     ? products.filter((product) => {
-        // Apply filters and search query here
-        return (
-          (selectedFilters.length === 0 ||
-            selectedFilters.includes(product.size)) &&
-          (searchQuery === "" ||
-            product.name.toLowerCase().includes(searchQuery.toLowerCase()))
-        );
-      })
+      // Apply filters and search query here
+      return (
+        (selectedFilters.length === 0 ||
+          selectedFilters.includes(product.size)) &&
+        (searchQuery === "" ||
+          product.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    })
     : [];
 
   return (
     <div>
-      <section className="contain">
-        <div className="title1 product">Products</div>
+      <div className="image-with-text-container">
+        <img src={product} alt="YourImage" className="image" />
+        <div className="text">
+          All <span> Products</span>
+        </div>
+      </div>
+
+      <section className="contain" style={{ padding: "0px" }}>
         <div className="app">
+          <section className="content-of-goal">
+            <div className="title" style={{ paddingddin: "0px" }}>
+              Shop<span>Products</span>
+            </div>
+            <div className="desciption">
+              Get fit with precision. Explore now for the best results!
+            </div>
+
+          </section>
           {/* <Sidebar
             filters={filters}
             selectedFilters={selectedFilters}
             handleFilterChange={handleFilterChange}
           /> */}
           <div className="main-content">
-            <div className="top-bar">
+            {/* <div className="top-bar">
               <div className="search-bar">
-                {/*
+                
                  <SearchBar
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
                  />
-                */}
+               
               </div>
-            </div>
-            <div className="filters">
+            </div> */}
+            {/* <div className="filters">
               <div className="product-count">
                 {products.products
                   ? `${products.products.length} Products`
                   : ""}
               </div>
-              {/* <div className="sort-by">
+              <div className="sort-by">
                 <select
                   value={sortBy}
                   onChange={(e) => handleSortChange(e.target.value)}
@@ -116,9 +132,10 @@ export default function Product() {
                   <option value="lowToHigh">Price: Low to High</option>
                   <option value="highToLow">Price: High to Low</option>
                 </select>
-              </div> */}
-            </div>
+              </div>
+            </div> */}
             <br></br>
+
             {products.products && products.products.length !== 0 ? (
               <Card products={products?.products} />
             ) : null}

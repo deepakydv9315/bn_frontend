@@ -40,6 +40,22 @@ export const createUser = createAsyncThunk(
   }
 );
 
+export const updateUser = createAsyncThunk(
+  "/api/v1/auth/me/update",
+  async (body, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(setLoading(true));
+      const response = await axiosClient.put("/api/v1/auth/me/update", body);
+      console.log("To Update Users : ", response.data);
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.message);
+    } finally {
+      thunkAPI.dispatch(setLoading(false));
+    }
+  }
+);
+
 export const loginGoogleUser = createAsyncThunk(
   "/api/v1/auth/google/login",
   async (_, thunkAPI) => {

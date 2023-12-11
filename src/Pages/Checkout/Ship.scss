@@ -1,0 +1,29 @@
+.checkout-wrapper{
+    border:1px solid black;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: row;
+    width: 100%;
+
+    .ship-address{
+        background-color: #fff;
+        border:1px solid black;
+        display:flex;
+        justify-content: flex-start;
+        align-items:flex-start;
+        flex-direction: column;
+        width: 50%;
+
+        h2{
+            text-align: center
+        }
+
+        .ship-form{
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            flex-direction:column;
+        }
+    }
+}

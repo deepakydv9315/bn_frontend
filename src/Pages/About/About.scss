@@ -1,7 +1,6 @@
 .about-container {
   display: flex;
   flex-direction: column;
-
   background-color: #f7f7f7;
 
   .image-with-text-container {
@@ -10,9 +9,7 @@
       width: 100%;
       display: block;
       object-fit: cover;
-      height: auto;
     }
-
     .text {
       position: absolute;
       font-family: "Goldman", cursive;
@@ -36,6 +33,9 @@
     align-items: center;
     .about-text {
       padding: 30px;
+      p {
+        text-align: left;
+      }
     }
 
     .truck {
@@ -45,12 +45,16 @@
     h2,
     h3 {
       color: #333;
+      font-family: "Goldman", cursive;
+      margin-bottom: 25px;
+      font-size: 30px;
+      text-align: left;
     }
   }
 
   .center-heading {
     text-align: center;
-    margin: 80px;
+    margin: 50px 20px 0px 20px;
   }
   .info-grid {
     position: relative;

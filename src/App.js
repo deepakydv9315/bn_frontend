@@ -35,7 +35,7 @@ import CreateBlog from "./Pages/Admin/CreateBlog/CreateBlog.js";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import BlogDetail from "./Pages/Blog/BlogDetail.js";
-import Checkout from "./Pages/Checkout/CheckoutPage";
+import Checkout from "./Pages/Checkout/index.js";
 import Recipes from "./Pages/Recipes/Recipes";
 import Report from "./Pages/Authenticate/Report";
 import ForgetPasswordPage from "./Pages/ForgetPassword/ForgetPasswordPage";
@@ -48,6 +48,7 @@ import User from "./Pages/User/Dashboard.js";
 import Password from "./Pages/User/Password.js";
 import MyOrder from "./Pages/User/MyOrders.js";
 import Address from "./Pages/User/AddressBook.js";
+import Ship from "./Pages/Checkout/Ship.js";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/ship" element={<Ship />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/checkout" element={<Checkout />} />

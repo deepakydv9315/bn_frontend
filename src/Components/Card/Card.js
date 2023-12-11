@@ -25,10 +25,13 @@ function Card({ products }) {
     <div className="Cards">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-          <div className="badge">50% OFF</div>
+          <div className="badge">
+            <span className="badge_top">50%</span>
+            <span className="badge_btm">OFF</span>
+            </div>
           <div className="product-card-img">
             <img
-              src={product.images[0].url}
+              src={product.images.url}
               alt={product.name}
               onClick={handleImageClick.bind(this, product._id)}
             />
