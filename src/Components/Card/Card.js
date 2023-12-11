@@ -24,7 +24,7 @@ function Card({products}) {
   return (
     <div className="Cards">
       {products && products.map((product, index) => {
-        console.log(product.images);
+        console.log("Prdsuct images => ", index, product.name , product.images);
         return (
         <div key={index} className="product-card">
           <div className="badge">
@@ -33,7 +33,7 @@ function Card({products}) {
           </div>
           <div className="product-card-img">
             <img
-              src={product.images.lenght > 0 ? product.images[0].url : product.images.url}
+              src={product.images.lenght >= 0 ? product.images[0].url : product.images.url}
               alt={product.name}
               onClick={handleImageClick.bind(this, product._id)}
             />
