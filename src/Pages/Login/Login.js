@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { loginGoogleUser } from "../../Redux/slices/user";
 
 export default function LoginForm() {
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated, error } = useSelector((state) => state.user);
   const {
     register,
     handleSubmit,
@@ -23,29 +23,16 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    dispatch(getLoggedInrUser(data));
-    if (isAuthenticated) {
-      navigate("/");
-      dispatch(clearError());
-    }
-  };
-
-  const handleLogin = () => {
-    const isIncorrectPassword = false;
-    const isInvalidEmail = false;
-    const isUserNotFound = false;
-
-    if (isIncorrectPassword) {
-      toast.error("Incorrect password!", { position: "top-right" });
-    } else if (isInvalidEmail) {
-      toast.error("Invalid email address!", { position: "top-right" });
-    } else if (isUserNotFound) {
-      toast.error("User not found. Please register!", {
-        position: "top-right",
-      });
+  const handleLogin = (data) => {
+    if (error) {
+      toast.error(error, { position: "top-right" });
     } else {
-      toast.success("🎉 Login successful!", { position: "top-right" });
+      dispatch(getLoggedInrUser(data));
+      if (isAuthenticated) {
+        toast.success("🎉 Login successful!", { position: "top-right" });
+        navigate("/");
+        dispatch(clearError());
+      }
     }
   };
 
@@ -73,7 +60,7 @@ export default function LoginForm() {
           <form
             id="form"
             className="flex flex-col"
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(handleLogin)}
           >
             <input type="text" {...register("email")} placeholder="E-Mail" />
             <input
