@@ -48,6 +48,7 @@ import Password from "./Pages/User/Password.js";
 import MyOrder from "./Pages/User/MyOrders.js";
 import Address from "./Pages/User/AddressBook.js";
 import Ship from "./Pages/Checkout/Ship.js";
+import Invoice from "./Pages/Checkout/Invoice.js";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/invoice" element={<Invoice />} />
         <Route path="/ship" element={<Ship />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
