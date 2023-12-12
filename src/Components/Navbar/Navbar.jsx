@@ -18,6 +18,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const { carts } = useSelector((state) => state.products);
+  const { isAuthenticated } = useSelector((state) => state.user);
   const { isCartOpen } = useSelector((state) => state.app);
   const navigate = useNavigate();
 
@@ -26,7 +27,11 @@ const Navbar = () => {
   };
 
   function open() {
-    navigate("/login");
+    if(isAuthenticated) {
+      navigate("/user");
+    } else {
+      navigate("/login");
+    }
   }
 
   const handleNavigation = () => {

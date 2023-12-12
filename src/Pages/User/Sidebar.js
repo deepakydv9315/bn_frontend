@@ -10,27 +10,24 @@ import {
   faShoppingCart,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { getLoggedoutUser } from "../../Redux/slices/user";
 import Swal from "sweetalert2";
-import { SidebarData } from './SidebarData';
-import './Navbar.css';
-import { IconContext } from 'react-icons';
-import { useNavigate } from "react-router-dom";
+import { SidebarData } from "./SidebarData";
+import "./Navbar.css";
+import { IconContext } from "react-icons";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  // i want to get path name
+  const location = useLocation();
   const dispatch = useDispatch();
-  const [activeTab, setActiveTab] = useState('Profile');
   const [sidebar, setSidebar] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState(profile);
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
-
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
-  }
 
   const handleLogout = () => {
     dispatch(getLoggedoutUser());
@@ -73,7 +70,6 @@ const Sidebar = () => {
       });
   };
 
-
   const handlLogout = () => {
     dispatch(getLoggedoutUser());
     Swal.fire({
@@ -88,11 +84,7 @@ const Sidebar = () => {
       <div className="user-sidebar">
         <div className="userImg">
           <label htmlFor="imgLabel" className="inputLabel">
-            <img
-              className="inputLabel"
-              src={profilePhoto}
-              alt="labelImg"
-            />
+            <img className="inputLabel" src={profilePhoto} alt="labelImg" />
           </label>
           <input
             id="imgLabel"
@@ -104,7 +96,11 @@ const Sidebar = () => {
         </div>
         <ul>
           <Link to="/user" style={{ color: "white" }}>
-            <li className={`option ${activeTab === "Profile" ? "active" : ""}`} onClick={() => handleTabClick('Profile')}>
+            <li
+              className={`option ${
+                location.pathname === "/user" ? "active" : ""
+              }`}
+            >
               <span>
                 {" "}
                 <FontAwesomeIcon icon={faUser} />{" "}
@@ -114,7 +110,11 @@ const Sidebar = () => {
           </Link>
 
           <Link to="/user/password" style={{ color: "white" }}>
-            <li className={`option ${activeTab === "Passwords" ? "active" : ""}`} onClick={() => handleTabClick('Passwords')}>
+            <li
+              className={`option ${
+                location.pathname === "/user/password" ? "active" : ""
+              }`}
+            >
               <span>
                 <FontAwesomeIcon icon={faListAlt} />
               </span>
@@ -123,7 +123,11 @@ const Sidebar = () => {
           </Link>
 
           <Link to="/user/address" style={{ color: "white" }}>
-            <li className={`option ${activeTab === "Address Book" ? "active" : ""}`} onClick={() => handleTabClick('Address Book')}>
+            <li
+              className={`option ${
+                location.pathname === "/user/address" ? "active" : ""
+              }`}
+            >
               <span>
                 <FontAwesomeIcon icon={faAddressBook} />
               </span>
@@ -132,7 +136,11 @@ const Sidebar = () => {
           </Link>
 
           <Link to="/user/orders" style={{ color: "white" }}>
-            <li className={`option ${activeTab === "My Orders" ? "active" : ""}`} onClick={() => handleTabClick('My Orders')}>
+            <li
+              className={`option ${
+                location.pathname === "/user/orders" ? "active" : ""
+              }`}
+            >
               <span>
                 <FontAwesomeIcon icon={faShoppingCart} />
               </span>
@@ -151,26 +159,22 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <div className='navbar'>
-          <Link to='#' className='menu-bars'>
+      <IconContext.Provider value={{ color: "#fff" }}>
+        <div className="navbar">
+          <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
         </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' onClick={showSidebar}>
-            <li className='navbar-toggle'>
-              <Link to='#' className='menu-bars'>
+        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+          <ul className="nav-menu-items" onClick={showSidebar}>
+            <li className="navbar-toggle">
+              <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
             <div className="userImg">
               <label htmlFor="imgLabel" className="inputLabel">
-                <img
-                  className="inputLabel"
-                  src={profilePhoto}
-                  alt="labelImg"
-                />
+                <img className="inputLabel" src={profilePhoto} alt="labelImg" />
               </label>
               <input
                 id="imgLabel"
@@ -198,4 +202,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
