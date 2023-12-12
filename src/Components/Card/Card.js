@@ -7,8 +7,7 @@ import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-
-function Card({products}) {
+function Card({ products }) {
   const navigate = useNavigate();
 
   const handleImageClick = (_id) => {
@@ -23,52 +22,59 @@ function Card({products}) {
 
   return (
     <div className="Cards">
-      {products && products.map((product, index) => {
-        console.log("Prdsuct images => ", index, product.name , product.images);
-        return (
-        <div key={index} className="product-card">
-          <div className="badge">
-            <span className="badge_top">50%</span>
-            <span className="badge_btm">OFF</span>
-          </div>
-          <div className="product-card-img">
-            <img
-              src={product.images.lenght >= 0 ? product.images[0].url : product.images.url}
-              alt={product.name}
-              onClick={handleImageClick.bind(this, product._id)}
-            />
-          </div>
-          <div className="product-card-details">
-            {/* <p className="product-card-name">{product.name}</p>
+      {products &&
+        products.map((product, index) => {
+          return (
+            <div key={index} className="product-card">
+              <div className="badge">
+                <span className="badge_top">50%</span>
+                <span className="badge_btm">OFF</span>
+              </div>
+              <div className="product-card-img">
+                <img
+                  src={
+                    product.images.lenght >= 0
+                      ? product.images[1]["url"]
+                      : "https://res.cloudinary.com/dkwzgm3kh/image/upload/v1700300551/products/xclm2pt6htod0oeldmgk.png"
+                  }
+                  alt={product.name}
+                  onClick={handleImageClick.bind(this, product._id)}
+                />
+              </div>
+              <div className="product-card-details">
+                {/* <p className="product-card-name">{product.name}</p>
             <p className="product-card-title">{product.title}</p> */}
-            <p className="product-card-name">{product.name}</p>
-            <p className="product-card-title">2kg {product?.flavour}</p>
-            <div className="space">
-              <p className="product-card-price">
-                ₹
-                {Math.max(
-                  ...product.weightPrice.map((item) => parseInt(item.price))
-                )}
-              </p>
-              <p className="d-price">
-                {`₹ ${disCountPrice(
-                  Math.max(
-                    ...product.weightPrice.map((item) => parseInt(item.price))
-                  )
-                )}}`}
-              </p>
+                <p className="product-card-name">{product.name}</p>
+                <p className="product-card-title">2kg {product?.flavour}</p>
+                <div className="space">
+                  <p className="product-card-price">
+                    ₹
+                    {Math.max(
+                      ...product.weightPrice.map((item) => parseInt(item.price))
+                    )}
+                  </p>
+                  <p className="d-price">
+                    {`₹ ${disCountPrice(
+                      Math.max(
+                        ...product.weightPrice.map((item) =>
+                          parseInt(item.price)
+                        )
+                      )
+                    )}`}
+                  </p>
+                </div>
+                <div className="card-btns">
+                  <button
+                    onClick={handleImageClick.bind(this, product._id)}
+                    className="he"
+                  >
+                    View cart
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="card-btns">
-              <button
-                onClick={handleImageClick.bind(this, product._id)}
-                className="he"
-              >
-                View cart
-              </button>
-            </div>
-          </div>
-        </div>
-     )}) }
+          );
+        })}
     </div>
   );
 }
