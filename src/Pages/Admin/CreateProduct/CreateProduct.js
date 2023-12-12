@@ -32,6 +32,7 @@ function NewProduct() {
     images: [],
     weightPrice: [],
   });
+  
   const [imagesPreview, setImagesPreview] = useState([]);
   const { success, error, message } = useSelector((state) => state.products);
   // const { isLoading } = useSelector((state) => state.app);
