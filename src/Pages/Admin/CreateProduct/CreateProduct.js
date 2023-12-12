@@ -17,6 +17,7 @@ function NewProduct() {
   const navigate = useNavigate();
   // const alert = useAlert();
   const dispatch = useDispatch();
+  // ? Need To Work Here
   const [productData, setProductData] = useState({
     name: "",
     productCategory: "",
@@ -37,30 +38,26 @@ function NewProduct() {
   // const { isLoading } = useSelector((state) => state.app);
   const { categories } = useSelector((state) => state.categories);
 
+  // ? Need to Work Here
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
-    if (weightPrice.length > 0) {
-      dispatch(
-        createProduct({
-          name,
-          stock,
-          description,
-          images,
-          length,
-          width,
-          height,
-          sku,
-          weightPrice: weightPrice,
-          longDescription,
-          category,
-          flavour,
-          discountedPrice,
-          price,
-        })
-      );
-    } else {
-      alert.error("Weight & Price Can't Be Empty !!");
-    }
+
+    dispatch(
+      createProduct({
+        name: productData.name,
+        description: productData.description,
+        categories: productData.category,
+        flavour: productData.flavour,
+
+        images: [],
+        price: productData.price,
+        stok: productData.stock,
+        sku: productData.sku,
+        weightPrice: productData.weightPrice,
+        longDescription: productData.longDescription,
+        discountedPrice: productData.discountedPrice,
+      })
+    );
   };
 
   useEffect(() => {
@@ -77,33 +74,34 @@ function NewProduct() {
 
   const addWeightPrice = (e) => {
     const newField = {
-      weight: weight,
-      price: price,
-      width: width,
-      length: length,
-      sku: sku,
-      height: height,
+      weight: productData.weight,
+      price: productData.price,
+      sku: productData.sku,
       id: new Date(),
     };
-    const newArr = [...weightPrice, newField];
+    /* const newArr = [...weightPrice, newField];
     setWeightPrice(newArr);
     setPrice("");
     setWeight("");
     setWidth("");
     setLength("");
     setSKU("");
-    setHeight("");
+    setHeight(""); */
+  };
+
+  const handleChange = (e) => {
+    setProductData({ ...productData, [e.target.name]: e.target.value });
   };
 
   const removeWeightPrice = (id) => {
-    const newArr = weightPrice.filter((item) => item.id !== id);
-    setWeightPrice(newArr);
+    /* const newArr = weightPrice.filter((item) => item.id !== id);
+    setWeightPrice(newArr); */
   };
 
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
-    setImages([]);
+    // setImages([]);
     setImagesPreview([]);
 
     files.forEach((file) => {
@@ -112,7 +110,7 @@ function NewProduct() {
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
-          setImages((old) => [...old, reader.result]);
+          //  setImages((old) => [...old, reader.result]);
         }
       };
 
@@ -136,11 +134,11 @@ function NewProduct() {
                 <label>Product Name</label>
                 <input
                   type="text"
-                  id="product_price"
+                  name="name"
                   className="form-control"
                   placeholder="Product Name"
                   required
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -149,7 +147,8 @@ function NewProduct() {
                 <label>Product Category</label>
                 <select
                   className="form-control"
-                  onChange={(e) => setCategory(e.target.value)}
+                  name="category"
+                  onChange={handleChange}
                 >
                   <option>--Select Category--</option>
                   {categories.map((item, index) => (
@@ -165,7 +164,8 @@ function NewProduct() {
                 <label>Selling Category</label>
                 <select
                   className="form-control"
-                  onChange={(e) => setCategory(e.target.value)}
+                  name="sellingCategory"
+                  onChange={handleChange}
                 >
                   <option>---Select Category---</option>
                   {categories.map((item, index) => (
@@ -181,16 +181,22 @@ function NewProduct() {
                 <label>Product Flavour</label>
                 <select
                   className="form-control"
-                  onChange={(e) => setFlavour(e.target.value)}
+                  name="flavour"
+                  value={productData.flavour}
+                  onChange={handleChange}
                 >
-                  <option>---Select Flavour---</option>
-                  <option>Coffee</option>
-                  <option>Chocolate Caramel</option>
-                  <option>Unflavoured</option>
-                  <option>Blueberry Muffin</option>
+                  <option value={"Select Flavour"}>---Select Flavour---</option>
+                  <option value={"Coffe"}>Coffee</option>
+                  <option value={"Chocolate Caramel"}>Chocolate Caramel</option>
+                  <option value={"Unflavoured"}>Unflavoured</option>
+                  <option value={"Blueberry Muffin"}>Blueberry Muffin</option>
                 </select>
               </div>
             </div>
+
+            {
+              // ! Need To Work Here
+            }
             <div className="cp-row-div">
               <div className="cp-row">
                 {/* product sku  */}
@@ -201,8 +207,8 @@ function NewProduct() {
                     id="product_price"
                     className="form-control"
                     placeholder="Product SKU"
-                    value={sku}
-                    onChange={(e) => setSKU(e.target.value)}
+                    value={productData.sku}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -213,21 +219,18 @@ function NewProduct() {
                     type="text"
                     id="product_weight"
                     className="form-control"
-                    value={weight}
+                    value={productData.weight}
                     placeholder="Product weight"
-                    onChange={(e) => setWeight(e.target.value)}
+                    onChange={handleChange}
                   />
                 </div>
                 {/* Product stock  */}
                 <div className="cp-input-group">
                   <label>Stock</label>
-                  <select
-                    className="form-control"
-                    onChange={(e) => setStock(e.target.value)}
-                  >
+                  <select className="form-control" onChange={handleChange}>
                     <option>---Select Stock---</option>
-                    <option>In Stock</option>
-                    <option>Out Of Stock</option>
+                    <option name="In Stock">In Stock</option>
+                    <option name="Out Of Stock">Out Of Stock</option>
                   </select>
                 </div>
               </div>
@@ -246,8 +249,12 @@ function NewProduct() {
                     <label htmlFor="imageInput" className="cp-img-pw ">
                       {/* Choose image */}
 
-                      {images.length > 0 && (
-                        <img src={images[0]} className="img-pw" alt="img" />
+                      {productData.images.length > 0 && (
+                        <img
+                          src={productData.images[0]}
+                          className="img-pw"
+                          alt="img"
+                        />
                       )}
                     </label>
                   </div>
@@ -262,8 +269,12 @@ function NewProduct() {
                     <label htmlFor="imageInput" className="cp-img-pw ">
                       {/* Choose image */}
 
-                      {images.length > 0 && (
-                        <img src={images[0]} className="img-pw" alt="img" />
+                      {productData.images.length > 0 && (
+                        <img
+                          src={productData.images[0]}
+                          className="img-pw"
+                          alt="img"
+                        />
                       )}
                     </label>
                   </div>
@@ -278,8 +289,12 @@ function NewProduct() {
                     <label htmlFor="imageInput" className="cp-img-pw ">
                       {/* Choose image */}
 
-                      {images.length > 0 && (
-                        <img src={images[0]} className="img-pw" alt="img" />
+                      {productData.images.length > 0 && (
+                        <img
+                          src={productData.images[0]}
+                          className="img-pw"
+                          alt="img"
+                        />
                       )}
                     </label>
                   </div>
@@ -294,9 +309,9 @@ function NewProduct() {
                     type="number"
                     id="product_price"
                     className="form-control"
-                    value={price}
+                    value={productData.price}
                     placeholder="Product Discounted Price"
-                    onChange={(e) => setPrice(e.target.value)}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -307,9 +322,9 @@ function NewProduct() {
                     type="number"
                     id="product_price"
                     className="form-control"
-                    value={discountedPrice}
+                    value={productData.discountedPrice}
                     placeholder="Product Discounted Price"
-                    onChange={(e) => setDiscountedPrice(e.target.value)}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -329,7 +344,7 @@ function NewProduct() {
               className="col-lg-12 add_price-screen"
               style={{ marginLeft: "20%", marginTop: "15px" }}
             >
-              {weightPrice?.map((item, index) => (
+              {productData.weightPrice?.map((item, index) => (
                 <span key={index}>
                   {item.price}₹ - {item.weight} - {item.length} - {item.width} -{" "}
                   {item.height} - {item.sku}
@@ -347,8 +362,9 @@ function NewProduct() {
                   id="product_price"
                   className="form-control cp-dec"
                   placeholder="Product Description"
+                  name="description"
                   required
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -361,8 +377,9 @@ function NewProduct() {
                   rows={5}
                   cols={12}
                   className="cp-dec"
+                  name="longDescription"
                   placeholder="Enter Long Description"
-                  onChange={(e) => setLongDescription(e.target.value)}
+                  onChange={handleChange}
                 />
               </div>
             </div>
