@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import bgImg from "../../Assets/Images/product.png";
@@ -18,7 +18,6 @@ export default function Form() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
@@ -72,21 +71,25 @@ export default function Form() {
             onSubmit={handleSubmit(onSubmit)}
           >
             <input
+              style={{ backgroundColor: "transparent" }}
               type="text"
               {...register("email", { required: true })}
               placeholder="email"
             />
             <input
+              style={{ backgroundColor: "transparent" }}
               type="text"
               {...register("username")}
               placeholder="username"
             />
             <input
+              style={{ backgroundColor: "transparent" }}
               type="password"
               {...register("password")}
               placeholder="password"
             />
             <input
+              style={{ backgroundColor: "transparent" }}
               type="password"
               {...register("confirmpwd")}
               placeholder="confirm password"

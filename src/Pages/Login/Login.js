@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import bgImg from "../../Assets/Images/product.png";
@@ -62,8 +62,9 @@ export default function LoginForm() {
             className="flex flex-col"
             onSubmit={handleSubmit(handleLogin)}
           >
-            <input type="text" {...register("email")} placeholder="E-Mail" />
+            <input style={{ backgroundColor: "transparent" }} type="text" {...register("email")} placeholder="E-Mail" />
             <input
+              style={{ backgroundColor: "transparent" }}
               type="password"
               {...register("password")}
               placeholder="password"

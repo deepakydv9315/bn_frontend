@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 20fr;
   position: absolute;
-  background-color: #f4f4f8;
+  background-color: #ffffff;
   min-height: 100vh;
 
   .add_product_form {
@@ -94,13 +94,13 @@
 
         span {
           padding: 7px 18px;
-          background-color: #f9f5cc;
+          background-color: transparent;
           border-radius: 5px;
           position: relative;
           border: 1px solid black;
 
           svg {
-            background-color: #f4f4f8;
+            background-color: transparent;
             border-radius: 5px;
             position: absolute;
             color: red;

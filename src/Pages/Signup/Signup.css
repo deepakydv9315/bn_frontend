@@ -40,7 +40,7 @@
   padding: 0.5em 1em;
   border-radius: 5px;
   background-color: #dabd00;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #form > input:focus {
@@ -114,12 +114,12 @@
 .policy {
   font-size: 14px;
   color: #888;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .old-customer {
   font-size: 14px;
-  color: #007bff;
-  cursor: pointer;
+  color: #000000;
+  /* cursor: pointer; */
   margin-top: 10px;
 }

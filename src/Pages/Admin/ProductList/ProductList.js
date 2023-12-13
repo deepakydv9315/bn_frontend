@@ -111,8 +111,7 @@ const ProductList = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL PRODUCTS</h1>
-
+          <h3 className="adminhead">ALL<span>PRODUCTS</span></h3>
           <DataGrid
             rows={rows}
             columns={columns}

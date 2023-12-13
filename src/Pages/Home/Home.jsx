@@ -13,7 +13,7 @@ import {
   getAllProducts,
 } from "../../Redux/slices/productSlice";
 import { useParams } from "react-router-dom";
-import MinLoader from "../../Components/Loader/MinLoader.js";
+// import MinLoader from "../../Components/Loader/MinLoader.js";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
@@ -28,10 +28,10 @@ const Home = () => {
 
   const { isLoading } = useSelector((state) => state.app);
 
-  const isInCart = (productId) => {
-    console.log(typeof productId);
-    return carts?.some((item) => item._id === productId);
-  };
+  // const isInCart = (productId) => {
+  //   console.log(typeof productId);
+  //   return carts?.some((item) => item._id === productId);
+  // };
 
   useEffect(() => {
     if (categoryname) {
@@ -59,7 +59,7 @@ const Home = () => {
         <img src={bg} alt="" />
         <section className="content-of-category">
           <div className="title">
-            Just <span>Launched</span>
+            Just<span>Launched</span>
           </div>
           <div className="container menu__container">
             <div className="app__work-filter">
@@ -111,7 +111,7 @@ const Home = () => {
 
         <section className="content-of-goal">
           <div className="title">
-            Shop by <span>Goal</span>
+            Shop by<span>Goal</span>
           </div>
           <div className="desciption">
             Get fit with precision. Explore now for the best results!
@@ -126,8 +126,9 @@ const Home = () => {
 
       <section className="know-more">
         <h3>
-          Know more about our <span>Product</span>
+          Know more about our<span>Product</span>
         </h3>
+        <br></br>
         <div className="know-more-card">
           <div className="know-more-bg">
             <div className="know-more-container">
@@ -152,7 +153,7 @@ const Home = () => {
         <section className="shop-by-level">
           <div className="level-title">
             <h3>
-              Shop by <span>Level</span>
+              Shop by<span>Level</span>
             </h3>
           </div>
           <div className="level-description">
@@ -184,7 +185,7 @@ const Home = () => {
       <div className="home-4">
         <section className="fitness-bracket">
           <h3>
-            Fitness <span>Bracket</span>
+            Fitness<span>Bracket</span>
           </h3>
           <p>
             Products according to your budget and dedication in fitness journey.
@@ -209,7 +210,7 @@ const Home = () => {
       <section className="blog">
         <div className="blog-page">
           <h3>
-            Read <span>Blogs</span>
+            Read<span>Blogs</span>
           </h3>
           <ReadBlogs />
         </div>

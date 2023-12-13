@@ -70,7 +70,7 @@ function Cart() {
         <div className="cart__del-info">
           <div className="left__info">
             <div className="title">
-              My <span>Cart</span>
+              My<span style={{marginLeft:"10px"}}>Cart</span>
             </div>
             <p className="p-text">{carts.length} Items</p>
           </div>
