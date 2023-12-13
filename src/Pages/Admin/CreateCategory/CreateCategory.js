@@ -65,13 +65,6 @@ function CreateCategory() {
           <div className="row">
             <div className="col-lg-12">
               <div className="image-input">
-                {img && (
-                  <img
-                    src={img}
-                    className="image-preview"
-                    alt="img"
-                  />
-                )}
                 <input
                   onChange={createProductImage}
                   type="file"
@@ -84,6 +77,13 @@ function CreateCategory() {
                 >
                   <i className="fa fa-image"></i>Choose image
                 </label>
+                {img && (
+                  <img
+                    src={img}
+                    className="image-preview"
+                    alt="img"
+                  />
+                )}
               </div>
             </div>
             <div className="fot-group">

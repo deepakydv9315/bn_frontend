@@ -9,14 +9,12 @@ import Sidebar from "../Sidebar/Sidebar.js";
 import Swal from "sweetalert2";
 import { getCategories } from "../../../Redux/slices/categories";
 import { useNavigate } from "react-router-dom";
-// import Loader from "../../../Components/Loader/Loader.js";
 import { RxCross1 } from "react-icons/rx";
 import { PhpRounded } from "@mui/icons-material";
 // import { useAlert } from "react-alert";
 
 function NewProduct() {
   const navigate = useNavigate();
-  // const alert = useAlert();
   const dispatch = useDispatch();
   // ? Need To Work Here
   const [productDetails, setProductDetails] = useState({
@@ -37,9 +35,7 @@ function NewProduct() {
     description: "",
     longDescription: "",
   });
-
   const { success, error, message } = useSelector((state) => state.products);
-  // const { isLoading } = useSelector((state) => state.app);
   const { categories } = useSelector((state) => state.categories);
 
   // ? Need to Work Here
@@ -52,7 +48,6 @@ function NewProduct() {
         description: productData.description,
         categories: productData.category,
         flavour: productData.flavour,
-
         images: [],
         price: productData.price,
         stok: productData.stock,

@@ -1,46 +1,48 @@
 .dashboard {
-    width: 100vw;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 20fr;
-    position: absolute;
-    background-color: #f4f4f8;
-    min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 20fr;
+  position: absolute;
+  background-color: #f4f4f8;
+  min-height: 100vh;
 
-    .add_product_form{
-      .row{
-        .col-lg-12{
-          .image-input{
-            margin-top: 30px;
+  .add_product_form {
+    .row {
+      .col-lg-12 {
+        .image-input {
+          margin-top: 30px;
+          .image-preview {
+            width: 30%;
+            margin: 0 auto;
           }
         }
-        .fot-group{
-         
-          label {
-            font-weight: bold;
-            margin-left: 390px;
-          }
-    
-          input {
-            width: 180px;
-            margin-left: 30px;
-            padding: 10px ;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-            font-size: 16px;
-          }
-          .form-control {
-            margin-top: 10px;
-          }
+      }
+      .fot-group {
+        label {
+          font-weight: bold;
+          margin-left: 390px;
+        }
+
+        input {
+          width: 180px;
+          margin-left: 30px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+          font-size: 16px;
+        }
+        .form-control {
+          margin-top: 10px;
         }
       }
     }
   }
-  
-  @media screen and (max-width: 600px) {
-    .productListTable div {
-      font: 300 4vw "Roboto";
-    }
+}
+
+@media screen and (max-width: 600px) {
+  .productListTable div {
+    font: 300 4vw "Roboto";
   }
-  
+}
