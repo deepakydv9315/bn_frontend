@@ -46,7 +46,7 @@ function CreateCoupon() {
             <div className="row">
               <div className="col-lg-12">
                 <div className="add_product_wrapper">
-                  <h4>Add Coupon</h4>
+                  <h3 className="adminhead">Add<span>Coupon</span></h3>
                   <form
                     className="add_product_form"
                     onSubmit={handleSubmitForm}
@@ -67,8 +67,7 @@ function CreateCoupon() {
                           />
                         </div>
                       </div>
-                      <br></br>
-                      
+
                       <div className="col-lg-12">
                         <div className="fotm-group">
                           <label htmlFor="product_price">

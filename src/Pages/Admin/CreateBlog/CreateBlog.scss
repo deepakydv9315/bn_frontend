@@ -1,0 +1,95 @@
+#add_product_area {
+    padding: 0;
+  .container {
+    .row {
+      .col-lg-12 {
+        .add_product_wrapper {
+          margin-top: 0px;
+          .add_product_form {
+            padding: 11px 80px;
+            .row {
+              .col-lg-12 {
+                .image-input {
+                  margin-top: -40px;
+                  position: relative;
+
+                  .image-preview {
+                    width: 20%;
+                    max-height: auto;
+                    object-fit: cover;
+                    border-radius: 4px;
+                  }
+
+                  input[type="file"] {
+                    display: none;
+                  }
+
+                  .image-button {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                    cursor: pointer;
+                    display: inline-block;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 14px;
+                  }
+                }
+              }
+
+              .fotm-group {
+                margin-bottom: 20px;
+
+                label {
+                  font-weight: bold;
+                  display: block;
+                  margin-bottom: 8px;
+                  color: #333;
+                }
+
+                input[type="text"],
+                textarea {
+                  width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  font-size: 16px;
+                  margin-top: 10px;
+                }
+
+                textarea {
+                  resize: vertical;
+                  min-height: 150px;
+                }
+              }
+
+              .col-lg-12 {
+                .btn_right_table {
+                  text-align: right;
+
+                  .theme-btn-one {
+                    background-color: #000;
+                    color: #fff;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 14px;
+
+                    &:hover {
+                      background-color: #333;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

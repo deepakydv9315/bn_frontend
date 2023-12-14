@@ -42,7 +42,7 @@ function HeaderOffer() {
         ) : (
           <form className="add_product_form" onSubmit={handleSubmitForm}>
             <div>
-              <p className="sec-head sec-head-ul title1">Add Header Offer</p>
+              <h3 className="adminhead">Add<span>Header</span> Offer</h3>
             </div>
 
             <div className="row">

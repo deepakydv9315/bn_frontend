@@ -94,7 +94,8 @@ const CouponList = ({ history }) => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL COUPONS</h1>
+          <h1 className="adminhead">ALL<span>COUPONS</span></h1>
+          <br></br>
           <div className="btn create">
             <Link
               style={{ color: "black" }}
@@ -104,6 +105,7 @@ const CouponList = ({ history }) => {
               Create Coupon
             </Link>
           </div>
+          <br></br>
           <DataGrid
             rows={rows}
             columns={columns}

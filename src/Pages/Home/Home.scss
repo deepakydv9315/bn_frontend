@@ -43,9 +43,9 @@
     }
   }
 }
+
 //  shifted in bottom
 .info-grid {
-  // border: 1px solid black;
   display: flex;
   justify-content: center;
 }
@@ -61,6 +61,8 @@
   display: flex;
   flex-direction: column;
   background-color: #f7f8f9;
+  justify-content: center;
+  align-items: center;
 
   .title {
     font-family: "Goldman", cursive;
@@ -113,7 +115,6 @@
       .menu__items {
         gap: 20px;
         background-color: #ffffff;
-        // width: 50vmax;
         padding: 2px 5px;
         margin: 0 auto 35px auto; //For Centering
         border-radius: 25px;
@@ -266,10 +267,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 
   .title {
     font-family: "Goldman", cursive;
@@ -305,10 +304,15 @@
 
 .shop-by-level {
   padding: 3px 3px 3px 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .level-title {
   h3 {
+    margin-bottom: 0rem;
     font-family: "Goldman", cursive;
     font-weight: bold;
     font-size: 48px;
@@ -330,7 +334,13 @@
 
 .know-more {
   padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   h3 {
+    margin-bottom: 0rem;
     font-family: "Goldman", cursive;
     font-weight: bold;
     font-size: 48px;
@@ -367,6 +377,7 @@
 
   .know-more-container {
     h3 {
+      margin-bottom: 0rem;
       padding-top: 40px;
       margin: 70px 60px 30px 50px;
       font-family: "Nunito Sans", sans-serif;
@@ -504,8 +515,13 @@
 }
 
 .fitness-bracket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 40px 20px 20px 20px;
   h3 {
+    margin-bottom: 0rem;
     font-family: "Goldman", cursive;
     font-weight: bold;
     font-size: 48px;
@@ -525,6 +541,10 @@
   }
 
   .get-combos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 80px;
   }
 }
@@ -534,7 +554,12 @@
 }
 
 .blog-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h3 {
+    margin-bottom: 0rem;
     font-family: "Goldman", cursive;
     font-weight: bold;
     font-size: 48px;

@@ -100,16 +100,18 @@ const Blogs = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL BLOGS</h1>
+          <h1 className="adminhead">ALL<span>BLOGS</span></h1>
+          <br></br>
           <div className="btn create">
             <Link
               to="/admin/blog/create"
               className="theme-btn-one bg-black btn_md"
-              style={{ color: "black"}}
+              style={{ color: "black" }}
             >
               Create Blog
             </Link>
           </div>
+          <br></br>
           <DataGrid
             rows={blogs}
             columns={columns}

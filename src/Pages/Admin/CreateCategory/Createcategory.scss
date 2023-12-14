@@ -12,12 +12,29 @@
       .col-lg-12 {
         .image-input {
           margin-top: 30px;
+
+          input[type="file"] {
+            display: none;
+          }
+
+          .image-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            display: inline-block;
+          }
+
           .image-preview {
-            width: 30%;
+            width: 20%;
             margin: 0 auto;
+            margin-top: 10px;
+            display: block;
+            margin-bottom: 20px;
           }
         }
       }
+
       .fot-group {
         label {
           font-weight: bold;
@@ -33,6 +50,7 @@
           resize: vertical;
           font-size: 16px;
         }
+
         .form-control {
           margin-top: 10px;
         }

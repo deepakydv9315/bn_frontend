@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import Home from "./Pages/Home/Home.jsx";
@@ -82,7 +81,7 @@ function App() {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
         <Route path="/refund" element={<RefundPolicy />} />
-
+        
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/products" element={<ProductList />} />
         <Route path="/admin/product/create" element={<CreateProduct />} />

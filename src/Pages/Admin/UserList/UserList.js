@@ -81,9 +81,8 @@ const UserList = () => {
     <Fragment>
       <div className="dashboard">
         <Sidebar />
-        <div className="productListContainer">
-          <h1 id="productListHeading">ALL USERS</h1>
-
+        <div className="productListContainer ">
+          <h3 className="adminhead">ALL<span>USERS</span></h3>
           <DataGrid
             rows={allUsers}
             columns={columns}

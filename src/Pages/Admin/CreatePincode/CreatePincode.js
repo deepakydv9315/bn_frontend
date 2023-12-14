@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from "react";
 // import "./createcategory.css";
 import { useSelector, useDispatch } from "react-redux";
 import swal2 from "sweetalert2";
-import Sidebar from "../Sidebar/Sidebar.js"; 
+import Sidebar from "../Sidebar/Sidebar.js";
 import {
   createPincode,
   setStatusResponse,
@@ -47,7 +47,7 @@ function CreatePincode() {
             <div className="row">
               <div className="col-lg-12">
                 <div className="add_product_wrapper">
-                  <h4>Add Pincode</h4>
+                  <h3 className="adminhead">Add<span>Pincode</span></h3 >
                   <form
                     className="add_product_form"
                     onSubmit={handleSubmitForm}

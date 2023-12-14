@@ -127,7 +127,7 @@ const Orders = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL ORDERS</h1>
+          <h3 className="adminhead">ALL<span>ORDERS</span></h3>
 
           <DataGrid
             rows={rows}
