@@ -166,7 +166,7 @@ function NewProduct() {
           className="add_product_form"
           onSubmit={(e) => createProductSubmitHandler(e)}
         >
-          <p>Create Product</p>
+          <h3 className="adminhead">Create<span>Product</span></h3>
           <div className="row cp-wrapper">
             <div className="cp-row">
               {/* product name  */}
@@ -404,8 +404,9 @@ function NewProduct() {
               ))}
             </div>
 
-            <div className="cp-row">
-              {/* short des  */}
+
+
+            <div className="cp-row" style={{alignItems:"flex-start"}}>
               <div className="cp-input-group">
                 <label>Short Description</label>
                 <input
@@ -417,11 +418,8 @@ function NewProduct() {
                   required
                   onChange={handleChange}
                 />
-              </div>
-            </div>
 
-            <div className="cp-row">
-              {/* long des  */}
+              </div>
               <div className="cp-input-group">
                 <label htmlFor="product_desc">Long Description</label>
                 <textarea
@@ -434,6 +432,7 @@ function NewProduct() {
                 />
               </div>
             </div>
+
             <div className="cp-row">
               <div className="btn_right_table">
                 <button type="submit" className="theme-btn-one bg-black btn_sm">
