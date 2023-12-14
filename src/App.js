@@ -48,6 +48,8 @@ import MyOrder from "./Pages/User/MyOrders.js";
 import Address from "./Pages/User/AddressBook.js";
 import Ship from "./Pages/Checkout/Ship.js";
 import Invoice from "./Pages/Checkout/Invoice.js";
+// import ComingSoon from "./Pages/ComingSoon/ComingSoon";
+
 
 function App() {
   return (
@@ -57,6 +59,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/invoice" element={<Invoice />} />
+        {/* <Route path="/coming" element={<ComingSoon />} /> */}
         <Route path="/ship" element={<Ship />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -81,7 +84,7 @@ function App() {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
         <Route path="/refund" element={<RefundPolicy />} />
-        
+
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/products" element={<ProductList />} />
         <Route path="/admin/product/create" element={<CreateProduct />} />

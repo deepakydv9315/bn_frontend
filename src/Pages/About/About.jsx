@@ -6,14 +6,14 @@ import Icon from "../../Assets/Images/abouticon.png";
 
 const AboutPage = () => {
   return (
-    <div className="about-container">
+    <div className="about-container ">
       <div className="image-with-text-container">
         <img src={About} alt="YourImage" className="image" />
         <div className="text">
           About <span> Us</span>
         </div>
       </div>
-      <div className="ab">
+      <div className="ab contain">
         <div className="about-text">
           <h3>Our Story</h3>
           <p>

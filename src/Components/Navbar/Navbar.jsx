@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   function open() {
-    if(isAuthenticated) {
+    if (isAuthenticated) {
       navigate("/user");
     } else {
       navigate("/login");
@@ -75,10 +75,10 @@ const Navbar = () => {
           </div>
           <ul className="app__navbar-links">
             <Link to="/">HOME</Link>
-            <Link to="/about">ABOUT US</Link>
             <Link to="/products">PRODUCTS</Link>
-            <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
+            <Link to="/about">ABOUT US</Link>
             <Link to="/contact">CONTACT</Link>
+            <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
           </ul>
           <div className="right">
             <AiOutlineSearch />
@@ -110,10 +110,10 @@ const Navbar = () => {
                 <HiX onClick={() => setToggle(false)} />
                 <ul className="mobile">
                   <Link to="/">HOME</Link>
-                  <Link to="/about">ABOUT US</Link>
                   <Link to="/products">PRODUCTS</Link>
-                  <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
+                  <Link to="/about">ABOUT US</Link>
                   <Link to="/contact">CONTACT</Link>
+                  <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
                 </ul>
               </motion.div>
             )}
