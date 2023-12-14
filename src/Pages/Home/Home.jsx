@@ -29,7 +29,6 @@ const Home = () => {
   const { isLoading } = useSelector((state) => state.app);
 
   const isInCart = (productId) => {
-    console.log(typeof productId);
     return carts?.some((item) => item._id === productId);
   };
 

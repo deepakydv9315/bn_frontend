@@ -33,9 +33,9 @@ function Card({ products }) {
               <div className="product-card-img">
                 <img
                   src={
-                    product.images.lenght >= 0
-                      ? product.images[1]["url"]
-                      : "https://res.cloudinary.com/dkwzgm3kh/image/upload/v1700300551/products/xclm2pt6htod0oeldmgk.png"
+                    product.productDetails[0].images.length > 0
+                      ? product.productDetails[0].images[0].url
+                      : "https://squatdeadlift.com/wp-content/uploads/2021/04/71uwfbcAkYL._AC_SX679_.jpg"
                   }
                   alt={product.name}
                   onClick={handleImageClick.bind(this, product._id)}
@@ -45,22 +45,15 @@ function Card({ products }) {
                 {/* <p className="product-card-name">{product.name}</p>
             <p className="product-card-title">{product.title}</p> */}
                 <p className="product-card-name">{product.name}</p>
-                <p className="product-card-title">2kg {product?.flavour}</p>
+                <p className="product-card-title">
+                  2kg {product?.productFlavour}
+                </p>
                 <div className="space">
                   <p className="product-card-price">
-                    ₹
-                    {Math.max(
-                      ...product.weightPrice.map((item) => parseInt(item.price))
-                    )}
+                    ₹ {product.productDetails[0].price}
                   </p>
                   <p className="d-price">
-                    {`₹ ${disCountPrice(
-                      Math.max(
-                        ...product.weightPrice.map((item) =>
-                          parseInt(item.price)
-                        )
-                      )
-                    )}`}
+                    {`₹ ${product.productDetails[0].mrPrice}`}
                   </p>
                 </div>
                 <div className="card-btns">

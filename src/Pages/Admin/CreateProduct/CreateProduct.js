@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 import { getCategories } from "../../../Redux/slices/categories";
 import { useNavigate } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
-import { PhpRounded } from "@mui/icons-material";
 // import { useAlert } from "react-alert";
 
 function NewProduct() {
@@ -41,22 +40,39 @@ function NewProduct() {
   // ? Need to Work Here
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
+    dispatch(createProduct(productData));
 
-    dispatch(
-      createProduct({
-        name: productData.name,
-        description: productData.description,
-        categories: productData.category,
-        flavour: productData.flavour,
-        images: [],
-        price: productData.price,
-        stok: productData.stock,
-        sku: productData.sku,
-        weightPrice: productData.weightPrice,
-        longDescription: productData.longDescription,
-        discountedPrice: productData.discountedPrice,
-      })
-    );
+    setProductData({
+      name: "",
+      productCategory: "",
+      sellingCategory: "",
+      productFlavour: "",
+      productDetails: [],
+      description: "",
+      longDescription: "",
+    });
+
+    setProductDetails({
+      sku: "",
+      weight: 0,
+      stock: "",
+      images: [],
+      mrPrice: 0,
+      price: 0,
+    });
+
+    setImagesPreview([]);
+
+    // ! Need To Work Here
+
+    if (success) {
+      Swal.fire("Success", message, "Product created successfully");
+      dispatch(setStatusResponse());
+      navigate("/admin/products");
+    } else if (error) {
+      Swal.fire("Error", error, "error");
+      dispatch(setStatusResponse());
+    }
   };
 
   useEffect(() => {
@@ -65,6 +81,9 @@ function NewProduct() {
   useEffect(() => {
     console.log("[Product Details] => ", productDetails);
   }, [productDetails]);
+  useEffect(() => {
+    console.log("[Images Privew] => ", imagesPreview, imagesPreview.length);
+  }, [imagesPreview]);
 
   useEffect(() => {
     if (success) {
@@ -80,20 +99,19 @@ function NewProduct() {
 
   // ! I Think It Can Be Removed or Replace with short Logic
   const addWeightPrice = (e) => {
-    const newField = {
-      weight: productData.weight,
-      price: productData.price,
-      sku: productData.sku,
-      id: new Date(),
-    };
-    /* const newArr = [...weightPrice, newField];
-    setWeightPrice(newArr);
-    setPrice("");
-    setWeight("");
-    setWidth("");
-    setLength("");
-    setSKU("");
-    setHeight(""); */
+    let prodcutDetail = [...productData.productDetails]; // Create a copy of the existing product details
+    prodcutDetail.push(productDetails); // Add the new product detail
+    setProductData({ ...productData, productDetails: prodcutDetail }); // Update the product data
+
+    setProductDetails({
+      sku: "",
+      weight: 0,
+      stock: "",
+      images: [],
+      mrPrice: 0,
+      price: 0,
+    });
+    setImagesPreview([]);
   };
 
   // ? Function Use to Store Common Data
@@ -105,34 +123,39 @@ function NewProduct() {
     }
   };
 
-  const removeWeightPrice = (id) => {
-    /* const newArr = weightPrice.filter((item) => item.id !== id);
-    setWeightPrice(newArr); */
+  const removeWeightPrice = (sku) => {
+    const newArr = productData.productDetails.filter(
+      (item) => item.sku !== sku
+    );
+    setProductData({ ...productData, productDetails: newArr });
   };
 
-  const createProductImagesChange = (e) => {
-    e.preventDefault();
-    const files = Array.from(e.target.files);
-    let images = [...productDetails.images]; // Copy existing images
-    let imagePreview = [...imagesPreview]; // Copy existing previews
+  const createProductImagesChange = (e, index) => {
+    console.log("index", index);
+    if (index < 0 || index > 3) {
+      console.log("Invalid index. Index must be between 0 and 2.");
+      return;
+    }
 
-    files.forEach((file) => {
-      const reader = new FileReader();
+    const file = e.target.files[0];
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          imagePreview.push(reader.result);
-          images.push(file);
-        }
-      };
+    let imagePreview = JSON.parse(JSON.stringify(imagesPreview));
 
-      reader.readAsDataURL(file);
-    });
+    const reader = new FileReader();
 
-    console.log("Images => ", imagePreview);
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        imagePreview[index] = reader.result;
 
-    setProductDetails((old) => ({ ...old, images: images }));
-    setImagesPreview(imagePreview);
+        setProductDetails((preState) => ({
+          ...preState,
+          images: imagePreview,
+        }));
+        setImagesPreview(imagePreview);
+      }
+    };
+
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -141,7 +164,7 @@ function NewProduct() {
         <Sidebar />
         <form
           className="add_product_form"
-          onSubmit={createProductSubmitHandler}
+          onSubmit={(e) => createProductSubmitHandler(e)}
         >
           <p>Create Product</p>
           <div className="row cp-wrapper">
@@ -261,16 +284,21 @@ function NewProduct() {
                 <div className="cp-img-wrapper">
                   <div className="image-input">
                     <input
-                      onChange={(e) => createProductImagesChange(e)}
+                      onChange={(e) => createProductImagesChange(e, 0)}
                       type="file"
                       accept="image/*"
-                      id="imageInput"
+                      id="imageInputOne"
+                      name="imageOne"
                     />
-                    <label htmlFor="imageInput" className="cp-img-pw ">
+                    <label htmlFor="imageInputOne" className="cp-img-pw ">
                       {/* Choose image */}
-                      {imagesPreview.length === 0 && (
+                      {imagesPreview.length > 0 && (
                         <img
-                          src={imagesPreview[0]}
+                          src={
+                            imagesPreview.length > 0
+                              ? imagesPreview[0]
+                              : imagesPreview
+                          }
                           className="img-pw"
                           alt="img"
                         />
@@ -280,13 +308,15 @@ function NewProduct() {
 
                   <div className="image-input">
                     <input
-                      onChange={(e) => createProductImagesChange(e)}
+                      onChange={(e) => createProductImagesChange(e, 1)}
                       type="file"
                       accept="image/*"
+                      id="imageInputTwo"
+                      name="imageTwo"
                     />
-                    <label htmlFor="imageInput" className="cp-img-pw ">
+                    <label htmlFor="imageInputTwo" className="cp-img-pw ">
                       {/* Choose image */}
-                      {imagesPreview.length > 1 && (
+                      {imagesPreview.length > 0 && (
                         <img
                           src={imagesPreview[1]}
                           className="img-pw"
@@ -298,13 +328,15 @@ function NewProduct() {
 
                   <div className="image-input">
                     <input
-                      onChange={(e) => createProductImagesChange(e)}
+                      onChange={(e) => createProductImagesChange(e, 2)}
                       type="file"
                       accept="image/*"
+                      id="imageInputThree"
+                      name="imageThree"
                     />
-                    <label htmlFor="imageInput" className="cp-img-pw ">
+                    <label htmlFor="imageInputThree" className="cp-img-pw ">
                       {/* Choose image */}
-                      {imagesPreview.length > 2 && (
+                      {imagesPreview.length > 1 && (
                         <img
                           src={imagesPreview[2]}
                           className="img-pw"
@@ -347,7 +379,8 @@ function NewProduct() {
                 <div className="cp-input-group">
                   <button
                     className="theme-btn-one btn_sm"
-                    onClick={addWeightPrice}
+                    type="button"
+                    onClick={(e) => addWeightPrice(e)}
                   >
                     Add Weight
                   </button>

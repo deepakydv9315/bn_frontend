@@ -16,7 +16,7 @@ export const getAllProducts = createAsyncThunk(
       thunkAPI.dispatch(setLoading(true));
       let link = `/api/v1/products`;
       if (body?.category) {
-        link = `/api/v1/products?category=${body.category}`;
+        link = `/api/v1/products?productCategory=${body.category}`;
       }
       const response = await axiosClient.get(link);
       return response.data;
@@ -35,6 +35,7 @@ export const getProductDetail = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
+      console.log("This is Get Product Body : ", body.id);
       const response = await axiosClient.get(`/api/v1/product/${body.id}`);
       return response.data;
     } catch (e) {
@@ -166,29 +167,16 @@ const productSlice = createSlice({
     },
     // ! To Add Product In Cart
     addToCart: (state, action) => {
-      let { id, price, weight, quantity } = action.payload;
-
-      console.error(
-        "id " +
-          id +
-          " price " +
-          price +
-          " weight " +
-          weight +
-          " quantity " +
-          quantity
-      );
-
-      // const mainState = current(state);
-
-      console.log("mainState : ", state.products.products);
+      let { sku, price, weight } = action.payload;
 
       //check Existance
-      let item = state.carts.find((item) => item._id == id);
+      let item = state.carts.find((item) => item.sku === sku);
 
+      console.log("This is Item", item);
+      console.log("This is State Product : ", state);
       if (!item) {
-        let arr = state.products.products.find((item) => item._id == id);
-        arr.quantity = 1;
+        let arr = state.product.find((item) => item.sku === sku);
+        // arr.quantity = quantity;
         arr.price = price;
         arr.weight = weight;
         state.carts.push(arr);
@@ -223,7 +211,7 @@ const productSlice = createSlice({
     updateCart: (state, action) => {
       let { val, id } = action.payload;
       state.carts.forEach((item) => {
-        if (item._id == id) {
+        if (item._id === id) {
           if (val >= 1) {
             item.quantity = val;
           }
@@ -344,9 +332,11 @@ const productSlice = createSlice({
         if (action.payload.statusCode === 200) {
           state.product = action.payload.result;
           // get max price of product
-          state.productDefaultPrice = state.product.weightPrice.sort((a, b) => {
-            return b.price - a.price;
-          })[0];
+          state.productDefaultPrice = state.product.productDetails.sort(
+            (a, b) => {
+              return b.price - a.price;
+            }
+          )[0];
         } else {
           state.error = action.payload?.message;
         }

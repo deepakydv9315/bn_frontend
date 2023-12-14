@@ -19,63 +19,39 @@ const ProductDetails = () => {
   const Navigate = useNavigate();
   const { isLoading } = useSelector((state) => state.app);
   const { product, productDefaultPrice } = useSelector((state) => {
+    console.log("State : ", state.products.product);
     return state.products;
   });
-  const [price, setPrice] = useState("");
-  const [weight, setWeight] = useState("");
 
-  // const images = product?.images;
-  const [images, setImages] = useState([]);
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
-  // State to manage selected color, size, and quantity
-  const [selectedFlavour, setSelectedFlavour] = useState("");
-  const [selectedWeight, setselectedWeight] = useState("");
+  const [selectedVariant, setSelectedVariant] = useState({});
   const [quantity, setQuantity] = useState(1);
-
-  const handleFlavourChange = (flavour) => {
-    setSelectedFlavour(flavour);
-  };
-
-  const handleQuantityChange = (newQuantity) => {
-    setQuantity(newQuantity);
-  };
-
-  const handleSelectPrice = (info) => {
-    const itemPrice = product?.weightPrice?.find(
-      (price) => price.id === info.id
-    );
-    setPrice(itemPrice?.price);
-    setWeight(itemPrice?.weight);
-    setselectedWeight(itemPrice?.weight);
-  };
 
   // ! To Get Product Details By Id
   useEffect(() => {
     dispatch(getProductDetail({ id }));
   }, [dispatch, id]);
 
-  // ! For Default Price - Maximum Price
   useEffect(() => {
-    if (productDefaultPrice.length === 0 || !product) return;
-    setWeight(productDefaultPrice.weight);
-    setPrice(productDefaultPrice.price);
-    setSelectedFlavour(product.flavour);
-    setselectedWeight(productDefaultPrice.weight);
-  }, [product, productDefaultPrice]);
+    setSelectedVariant(productDefaultPrice);
+  }, [productDefaultPrice]);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
   const addToCart = () => {
-    console.log("Price : ", price, typeof price);
-    if (typeof price === "string" && parseInt(price) > 0) {
+    if (
+      typeof selectedVariant.price === "string" &&
+      parseInt(selectedVariant.price) > 0
+    ) {
       dispatch({
         type: "ProductSlice/addToCart",
-        payload: { id: product._id, price, weight, quantity },
+        payload: {
+          sku: selectedVariant.sku,
+          price: selectedVariant.price,
+          weight: selectedVariant.weight,
+          quantity,
+        },
       });
       setIsAddedOnCart(true);
     } else {
@@ -87,33 +63,7 @@ const ProductDetails = () => {
     }
   };
 
-  const products = [
-  //   {
-  //     flavour: "Chocolate Caramel",
-  //   },
-  //   {
-  //     flavour: "Coffee",
-  //   },
-  //   {
-  //     flavour: "Blueberry Muffin",
-  //   },
-  //   {
-  //     flavour: "UnFlavoured",
-  //   },
-  ];
-
-  const maxPrice =
-    product &&
-    product?.weightPrice &&
-    Math.max(...product?.weightPrice?.map((item) => parseInt(item.price)));
-
-  const discountedPrice = price - 0.5 * price;
-
-  const [deliveryAddress, setDeliveryAddress] = useState("");
-
-  const handleCheckButtonClick = () => {
-    console.log("Checking delivery for:", deliveryAddress);
-  };
+  const discountedPrice = selectedVariant.price - 0.5 * selectedVariant.price;
 
   return (
     <Fragment>
@@ -124,18 +74,20 @@ const ProductDetails = () => {
           <div className="left-section">
             <div className="main-product-image">
               <img
-                src={product && product.images && product?.images[0]?.url}
+                src={
+                  selectedVariant &&
+                  selectedVariant.images &&
+                  selectedVariant.images.length > 0 &&
+                  selectedVariant.images[0]?.url
+                }
                 alt="Main Product"
               />
-              {product &&
-                product?.images &&
-                product?.images.length > 1 &&
-                product.images.map((image, index) => (
+              {selectedVariant &&
+                selectedVariant.images &&
+                selectedVariant.images.length > 0 &&
+                selectedVariant.images.map((image, index) => (
                   <div key={index} className="additional-image">
-                    <img
-                      src={product.image[1]}
-                      alt={`AdditionalImage ${index + 1}`}
-                    />
+                    <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
                   </div>
                 ))}
 
@@ -148,7 +100,9 @@ const ProductDetails = () => {
               {/* <div className="name">{product?.category}</div> */}
               <p className="head">{product?.name}</p>
               <div className="price">
-                <span className="mrp" style={{ display: "flex" }}>MRP ₹{price}</span>
+                <span className="mrp" style={{ display: "flex" }}>
+                  MRP ₹{selectedVariant.price}
+                </span>
                 {/* <br></br> */}
                 <span className="discounted-price">
                   ₹{discountedPrice.toFixed(2)} (50% OFF) inclusive all taxes
@@ -158,31 +112,31 @@ const ProductDetails = () => {
               <div className="size-options">
                 <div className="flavour">Flavour</div>
                 <div className="btn-wrapper">
-                  {products.map((product, index) => (
-                    <button
-                      key={index}
-                      className={`size-button ${product.flavour === selectedFlavour ? "selected" : ""
-                        }`}
-                      onClick={() => handleFlavourChange(product.flavour)}
-                    >
-                      {product.flavour}
-                    </button>
-                  ))}
+                  <button
+                    className={`size-button ${
+                      product.productFlavour ? "selected" : ""
+                    }`}
+                  >
+                    {product.productFlavour}
+                  </button>
                 </div>
               </div>
               <div className="size-options">
                 <div className="flavour">Weight</div>
                 <div className="btn-wrapper">
-                  {product?.weightPrice &&
-                    product?.weightPrice?.map((weight, index) => {
+                  {product?.productDetails &&
+                    product?.productDetails?.map((data, index) => {
                       return (
                         <button
                           key={index}
-                          className={`size-button ${weight.weight === selectedWeight ? "selected" : ""
-                            }`}
-                          onClick={() => handleSelectPrice(weight)}
+                          className={`size-button ${
+                            data.weight === selectedVariant.weight
+                              ? "selected"
+                              : ""
+                          }`}
+                          onClick={() => setSelectedVariant(data)}
                         >
-                          {weight.weight}
+                          {data.weight}
                         </button>
                       );
                     })}
@@ -190,17 +144,9 @@ const ProductDetails = () => {
               </div>
               <div className="quantity">
                 <div className="quant">
-                  <button
-                    onClick={() =>
-                      handleQuantityChange(Math.max(1, quantity - 1))
-                    }
-                  >
-                    -
-                  </button>
+                  <button onClick={() => setQuantity(quantity - 1)}>-</button>
                   <span>{quantity}</span>
-                  <button onClick={() => handleQuantityChange(quantity + 1)}>
-                    +
-                  </button>
+                  <button onClick={() => setQuantity(quantity + 1)}>+</button>
                 </div>
               </div>
 
@@ -268,7 +214,6 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </section> */}
-
             </div>
             <br></br>
             <div className="product-description-reviews">
@@ -277,17 +222,16 @@ const ProductDetails = () => {
             </div>
             <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
               <div className="arrow">
-                <h3 onClick={toggleAccordion}>Long Description</h3>
+                <h3 onClick={(e) => setIsOpen(!isOpen)}>Long Description</h3>
 
                 <BsArrowDown
-                  onClick={toggleAccordion}
+                  onClick={(e) => setIsOpen(!isOpen)}
                   style={{ fontSize: "20px", marginTop: "5px" }}
                 />
               </div>
               <br></br>
               <p>{product?.longDescription}</p>
             </div>
-
           </div>
         </div>
       )}
