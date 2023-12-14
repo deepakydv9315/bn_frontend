@@ -17,9 +17,24 @@ function Cart() {
 
   const cartTotal = () => {
     return carts?.reduce(function (total, item) {
-      return total + (item.quantity || 1) * item.price;
+      return (
+        total +
+        (item.productDefaultPrice.quantity || 1) *
+          item.productDefaultPrice.price
+      );
     }, 0);
   };
+
+  // On Load Add Product In Cart From Local Storage
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cartItems"));
+    if (cart) {
+      dispatch({
+        type: "ProductSlice/setCart",
+        payload: cart,
+      });
+    }
+  }, [dispatch]);
 
   // CLOSE CART
   useEffect(() => {
@@ -36,7 +51,7 @@ function Cart() {
 
     document.addEventListener("mousedown", handleOutsideClick);
     window.addEventListener("beforeunload", handlePageUnload);
-  }, []);
+  }, [dispatch]);
 
   const checkoutHandler = () => {
     if (isAuthenticated) {
@@ -70,7 +85,7 @@ function Cart() {
         <div className="cart__del-info">
           <div className="left__info">
             <div className="title">
-              My<span style={{marginLeft:"10px"}}>Cart</span>
+              My<span style={{ marginLeft: "10px" }}>Cart</span>
             </div>
             <p className="p-text">{carts.length} Items</p>
           </div>
@@ -88,12 +103,18 @@ function Cart() {
         <div className="item__container">
           {carts.map((product, index) => (
             <CartItem
+              key={index}
               id={product._id}
               name={product.name}
-              imgUrl={product.images[0].url}
-              price={product.price}
-              quantity={product.quantity}
-              weight={product.weight}
+              imgUrl={
+                product.productDetails.find(
+                  (item) => item.sku === product.productDefaultPrice.sku
+                )?.images[0].url || ""
+              }
+              price={product.productDefaultPrice.price}
+              quantity={product.productDefaultPrice.quantity}
+              sku={product.productDefaultPrice.sku}
+              weight={product.productDefaultPrice.weight}
             />
           ))}
         </div>

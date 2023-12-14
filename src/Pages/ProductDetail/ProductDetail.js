@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./ProductDetail.scss";
 import { BsArrowDown } from "react-icons/bs";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruck } from "@fortawesome/free-solid-svg-icons";
-import { faCoffee, faCode, faCogs } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faTruck } from "@fortawesome/free-solid-svg-icons";
+// import { faCoffee, faCode, faCogs } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetail } from "../../Redux/slices/productSlice";
@@ -18,10 +18,10 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const { isLoading } = useSelector((state) => state.app);
-  const { product, productDefaultPrice } = useSelector((state) => {
-    console.log("State : ", state.products.product);
-    return state.products;
-  });
+  const { carts, product, productDefaultPrice } = useSelector(
+    (state) => state.products
+  );
+  // const { carts } = useSelector((state) => state);
 
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
@@ -34,12 +34,20 @@ const ProductDetails = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
+    let item = carts?.find(
+      (item) =>
+        item._id === id && item.productDefaultPrice.sku === selectedVariant.sku
+    );
+    item && setQuantity(item.productDefaultPrice.quantity);
+  }, [carts, id, selectedVariant.sku]);
+
+  useEffect(() => {
     setSelectedVariant(productDefaultPrice);
   }, [productDefaultPrice]);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const addToCart = () => {
+  const addToCart = async () => {
     if (
       typeof selectedVariant.price === "string" &&
       parseInt(selectedVariant.price) > 0
@@ -47,6 +55,7 @@ const ProductDetails = () => {
       dispatch({
         type: "ProductSlice/addToCart",
         payload: {
+          productId: product._id,
           sku: selectedVariant.sku,
           price: selectedVariant.price,
           weight: selectedVariant.weight,

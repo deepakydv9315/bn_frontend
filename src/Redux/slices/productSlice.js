@@ -167,65 +167,50 @@ const productSlice = createSlice({
     },
     // ! To Add Product In Cart
     addToCart: (state, action) => {
-      let { sku, price, weight } = action.payload;
+      let { productId, sku, price, weight, quantity } = action.payload;
+      let product = state.product;
 
-      //check Existance
-      let item = state.carts.find((item) => item.sku === sku);
+      // ! Find item in cart with matching productId
+      let item = state.carts.find(
+        (item) => item._id === productId && item.productDefaultPrice.sku === sku
+      );
 
-      console.log("This is Item", item);
-      console.log("This is State Product : ", state);
+      // ? If item doesn't exist, create new one
       if (!item) {
-        let arr = state.product.find((item) => item.sku === sku);
-        // arr.quantity = quantity;
-        arr.price = price;
-        arr.weight = weight;
-        state.carts.push(arr);
+        let arr = product.productDetails.find((item) => item.sku === sku);
 
-        // Swal.fire({
-        //   title: "Added to your Cart",
-        //   text: "Successfully added to your Cart",
-        //   icon: "success",
-        //   width: "300px",
-        //   showConfirmButton: false,
-        //   timer: 1500,
-        //   position: "bottom-end",
-        //   customClass: {
-        //     popup: "custom-popup",
-        //     closeButton: "custom-close-button",
-        //     title: "s-title",
-        //   },
-        //   allowOutsideClick: false,
-        //   allowEscapeKey: false,
-        //   allowEnterKey: false,
-        //   showCloseButton: true,
-        //   closeButtonHtml: "&times;", // Custom HTML for the close button (uses the "times" symbol)
-        // });
+        if (arr) {
+          product.productDefaultPrice = { price, quantity, sku, weight };
+          state.carts.push(product);
+        }
 
-        //Saving Carts To localStorage
         localStorage.setItem("cartItems", JSON.stringify(state.carts));
       } else {
+        // ? If item exist, update quantity
+        item.productDefaultPrice = { price, quantity, sku, weight };
+        localStorage.setItem("cartItems", JSON.stringify(state.carts));
       }
     },
 
     //Update Cart
     updateCart: (state, action) => {
-      let { val, id } = action.payload;
-      state.carts.forEach((item) => {
-        if (item._id === id) {
-          if (val >= 1) {
-            item.quantity = val;
-          }
-        }
-      });
-
+      let { val, sku, id } = action.payload;
+      state.carts.find(
+        (item) =>
+          item._id === id &&
+          item.productDefaultPrice.sku === sku &&
+          (item.productDefaultPrice.quantity = val)
+      );
       localStorage.setItem("cartItems", JSON.stringify(state.carts));
     },
 
     // Remove Cart
     removeCart: (state, action) => {
-      let { id } = action.payload;
-      let arr = state.carts.filter((item) => item._id != id);
-      console.log("Deleted ID", arr);
+      let { id, sku } = action.payload;
+      let arr = state.carts.filter(
+        (item) => item._id === id && item.productDefaultPrice.sku !== sku
+      );
+
       state.carts = arr;
       localStorage.setItem("cartItems", JSON.stringify(state.carts));
       if (arr) {
