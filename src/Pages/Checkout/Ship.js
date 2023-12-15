@@ -32,7 +32,7 @@ const Ship = () => {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-          item.productDefaultPrice.price
+        item.productDefaultPrice.price
       );
     }, 0);
   };
@@ -206,8 +206,8 @@ const Ship = () => {
                   {isApplied === true
                     ? "Coupon Code Applied"
                     : isApplied === false
-                    ? "Invalid Coupon Code"
-                    : ""}
+                      ? "Invalid Coupon Code"
+                      : ""}
                   <input
                     type="text"
                     required={true}
@@ -264,7 +264,7 @@ const Ship = () => {
                       <td>
                         ₹
                         {couponDetail.percent > 0 &&
-                        cartTotal() >= couponDetail.minRate
+                          cartTotal() >= couponDetail.minRate
                           ? (cartTotal() * couponDetail.percent) / 100
                           : 0}
                         .00
