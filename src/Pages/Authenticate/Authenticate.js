@@ -6,7 +6,7 @@ import authenticate from "../../Assets/Images/authenticate.jpeg";
 import repo1 from "../../Assets/Images/repo1.png";
 import repo2 from "../../Assets/Images/repo2.png";
 import { useNavigate } from 'react-router-dom';
-import Coming from "../../Components/ComingSoon/ComingSoon";
+import Coming from "../../Pages/ComingSoon/ComingSoon";
 
 const Authenticate = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -25,11 +25,12 @@ const Authenticate = () => {
     <>
       <div className="image-with-text-container">
         <img src={authenticate} alt="YourImage" className="image" />
-        <div className="text">
-          Healthy <span>Recipes</span>
+        <div className="text" style={{ color: "black" }}>
+          Healthy<span style={{ color: "black" }}>Recipes</span>
         </div>
       </div>
-      <div className="tab-container">
+      <Coming />
+      {/* <div className="tab-container">
         <div className={`tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>
           <FontAwesomeIcon icon={faCoffee} />
           <span>Check Authenticity</span>
@@ -42,8 +43,7 @@ const Authenticate = () => {
       <div className="tab-content">
         {activeTab === 1 && (
           <div className="tab1-content">
-            <Coming />
-            {/* <div className="content-container">
+            <div className="content-container">
               <h2 style={{ display: "flex", justifyContent: "space-between" }} className='title1'>Check Authenticity</h2>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <p>Know if your Burly Nutrition is authentic</p>
@@ -69,14 +69,14 @@ const Authenticate = () => {
                   <label htmlFor="checkbox">Subscribe me to articles, deals and more!</label>
                 </div>
               </form>
-            </div> */}
+            </div>
           </div>
         )}
         {activeTab === 2 && (
           <div className="tab2-content">
-            {/* <Coming /> */}
+    
             <div className="section ">
-              {/* <h2 className='title1' style={{ display: "flex", justifyContent: "space-between" }}>Protein</h2> */}
+              <h2 className='title1' style={{ display: "flex", justifyContent: "space-between" }}>Protein</h2>
               <div className="image-container">
                 <div className="image">
                   <div className="image-content">
@@ -96,7 +96,7 @@ const Authenticate = () => {
                     </div>
                   </div>
                 </div>
-                {/* <div className="image">
+                <div className="image">
                   <div className="image-content">
                     <img src={repo1} alt="Image1" />
                     <div class="image-button" onClick={handleNavigation}>
@@ -113,11 +113,11 @@ const Authenticate = () => {
                       <button class="right-arrow">➜</button>
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
             <br></br>
-            {/* <div className="section ">
+            <div className="section ">
               <h2 className='title1' style={{ display: "flex", justifyContent: "space-between" }}>Energy Drinks</h2>
               <div className="image-container">
                 <div className="image">
@@ -157,10 +157,10 @@ const Authenticate = () => {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 };

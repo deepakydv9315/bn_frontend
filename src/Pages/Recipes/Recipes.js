@@ -6,7 +6,7 @@ import r1 from "../../Assets/Images/r1.png";
 import r2 from "../../Assets/Images/r2.png";
 import r3 from "../../Assets/Images/r3.png";
 import r4 from "../../Assets/Images/r4.png";
-import Coming from "../../Components/ComingSoon/ComingSoon";
+import Coming from "../../Pages/ComingSoon/ComingSoon";
 
 const Recipes = () => {
     const rData = [

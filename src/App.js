@@ -48,8 +48,8 @@ import MyOrder from "./Pages/User/MyOrders.js";
 import Address from "./Pages/User/AddressBook.js";
 import Ship from "./Pages/Checkout/Ship.js";
 import Invoice from "./Pages/Checkout/Invoice.js";
-// import ComingSoon from "./Pages/ComingSoon/ComingSoon";
-
+import ComingSoon from "./Pages/ComingSoon/ComingSoon";
+import ScrollToTop from "./utils/ScrollToTop";
 import { getUserDetail } from "./Redux/slices/user";
 import { useDispatch } from "react-redux";
 import React from "react";
@@ -66,7 +66,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
-        {/* <Route path="/coming" element={<ComingSoon />} /> */}
+        <Route path="/coming" element={<><ScrollToTop />
+          <ComingSoon /></>} />
         <Route path="/ship" element={<Ship />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -79,8 +80,8 @@ function App() {
         <Route path="/user/address" element={<Address />} />
         <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/terms" element={<TermsCondition />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/productdetails/:id" element={<ProductDetail />} />
+        <Route path="/products" element={<><ScrollToTop /> <Products /></>} />
+        <Route path="/productdetails/:id" element={<><ScrollToTop /><ProductDetail /></>} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/authenticate" element={<Authenticate />} />

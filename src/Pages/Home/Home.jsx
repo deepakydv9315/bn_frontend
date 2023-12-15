@@ -17,16 +17,13 @@ import { useParams } from "react-router-dom";
 // import MinLoader from "../../Components/Loader/MinLoader.js";
 import { useDispatch, useSelector } from "react-redux";
 
-
 const Home = () => {
   const { categoryname } = useParams();
   let category = useSelector((state) => state.products.categories);
   const [activeFilter, setActiveFilter] = useState("All");
 
   const dispatch = useDispatch();
-  const { products } = useSelector(
-    (state) => state.products
-  );
+  const { products } = useSelector((state) => state.products);
 
   const { isLoading } = useSelector((state) => state.app);
 
@@ -38,7 +35,11 @@ const Home = () => {
   useEffect(() => {
     if (categoryname) {
       setActiveFilter(categoryname);
-      dispatch(getAllProducts({ product: categoryname }));
+      if (categoryname === "All") {
+        dispatch(getAllProducts());
+      } else {
+        dispatch(getAllProducts({ product: categoryname }));
+      }
     } else {
       dispatch(getAllProducts());
     }
@@ -134,15 +135,17 @@ const Home = () => {
         <div className="know-more-card">
           <div className="know-more-bg">
             <div className="know-more-container">
-              <h3>PROTEIN</h3>
+              <h3>BURLY WHEY PROTEIN</h3>
               <p>
-                Help build muscle and support recovery* with delicious,
-                high-quality protein powders and shakes. Gold Standard is
-                available as a powder and isolate formulas.
+                Burly Nutrition Whey Protein aids in recovery and boosts protein intake efficiently.
               </p>
               <p>
-                Post-workout muscle recovery from the world’s number 1. sports
-                nutrition brand
+                It offers high-quality protein at an affordable price, truly
+                valuable for your fitness journey.
+              </p>
+              <p>
+                * Its main advantage lies in its quick absorption within the
+                body, making it an easily digestible protein option.
               </p>
               <p>*When taken over time with regular resistance training</p>
               <button><Link to="/products">Shop Now</Link></button>
