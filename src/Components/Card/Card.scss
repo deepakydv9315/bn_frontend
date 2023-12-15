@@ -20,26 +20,30 @@
     cursor: pointer;
     background-color: #fff;
 
-    .badge{
+    .badge {
       position: absolute;
       top: 0px;
       right: 0px;
-      background-color: #ff0000; // You can change the background color
-      color: #ffffff; // You can change the text color
-      padding: 4px;
-      border-radius: 5px;
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 4px 6px;
+      border-radius: 0px 0px 0px 10px;
       font-weight: bold;
       display: flex;
-      justify-content:center;
+      text-align: center;
+      justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap:20px 0px;
+      gap: 5px;
+      border-style: double;
     }
-    .badge .badge_top{
+    .badge .badge_top {
       font-size: 20px;
+      margin-left: 0px;
     }
-    .badge .badge_btm{
+    .badge .badge_btm {
       font-size: 16px;
+      margin-left: 0px;
     }
 
     .product-card-img {

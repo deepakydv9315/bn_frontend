@@ -6,8 +6,8 @@ import whyCP from "../../Assets/Images/why-clean-protein.png";
 import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
-import bg from "../../Assets/Images/temp.jpg";
-import ReadBlogs from "../../Components/Blogs/ReadBlogs";
+import bg from "../../Assets/Images/temp.png";
+// import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import {
   getAllCategories,
   getAllProducts,
@@ -208,15 +208,16 @@ const Home = () => {
       <section className="img-slider">
         <Carousel />
       </section>
+      <br></br>
 
-      <section className="blog">
+      {/* <section className="blog">
         <div className="blog-page">
           <h3>
             Read<span>Blogs</span>
           </h3>
           <ReadBlogs />
         </div>
-      </section>
+      </section> */}
 
       {/* <div className="info-grid">
           <InfoGrid />

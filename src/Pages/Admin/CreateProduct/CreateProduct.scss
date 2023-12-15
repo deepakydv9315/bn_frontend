@@ -22,7 +22,7 @@
 
     .cp-wrapper {
       background-color: #ffffff;
-      padding: 20px 15px;
+      padding: 0px 1px;
 
       .cp-row-div {
         margin-top: 10px;
@@ -33,7 +33,6 @@
         align-items: center;
         flex-direction: column;
         gap: 5px 0px;
-
       }
 
       .cp-row {
@@ -61,7 +60,7 @@
           select {
             // width: 100%;
             padding: 5px 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #6a6a6a;
             border-radius: 2px;
             outline: none;
             font-size: 16px;
@@ -69,7 +68,7 @@
           }
 
           .cp-dec {
-            width: 400px;
+            width: 500px;
             padding: 5px 3px;
             font-size: 15px;
           }
@@ -90,6 +89,7 @@
           .image-input {
             display: flex;
             align-items: center;
+            border: 1px solid rgb(125, 125, 125);
 
             input[type="file"] {
               display: none;
@@ -125,7 +125,6 @@
               width: 150px;
             }
           }
-
         }
       }
     }
@@ -170,7 +169,8 @@
       }
 
       .btn_right_table {
-        text-align: right;
+        text-align: center;
+        margin-top: 20px;
 
         button {
           padding: 10px 20px;
