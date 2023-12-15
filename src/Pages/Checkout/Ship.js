@@ -234,8 +234,8 @@ const Ship = () => {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th>Product</th>
-                      <th>Total</th>
+                      <th style={{ color: "black" }}>Product</th>
+                      <th style={{ color: "black" }}>Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -244,12 +244,12 @@ const Ship = () => {
                         <td>
                           {data.name}
                           <span className="product-qty">
-                            {data.quantity || 1}
+                            ({data.productDefaultPrice.quantity || 1})
                           </span>
                         </td>
                         <td>
-                          ₹{data.price} X ({data.quantity || 1}) ={" "}
-                          {data.price * (data.quantity || 1)}
+                          ₹{data.productDefaultPrice.price} X ({data.productDefaultPrice.quantity || 1}) ={" "}
+                          {data.productDefaultPrice.price * (data.productDefaultPrice.quantity || 1)}
                         </td>
                       </tr>
                     ))}
