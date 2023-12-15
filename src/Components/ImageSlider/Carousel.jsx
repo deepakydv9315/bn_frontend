@@ -64,7 +64,7 @@ function Carousel() {
             <img
               src={image.image}
               alt={image.name}
-              style={{ width: "410px" }}
+              style={{ width: "430px" }}
             />
           </div>
         </div>
