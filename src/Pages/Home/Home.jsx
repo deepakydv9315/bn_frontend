@@ -12,9 +12,11 @@ import {
   getAllCategories,
   getAllProducts,
 } from "../../Redux/slices/productSlice";
+import {getUserDetail } from "../../Redux/slices/user";
 import { useParams } from "react-router-dom";
 // import MinLoader from "../../Components/Loader/MinLoader.js";
 import { useDispatch, useSelector } from "react-redux";
+
 
 const Home = () => {
   const { categoryname } = useParams();

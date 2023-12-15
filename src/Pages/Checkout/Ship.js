@@ -1,5 +1,6 @@
 import React from "react";
 import { validateCoupon } from "../../Redux/slices/orderSlice";
+import { placeOrder } from "../../Redux/slices/orderSlice";
 import "./Ship.scss";
 import "./Shipping.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,10 +20,11 @@ const Ship = () => {
     email: "john@gmail.com",
     phone: "9696969696",
     address: "Front of Ate",
-    pincode: "22222",
-    city: "Lucknow",
+    pincode: "210201",
+    city: "Banda",
     state: "Uttar Pradesh",
     country: "India",
+    notes: "This is a test note",
   });
   const dispatch = useDispatch();
   const cartTotal = () => {
@@ -74,12 +76,37 @@ const Ship = () => {
       return subtotal;
     }
   };
+
+  const hanldePlaceOrder = async (e) => {
+    e.preventDefault();
+
+    const orderData = {
+      ...billingInfo,
+      total: applyDiscount(cartTotal()),
+      coupon: couponDetail.code,
+      discount: couponDetail.percent,
+      products: carts,
+      orderID: `BN-${Date.now()}`,
+    };
+    console.log(orderData);
+    const responseData = await dispatch(placeOrder(orderData));
+    if (responseData.payload.status === "error") {
+      alert(responseData.payload.message);
+    } else {
+      setTimeout(() => {
+        window.open(
+          responseData.payload.data.instrumentResponse.redirectInfo.url,
+          "_self"
+        );
+      }, 3000);
+    }
+  };
   return (
     <>
       <section className="contain checkout-wrapper">
         <div className="ship-address">
           <h5 className="ship-tittle">Ship to</h5>
-          <form className="ship-form">
+          <form className="ship-form" onSubmit={(e) => hanldePlaceOrder(e)}>
             <div className="input-group">
               <div className="input-label">Full Name*</div>
               <input
@@ -133,13 +160,25 @@ const Ship = () => {
               </div>
               <div className="ig-1">
                 <div className="input-label">Pincode Code*</div>
-                <input type="text" required />
+                <input
+                  type="text"
+                  name="pincode"
+                  value={billingInfo.pincode}
+                  onChange={handleChange}
+                  required
+                />
               </div>
             </div>
             <div className="input-group ig">
               <div className="ig-1">
                 <div className="input-label">City*</div>
-                <input type="text" required />
+                <input
+                  type="text"
+                  name="city"
+                  value={billingInfo.city}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div className="ig-1">
                 <div className="input-label">Country*</div>
@@ -150,7 +189,7 @@ const Ship = () => {
               <input type="checkbox" />
               <div>Save my Address</div>
             </div>
-            <div className="ship-btn">Place Order</div>
+            <input type="submit" value={"Place Order"} className="ship-btn" />
           </form>
         </div>
         <div className="ship-detail">

@@ -84,11 +84,11 @@ export const getAllUsers = createAsyncThunk("/api/v1/admin/users", async () => {
 });
 //Get All User (admin)
 export const getUserDetail = createAsyncThunk(
-  "/api/v1/me",
+  "/api/v1/auth/me",
   async (_, thunkApi) => {
     try {
       thunkApi.dispatch(setLoading(true));
-      const response = await axiosClient.get("/api/v1/me");
+      const response = await axiosClient.get("/api/v1/auth/me");
       console.log("This is User from our APi", response.data);
       return response.data;
     } catch (error) {
@@ -202,6 +202,9 @@ const userSlice = createSlice({
         timer: 2500,
       });
     },
+    isUserAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload ? true : false;
+    },
 
     clearError: (state) => {
       state.error = null;
@@ -265,5 +268,5 @@ const userSlice = createSlice({
 });
 
 const userReducer = userSlice.reducer;
-export const { clearError } = userSlice.actions;
+export const { clearError, isUserAuthenticated } = userSlice.actions;
 export default userReducer;

@@ -23,18 +23,22 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleLogin = (data) => {
+  const handleLogin = async (data) => {
     if (error) {
       toast.error(error, { position: "top-right" });
     } else {
       dispatch(getLoggedInrUser(data));
-      if (isAuthenticated) {
-        toast.success("🎉 Login successful!", { position: "top-right" });
-        navigate("/");
-        dispatch(clearError());
-      }
+      toast.success("Logged In Successfully", { position: "top-right" });
+      navigate("/");
+      dispatch(clearError());
     }
   };
+
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <section className="si">
@@ -62,7 +66,12 @@ export default function LoginForm() {
             className="flex flex-col"
             onSubmit={handleSubmit(handleLogin)}
           >
-            <input style={{ backgroundColor: "transparent" }} type="text" {...register("email")} placeholder="E-Mail" />
+            <input
+              style={{ backgroundColor: "transparent" }}
+              type="text"
+              {...register("email")}
+              placeholder="E-Mail"
+            />
             <input
               style={{ backgroundColor: "transparent" }}
               type="password"

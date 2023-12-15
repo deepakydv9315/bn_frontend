@@ -49,7 +49,15 @@ import Address from "./Pages/User/AddressBook.js";
 import Ship from "./Pages/Checkout/Ship.js";
 import Invoice from "./Pages/Checkout/Invoice.js";
 
+import { getUserDetail } from "./Redux/slices/user";
+import { useDispatch } from "react-redux";
+import React from "react";
+
 function App() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(getUserDetail());
+  }, [dispatch]);
   return (
     <div className="App">
       {/* <Router> */}
@@ -81,7 +89,7 @@ function App() {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
         <Route path="/refund" element={<RefundPolicy />} />
-        
+
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/products" element={<ProductList />} />
         <Route path="/admin/product/create" element={<CreateProduct />} />

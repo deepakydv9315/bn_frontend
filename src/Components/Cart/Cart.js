@@ -54,6 +54,7 @@ function Cart() {
   }, [dispatch]);
 
   const checkoutHandler = () => {
+    console.log("[isAuthenticated] => ", isAuthenticated);
     if (isAuthenticated) {
       dispatch(setCartOpen(false));
       navigate("/checkout");
