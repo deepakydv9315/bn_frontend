@@ -12,7 +12,7 @@ const RefundPolicy = () => {
                 delivered is different from what you had ordered, you may request a return.
                 For all returns, the product must be unused, unwashed and in sellable condition.
                 It must be in its original packaging with all its original tags and labels intact.
-                All returns must be made within 30 days of the product’s actual date of delivery.
+                All returns must be made within 7 days(If you have unboxing video) of the product’s actual date of delivery.
                 If a product return is requested, the returns will be picked within 4-7 working days.
                 In case of returns, the refunds will be credited to your account within 10-14 working days.
                 Discounted products can not be returned.

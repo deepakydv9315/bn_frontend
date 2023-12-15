@@ -33,6 +33,7 @@
 .home-2 {
   flex-direction: column;
   max-width: 100%;
+  // height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,14 +361,14 @@
   .know-more-bg {
     background-image: url(../../Assets/Images/proteinBG.png);
     display: flex;
-    flex-direction: row-reverse;
-    // width: 85%;
+    // flex-direction: row-reverse;
+    background-repeat: no-repeat;
     background-position: top center;
-    // width: 50%;
+    height: 550px;
   }
 
   .know-more-container {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
     background-color: rgba(255, 255, 255, 0.5);
     max-width: 52%;
     display: flex;
@@ -378,12 +379,13 @@
   .know-more-container {
     h3 {
       margin-bottom: 0rem;
-      padding-top: 40px;
+      padding-top: 20px;
       margin: 70px 60px 30px 50px;
       font-family: "Nunito Sans", sans-serif;
       font-size: 40px;
     }
     p {
+      color: #000;
       font-family: "Nunito Sans", sans-serif;
       margin: 10px 60px 10px 50px;
       text-align: initial;

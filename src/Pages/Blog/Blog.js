@@ -5,8 +5,7 @@ import BlogCard from './BlogCard';
 import b1 from "../../Assets/Images/b1.png";
 import b2 from "../../Assets/Images/b2.png";
 import b3 from "../../Assets/Images/b3.png";
-import Coming from "../../Components/ComingSoon/ComingSoon";
-
+import Coming from "../../Pages/ComingSoon/ComingSoon";
 
 const Blog = () => {
   const [sortBy, setSortBy] = useState('date'); // Initial sort option

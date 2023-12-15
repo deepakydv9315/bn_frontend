@@ -91,16 +91,18 @@ const ProductDetails = () => {
                 }
                 alt="Main Product"
               />
-              {selectedVariant &&
-                selectedVariant.images &&
-                selectedVariant.images.length > 0 &&
-                selectedVariant.images.map((image, index) => (
-                  <div key={index} className="additional-image">
-                    <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
-                  </div>
-                ))}
+              <div className="add-img-wrapper">
+                {selectedVariant &&
+                  selectedVariant.images &&
+                  selectedVariant.images.length > 0 &&
+                  selectedVariant.images.map((image, index) => (
+                    <div key={index} className="additional-image">
+                      <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
+                    </div>
+                  ))}
 
-              {/* <img src={chart} alt="Main Product" className='chart' /> */}
+                {/* <img src={chart} alt="Main Product" className='chart' /> */}
+              </div>
             </div>
           </div>
 
@@ -110,11 +112,11 @@ const ProductDetails = () => {
               <p className="head">{product?.name}</p>
               <div className="price">
                 <span className="mrp" style={{ display: "flex" }}>
-                  MRP ₹{selectedVariant.price}
+                  ₹{selectedVariant.price}
                 </span>
                 {/* <br></br> */}
                 <span className="discounted-price">
-                  ₹{discountedPrice.toFixed(2)} (50% OFF) inclusive all taxes
+                  ₹{discountedPrice.toFixed(2)}
                 </span>
               </div>
 
@@ -122,9 +124,8 @@ const ProductDetails = () => {
                 <div className="flavour">Flavour</div>
                 <div className="btn-wrapper">
                   <button
-                    className={`size-button ${
-                      product.productFlavour ? "selected" : ""
-                    }`}
+                    className={`size-button ${product.productFlavour ? "selected" : ""
+                      }`}
                   >
                     {product.productFlavour}
                   </button>
@@ -138,11 +139,10 @@ const ProductDetails = () => {
                       return (
                         <button
                           key={index}
-                          className={`size-button ${
-                            data.weight === selectedVariant.weight
+                          className={`size-button ${data.weight === selectedVariant.weight
                               ? "selected"
                               : ""
-                          }`}
+                            }`}
                           onClick={() => setSelectedVariant(data)}
                         >
                           {data.weight}
@@ -177,7 +177,7 @@ const ProductDetails = () => {
                 )}
                 <br></br>
                 <button
-                  className="cart-button"
+                  className="wishlist-button"
                   onClick={() => {
                     Navigate("/checkout");
                   }}
