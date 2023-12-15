@@ -105,7 +105,7 @@ function App() {
         </Route>
       </Routes>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<><ScrollToTop /> <Home /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
         <Route
           path="/coming"
@@ -120,10 +120,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<><ScrollToTop /><Contact /></>} />
+        <Route path="/about" element={<><ScrollToTop /><About /></>} />
         <Route path="/blogdetail" element={<BlogDetail />} />
-        <Route path="/terms" element={<TermsCondition />} />
+        <Route path="/terms" element={<><ScrollToTop /><TermsCondition /></>} />
         <Route
           path="/products"
           element={
@@ -142,15 +142,15 @@ function App() {
           }
         />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/recipes" element={<><ScrollToTop /><Recipes /></>} />
         <Route path="/authenticate" element={<Authenticate />} />
         <Route path="/report" element={<Report />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="*" element={<ErrorPage />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/privacy" element={<><ScrollToTop /><PrivacyPolicy /></>} />
+        <Route path="/shipping" element={<><ScrollToTop /><Shipping /></>} />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
-        <Route path="/refund" element={<RefundPolicy />} />
+        <Route path="/refund" element={<><ScrollToTop /><RefundPolicy /></>} />
       </Routes>
       <Footer />
       {/* </ Router> */}

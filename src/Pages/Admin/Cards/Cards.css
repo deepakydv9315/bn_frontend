@@ -8,17 +8,16 @@
 } */
 
 @media screen and (max-width: 1200px) {
-  .Cards{
-    flex-direction: column;
+  .Cards {
+    flex-direction: row;
   }
-  .parentContainer{
+  .parentContainer {
     height: 9rem;
   }
 }
 
-@media screen and (max-width: 768px)
-{
-  .Cards{
+@media screen and (max-width: 768px) {
+  .Cards {
     width: 90%;
   }
 }

@@ -32,7 +32,7 @@ const Ship = () => {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-          item.productDefaultPrice.price
+        item.productDefaultPrice.price
       );
     }, 0);
   };
@@ -205,8 +205,8 @@ const Ship = () => {
                   {isApplied === true
                     ? "Coupon Code Applied"
                     : isApplied === false
-                    ? "Invalid Coupon Code"
-                    : ""}
+                      ? "Invalid Coupon Code"
+                      : ""}
                   <input
                     type="text"
                     required={true}
@@ -233,8 +233,8 @@ const Ship = () => {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th>Product</th>
-                      <th>Total</th>
+                      <th style={{ color: "black" }}>Product</th>
+                      <th style={{ color: "black" }}>Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -243,12 +243,12 @@ const Ship = () => {
                         <td>
                           {data.name}
                           <span className="product-qty">
-                            {data.quantity || 1}
+                            ({data.productDefaultPrice.quantity || 1})
                           </span>
                         </td>
                         <td>
-                          ₹{data.price} X ({data.quantity || 1}) ={" "}
-                          {data.price * (data.quantity || 1)}
+                          ₹{data.productDefaultPrice.price} X ({data.productDefaultPrice.quantity || 1}) ={" "}
+                          {data.productDefaultPrice.price * (data.productDefaultPrice.quantity || 1)}
                         </td>
                       </tr>
                     ))}
@@ -263,7 +263,7 @@ const Ship = () => {
                       <td>
                         ₹
                         {couponDetail.percent > 0 &&
-                        cartTotal() >= couponDetail.minRate
+                          cartTotal() >= couponDetail.minRate
                           ? (cartTotal() * couponDetail.percent) / 100
                           : 0}
                         .00
