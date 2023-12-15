@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.scss";
 import Goals from "../../Components/Goals/Goals";
 import Levels from "../../Components/Levels/Levels";
@@ -144,7 +145,7 @@ const Home = () => {
                 nutrition brand
               </p>
               <p>*When taken over time with regular resistance training</p>
-              <button>Shop Now</button>
+              <button><Link to="/products">Shop Now</Link></button>
             </div>
           </div>
         </div>
@@ -159,8 +160,7 @@ const Home = () => {
           </div>
           <div className="level-description">
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Dignissimos, veritatis.
+            Get fit with precision. Explore now for the best results!
             </p>
           </div>
           <div className="level-cards">
@@ -171,7 +171,7 @@ const Home = () => {
 
       <section className="why-page">
         <div className="whyCP-img">
-          <img src={whyCP} alt="Why clean protein?" />
+          <img src={whyCP} alt="Why clean protein?" />  
         </div>
         <div className="why-container">
           {/* <h3>The promise of nothing artificial</h3> */}
@@ -179,7 +179,7 @@ const Home = () => {
             When taken over time with regular resistance with regular resistance
             tram over time with regular resistant taken over time with.
           </p>
-          <button>Shop Now</button>
+          <button><Link to="/products">Shop Now</Link></button>
         </div>
       </section>
 

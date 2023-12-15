@@ -50,10 +50,10 @@ function Card({ products }) {
                 </p>
                 <div className="space">
                   <p className="product-card-price">
-                    ₹ {product.productDetails[0].price}
+                    ₹ {product.productDetails[0].mrPrice}
                   </p>
                   <p className="d-price">
-                    {`₹ ${product.productDetails[0].mrPrice}`}
+                    {`₹ ${product.productDetails[0].price}`}
                   </p>
                 </div>
                 <div className="card-btns">
