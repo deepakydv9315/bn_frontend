@@ -72,7 +72,6 @@ export const loginGoogleUser = createAsyncThunk(
 );
 
 //Get All User (admin)
-
 export const getAllUsers = createAsyncThunk("/api/v1/admin/users", async () => {
   try {
     const response = await axiosClient.get("/api/v1/admin/users");
@@ -256,6 +255,10 @@ const userSlice = createSlice({
           if (action.payload.result?.isAdmin) {
             state.isAdmin = true;
           }
+        }
+
+        if (action.payload.user?.isAdmin) {
+          state.isAdmin = true;
         }
       })
       .addCase(getLoggedoutUser.fulfilled, (state, action) => {

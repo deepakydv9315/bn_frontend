@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import "./ProductList.scss";
 import { useSelector, useDispatch } from "react-redux";
@@ -93,25 +93,28 @@ const ProductList = () => {
     },
   ];
 
-  const rows = [];
+  const [rows, setRows] = useState([]);
 
-  products &&
-    products.forEach((item) => {
-      rows.push({
+  useEffect(() => {
+    if (products && products.products) {
+      const newRows = products.products.map((item) => ({
         id: item._id,
         category: item.category,
-        // stock: item.Stock,
         price: item.price,
         name: item.name,
-      });
-    });
+      }));
+      setRows(newRows);
+    }
+  }, [products]);
 
   return (
     <Fragment>
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h3 className="adminhead">ALL<span>PRODUCTS</span></h3>
+          <h3 className="adminhead">
+            ALL<span>PRODUCTS</span>
+          </h3>
           <DataGrid
             rows={rows}
             columns={columns}

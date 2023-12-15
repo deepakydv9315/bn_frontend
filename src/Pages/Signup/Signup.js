@@ -23,24 +23,17 @@ export default function Form() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    dispatch(createUser(data));
-    if (isAuthenticated) {
-      navigate("/");
-      dispatch(clearError());
-    }
-  };
-
-  const handleSignUp = () => {
-    const isUserRegistered = false;
-    const isEmailInvalid = false;
-
-    if (isUserRegistered) {
-      toast.error("Email is already registered!", { position: "top-right" });
-    } else if (isEmailInvalid) {
-      toast.error("Invalid email address!", { position: "top-right" });
-    } else {
+  const onSubmit = async (data) => {
+    const signupRes = await dispatch(createUser(data));
+    console.log("signup Response : ", signupRes);
+    if (signupRes.payload.success) {
       toast.success("🦄 Registration successful!", { position: "top-right" });
+      dispatch(clearError());
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    } else {
+      toast.error("Email is already registered!", { position: "top-right" });
     }
   };
 
@@ -96,9 +89,7 @@ export default function Form() {
             />
             {errors.email?.type === "required" && "Email is required"}
             <div>
-              <button className="btn" onClick={handleSignUp}>
-                Sign Up
-              </button>
+              <input type="submit" className="btn" value={"Sign Up"} />
               <ToastContainer
                 position="top-right"
                 autoClose={5000}

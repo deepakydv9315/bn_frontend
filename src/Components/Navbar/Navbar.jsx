@@ -18,7 +18,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const { carts } = useSelector((state) => state.products);
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated, isAdmin } = useSelector((state) => state.user);
   const { isCartOpen } = useSelector((state) => state.app);
   const navigate = useNavigate();
 
@@ -27,11 +27,14 @@ const Navbar = () => {
   };
 
   function open() {
-    if (isAuthenticated) {
+    if (isAuthenticated && isAdmin) {
+      navigate("/admin");
+    } else if (isAuthenticated && !isAdmin) {
       navigate("/user");
     } else {
       navigate("/login");
     }
+    
   }
 
   const handleNavigation = () => {

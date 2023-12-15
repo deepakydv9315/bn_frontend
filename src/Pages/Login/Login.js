@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import bgImg from "../../Assets/Images/product.png";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { FaTimes } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -24,21 +24,19 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleLogin = async (data) => {
-    if (error) {
-      toast.error(error, { position: "top-right" });
-    } else {
-      dispatch(getLoggedInrUser(data));
+    const loginRes = await dispatch(getLoggedInrUser(data));
+
+    if (loginRes.payload.success) {
       toast.success("Logged In Successfully", { position: "top-right" });
-      navigate("/");
       dispatch(clearError());
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    } else {
+      toast.error("Incorrect Username or Password", { position: "top-right" });
+      // Wait for 5 seconds before showing success message and navigating
     }
   };
-
-  React.useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/");
-    }
-  }, [isAuthenticated, navigate]);
 
   return (
     <section className="si">
@@ -85,9 +83,10 @@ export default function LoginForm() {
             </div>
 
             <div>
-              <button className="btn" onClick={handleLogin}>
+              {/* <button className="btn" onClick={handleLogin}>
                 Log In
-              </button>
+              </button> */}
+              <input type="submit" className="btn" value="Log In" />
               <ToastContainer
                 position="top-right"
                 autoClose={5000}
