@@ -1,5 +1,5 @@
-import './Levels.scss';
-
+import "./Levels.scss";
+import { Link } from "react-router-dom";
 
 const Card = ({ imageSrc, title }) => {
   return (
@@ -12,15 +12,15 @@ const Card = ({ imageSrc, title }) => {
 export default function Levels() {
   return (
     <div className="levels-container">
-      <Card 
-        title="Beginner"
-      />
-      <Card
-        title="Intermediate"
-      />
-      <Card
-        title="Advance"
-      />
+      <Link to={"/coming"}>
+        <Card title="Beginner" />
+      </Link>
+      <Link to={"/coming"}>
+        <Card title="Intermediate" />
+      </Link>
+      <Link to={"/coming"}>
+        <Card title="Advance" />
+      </Link>
     </div>
   );
 }

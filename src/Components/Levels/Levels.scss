@@ -1,7 +1,7 @@
 .levels-container {
   display: flex;
   justify-content: space-evenly;
-  padding: 20px 10% 20px 10%;
+  padding: 20px 10px 20px 10px;
   flex-wrap: wrap; /* Allow items to wrap to the next row on smaller screens */
 }
 
@@ -35,21 +35,21 @@
 /* Media query for smaller screens (e.g., tablets) */
 @media (max-width: 768px) {
   .level-card {
-    width: 250px; 
+    width: 250px;
   }
 }
 
 /* Media query for even smaller screens (e.g., mobile devices) */
 @media (max-width: 480px) {
   .levels-container {
-    padding: 10px; 
+    padding: 10px;
   }
 
   .level-card {
-    width: 100%; 
-    margin: 2px 0; 
+    width: 100%;
+    margin: 2px 0;
   }
-  
+
   .level-title {
     font-size: 15px;
   }
