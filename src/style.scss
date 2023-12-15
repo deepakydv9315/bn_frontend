@@ -145,8 +145,15 @@ img {
     font-weight: bold;
     font-size: 48px;
     color: #ffd626;
+    @media (max-width: 768px) {
+      font-size: 38px;
+    }
+  }
+  @media (max-width: 768px) {
+    font-size: 38px;
   }
 }
+
 .adminhead {
   margin-top: 20px;
   font-family: "Goldman", cursive;
