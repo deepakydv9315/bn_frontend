@@ -194,6 +194,10 @@ const Sidebar = () => {
                 </li>
               );
             })}
+            <li className="nav-text">
+              <FontAwesomeIcon icon={faLongArrowAltRight} />
+              <span>Logout</span>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>

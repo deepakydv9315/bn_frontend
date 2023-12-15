@@ -9,15 +9,39 @@ import { useNavigate } from "react-router-dom";
 
 function Card({ products }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleAddCart = async (_id) => {
+    console.log("Product Id ] + ", _id);
+    console.log("Products List ] + ", products);
+    const product = products?.find((product) => product._id === _id);
+    console.log("Product ] + ", product);
+    if (!product) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Product Not Found",
+      });
+    } else if (product.productDetails.length === 0) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Product Details Not Found",
+      });
+    } else {
+      await dispatch({
+        type: "ProductSlice/addToCart",
+        payload: {
+          product: product,
+          from: "direct",
+        },
+      });
+      dispatch(setCartOpen(true));
+    }
+  };
 
   const handleImageClick = (_id) => {
     navigate(`/productdetails/${_id}`);
-  };
-
-  const disCountPrice = (price) => {
-    // i have to calculate the discount price
-    let disPrice = price - (price * 50) / 100;
-    return disPrice;
   };
 
   return (
@@ -38,7 +62,7 @@ function Card({ products }) {
                       : "https://squatdeadlift.com/wp-content/uploads/2021/04/71uwfbcAkYL._AC_SX679_.jpg"
                   }
                   alt={product.name}
-                  onClick={handleImageClick.bind(this, product._id)}
+                  onClick={() => handleImageClick.bind(product._id)}
                 />
               </div>
               <div className="product-card-details">
@@ -58,10 +82,10 @@ function Card({ products }) {
                 </div>
                 <div className="card-btns">
                   <button
-                    onClick={handleImageClick.bind(this, product._id)}
+                    onClick={() => handleAddCart(product._id)}
                     className="he"
                   >
-                    View cart
+                    Add To Cart
                   </button>
                 </div>
               </div>

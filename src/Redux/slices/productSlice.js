@@ -167,7 +167,7 @@ const productSlice = createSlice({
     },
     // ! To Add Product In Cart
     addToCart: (state, action) => {
-      let { productId, sku, price, weight, quantity } = action.payload;
+      let { from, productId, sku, price, weight, quantity } = action.payload;
       let product = state.product;
 
       // ! Find item in cart with matching productId
@@ -177,11 +177,26 @@ const productSlice = createSlice({
 
       // ? If item doesn't exist, create new one
       if (!item) {
-        let arr = product.productDetails.find((item) => item.sku === sku);
+        if (from === "direct") {
+          var payloadProduct = action.payload.product;
+          var newPayloadProduct = {
+            ...payloadProduct,
+            productDefaultPrice: {
+              price: payloadProduct.productDetails[0].price,
+              quantity: 1,
+              sku: payloadProduct.productDetails[0].sku,
+              weight: payloadProduct.productDetails[0].weight,
+            },
+          };
 
-        if (arr) {
-          product.productDefaultPrice = { price, quantity, sku, weight };
-          state.carts.push(product);
+          state.carts.push(newPayloadProduct);
+        } else {
+          let arr = product.productDetails.find((item) => item.sku === sku);
+
+          if (arr) {
+            product.productDefaultPrice = { price, quantity, sku, weight };
+            state.carts.push(product);
+          }
         }
 
         localStorage.setItem("cartItems", JSON.stringify(state.carts));

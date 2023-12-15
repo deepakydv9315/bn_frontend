@@ -35,20 +35,18 @@ const Home = () => {
   useEffect(() => {
     if (categoryname) {
       setActiveFilter(categoryname);
-      if (categoryname === "All") {
-        dispatch(getAllProducts());
-      } else {
-        dispatch(getAllProducts({ product: categoryname }));
-      }
+      dispatch(getAllProducts({ category: categoryname }));
     } else {
       dispatch(getAllProducts());
     }
+
     dispatch(getAllCategories());
   }, [dispatch, categoryname]);
 
-  const categoryChangeHandler = (filterName) => {
+  const categoryChangeHandler = async (filterName) => {
     setActiveFilter(filterName);
-    dispatch(getAllProducts({ product: filterName }));
+    let productCat = await dispatch(getAllProducts({ category: filterName }));
+    console.log("Product Cat ] + ", productCat);
   };
 
   const handleAllProduct = () => {
@@ -74,7 +72,7 @@ const Home = () => {
               >
                 All
               </div>
-              {category.map((product, index) => (
+              {category.filter((item) => item.name !== "Best Selling").map((product, index) => (
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}

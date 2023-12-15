@@ -15,30 +15,12 @@ import product from "../../Assets/Images/pr.png";
 export default function Product() {
   const dispatch = useDispatch();
   const { categoryname } = useParams();
-  const [filter, setActiveFilter] = useState("All");
-  const filters = [
-    {
-      category: "Category",
-      options: ["Mass gainer", "Protein"],
-    },
-    {
-      category: "Price",
-      options: ["Low to High", "High to Low"],
-    },
-    {
-      category: "Flavour",
-      options: ["Chocolate", "Vanilla", "Unflavoured"],
-    },
-  ];
+  const [activeFilter, setActiveFilter] = useState("All");
 
-  const { products, categories, carts } = useSelector(
-    (state) => state.products
-  );
+  const { products, categories } = useSelector((state) => state.products);
+  let category = useSelector((state) => state.products.categories);
 
-  console.log(
-    "product page : ",
-    products && products.products && products.products
-  );
+  const { isLoading } = useSelector((state) => state.app);
 
   // ! Code is Used To Fetch And Store Products
   useEffect(() => {
@@ -52,34 +34,16 @@ export default function Product() {
     dispatch(getAllCategories());
   }, [dispatch, categoryname]);
 
-
-  // ! Below Code is for Filter
-  const [selectedFilters, setSelectedFilters] = useState([]);
-  const [sortBy, setSortBy] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleFilterChange = (category, option) => {
-    const updatedFilters = selectedFilters.includes(option)
-      ? selectedFilters.filter((filter) => filter !== option)
-      : [...selectedFilters, option];
-    setSelectedFilters(updatedFilters);
+  const handleAllProduct = () => {
+    dispatch(getAllProducts());
+    setActiveFilter("All");
   };
 
-  const handleSortChange = (value) => {
-    setSortBy(value);
+  const categoryChangeHandler = async (filterName) => {
+    setActiveFilter(filterName);
+    let productCat = await dispatch(getAllProducts({ category: filterName }));
+    console.log("Product Cat ] + ", productCat);
   };
-
-  const filteredProducts = Array.isArray(products)
-    ? products.filter((product) => {
-      // Apply filters and search query here
-      return (
-        (selectedFilters.length === 0 ||
-          selectedFilters.includes(product.size)) &&
-        (searchQuery === "" ||
-          product.name.toLowerCase().includes(searchQuery.toLowerCase()))
-      );
-    })
-    : [];
 
   return (
     <div>
@@ -99,7 +63,6 @@ export default function Product() {
             <div className="desciption">
               Get fit with precision. Explore now for the best results!
             </div>
-
           </section>
           {/* <Sidebar
             filters={filters}
@@ -136,9 +99,58 @@ export default function Product() {
             </div> */}
             <br></br>
 
-            {products.products && products.products.length !== 0 ? (
+            <div className="container menu__container">
+              <div className="app__work-filter">
+                <div
+                  onClick={handleAllProduct}
+                  className={`app__work-filter-item app__flex p-text ${
+                    activeFilter === "All" ? "item-active" : ""
+                  }`}
+                >
+                  All
+                </div>
+                {category
+                  ?.filter((item) => item.name !== "Best Selling")
+                  .map((product, index) => (
+                    <div
+                      key={index}
+                      onClick={() => categoryChangeHandler(product.name)}
+                      className={`app__work-filter-item app__flex p-text ${
+                        activeFilter === product.name ? "item-active" : ""
+                      }`}
+                    >
+                      {product.name}
+                    </div>
+                  ))}
+              </div>
+
+              {isLoading ? (
+                <div
+                  style={{
+                    width: "30vw",
+                    display: "flex",
+                    marginTop: "10px",
+                    fontSize: "20px",
+                    fontStyle: "italic",
+                    fontWeight: "600",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  Please Wait products are loading!!!
+                </div>
+              ) : (
+                <div className="spr-wrapper">
+                  {products.products && products.products.length !== 0 ? (
+                    <Card products={products?.products} />
+                  ) : null}
+                </div>
+              )}
+            </div>
+
+            {/* {products.products && products.products.length !== 0 ? (
               <Card products={products?.products} />
-            ) : null}
+            ) : null} */}
           </div>
         </div>
       </section>

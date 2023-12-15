@@ -16,15 +16,15 @@ const Ship = () => {
   });
 
   const [billingInfo, setBillingInfo] = React.useState({
-    name: "John Doe",
-    email: "john@gmail.com",
-    phone: "9696969696",
-    address: "Front of Ate",
-    pincode: "210201",
-    city: "Banda",
-    state: "Uttar Pradesh",
-    country: "India",
-    notes: "This is a test note",
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    pincode: "",
+    city: "",
+    state: "",
+    country: "",
+    notes: "",
   });
   const dispatch = useDispatch();
   const cartTotal = () => {
@@ -88,7 +88,6 @@ const Ship = () => {
       products: carts,
       orderID: `BN-${Date.now()}`,
     };
-    console.log(orderData);
     const responseData = await dispatch(placeOrder(orderData));
     if (responseData.payload.status === "error") {
       alert(responseData.payload.message);

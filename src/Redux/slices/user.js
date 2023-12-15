@@ -99,11 +99,11 @@ export const getUserDetail = createAsyncThunk(
 );
 
 export const getLoggedoutUser = createAsyncThunk(
-  "/api/v1/logout",
+  "/api/v1/auth/logout",
   async (_, thunkApi) => {
     try {
       thunkApi.dispatch(setLoading(true));
-      const response = await axiosClient.get("/api/v1/logout");
+      const response = await axiosClient.get("/api/v1/auth/logout");
       console.log("This is Response from our APi", response);
       return response.data;
     } catch (error) {

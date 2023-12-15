@@ -72,8 +72,6 @@ const ProductDetails = () => {
     }
   };
 
-  const discountedPrice = selectedVariant.price - 0.5 * selectedVariant.price;
-
   return (
     <Fragment>
       {isLoading ? (
@@ -97,7 +95,10 @@ const ProductDetails = () => {
                   selectedVariant.images.length > 0 &&
                   selectedVariant.images.map((image, index) => (
                     <div key={index} className="additional-image">
-                      <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
+                      <img
+                        src={image.url}
+                        alt={`AdditionalImage ${index + 1}`}
+                      />
                     </div>
                   ))}
 
@@ -112,11 +113,11 @@ const ProductDetails = () => {
               <p className="head">{product?.name}</p>
               <div className="price">
                 <span className="mrp" style={{ display: "flex" }}>
-                  ₹{selectedVariant.price}
+                  ₹{selectedVariant.mrPrice}
                 </span>
                 {/* <br></br> */}
                 <span className="discounted-price">
-                  ₹{discountedPrice.toFixed(2)}
+                  ₹{selectedVariant.price}
                 </span>
               </div>
 
@@ -124,8 +125,9 @@ const ProductDetails = () => {
                 <div className="flavour">Flavour</div>
                 <div className="btn-wrapper">
                   <button
-                    className={`size-button ${product.productFlavour ? "selected" : ""
-                      }`}
+                    className={`size-button ${
+                      product.productFlavour ? "selected" : ""
+                    }`}
                   >
                     {product.productFlavour}
                   </button>
@@ -139,10 +141,11 @@ const ProductDetails = () => {
                       return (
                         <button
                           key={index}
-                          className={`size-button ${data.weight === selectedVariant.weight
+                          className={`size-button ${
+                            data.weight === selectedVariant.weight
                               ? "selected"
                               : ""
-                            }`}
+                          }`}
                           onClick={() => setSelectedVariant(data)}
                         >
                           {data.weight}
