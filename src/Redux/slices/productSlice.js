@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import { ProductData } from "../../Data/productsData";
 import { axiosClient } from "../../utils/axios/axios";
 import { setLoading } from "./appConfigSlice";
@@ -280,7 +280,7 @@ const productSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllProducts.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.products = action.payload.result;
         }
         // console.log("This is Payload", state.products.products);

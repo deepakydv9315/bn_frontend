@@ -40,16 +40,19 @@ export const createPincode = createAsyncThunk(
 export const updatePincode = createAsyncThunk(
   "/api/v1/admin/pincode/update",
   async (body, thunkAPI) => {
-    try{
+    try {
       thunkAPI.dispatch(setLoading(true));
       console.log(body);
-      const { data } = await axiosClient.put(`api/v1/util/pincode/${body.id}`, body);
+      const { data } = await axiosClient.put(
+        `api/v1/util/pincode/${body.id}`,
+        body
+      );
       console.log(data);
       return data;
-    }catch(e){
+    } catch (e) {
       console.log(e.response.data);
       return Promise.reject(e);
-    }finally{
+    } finally {
       thunkAPI.dispatch(setLoading(false));
     }
   }
@@ -143,7 +146,6 @@ export const updateCoupon = createAsyncThunk(
     }
   }
 );
-
 
 //Get Single Coupon Detais:
 export const getCouponDetail = createAsyncThunk(
@@ -271,12 +273,12 @@ const utilSLice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllPincodes.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.pincodes = action.payload.result;
         }
       })
       .addCase(createPincode.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 201) {
+        if (action.payload?.statusCode === 201) {
           state.success = true;
         } else {
           state.error = action.payload.message;
@@ -298,7 +300,7 @@ const utilSLice = createSlice({
         }
       })
       .addCase(deletePincode.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.isDeleted = true;
         } else {
           state.isDeleted = false;
@@ -306,7 +308,7 @@ const utilSLice = createSlice({
         }
       })
       .addCase(createAndUpdateHeader.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 201) {
+        if (action.payload?.statusCode === 201) {
           state.success = true;
         } else {
           state.error = action.payload.message;
@@ -318,19 +320,19 @@ const utilSLice = createSlice({
         }
       })
       .addCase(getAllCoupons.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.coupons = action.payload.result;
         }
       })
       .addCase(createCoupon.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 201) {
+        if (action.payload?.statusCode === 201) {
           state.success = true;
         } else {
           state.error = action.payload.message;
         }
       })
       .addCase(updateCoupon.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.success = true;
           state.message = "Coupon Is Updated Succesfully ";
         } else {
@@ -338,14 +340,14 @@ const utilSLice = createSlice({
         }
       })
       .addCase(getCouponDetail.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.coupon = action.payload.result;
         } else {
           state.error = action.payload?.message;
         }
       })
       .addCase(deleteCoupon.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.isDeleted = true;
         } else {
           state.isDeleted = false;
@@ -353,7 +355,7 @@ const utilSLice = createSlice({
         }
       })
       .addCase(sendMessage.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 200) {
+        if (action.payload?.statusCode === 200) {
           state.success = true;
         } else {
           state.error = action.payload.message;

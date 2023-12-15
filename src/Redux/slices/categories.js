@@ -52,7 +52,6 @@ export const createCategory = createAsyncThunk(
   }
 );
 
-
 //Delete Category
 export const deleteCategory = createAsyncThunk(
   "/api/v1/category/:id",
@@ -107,24 +106,24 @@ const categorySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCategories.fulfilled, (state, action) => {
-        if (action.payload.statusCode == 200) {
+        if (action.payload.statusCode === 200) {
           state.categories = action.payload.result;
         }
       })
       .addCase(createNewCategory.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 200) {
+        if (action.payload?.statusCode === 200) {
           state.success = true;
         }
       })
       .addCase(deleteCategory.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 200) {
+        if (action.payload?.statusCode === 200) {
           state.success = true;
         } else {
           state.error = action.payload.message;
         }
       })
       .addCase(getCategoryDetails.fulfilled, (state, action) => {
-        if (action.payload?.statusCode == 200) {
+        if (action.payload?.statusCode === 200) {
           state.category = action.payload.result;
         } else {
           state.error = action.payload.message;

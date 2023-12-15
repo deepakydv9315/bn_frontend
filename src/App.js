@@ -50,7 +50,6 @@ import Ship from "./Pages/Checkout/Ship.js";
 import Invoice from "./Pages/Checkout/Invoice.js";
 // import ComingSoon from "./Pages/ComingSoon/ComingSoon";
 
-
 import { getUserDetail } from "./Redux/slices/user";
 import { useDispatch } from "react-redux";
 import React from "react";
@@ -66,7 +65,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/invoice" element={<Invoice />} />
+        <Route path="/orderSuccess/:orderID" element={<Invoice />} />
         {/* <Route path="/coming" element={<ComingSoon />} /> */}
         <Route path="/ship" element={<Ship />} />
         <Route path="/login" element={<Login />} />
