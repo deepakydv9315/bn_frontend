@@ -12,10 +12,8 @@ function Card({ products }) {
   const dispatch = useDispatch();
 
   const handleAddCart = async (_id) => {
-    console.log("Product Id ] + ", _id);
-    console.log("Products List ] + ", products);
     const product = products?.find((product) => product._id === _id);
-    console.log("Product ] + ", product);
+
     if (!product) {
       return Swal.fire({
         icon: "error",
@@ -62,7 +60,7 @@ function Card({ products }) {
                       : "https://squatdeadlift.com/wp-content/uploads/2021/04/71uwfbcAkYL._AC_SX679_.jpg"
                   }
                   alt={product.name}
-                  onClick={() => handleImageClick.bind(product._id)}
+                  onClick={() => handleImageClick(product._id)}
                 />
               </div>
               <div className="product-card-details">
