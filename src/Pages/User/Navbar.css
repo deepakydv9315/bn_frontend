@@ -70,9 +70,9 @@
   justify-content: start;
   align-items: center;
 }
-span {
+/* span {
   margin-left: 20px;
-}
+} */
 .userImg {
   width: 160px;
   height: 160px;

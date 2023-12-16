@@ -1,82 +1,43 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-// import Master from "../../Assets/svgs/master.svg";
-// import AmericanExpress from "../../Assets/svgs/american_express.svg";
-// import DinersClub from "../../Assets/svgs/diners_club.svg";
-// import Maestro from "../../Assets/svgs/maestro.svg";
-// import Visa from "../../Assets/svgs/visa.svg";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Subscribed with email:", email);
-    setEmail("");
-  };
-
   return (
-    <footer>
-      <div className="top">
-        <div className="pages">
-          <ul>
-            <h3>EXPLORE</h3>
-            <li>
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact Us</Link>
-            </li>
-            <li>
-              <Link to="/recipes">Recipes</Link>
-            </li>
-            {/* <li>
-              <Link to="/blog">Blog</Link>
-            </li> */}
-            <li>
-              <Link to="/terms">Terms & Conditions</Link>
-            </li>
-            <li>
-              <Link to="/privacy">Privacy Policy</Link>
-            </li>
-            <li>
-              <Link to="/shipping">Shipping Policy</Link>
-            </li>
-            <li>
-              <Link to="/refund">Return & Refund Policy</Link>
-            </li>
-          </ul>
+    <footer className="bn-sec">
+      <div className="footer-top">
+        <h4>Quick Links</h4>
+        <div className="footer-link-wrapper">
+          <span>
+            <Link to="/products">Shop</Link>
+          </span>
+          <span>
+            <Link to="/about">About Us</Link>
+          </span>
+          <span>
+            <Link to="/contact">Contact Us</Link>
+          </span>
+          {/* <span>
+            <Link to="/blog">Blog</Link>
+          </span> */}
+          <span>
+            <Link to="/shipping">Shipping Policy</Link>
+          </span>
+          <span>
+            <Link to="/refund">Return & Refund Policy</Link>
+          </span>
         </div>
-        <div className="newsletter">
-          <h3>SUBSCRIBE TO THE NEWSLETTER</h3>
-          <form onSubmit={handleSubmit} className="newsletter-form">
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              placeholder="Enter Email Address"
-              required
-            />
-            <button type="submit">Join</button>
-          </form>
-        </div>
+
       </div>
-      <div className="bottom">
-        {/* <div className="payment-cards">
-          <img src={Master} alt="Master" />
-          <img src={AmericanExpress} alt="American Express" />
-          <img src={DinersClub} alt="Donirs CLub" />
-          <img src={Maestro} alt="MaestroCard" />
-          <img src={Visa} alt="Visa" />
-        </div> */}
-        <div className="copyright">COPYRIGHT &copy; 2023</div>
-        <div className="copyright">Manage by HIGHFLYER INC.</div>
-        <div className="copyright">GSTIN- 07HVIPS6644Q2ZD</div>
+      <div className="footer-bottom">
+        <div className="copyright">Burly Nutrition &copy; 2023
+          <span> | </span>
+          <span><Link to="/terms">T&C</Link></span>
+          <span> | </span>
+          <span><Link to="/privacy">Privacy Policy</Link></span>
+        </div>
+        <div className="develop">Designed & Developed by &nbsp;
+          <span>Analy Assist</span>
+        </div>
       </div>
     </footer>
   );

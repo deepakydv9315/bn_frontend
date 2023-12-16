@@ -3,6 +3,7 @@
 
 // font rubik  and cookie
 @import url("https://fonts.googleapis.com/css2?family=Cookie&family=Rubik:wght@300;400;500;600;700&display=swap");
+
 * {
   margin: 0px;
   padding: 0px;
@@ -36,6 +37,26 @@ html {
   --transition: all 400ms ease;
 }
 
+.bn-sec {
+  padding: 40px 50px;
+
+  @media (max-width: 964px) {
+    padding: 35px 40px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 30px 30px;
+  }
+
+  @media (max-width: 400px) {
+    padding: 25px 20px;
+  }
+
+  @media (max-width: 300px) {
+    padding: 20px 15px;
+  }
+}
+
 .container {
   width: var(--container-width-lg);
   margin: 0 auto;
@@ -52,22 +73,28 @@ h4,
 h5 {
   line-height: 1.2;
 }
+
 h1 {
   font-size: 38px;
 }
+
 h2 {
   font-size: 30px;
 }
+
 h3 {
   font-size: 26px;
 }
+
 h4 {
   font-size: 20px;
 }
+
 a {
   text-decoration: none;
   color: var(--primary-white);
 }
+
 img {
   width: 100%;
   display: block;
@@ -84,16 +111,19 @@ img {
   font-size: 18px;
   cursor: pointer;
 }
+
 .bl-btn {
   background-color: #202020;
   color: #fdfbfa;
   border-radius: 8px;
 }
+
 .btn:hover {
   color: #202020;
   background-color: transparent;
   border-color: #202020;
 }
+
 .btn-primary {
   background-color: var(--primary-black);
   color: var(--primary-white);
@@ -135,20 +165,48 @@ img {
 .g-text {
   color: #54b22c;
 }
+.yl-text{
+  color: #ffd626;
 
-.title1 {
+}
+
+.sec-head {
   font-family: "Goldman", cursive;
   font-weight: bold;
   font-size: 48px;
+
   span {
     font-family: "Goldman", cursive;
     font-weight: bold;
     font-size: 48px;
     color: #ffd626;
+
     @media (max-width: 768px) {
       font-size: 38px;
     }
   }
+
+  @media (max-width: 768px) {
+    font-size: 38px;
+  }
+}
+
+.title1 {
+  font-family: "Goldman", cursive;
+  font-weight: bold;
+  font-size: 48px;
+
+  span {
+    font-family: "Goldman", cursive;
+    font-weight: bold;
+    font-size: 48px;
+    color: #ffd626;
+
+    @media (max-width: 768px) {
+      font-size: 38px;
+    }
+  }
+
   @media (max-width: 768px) {
     font-size: 38px;
   }
@@ -160,6 +218,7 @@ img {
   font-weight: bold;
   font-size: 42px;
   text-align: center;
+
   span {
     font-family: "Goldman", cursive;
     font-weight: bold;
