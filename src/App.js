@@ -48,9 +48,7 @@ import MyOrder from "./Pages/User/MyOrders.js";
 import Address from "./Pages/User/AddressBook.js";
 import Ship from "./Pages/Checkout/Ship.js";
 import Invoice from "./Pages/Checkout/Invoice.js";
-
 import RequireUser from "./utils/RequireUser.js";
-
 import ComingSoon from "./Pages/ComingSoon/ComingSoon";
 import ScrollToTop from "./utils/ScrollToTop";
 import { getUserDetail } from "./Redux/slices/user";

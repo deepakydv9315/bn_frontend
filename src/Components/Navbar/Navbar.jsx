@@ -1,7 +1,7 @@
 import {
   AiOutlineShoppingCart,
   AiOutlineUser,
-  AiOutlineSearch,
+  // AiOutlineSearch,
 } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import Logo from "../../Assets/Images/Logo.png";
 import "./Navbar.scss";
-import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import Cart from "../Cart/Cart";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -34,7 +34,6 @@ const Navbar = () => {
     } else {
       navigate("/login");
     }
-    
   }
 
   const handleNavigation = () => {
@@ -84,14 +83,14 @@ const Navbar = () => {
             <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
           </ul>
           <div className="right">
-            <AiOutlineSearch />
+            {/* <AiOutlineSearch /> */}
             <AiOutlineUser onClick={open} />
             <AiOutlineShoppingCart onClick={openCartDialog} />
           </div>
         </div>
 
         <div className="responsive__menu">
-          <AiOutlineSearch size={25} style={{ marginRight: "10px" }} />
+          {/* <AiOutlineSearch size={25} style={{ marginRight: "10px" }} /> */}
           <AiOutlineShoppingCart
             size={25}
             style={{ marginRight: "10px" }}

@@ -8,6 +8,7 @@ import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
 import bg from "../../Assets/Images/temp.png";
+import knowBurly from "../../Assets/Images/kburly.JPG";
 // import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import {
   getAllCategories,
@@ -56,118 +57,119 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <div className="home-2">
+      <div className="hero-sec">
         <img src={bg} alt="" />
-        <section className="content-of-category">
-          <div className="title">
-            Just<span>Launched</span>
-          </div>
-          <div className="container menu__container">
-            <div className="app__work-filter">
-              <div
-                onClick={handleAllProduct}
-                className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
-                  }`}
-              >
-                All
-              </div>
-              {category.filter((item) => item.name !== "Best Selling").map((product, index) => (
+      </div>
+
+      {/* products */}
+      <section className="bn-sec home-product">
+        <div className="sec-head">
+          Just <span>Launched</span>
+        </div>
+        <div className="home-pr-wrapper">
+          <div className="product-filter">
+            <div
+              onClick={handleAllProduct}
+              className={` pr-filter-item ${
+                activeFilter === "All" ? "item-active" : ""
+              }`}
+            >
+              All
+            </div>
+            {category
+              .filter((item) => item.name !== "Best Selling")
+              .map((product, index) => (
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
-                    }`}
+                  className={` pr-filter-item  ${
+                    activeFilter === product.name ? "item-active" : ""
+                  }`}
                 >
                   {product.name}
                 </div>
               ))}
+          </div>
+
+          {isLoading ? (
+            <div
+              style={{
+                width: "30vw",
+                display: "flex",
+                marginTop: "10px",
+                fontSize: "20px",
+                fontStyle: "italic",
+                fontWeight: "600",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Please Wait products are loading!!!
             </div>
-
-            {isLoading ? (
-              <div
-                style={{
-                  width: "30vw",
-                  display: "flex",
-                  marginTop: "10px",
-                  fontSize: "20px",
-                  fontStyle: "italic",
-                  fontWeight: "600",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Please Wait products are loading!!!
-              </div>
-            ) : (
-              <div className="spr-wrapper">
-                {products.products && products.products.length !== 0 ? (
-                  <Card products={products?.products} />
-                ) : null}
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section className="content-of-goal">
-          <div className="title">
-            Shop by<span>Goal</span>
-          </div>
-          <div className="desciption">
-            Get fit with precision. Explore now for the best results!
-          </div>
-          <div className="goals-section">
-            <Goals />
-          </div>
-        </section>
-      </div>
-
-      {/* whey protein sec  */}
-
-      <section className="know-more">
-        <h3>
-          Know more about our<span>Product</span>
-        </h3>
-        <br></br>
-        <div className="know-more-card">
-          <div className="know-more-bg">
-            <div className="know-more-container">
-              <h3>BURLY WHEY PROTEIN</h3>
-              <p>
-                Burly Nutrition Whey Protein aids in recovery and boosts protein intake efficiently.
-              </p>
-              <p>
-                It offers high-quality protein at an affordable price, truly
-                valuable for your fitness journey.
-              </p>
-              <p>
-                * Its main advantage lies in its quick absorption within the
-                body, making it an easily digestible protein option.
-              </p>
-              <p>*When taken over time with regular resistance training</p>
-              <button><Link to="/products">Shop Now</Link></button>
+          ) : (
+            <div className="spr-wrapper">
+              {products.products && products.products.length !== 0 ? (
+                <Card products={products?.products} />
+              ) : null}
             </div>
+          )}
+        </div>
+      </section>
+      {/* goals */}
+      <section className="bn-sec content-of-goal">
+        <h4 className="sec-head">
+          Shop by <span>Goal</span>
+        </h4>
+        <div className="sec-para">
+          Get fit with precision. Explore now for the best results!
+        </div>
+        <div className="goals-section">
+          <Goals />
+        </div>
+      </section>
+
+      {/* know our protein */}
+
+      <section className="bn-sec know-sec">
+        <h4 className="sec-head">
+          Know more about our <span>Product</span>
+        </h4>
+
+        <div className="know-wrapper">
+          <div className="know-more-text">
+            <h3>BURLY WHEY</h3>
+            <p>
+              Burly Nutrition Whey Protein aids in recovery and boosts protein
+              intake efficiently. It offers high-quality protein at an
+              affordable price, truly valuable for your fitness journey.Its main
+              advantage lies in its quick absorption within the body, making it
+              an easily digestible protein option.
+            </p>
+            <p>When taken over time with regular resistance training</p>
+            <Link className="bn-btn" to="/products">
+              Shop Now
+            </Link>
+          </div>
+          <div className="know-more-img">
+            {/* <img src={knowBurly} alt="Whey burly"/> */}
           </div>
         </div>
       </section>
 
-      <div className="home-3">
-        <section className="shop-by-level">
-          <div className="level-title">
-            <h3>
-              Shop by<span>Level</span>
-            </h3>
-          </div>
-          <div className="level-description">
-            <p>
-              Get fit with precision. Explore now for the best results!
-            </p>
-          </div>
-          <div className="level-cards">
-            <Levels />
-          </div>
-        </section>
-      </div>
+      {/* shop by level */}
+      <section className="bn-sec sec-level ">
+        <h4 className="sec-head">
+          Shop by <span>Level</span>
+        </h4>
+        <p className="sec-para">
+          Get fit with precision. Explore now for the best results!
+        </p>
+        <div className="level-cards">
+          <Levels />
+        </div>
+      </section>
 
+      {/* why hustle for muscle  */}
       <section className="why-page">
         <div className="whyCP-img">
           <img src={whyCP} alt="Why clean protein?" />
@@ -175,23 +177,27 @@ const Home = () => {
         <div className="why-container">
           {/* <h3>The promise of nothing artificial</h3> */}
           <p>
-            When taken over time with regular resistance with regular resistance
-            tram over time with regular resistant taken over time with.
+            No matter how tired, lazy, or discouraged you are, KEEP GOING. We
+            know it's tough, but at least you're closer to your goal now.
           </p>
-          <button><Link to="/products">Shop Now</Link></button>
+          <Link className="why-btn" to="/products">
+            Shop Now
+          </Link>
         </div>
       </section>
 
-        <section className="bn-sec fitness-bracket">
-          <h4 className="sec-head">
-            Fitness <span>Bracket</span>
-          </h4>
-          <p className="sec-para">
-            Products according to your budget and dedication in fitness journey.
-          </p>
-          <Budget />
-        </section>
-      
+      {/* fitness bracket  */}
+      <section className="bn-sec fitness-bracket">
+        <h4 className="sec-head">
+          Fitness <span>Bracket</span>
+        </h4>
+        <p className="sec-para">
+          Products according to your budget and dedication in fitness journey.
+        </p>
+        <Budget />
+      </section>
+
+      {/* combos sec  */}
 
       <section className="sec-combo">
         <div className="sec-combo-heading bn-sec">
@@ -203,7 +209,7 @@ const Home = () => {
           </p>
         </div>
         <div className="img-slider">
-        <Carousel />
+          <Carousel />
         </div>
       </section>
 

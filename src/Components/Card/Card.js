@@ -64,8 +64,6 @@ function Card({ products }) {
                 />
               </div>
               <div className="product-card-details">
-                {/* <p className="product-card-name">{product.name}</p>
-            <p className="product-card-title">{product.title}</p> */}
                 <p className="product-card-name">{product.name}</p>
                 <p className="product-card-title">
                   2kg {product?.productFlavour}

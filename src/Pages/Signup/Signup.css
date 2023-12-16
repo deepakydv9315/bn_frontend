@@ -1,15 +1,10 @@
 .si {
   background: white;
-  background: -webkit-linear-gradient(
-    to right,
-    #ffc21b
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ffc21b);
   background: linear-gradient(to right, white #ffd000);
-  /* height: 110vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
 }
 .register {
   padding: 10px 30px;
@@ -18,10 +13,7 @@
   display: flex;
   border: 1px solid #e9ecef;
   border-radius: 5px;
-  /* box-shadow: 1px 3px 10px #e9ecef; */
   background-color: white;
-  /* display:flex;
-  justify-content: center; */
 }
 
 .register span {
@@ -69,15 +61,17 @@
 }
 
 .register .col-2 img {
-  width: 580px;
+  max-width: 580px;
   height: 100%;
   object-fit: cover;
   align-self: flex-end;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   display: none;
+  margin-right: 20px;
+  margin-left: 20px;
 }
-/* Add a style for the close icon */
+
 .close-icon {
   position: absolute;
   top: 120px;
@@ -86,7 +80,6 @@
   cursor: pointer;
 }
 
-/* Style to hide the form when it's closed */
 .closed {
   display: none;
 }
@@ -120,6 +113,5 @@
 .old-customer {
   font-size: 14px;
   color: #000000;
-  /* cursor: pointer; */
   margin-top: 10px;
 }

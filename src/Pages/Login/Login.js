@@ -34,7 +34,6 @@ export default function LoginForm() {
       }, 3000);
     } else {
       toast.error("Incorrect Username or Password", { position: "top-right" });
-      // Wait for 5 seconds before showing success message and navigating
     }
   };
 
@@ -103,12 +102,14 @@ export default function LoginForm() {
 
             <div className="policy">
               By continuing, you agree to Burly Nutrition's{" "}
-              <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
+              <Link to="/terms"><b style={{ color: "grey" }}>Terms & Conditions </b></Link>
+              and
+              <Link to="/privacy"><b style={{ color: "grey" }}> Privacy Policy </b></Link>
             </div>
-            <div className="new-customer">
-              New customer?
+            <div style={{ display: 'flex', alignItems: 'center' }} className="new-customer">
+              <span style={{ marginLeft: '45px' }}>New here?</span>
               <Link to="/signup">
-                <p> Sign up for an account</p>
+                <p style={{ marginLeft: '4px', cursor: 'pointer',fontWeight:"bold" }}>Create new account</p>
               </Link>
             </div>
           </form>

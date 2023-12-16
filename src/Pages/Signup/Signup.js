@@ -105,12 +105,14 @@ export default function Form() {
             </div>
             <div className="policy">
               By continuing, you agree to Burly Nutrition's{" "}
-              <b>Terms & Conditions</b> and <b>Privacy Policy</b>.
+              <Link to="/terms"><b style={{ color: "grey" }}>Terms & Conditions </b></Link>
+              and
+              <Link to="/privacy"><b style={{ color: "grey" }}> Privacy Policy </b></Link>
             </div>
-            <div className="old-customer">
-              Old customer?
+            <div style={{ display: 'flex', alignItems: 'center' }} className="new-customer">
+              <span style={{ marginLeft: '0px', fontSize: "14.5px" }}>Already registered?</span>
               <Link to="/login">
-                <p>LogIn to your existing account</p>
+                <p style={{ marginLeft: '6px', cursor: 'pointer', fontWeight: "bold", fontSize: "14.5px" }}>Login to existing account</p>
               </Link>
             </div>
           </form>
