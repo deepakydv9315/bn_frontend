@@ -1,36 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Goldman&family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,600;6..12,700&family=Poppins:wght@400;500;600&display=swap");
 
-.home {
-  background-image: url(../../Assets/Images/temp.jpg);
-}
 
-.home-content {
-  padding: 14vw 60px 14vw 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 
-  h1 {
-    color: white;
-    text-align: end;
-  }
 
-  h4 {
-    color: #ffd626;
-    font-weight: 400;
-    text-align: end;
-    margin: 2px 0px 10px 0px;
-  }
 
-  button {
-    margin: 18px 2% 40px;
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
-    padding: 9px 18px;
-  }
-}
-
-.home-2 {
+.hero-sec{
   flex-direction: column;
   max-width: 100%;
   // height: 70%;
@@ -81,7 +55,7 @@
       padding: 10px 0px;
       margin-bottom: 20px;
       width: 100%;
-      border: 1px solid black;
+      // border: 1px solid black;
 
       .pr-filter-item {
         border: 1px solid rgba(0, 0, 0, 0.23);
@@ -127,62 +101,6 @@
     }
   }
 }
-
-
-// /* Tablets/iPad */
-// @media (max-width: 1024px) {
-//   .div__row-img {
-//     padding: 5vmax 0;
-//     margin-top: -50px;
-//   }
-
-//   .Menu .menu__container .menu__head {
-//     font-size: 40px;
-//     margin-bottom: 20px;
-//   }
-
-//   .Menu .menu__container .menu__items {
-//     width: 80vmax;
-//     margin: 0 auto 25px auto;
-//   }
-// }
-
-// /* Desktops */
-// @media (min-width: 1025px) {
-//   .div__row-img {
-//     padding: 5vmax 0 0 0;
-//     margin-top: -75px;
-//   }
-
-//   .Menu .menu__container .menu__head {
-//     font-size: 50px;
-//     margin-bottom: 30px;
-//   }
-
-//   .Menu .menu__container .menu__items {
-//     width: 50vmax;
-//     margin: 0 auto 35px auto;
-//   }
-// }
-
-// /* Mobile screens */
-// @media (max-width: 767px) {
-//   .div__row-img {
-//     padding: 3vmax 0;
-//     margin-top: -40px;
-//   }
-
-//   .Menu .menu__container .menu__head {
-//     font-size: 30px;
-//     margin-bottom: 15px;
-//   }
-
-//   .Menu .menu__container .menu__items {
-//     width: 80vmax;
-//     margin: 0 auto 20px auto;
-//   }
-// }
-
 
 
 .content-of-goal {
@@ -341,6 +259,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .why-btn {
+    background-color: #fff;
+    padding: 7px 15px;
+    margin-top:10px ;
+    color: black;
+    font-size: 17px;
+    border-radius: 2px;
+  }
+
 
   .whyCP-img {
     width: 100%;
@@ -381,7 +308,6 @@
       font-family: "Nunito Sans", sans-serif;
       font-size: 18px;
       text-align: left;
-      margin: 0px 5px;
     }
 
     button {

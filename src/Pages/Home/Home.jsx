@@ -57,9 +57,10 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <div className="home-2">
+      <div className="hero-sec">
         <img src={bg} alt="" />
       </div>
+
       {/* products */}
       <section className="bn-sec home-product">
           <div className="sec-head">
@@ -171,10 +172,10 @@ const Home = () => {
         <div className="why-container">
           {/* <h3>The promise of nothing artificial</h3> */}
           <p>
-            When taken over time with regular resistance with regular resistance
-            tram over time with regular resistant taken over time with.
+          No matter how tired, lazy, or discouraged you are, KEEP GOING. 
+          We know it's tough, but at least you're closer to your goal now.
           </p>
-          <button><Link to="/products">Shop Now</Link></button>
+          <Link className="why-btn" to="/products">Shop Now</Link>
         </div>
       </section>
 
