@@ -8,6 +8,7 @@ import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
 import bg from "../../Assets/Images/temp.png";
+import knowBurly from "../../Assets/Images/kburly.JPG"
 // import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import {
   getAllCategories,
@@ -58,7 +59,8 @@ const Home = () => {
     <div className="home-page">
       <div className="home-2">
         <img src={bg} alt="" />
-        <section className="content-of-category">
+      </div>
+      <section className="content-of-category">
           <div className="title">
             Just<span>Launched</span>
           </div>
@@ -108,48 +110,46 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="content-of-goal">
-          <div className="title">
-            Shop by<span>Goal</span>
-          </div>
-          <div className="desciption">
-            Get fit with precision. Explore now for the best results!
-          </div>
-          <div className="goals-section">
-            <Goals />
-          </div>
-        </section>
-      </div>
+      <section className="bn-sec content-of-goal">
+        <h4 className="sec-head">
+          Shop by <span>Goal</span>
+        </h4>
+        <div className="sec-para">
+          Get fit with precision. Explore now for the best results!
+        </div>
+        <div className="goals-section">
+          <Goals />
+        </div>
+      </section>
 
-      {/* whey protein sec  */}
+      {/* know our protein */}
 
-      <section className="know-more">
-        <h3>
-          Know more about our<span>Product</span>
-        </h3>
-        <br></br>
-        <div className="know-more-card">
-          <div className="know-more-bg">
-            <div className="know-more-container">
-              <h3>BURLY WHEY PROTEIN</h3>
-              <p>
-                Burly Nutrition Whey Protein aids in recovery and boosts protein intake efficiently.
-              </p>
-              <p>
-                It offers high-quality protein at an affordable price, truly
-                valuable for your fitness journey.
-              </p>
-              <p>
-                * Its main advantage lies in its quick absorption within the
-                body, making it an easily digestible protein option.
-              </p>
-              <p>*When taken over time with regular resistance training</p>
-              <button><Link to="/products">Shop Now</Link></button>
-            </div>
+      <section className="bn-sec know-sec">
+        <h4 className="sec-head">
+          Know more about our <span>Product</span>
+        </h4>
+
+        <div className="know-wrapper">
+
+          <div className="know-more-text">
+            <h3>BURLY WHEY</h3>
+            <p>
+              Burly Nutrition Whey Protein aids in recovery and boosts protein intake efficiently.
+              It offers high-quality protein at an affordable price, truly
+              valuable for your fitness journey.Its main advantage lies in its quick absorption within the
+              body, making it an easily digestible protein option.
+            </p>
+            <p>When taken over time with regular resistance training</p>
+            <Link className="bn-btn" to="/products">Shop Now</Link>
+
+          </div>
+          <div className="know-more-img">
+            {/* <img src={knowBurly} alt="Whey burly"/> */}
           </div>
         </div>
       </section>
 
+      {/* shop by level */}
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
           Shop by <span>Level</span>
@@ -162,6 +162,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* why hustle for muscle  */}
       <section className="why-page">
         <div className="whyCP-img">
           <img src={whyCP} alt="Why clean protein?" />
@@ -176,6 +177,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* fitness bracket  */}
       <section className="bn-sec fitness-bracket">
         <h4 className="sec-head">
           Fitness <span>Bracket</span>

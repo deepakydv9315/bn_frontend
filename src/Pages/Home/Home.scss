@@ -277,18 +277,6 @@
   justify-content: center;
   align-items: center;
 
-  .title {
-    font-family: "Goldman", cursive;
-    font-weight: bold;
-    font-size: 48px;
-
-    span {
-      font-family: "Goldman", cursive;
-      font-weight: bold;
-      font-size: 48px;
-      color: #ffd626;
-    }
-  }
 
   .desciption {
     margin-bottom: 20px;
@@ -296,122 +284,130 @@
     font-size: medium;
     font-size: 18px;
   }
+  .goals-section {
+
+    margin-top: 25px;
+    padding: 15px 10px;
+    background-image: url(../../Assets/Images/bg2.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }
 
-.goals-section {
-  background-image: url(../../Assets/Images/bg2.jpg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 
 .sec-level{
   background-image: url(../../Assets/Images/bg1.jpg);
 
 }
 
-.know-more {
-  padding: 40px 20px 20px 20px;
+.know-sec {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  h3 {
-    margin-bottom: 0rem;
-    font-family: "Goldman", cursive;
-    font-weight: bold;
-    font-size: 48px;
-    color: #000000;
-    border: 0;
-
-    span {
-      font-family: "Goldman", cursive;
-      font-weight: bold;
-      font-size: 48px;
-      color: #ffd626;
+  gap: 10px 0px;
+  width: 100%;
+  
+  .know-wrapper {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width:1000px) {
+      flex-direction: column-reverse;
+      justify-content: center;
+      height: auto;
+      width: 500px;
+    }
+    @media (max-width:520px){
+      width: 300px;
+      height: auto;
+    }
+    @media (max-width:338px){
+      width: 250px;
+      height: auto;
     }
   }
 
-  .know-more-card {
-    display: flex;
-    justify-content: center;
-  }
 
-  .know-more-bg {
-    background-image: url(../../Assets/Images/proteinBG.png);
-    display: flex;
-    // flex-direction: row-reverse;
-    background-repeat: no-repeat;
-    background-position: top center;
-    height: auto;
-  }
-
-  .know-more-container {
+  .know-more-text {
+    flex: 1;
+    max-width: 600px;
+    height: 100%;
+    padding: 20px;
     backdrop-filter: blur(30px);
     background-color: rgba(255, 255, 255, 0.5);
-    max-width: 52%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-  }
+    justify-content: center;
 
-  .know-more-container {
     h3 {
-      margin-bottom: 0rem;
-      padding-top: 20px;
-      margin: 70px 60px 30px 50px;
+      text-align: left;
       font-family: "Nunito Sans", sans-serif;
-      font-size: 40px;
+      font-size: 30px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      @media (max-width:520px){
+        font-size: 25px;
+      }
     }
 
     p {
       color: #000;
       font-family: "Nunito Sans", sans-serif;
-      margin: 10px 60px 10px 50px;
-      text-align: initial;
+      text-align: left;
+      text-align: justify;
+      @media (max-width:520px){
+       font-size: 15px;
+      }
+      
     }
 
-    button {
-      margin: 30px 60px 70px 50px;
+    .bn-btn {
+      margin-top: 10px;
+      padding: 10px 12px;
       color: white;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       background-color: black;
       border: 0;
-      font-size: 10px;
-      padding: 10 15px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .know-more-card {
-      display: block;
-    }
-
-    .know-more-bg {
-      display: block;
-      width: 100%;
-    }
-
-    .know-more-container {
-      max-width: 100%;
-      display: block;
-
-      h3 {
-        margin: 20px 20px 10px 20px;
-        font-size: 32px;
-      }
-
-      p {
-        margin: 10px 20px;
-      }
-
-      button {
-        margin: 20px 20px 30px;
+      font-size: 16px;
+      padding: 10px 15px;
+      border-radius: 2px;
+      @media (max-width:338px){
+        font-size: 14px;
       }
     }
   }
-}
+  .know-more-img{
+    max-width: 500px;
+    width: 500px;
+    height: 500px;
+    // width: 50%;
+    background-image: url(../../Assets/Images/kburly.JPG);
+    background-position: center center;
+    background-size:cover;
+    @media (max-width:1000px) {
+      height: 500px;
+    }
+    @media (max-width:520px){
+      width: 300px;
+      height: 300px;
+    }
+    @media (max-width:338px){
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  }
+
 
 .why-page {
   background-color: #000000;
