@@ -150,23 +150,17 @@ const Home = () => {
         </div>
       </section>
 
-      <div className="home-3">
-        <section className="shop-by-level">
-          <div className="level-title">
-            <h3>
-              Shop by<span>Level</span>
-            </h3>
-          </div>
-          <div className="level-description">
-            <p>
-              Get fit with precision. Explore now for the best results!
-            </p>
-          </div>
-          <div className="level-cards">
-            <Levels />
-          </div>
-        </section>
-      </div>
+      <section className="bn-sec sec-level ">
+        <h4 className="sec-head">
+          Shop by <span>Level</span>
+        </h4>
+        <p className="sec-para">
+          Get fit with precision. Explore now for the best results!
+        </p>
+        <div className="level-cards">
+          <Levels />
+        </div>
+      </section>
 
       <section className="why-page">
         <div className="whyCP-img">
@@ -182,16 +176,16 @@ const Home = () => {
         </div>
       </section>
 
-        <section className="bn-sec fitness-bracket">
-          <h4 className="sec-head">
-            Fitness <span>Bracket</span>
-          </h4>
-          <p className="sec-para">
-            Products according to your budget and dedication in fitness journey.
-          </p>
-          <Budget />
-        </section>
-      
+      <section className="bn-sec fitness-bracket">
+        <h4 className="sec-head">
+          Fitness <span>Bracket</span>
+        </h4>
+        <p className="sec-para">
+          Products according to your budget and dedication in fitness journey.
+        </p>
+        <Budget />
+      </section>
+
       {/* combos sec  */}
 
       <section className="sec-combo">
@@ -204,7 +198,7 @@ const Home = () => {
           </p>
         </div>
         <div className="img-slider">
-        <Carousel />
+          <Carousel />
         </div>
       </section>
 
