@@ -52,14 +52,11 @@
   justify-content: center;
 }
 
-// .bg1 {
-//   position: absolute;
-//   width: 100%;
-//   background-size: auto;
-//   z-index: -1;
-// }
 
-.content-of-category {
+
+
+
+.home-product{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -67,208 +64,126 @@
   justify-content: center;
   align-items: center;
 
-  .title {
-    font-family: "Goldman", cursive;
-    font-weight: bold;
-    font-size: 48px;
+  .home-pr-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px 0px;
 
-    span {
-      font-family: "Goldman", cursive;
-      font-weight: bold;
-      font-size: 48px;
-      color: #ffd626;
-    }
-  }
-
-  .description {
-    font-family: Inter;
-    font-size: medium;
-    font-size: 18px;
-  }
-
-  .menu__container {
-    .menu__head-sec {
-      font-weight: 400;
-    }
-
-    .menu__head {
-      font-size: 50px;
-      font-weight: 500;
-      margin-bottom: 30px;
-    }
-
-    .menu__items {
-      gap: 35px;
-      background-color: #ffffff;
-      width: 50vmax;
-      margin: 0 auto 35px auto; //For Centering
-      border-radius: 25px;
-
-      //Removing Marign From Class p-text
-      .p-text {
-        margin: 0;
-      }
-
-      div {
-        padding: 0.6vmax 0;
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-      }
-
-      .menu__items {
-        gap: 20px;
-        background-color: #ffffff;
-        padding: 2px 5px;
-        margin: 0 auto 35px auto; //For Centering
-        border-radius: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        //Removing Marign From Class p-text
-        .p-text {
-          margin: 0;
-        }
-
-        div {
-          padding: 0.6vmax 0;
-          cursor: pointer;
-          width: 100%;
-          height: 100%;
-          text-align: center;
-        }
-
-        //Active Item Will Have this property
-        .item-active {
-          background-color: #8bc54b;
-          color: white;
-          border-radius: 25px;
-          padding: 0.6vmax 10px;
-        }
-
-        //Active Item Will Have this property
-        .item-active {
-          background-color: #8bc54b;
-          color: white;
-          border-radius: 25px;
-          padding: 0.6vmax 10px;
-        }
-      }
-    }
-
-    .spr-wrapper {
-      display: flex;
-      flex-wrap: wrap;
+    .product-filter {
       justify-content: center;
       align-items: center;
+      flex-direction: row;
       flex-wrap: wrap;
-      gap: 20px 20px;
-      margin-top: -10px;
+      gap: 5px 11px;
+      display: flex;
+      padding: 10px 0px;
+      margin-bottom: 20px;
+      width: 100%;
+      border: 1px solid black;
 
-      .Card {
+      .pr-filter-item {
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        padding: 6px 11px;
+        border-radius: 2px;
+        background-color: #fff;
+        color: #000;
+        font-weight: 300;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
         &:hover {
-          transform: scale(1.05);
+          background-color: #313bac;
+          color: #fff;
         }
+
+        @media screen and (min-width: 2000px) {
+          padding: 1rem 2rem;
+          border-radius: 0.85rem;
+        }
+      }
+
+      .item-active {
+        background-color: #313bac;
+        color: #fff;
+      }
+    }
+
+
+  }
+  .spr-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .Card {
+      &:hover {
+        transform: scale(1.05);
       }
     }
   }
 }
 
-/* Tablets/iPad */
-@media (max-width: 1024px) {
-  .div__row-img {
-    padding: 5vmax 0;
-    margin-top: -50px;
-  }
 
-  .Menu .menu__container .menu__head {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
+// /* Tablets/iPad */
+// @media (max-width: 1024px) {
+//   .div__row-img {
+//     padding: 5vmax 0;
+//     margin-top: -50px;
+//   }
 
-  .Menu .menu__container .menu__items {
-    width: 80vmax;
-    margin: 0 auto 25px auto;
-  }
-}
+//   .Menu .menu__container .menu__head {
+//     font-size: 40px;
+//     margin-bottom: 20px;
+//   }
 
-/* Desktops */
-@media (min-width: 1025px) {
-  .div__row-img {
-    padding: 5vmax 0 0 0;
-    margin-top: -75px;
-  }
+//   .Menu .menu__container .menu__items {
+//     width: 80vmax;
+//     margin: 0 auto 25px auto;
+//   }
+// }
 
-  .Menu .menu__container .menu__head {
-    font-size: 50px;
-    margin-bottom: 30px;
-  }
+// /* Desktops */
+// @media (min-width: 1025px) {
+//   .div__row-img {
+//     padding: 5vmax 0 0 0;
+//     margin-top: -75px;
+//   }
 
-  .Menu .menu__container .menu__items {
-    width: 50vmax;
-    margin: 0 auto 35px auto;
-  }
-}
+//   .Menu .menu__container .menu__head {
+//     font-size: 50px;
+//     margin-bottom: 30px;
+//   }
 
-/* Mobile screens */
-@media (max-width: 767px) {
-  .div__row-img {
-    padding: 3vmax 0;
-    margin-top: -40px;
-  }
+//   .Menu .menu__container .menu__items {
+//     width: 50vmax;
+//     margin: 0 auto 35px auto;
+//   }
+// }
 
-  .Menu .menu__container .menu__head {
-    font-size: 30px;
-    margin-bottom: 15px;
-  }
+// /* Mobile screens */
+// @media (max-width: 767px) {
+//   .div__row-img {
+//     padding: 3vmax 0;
+//     margin-top: -40px;
+//   }
 
-  .Menu .menu__container .menu__items {
-    width: 80vmax;
-    margin: 0 auto 20px auto;
-  }
-}
+//   .Menu .menu__container .menu__head {
+//     font-size: 30px;
+//     margin-bottom: 15px;
+//   }
 
-.app__work-filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 2rem 1rem;
+//   .Menu .menu__container .menu__items {
+//     width: 80vmax;
+//     margin: 0 auto 20px auto;
+//   }
+// }
 
-  .app__work-filter-item {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    color: #000;
-    font-weight: 100;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 0.5rem;
 
-    &:hover {
-      background-color: #313bac;
-      color: #fff;
-    }
-
-    @media screen and (min-width: 2000px) {
-      padding: 1rem 2rem;
-      border-radius: 0.85rem;
-    }
-  }
-
-  .item-active {
-    background-color: #313bac;
-    color: #fff;
-  }
-
-  @media screen and (max-width: 970px) {
-    justify-content: flex-start;
-  }
-}
 
 .content-of-goal {
   width: 100%;
@@ -284,6 +199,7 @@
     font-size: medium;
     font-size: 18px;
   }
+
   .goals-section {
 
     margin-top: 25px;
@@ -298,7 +214,7 @@
 }
 
 
-.sec-level{
+.sec-level {
   background-image: url(../../Assets/Images/bg1.jpg);
 
 }
@@ -310,24 +226,27 @@
   align-items: center;
   gap: 10px 0px;
   width: 100%;
-  
+
   .know-wrapper {
     height: 500px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
     @media (max-width:1000px) {
       flex-direction: column-reverse;
       justify-content: center;
       height: auto;
       width: 500px;
     }
-    @media (max-width:520px){
+
+    @media (max-width:520px) {
       width: 300px;
       height: auto;
     }
-    @media (max-width:338px){
+
+    @media (max-width:338px) {
       width: 250px;
       height: auto;
     }
@@ -352,7 +271,8 @@
       font-size: 30px;
       margin-bottom: 5px;
       font-weight: bold;
-      @media (max-width:520px){
+
+      @media (max-width:520px) {
         font-size: 25px;
       }
     }
@@ -362,10 +282,11 @@
       font-family: "Nunito Sans", sans-serif;
       text-align: left;
       text-align: justify;
-      @media (max-width:520px){
-       font-size: 15px;
+
+      @media (max-width:520px) {
+        font-size: 15px;
       }
-      
+
     }
 
     .bn-btn {
@@ -380,33 +301,38 @@
       font-size: 16px;
       padding: 10px 15px;
       border-radius: 2px;
-      @media (max-width:338px){
+
+      @media (max-width:338px) {
         font-size: 14px;
       }
     }
   }
-  .know-more-img{
+
+  .know-more-img {
     max-width: 500px;
     width: 500px;
     height: 500px;
     // width: 50%;
     background-image: url(../../Assets/Images/kburly.JPG);
     background-position: center center;
-    background-size:cover;
+    background-size: cover;
+
     @media (max-width:1000px) {
       height: 500px;
     }
-    @media (max-width:520px){
+
+    @media (max-width:520px) {
       width: 300px;
       height: 300px;
     }
-    @media (max-width:338px){
+
+    @media (max-width:338px) {
       width: 250px;
       height: 250px;
     }
   }
 
-  }
+}
 
 
 .why-page {

@@ -60,15 +60,16 @@ const Home = () => {
       <div className="home-2">
         <img src={bg} alt="" />
       </div>
-      <section className="content-of-category">
-          <div className="title">
-            Just<span>Launched</span>
+      {/* products */}
+      <section className="bn-sec home-product">
+          <div className="sec-head">
+            Just <span>Launched</span>
           </div>
-          <div className="container menu__container">
-            <div className="app__work-filter">
+          <div className="home-pr-wrapper">
+            <div className="product-filter">
               <div
                 onClick={handleAllProduct}
-                className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
+                className={` pr-filter-item ${activeFilter === "All" ? "item-active" : ""
                   }`}
               >
                 All
@@ -77,7 +78,7 @@ const Home = () => {
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
+                  className={` pr-filter-item  ${activeFilter === product.name ? "item-active" : ""
                     }`}
                 >
                   {product.name}
@@ -109,7 +110,7 @@ const Home = () => {
             )}
           </div>
         </section>
-
+       {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
           Shop by <span>Goal</span>
