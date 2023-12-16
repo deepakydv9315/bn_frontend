@@ -192,6 +192,7 @@ const Home = () => {
           <Budget />
         </section>
       
+      {/* combos sec  */}
 
       <section className="sec-combo">
         <div className="sec-combo-heading bn-sec">

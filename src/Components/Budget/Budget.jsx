@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = ({ imageSrc, title }) => {
   return (
     <div className="budget-card">
-      <h2 className="budget-title">{title}</h2>
+      <p className="budget-title">{title}</p>
     </div>
   );
 };
