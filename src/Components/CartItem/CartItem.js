@@ -1,9 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import "./CarItem.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 
-function CartItem({ name, imgUrl, quantity, sku, price, id, weight }) {
+function CartItem({ name, imgUrl, sku, price, id, weight }) {
   const dispatch = useDispatch();
 
   const updateCart = (id, sign) => {
@@ -18,6 +18,18 @@ function CartItem({ name, imgUrl, quantity, sku, price, id, weight }) {
       type: "ProductSlice/removeCart",
       payload: { id, sku },
     });
+  };
+
+  const [quantity, setQuantity] = useState(0);
+
+  const handleDecrease = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
   };
 
   return (
@@ -38,9 +50,9 @@ function CartItem({ name, imgUrl, quantity, sku, price, id, weight }) {
             <h5>₹{price * quantity || 1}</h5>
 
             <div className="function">
-              <span onClick={() => updateCart(id, "-")}>-</span>
+              <span onClick={handleDecrease}>-</span>
               <span>{quantity}</span>
-              <span onClick={() => updateCart(id, "+")}>+</span>
+              <span onClick={handleIncrease}>+</span>
             </div>
           </div>
         </div>

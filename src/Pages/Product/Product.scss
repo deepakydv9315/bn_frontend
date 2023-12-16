@@ -51,9 +51,43 @@
   .main-content {
     padding: 20px 30px 50px 50px;
 
-    .filters {
+    .product-filter {
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 5px 11px;
       display: flex;
-      justify-content: space-between;
+      padding: 10px 0px;
+      margin-bottom: 20px;
+      width: 100%;
+      // border: 1px solid black;
+
+      .pr-filter-item {
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        padding: 6px 11px;
+        border-radius: 2px;
+        background-color: #fff;
+        color: #000;
+        font-weight: 300;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #313bac;
+          color: #fff;
+        }
+
+        @media screen and (min-width: 2000px) {
+          padding: 1rem 2rem;
+          border-radius: 0.85rem;
+        }
+      }
+
+      .item-active {
+        background-color: #313bac;
+        color: #fff;
+      }
     }
   }
 

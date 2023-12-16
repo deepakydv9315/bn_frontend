@@ -26,7 +26,7 @@ const ProductDetails = () => {
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
   const [selectedVariant, setSelectedVariant] = useState({});
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   // ! To Get Product Details By Id
   useEffect(() => {
@@ -70,6 +70,17 @@ const ProductDetails = () => {
         text: "Please select a Weight And Flavour",
       });
     }
+  };
+
+  const handleDecrease = () => {
+
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
   };
 
   return (
@@ -125,9 +136,8 @@ const ProductDetails = () => {
                 <div className="flavour">Flavour</div>
                 <div className="btn-wrapper">
                   <button
-                    className={`size-button ${
-                      product.productFlavour ? "selected" : ""
-                    }`}
+                    className={`size-button ${product.productFlavour ? "selected" : ""
+                      }`}
                   >
                     {product.productFlavour}
                   </button>
@@ -141,11 +151,10 @@ const ProductDetails = () => {
                       return (
                         <button
                           key={index}
-                          className={`size-button ${
-                            data.weight === selectedVariant.weight
+                          className={`size-button ${data.weight === selectedVariant.weight
                               ? "selected"
                               : ""
-                          }`}
+                            }`}
                           onClick={() => setSelectedVariant(data)}
                         >
                           {data.weight}
@@ -156,9 +165,9 @@ const ProductDetails = () => {
               </div>
               <div className="quantity">
                 <div className="quant">
-                  <button onClick={() => setQuantity(quantity - 1)}>-</button>
+                  <button onClick={handleDecrease}>-</button>
                   <span>{quantity}</span>
-                  <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                  <button onClick={handleIncrease}>+</button>
                 </div>
               </div>
 

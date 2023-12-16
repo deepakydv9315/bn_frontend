@@ -57,8 +57,8 @@ export default function Product() {
       <section className="contain" style={{ padding: "0px" }}>
         <div className="app">
           <section className="content-of-goal">
-            <div className="title" style={{ paddingddin: "0px" }}>
-              Shop<span>Products</span>
+            <div className="sec-head">
+              Shop<span> Products</span>
             </div>
             <div className="desciption">
               Get fit with precision. Explore now for the best results!
@@ -100,12 +100,12 @@ export default function Product() {
             <br></br>
 
             <div className="container menu__container">
-              <div className="app__work-filter">
+              <div className="product-filter">
                 <div
+                  style={{ padding: "10px", cursor: "pointer" }}
                   onClick={handleAllProduct}
-                  className={`app__work-filter-item app__flex p-text ${
-                    activeFilter === "All" ? "item-active" : ""
-                  }`}
+                  className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
+                    }`}
                 >
                   All
                 </div>
@@ -113,11 +113,11 @@ export default function Product() {
                   ?.filter((item) => item.name !== "Best Selling")
                   .map((product, index) => (
                     <div
+                      style={{ padding: "10px", cursor: "pointer" }}
                       key={index}
                       onClick={() => categoryChangeHandler(product.name)}
-                      className={`app__work-filter-item app__flex p-text ${
-                        activeFilter === product.name ? "item-active" : ""
-                      }`}
+                      className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
+                        }`}
                     >
                       {product.name}
                     </div>
