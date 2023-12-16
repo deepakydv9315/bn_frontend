@@ -8,7 +8,7 @@ import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
 import bg from "../../Assets/Images/temp.png";
-import knowBurly from "../../Assets/Images/kburly.JPG";
+import knowBurly from "../../Assets/Images/kburly.JPG"
 // import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import {
   getAllCategories,
@@ -63,59 +63,55 @@ const Home = () => {
 
       {/* products */}
       <section className="bn-sec home-product">
-        <div className="sec-head">
-          Just <span>Launched</span>
-        </div>
-        <div className="home-pr-wrapper">
-          <div className="product-filter">
-            <div
-              onClick={handleAllProduct}
-              className={` pr-filter-item ${
-                activeFilter === "All" ? "item-active" : ""
-              }`}
-            >
-              All
-            </div>
-            {category
-              .filter((item) => item.name !== "Best Selling")
-              .map((product, index) => (
+          <div className="sec-head">
+            Just <span>Launched</span>
+          </div>
+          <div className="home-pr-wrapper">
+            <div className="product-filter">
+              <div
+                onClick={handleAllProduct}
+                className={` pr-filter-item ${activeFilter === "All" ? "item-active" : ""
+                  }`}
+              >
+                All
+              </div>
+              {category.filter((item) => item.name !== "Best Selling").map((product, index) => (
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={` pr-filter-item  ${
-                    activeFilter === product.name ? "item-active" : ""
-                  }`}
+                  className={` pr-filter-item  ${activeFilter === product.name ? "item-active" : ""
+                    }`}
                 >
                   {product.name}
                 </div>
               ))}
-          </div>
+            </div>
 
-          {isLoading ? (
-            <div
-              style={{
-                width: "30vw",
-                display: "flex",
-                marginTop: "10px",
-                fontSize: "20px",
-                fontStyle: "italic",
-                fontWeight: "600",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              Please Wait products are loading!!!
-            </div>
-          ) : (
-            <div className="spr-wrapper">
-              {products.products && products.products.length !== 0 ? (
-                <Card products={products?.products} />
-              ) : null}
-            </div>
-          )}
-        </div>
-      </section>
-      {/* goals */}
+            {isLoading ? (
+              <div
+                style={{
+                  width: "30vw",
+                  display: "flex",
+                  marginTop: "10px",
+                  fontSize: "20px",
+                  fontStyle: "italic",
+                  fontWeight: "600",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                Please Wait products are loading!!!
+              </div>
+            ) : (
+              <div className="spr-wrapper">
+                {products.products && products.products.length !== 0 ? (
+                  <Card products={products?.products} />
+                ) : null}
+              </div>
+            )}
+          </div>
+        </section>
+       {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
           Shop by <span>Goal</span>
@@ -136,19 +132,18 @@ const Home = () => {
         </h4>
 
         <div className="know-wrapper">
+
           <div className="know-more-text">
             <h3>BURLY WHEY</h3>
             <p>
-              Burly Nutrition Whey Protein aids in recovery and boosts protein
-              intake efficiently. It offers high-quality protein at an
-              affordable price, truly valuable for your fitness journey.Its main
-              advantage lies in its quick absorption within the body, making it
-              an easily digestible protein option.
+              Burly Nutrition Whey Protein aids in recovery and boosts protein intake efficiently.
+              It offers high-quality protein at an affordable price, truly
+              valuable for your fitness journey.Its main advantage lies in its quick absorption within the
+              body, making it an easily digestible protein option.
             </p>
             <p>When taken over time with regular resistance training</p>
-            <Link className="bn-btn" to="/products">
-              Shop Now
-            </Link>
+            <Link className="bn-btn" to="/products">Shop Now</Link>
+
           </div>
           <div className="know-more-img">
             {/* <img src={knowBurly} alt="Whey burly"/> */}
@@ -177,12 +172,10 @@ const Home = () => {
         <div className="why-container">
           {/* <h3>The promise of nothing artificial</h3> */}
           <p>
-            No matter how tired, lazy, or discouraged you are, KEEP GOING. We
-            know it's tough, but at least you're closer to your goal now.
+          No matter how tired, lazy, or discouraged you are, KEEP GOING. 
+          We know it's tough, but at least you're closer to your goal now.
           </p>
-          <Link className="why-btn" to="/products">
-            Shop Now
-          </Link>
+          <Link className="why-btn" to="/products">Shop Now</Link>
         </div>
       </section>
 

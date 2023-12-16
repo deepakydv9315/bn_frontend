@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = ({ imageSrc, title }) => {
   return (
     <div className="level-card">
-      <h2 className="level-title">{title}</h2>
+      <p className="level-title">{title}</p>
     </div>
   );
 };
