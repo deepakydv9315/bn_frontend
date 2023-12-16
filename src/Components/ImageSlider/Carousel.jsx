@@ -49,10 +49,10 @@ function Carousel() {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
+    speed: 4000,
     autoplaySpeed: 2000,
     cssEase: "linear",
   };
@@ -60,11 +60,14 @@ function Carousel() {
     <Slider {...settings}>
       {images.map((image) => (
         <div key={image.id} className="carousel">
-          <div className="carousel-img">
+          <div className="carousel-img"
+          style={{ padding: "30px 0px" }}
+          >
+    
             <img
               src={image.image}
               alt={image.name}
-              style={{ width: "430px" }}
+              style={{ height: "100px" }}
             />
           </div>
         </div>

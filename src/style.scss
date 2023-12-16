@@ -62,9 +62,9 @@ html {
   margin: 0 auto;
 }
 
-section {
-  padding: 3rem 0;
-}
+// section {
+//   padding: 3rem 0;
+// }
 
 h1,
 h2,
@@ -174,6 +174,7 @@ img {
   font-family: "Goldman", cursive;
   font-weight: bold;
   font-size: 48px;
+  text-align: center;
 
   span {
     font-family: "Goldman", cursive;
@@ -189,6 +190,9 @@ img {
   @media (max-width: 768px) {
     font-size: 38px;
   }
+}
+.sec-para{
+  text-align: center;
 }
 
 .title1 {

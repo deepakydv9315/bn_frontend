@@ -66,9 +66,8 @@ const Home = () => {
             <div className="app__work-filter">
               <div
                 onClick={handleAllProduct}
-                className={`app__work-filter-item app__flex p-text ${
-                  activeFilter === "All" ? "item-active" : ""
-                }`}
+                className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
+                  }`}
               >
                 All
               </div>
@@ -76,9 +75,8 @@ const Home = () => {
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={`app__work-filter-item app__flex p-text ${
-                    activeFilter === product.name ? "item-active" : ""
-                  }`}
+                  className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
+                    }`}
                 >
                   {product.name}
                 </div>
@@ -161,7 +159,7 @@ const Home = () => {
           </div>
           <div className="level-description">
             <p>
-            Get fit with precision. Explore now for the best results!
+              Get fit with precision. Explore now for the best results!
             </p>
           </div>
           <div className="level-cards">
@@ -172,7 +170,7 @@ const Home = () => {
 
       <section className="why-page">
         <div className="whyCP-img">
-          <img src={whyCP} alt="Why clean protein?" />  
+          <img src={whyCP} alt="Why clean protein?" />
         </div>
         <div className="why-container">
           {/* <h3>The promise of nothing artificial</h3> */}
@@ -184,31 +182,30 @@ const Home = () => {
         </div>
       </section>
 
-      <div className="home-4">
-        <section className="fitness-bracket">
-          <h3>
-            Fitness<span>Bracket</span>
-          </h3>
-          <p>
+        <section className="bn-sec fitness-bracket">
+          <h4 className="sec-head">
+            Fitness <span>Bracket</span>
+          </h4>
+          <p className="sec-para">
             Products according to your budget and dedication in fitness journey.
           </p>
           <Budget />
-
-          <div className="get-combos">
-            <h3>
-              Get <span>Combos</span>
-            </h3>
-            <p>
-              A great deal has value for money, supplements and thus health.
-            </p>
-          </div>
         </section>
-      </div>
+      
 
-      <section className="img-slider">
+      <section className="sec-combo">
+        <div className="sec-combo-heading bn-sec">
+          <h4 className="sec-head">
+            Get <span>Combos</span>
+          </h4>
+          <p className="sec-para">
+            A great deal has value for money, supplements and thus health.
+          </p>
+        </div>
+        <div className="img-slider">
         <Carousel />
+        </div>
       </section>
-      <br></br>
 
       {/* <section className="blog">
         <div className="blog-page">
