@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./CarItem.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
@@ -20,10 +20,10 @@ function CartItem({ name, imgUrl, sku, price, id, weight }) {
     });
   };
 
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const handleDecrease = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
