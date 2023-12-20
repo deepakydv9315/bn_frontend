@@ -6,6 +6,8 @@ import swal2 from "sweetalert2";
 import Sidebar from "../Sidebar/Sidebar.js";
 import Loader from "../../../Components/Loader/Loader";
 import { createAndUpdateHeader } from "../../../Redux/slices/utilsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function HeaderOffer() {
   const navigate = useNavigate();
@@ -16,10 +18,7 @@ function HeaderOffer() {
 
   useEffect(() => {
     if (success) {
-      swal2.fire({
-        title: "Category Created Succesfully",
-        icon: "success",
-      });
+      toast.success("Offer Added Successfully", { position: "top-right" });
       navigate("/admin");
     }
   }, [success]);
@@ -61,6 +60,18 @@ function HeaderOffer() {
               <div className="col-lg-12">
                 <div className="btn_right_table">
                   <button className="theme-btn-one bg-black btn-sm" type="submit">Create Offer</button>
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                  />
                 </div>
               </div>
             </div>

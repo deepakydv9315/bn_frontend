@@ -6,6 +6,8 @@ import "./Cart.scss";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ function Cart() {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-          item.productDefaultPrice.price
+        item.productDefaultPrice.price
       );
     }, 0);
   };
@@ -59,11 +61,7 @@ function Cart() {
       dispatch(setCartOpen(false));
       navigate("/checkout");
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "You Need To Login To Proceed Further",
-      });
+      toast.error("You Need To Login To Proceed Further", { position: "top-right" });
       dispatch(setCartOpen(false));
       navigate("/login");
     }
@@ -124,7 +122,21 @@ function Cart() {
           <h5>
             {carts.length} Items . {cartTotal()}
           </h5>
-          <h5>CheckOut</h5>
+          <div>
+            <h5 >CheckOut</h5>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+          </div>
         </div>
       </div>
     </>

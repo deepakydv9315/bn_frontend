@@ -5,6 +5,8 @@ import swal2 from "sweetalert2";
 import "./Coupon.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import { createCoupon, setStatusResponse } from "../../../Redux/slices/utilsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreateCoupon() {
   const navigate = useNavigate();
@@ -21,18 +23,11 @@ function CreateCoupon() {
 
   useEffect(() => {
     if (success) {
-      swal2.fire({
-        title: "Coupon Created Succesfully",
-        icon: "success",
-      });
+      toast.success("Coupon Created Succesfully", { position: "top-right" });
       dispatch(setStatusResponse(false));
       navigate("/admin");
     } else if (error) {
-      swal2.fire({
-        title: "Coupon Didn't Created Succesfully",
-        icon: "error",
-        text: error,
-      });
+      toast.error("Coupon Didn't Created Succesfully", { position: "top-right" });
       dispatch(setStatusResponse(false));
     }
   }, [dispatch, success, error]);
@@ -109,6 +104,18 @@ function CreateCoupon() {
                           >
                             Add Coupon
                           </button>
+                          <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                          />
                         </div>
                       </div>
                     </div>

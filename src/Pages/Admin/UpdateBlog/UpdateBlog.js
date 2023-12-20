@@ -1,77 +1,79 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-    getBlogDetails,
-    setStatusResponse,
-    updateBlog,
+  getBlogDetails,
+  setStatusResponse,
+  updateBlog,
 } from "../../../Redux/slices/blogSlice";
 import Sidebar from "../Sidebar/Sidebar.js";
 import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../../Components/Loader/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UpdateBlog() {
 
-const navigate = useNavigate();
-const { id } = useParams();
-const dispatch = useDispatch();
-const [title, setTitle] = useState("");
-const [content, setContent] = useState("");
-const [images, setImages] = useState([]);
-const { success, error, message } = useSelector((state) => state.blogs);
-const { isLoading } = useSelector((state) => state.app);
-const { blog } = useSelector((state) => state.blogs);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [images, setImages] = useState([]);
+  const { success, error, message } = useSelector((state) => state.blogs);
+  const { isLoading } = useSelector((state) => state.app);
+  const { blog } = useSelector((state) => state.blogs);
 
-const updateBlogSubmitHandler = (e) => {
+  const updateBlogSubmitHandler = (e) => {
     e.preventDefault();
     dispatch(updateBlog({
-        title,
-        content,
-        blogIMG: images,
-        _id: id,
+      title,
+      content,
+      blogIMG: images,
+      _id: id,
     }))
-};
+  };
 
 
-useEffect(() => {
-  if (blog && blog._id !== id) {
-    dispatch(getBlogDetails({ id: id }));
-  } 
-  else {
-    setTitle(blog.title);
-    setContent(blog.content);
-    setImages(blog.image.url);
-  }
+  useEffect(() => {
+    if (blog && blog._id !== id) {
+      dispatch(getBlogDetails({ id: id }));
+    }
+    else {
+      setTitle(blog.title);
+      setContent(blog.content);
+      setImages(blog.image.url);
+    }
 
     if (success) {
-        Swal.fire("Success", message, "success");
-        dispatch(setStatusResponse(false));
-        navigate("/admin");
+      toast.success("Success", { position: "top-right" });
+      dispatch(setStatusResponse(false));
+      navigate("/admin");
     } else if (error) {
-        Swal.fire("Error", error, "error");
-        dispatch(setStatusResponse());
-        navigate("/admin");
+      toast.error("Error", { position: "top-right" });
+      dispatch(setStatusResponse());
+      navigate("/admin");
     }
 
-}, [dispatch, success, error, blog, id, message, navigate]);
+  }, [dispatch, success, error, blog, id, message, navigate]);
 
-const updateBlogImagesChange = (e) => {
-  const file = e.target.files[0];
+  const updateBlogImagesChange = (e) => {
+    const file = e.target.files[0];
 
-  const reader = new FileReader();
+    const reader = new FileReader();
 
-  reader.onload = () => {
-    if (reader.readyState === 2) {
-      setImages(reader.result);
-    }
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImages(reader.result);
+      }
+    };
+
+    reader.readAsDataURL(file);
   };
 
-  reader.readAsDataURL(file);
-  };
-
-return(
+  return (
     <Fragment>
-        <Fragment>
+      <Fragment>
         <div className="dashboard">
           <Sidebar />
           {isLoading ? (
@@ -88,29 +90,29 @@ return(
                         onSubmit={updateBlogSubmitHandler}
                       >
                         <div className="row">
-                        <div className="col-lg-12">
-                          <div className="image-input">
-                            {images && (
-                              <img
-                                src={images}
-                                className="image-preview"
-                                alt="img"
+                          <div className="col-lg-12">
+                            <div className="image-input">
+                              {images && (
+                                <img
+                                  src={images}
+                                  className="image-preview"
+                                  alt="img"
+                                />
+                              )}
+                              <input
+                                onChange={updateBlogImagesChange}
+                                type="file"
+                                accept="image/*"
+                                id="imageInput"
                               />
-                            )}
-                            <input
-                              onChange={updateBlogImagesChange}
-                              type="file"
-                              accept="image/*"
-                              id="imageInput"
-                            />
-                            <label
-                              htmlFor="imageInput"
-                              className="image-button"
-                            >
-                              <i className="fa fa-image"></i>Choose image
-                            </label>
+                              <label
+                                htmlFor="imageInput"
+                                className="image-button"
+                              >
+                                <i className="fa fa-image"></i>Choose image
+                              </label>
+                            </div>
                           </div>
-                        </div>
 
                           <div className="col-lg-5">
                             <div className="fotm-group">
@@ -159,6 +161,18 @@ return(
                               <button className="theme-btn-one bg-black btn_sm">
                                 Update Blog
                               </button>
+                              <ToastContainer
+                                position="top-right"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                              />
                             </div>
                           </div>
                         </div>
@@ -172,7 +186,7 @@ return(
         </div>
       </Fragment>
     </Fragment>
-)
+  )
 }
 
 export default UpdateBlog;

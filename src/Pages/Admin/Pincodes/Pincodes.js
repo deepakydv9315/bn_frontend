@@ -9,6 +9,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Sidebar from "../Sidebar/Sidebar.js";
 import { deletePincode, getAllPincodes } from "../../../Redux/slices/utilsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductList = ({ history }) => {
   const dispatch = useDispatch();
@@ -23,19 +25,11 @@ const ProductList = ({ history }) => {
 
   useEffect(() => {
     if (error) {
-      swal2.fire({
-        title: "Error",
-        timer: 2500,
-      });
+      toast.error("Error", { position: "top-right" });
     }
 
     if (isDeleted) {
-      swal2.fire({
-        title: "Deleted",
-        timer: 2500,
-        text: "Pincode Deleted Successfully",
-        icon: "success",
-      });
+      toast.success("Pincode Deleted Successfully", { position: "top-right" });
     }
 
     dispatch(getAllPincodes());

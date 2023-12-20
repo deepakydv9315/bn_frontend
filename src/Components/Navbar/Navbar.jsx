@@ -39,6 +39,9 @@ const Navbar = () => {
   const handleNavigation = () => {
     navigate("/");
   };
+  const handleResponse = () => {
+    setToggle(false);
+  };
 
   return (
     <div className="wrapper__nav ">
@@ -111,11 +114,21 @@ const Navbar = () => {
               >
                 <HiX onClick={() => setToggle(false)} />
                 <ul className="mobile">
-                  <Link to="/">HOME</Link>
-                  <Link to="/products">PRODUCTS</Link>
-                  <Link to="/about">ABOUT US</Link>
-                  <Link to="/contact">CONTACT</Link>
-                  <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
+                  <Link to="/" onClick={handleResponse}>
+                    HOME
+                  </Link>
+                  <Link to="/products" onClick={handleResponse}>
+                    PRODUCTS
+                  </Link>
+                  <Link to="/about" onClick={handleResponse}>
+                    ABOUT US
+                  </Link>
+                  <Link to="/contact" onClick={handleResponse}>
+                    CONTACT
+                  </Link>
+                  <Link to="/authenticate" onClick={handleResponse}>
+                    AUTHENTICATE/REPORT
+                  </Link>
                 </ul>
               </motion.div>
             )}

@@ -12,6 +12,8 @@ import {
   deleteOrder, getOrders,
   setStatusResponse
 } from "../../../Redux/slices/orderSlice.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Orders = () => {
 
@@ -27,18 +29,13 @@ const Orders = () => {
 
   useEffect(() => {
     if (error) {
-      swal2.fire({
-        title: "Error",
-        timer: 2500,
-        text: error,
-      });
+      toast.error("Error", { position: "top-right" });
+
       dispatch(setStatusResponse());
     }
     if (success) {
-      swal2.fire({
-        icon: "Success",
-        title: "Order Deleted",
-      });
+
+      toast.success("Order Deleted", { position: "top-right" });
       dispatch(setStatusResponse());
     }
 

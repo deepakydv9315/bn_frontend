@@ -8,6 +8,8 @@ import Button from "@mui/material/Button";
 import Sidebar from "../Sidebar/Sidebar";
 import Loader from "../../../Components/Loader/Loader";
 import { updateCoupon, getCouponDetail, setStatusResponse } from "../../../Redux/slices/utilsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UpdateCoupon() {
 
@@ -40,18 +42,13 @@ function UpdateCoupon() {
         }
 
         if (success) {
-            swal2.fire({
-                title: "Coupon Updated Succesfully",
-                icon: "success",
-            });
+           
+            toast.success("Coupon Updated Succesfully", { position: "top-right" });
             dispatch(setStatusResponse(false));
             navigate("/admin");
         } else if (error) {
-            swal2.fire({
-                title: "Coupon Didn't Updated",
-                icon: "error",
-                text: error,
-            });
+           
+            toast.error("Coupon Didn't Updated", { position: "top-right" });
             dispatch(setStatusResponse(false));
         }
     }, [dispatch, success, error, coupon]);
@@ -116,6 +113,18 @@ function UpdateCoupon() {
                           >
                             Update Coupon
                           </button>
+                          <ToastContainer
+                                position="top-right"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                              />
                         </div>
                       </div>
                     </div>

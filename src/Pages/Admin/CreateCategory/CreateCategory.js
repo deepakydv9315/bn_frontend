@@ -9,6 +9,8 @@ import {
   createNewCategory,
   setStatusResponse,
 } from "../../../Redux/slices/categories";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreateCategory() {
   const navigate = useNavigate();
@@ -34,10 +36,7 @@ function CreateCategory() {
 
   useEffect(() => {
     if (success) {
-      swal2.fire({
-        title: "Category Created Succesfully",
-        icon: "success",
-      });
+      toast.success("Category Created Succesfully", { position: "top-right" });
       dispatch(setStatusResponse(false));
       navigate("/admin");
     }
@@ -109,6 +108,18 @@ function CreateCategory() {
                 >
                   Add Category
                 </button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                />
               </div>
             </div>
           </div>

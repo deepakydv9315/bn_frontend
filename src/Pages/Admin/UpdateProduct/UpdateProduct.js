@@ -12,6 +12,8 @@ import { getCategories } from "../../../Redux/slices/categories";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../../Components/Loader/Loader";
 import { RxCross1 } from "react-icons/rx";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UpdateProduct() {
   const params = useParams();
@@ -81,11 +83,11 @@ function UpdateProduct() {
     }
 
     if (success) {
-      Swal.fire("Success", message, "success");
+      toast.success("Success", { position: "top-right" });
       dispatch(setStatusResponse());
       navigate("/admin");
     } else if (error) {
-      Swal.fire("Error", error, "error");
+      toast.error("Error", { position: "top-right" });
       dispatch(setStatusResponse());
     }
   }, [dispatch, success, error, product]);
@@ -468,6 +470,18 @@ function UpdateProduct() {
                             >
                               Update Product
                             </button>
+                            <ToastContainer
+                              position="top-right"
+                              autoClose={5000}
+                              hideProgressBar={false}
+                              newestOnTop={false}
+                              closeOnClick
+                              rtl={false}
+                              pauseOnFocusLoss
+                              draggable
+                              pauseOnHover
+                              theme="light"
+                            />
                           </div>
                         </div>
                       </div>

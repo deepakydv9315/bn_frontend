@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import swal2 from "sweetalert2";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -12,6 +11,7 @@ import {
   getBlogs,
   deleteBlog
 } from "../../../Redux/slices/blogSlice.js";
+
 
 const Blogs = () => {
 

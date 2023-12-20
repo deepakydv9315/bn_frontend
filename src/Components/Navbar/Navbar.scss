@@ -1,11 +1,10 @@
-
 .top__nav {
   padding: 5px 40px 3px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 35px;
-  background-color: #FFD626;
+  background-color: #ffd626;
 
   .header-sale {
     color: #121212;
@@ -69,7 +68,6 @@ nav {
           color: white;
           font-size: 19px;
         }
-        
       }
       @media screen and (max-width: 1000px) {
         display: none;
@@ -114,7 +112,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FFD626;
+  background-color: #ffd626;
 
   .mobile {
     font-weight: 500;
@@ -191,7 +189,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  svg{
+  cursor: pointer;
+  svg {
     color: white;
   }
 
@@ -206,7 +205,7 @@ nav {
     display: flex;
     height: 35px;
     padding: 0px 1%;
-    background-color: #FFD626;
+    background-color: #ffd626;
 
     .header-sale {
       font-size: 11px !important;

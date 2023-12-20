@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-
 // import "./createcategory.css";
 import { useSelector, useDispatch } from "react-redux";
 import swal2 from "sweetalert2";
@@ -8,6 +7,8 @@ import {
   createPincode,
   setStatusResponse,
 } from "../../../Redux/slices/utilsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreatePincode() {
   const dispatch = useDispatch();
@@ -22,17 +23,10 @@ function CreatePincode() {
 
   useEffect(() => {
     if (success) {
-      swal2.fire({
-        title: "Pincode Created Succesfully",
-        icon: "success",
-      });
+      toast.success("Pincode Created Succesfully", { position: "top-right" });
       setStatusResponse(false);
     } else if (error) {
-      swal2.fire({
-        title: "Pincode Didn't Created Succesfully",
-        icon: "success",
-        text: error,
-      });
+      toast.error("Pincode Didn't Created Succesfully", { position: "top-right" });
       setStatusResponse(false);
     }
 
@@ -77,6 +71,18 @@ function CreatePincode() {
                           >
                             Add Pincode
                           </button>
+                          <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                          />
                         </div>
                       </div>
                     </div>

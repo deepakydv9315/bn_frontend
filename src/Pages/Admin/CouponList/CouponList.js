@@ -9,6 +9,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Sidebar from "../Sidebar/Sidebar";
 import { deleteCoupon, getAllCoupons } from "../../../Redux/slices/utilsSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CouponList = ({ history }) => {
   const dispatch = useDispatch();
@@ -21,19 +23,11 @@ const CouponList = ({ history }) => {
 
   useEffect(() => {
     if (error) {
-      swal2.fire({
-        title: "Error",
-        timer: 2500,
-      });
+      toast.error("Error Occured", { position: "top-right" });
     }
 
     if (isDeleted) {
-      swal2.fire({
-        title: "Deleted",
-        timer: 2500,
-        text: "Pincode Deleted Successfully",
-        icon: "success",
-      });
+      toast.success("Pincode Deleted Successfully", { position: "top-right" });
     }
 
     dispatch(getAllCoupons());

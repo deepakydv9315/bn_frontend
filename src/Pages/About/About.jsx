@@ -6,7 +6,7 @@ import Icon from "../../Assets/Images/abouticon.png";
 
 const AboutPage = () => {
   return (
-    <div className="about-container ">
+    <div className="bn-sec about-container ">
       <div className="image-with-text-container">
         <img src={About} alt="YourImage" className="image" />
         <div className="text">

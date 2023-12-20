@@ -9,7 +9,8 @@ import {
   createBlog,
   setStatusResponse,
 } from "../../../Redux/slices/blogSlice.js";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CreateBlog = () => {
 
   const navigate = useNavigate();
@@ -35,11 +36,12 @@ const CreateBlog = () => {
 
   useEffect(() => {
     if (success) {
-      Swal.fire("Success", message, "success");
+      toast.success("Success", { position: "top-right" });
       dispatch(setStatusResponse(false));
       navigate("/admin");
     } else if (error) {
-      Swal.fire("Error", error, "error");
+      toast.error("Error", { position: "top-right" });
+
       dispatch(setStatusResponse(true));
       navigate("/admin");
     }
@@ -84,7 +86,7 @@ const CreateBlog = () => {
                               <img
                                 src={images}
                                 className="image-preview"
-                                // alt="img"
+                              // alt="img"
                               />
                             )}
                             <br></br>
@@ -150,6 +152,18 @@ const CreateBlog = () => {
                             <button className="theme-btn-one bg-black btn_sm">
                               Create Blog
                             </button>
+                            <ToastContainer
+                              position="top-right"
+                              autoClose={5000}
+                              hideProgressBar={false}
+                              newestOnTop={false}
+                              closeOnClick
+                              rtl={false}
+                              pauseOnFocusLoss
+                              draggable
+                              pauseOnHover
+                              theme="light"
+                            />
                           </div>
                         </div>
                       </div>

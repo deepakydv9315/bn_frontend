@@ -13,7 +13,8 @@ import {
   deleteProduct,
   resetStatusError,
 } from "../../../Redux/slices/productSlice";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductList = () => {
   const dispatch = useDispatch();
 
@@ -25,22 +26,13 @@ const ProductList = () => {
 
   useEffect(() => {
     if (error) {
-      swal2.fire({
-        icon: "error",
-        title: error,
-        timer: 2500,
-      });
+      toast.error("Error", { position: "top-right" });
 
       dispatch(resetStatusError());
     }
 
     if (isDeleted) {
-      swal2.fire({
-        title: "Deleted",
-        timer: 2500,
-        text: "Product Deleted Successfully",
-        icon: "success",
-      });
+      toast.success("Product Deleted Successfully", { position: "top-right" });
 
       dispatch(resetStatusError());
     }

@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 import { getCategories } from "../../../Redux/slices/categories";
 import { useNavigate } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import { useAlert } from "react-alert";
 
 function NewProduct() {
@@ -66,11 +68,11 @@ function NewProduct() {
     // ! Need To Work Here
 
     if (success) {
-      Swal.fire("Success", message, "Product created successfully");
+      toast.success("Product Added Successfully", { position: "top-right" });
       dispatch(setStatusResponse());
       navigate("/admin/products");
     } else if (error) {
-      Swal.fire("Error", error, "error");
+      toast.error("Error Occured", { position: "top-right" });
       dispatch(setStatusResponse());
     }
   };
@@ -87,11 +89,11 @@ function NewProduct() {
 
   useEffect(() => {
     if (success) {
-      Swal.fire("Success", message, "success");
+      toast.success("Success", { position: "top-right" });
       dispatch(setStatusResponse());
       navigate("/admin");
     } else if (error) {
-      Swal.fire("Error", error, "error");
+      toast.error("Error Occured", { position: "top-right" });
       dispatch(setStatusResponse());
     }
     dispatch(getCategories());
@@ -404,9 +406,7 @@ function NewProduct() {
               ))}
             </div>
 
-
-
-            <div className="cp-row" style={{alignItems:"flex-start"}}>
+            <div className="cp-row" style={{ alignItems: "flex-start" }}>
               <div className="cp-input-group">
                 <label>Short Description</label>
                 <input
@@ -438,6 +438,18 @@ function NewProduct() {
                 <button type="submit" className="theme-btn-one bg-black btn_sm">
                   Add Product
                 </button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                />
               </div>
             </div>
 

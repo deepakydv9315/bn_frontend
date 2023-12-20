@@ -8,13 +8,14 @@ import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Tooltip from "@mui/material/Tooltip";
-
 import Sidebar from "../Sidebar/Sidebar.js";
 import {
   deleteCategory,
   getCategories,
   setStatusResponse,
 } from "../../../Redux/slices/categories.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -29,18 +30,11 @@ const ProductList = () => {
 
   useEffect(() => {
     if (error) {
-      swal2.fire({
-        title: "Error",
-        timer: 2500,
-        text: error,
-      });
+      toast.error("Error Occured", { position: "top-right" });
       dispatch(setStatusResponse());
     }
     if (success) {
-      swal2.fire({
-        icon: "success",
-        title: "Category Deleted",
-      });
+      toast.success("Category Deleted", { position: "top-right" });
       dispatch(setStatusResponse());
     }
 

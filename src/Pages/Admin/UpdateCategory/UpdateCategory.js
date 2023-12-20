@@ -12,6 +12,8 @@ import {
   getCategoryDetails,
   setStatusResponse,
 } from "../../../Redux/slices/categories";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UpdateCategory() {
   const params = useParams();
@@ -45,10 +47,7 @@ function UpdateCategory() {
     }
 
     if (success) {
-      swal2.fire({
-        title: "Category Updated Succesfully",
-        icon: "success",
-      });
+      toast.success("Category Updated Succesfully", { position: "top-right" });
       dispatch(setStatusResponse(false));
       navigate("/admin");
     }
@@ -131,6 +130,18 @@ function UpdateCategory() {
                             >
                               Update Category
                             </button>
+                            <ToastContainer
+                              position="top-right"
+                              autoClose={5000}
+                              hideProgressBar={false}
+                              newestOnTop={false}
+                              closeOnClick
+                              rtl={false}
+                              pauseOnFocusLoss
+                              draggable
+                              pauseOnHover
+                              theme="light"
+                            />
                           </div>
                         </div>
                       </div>
