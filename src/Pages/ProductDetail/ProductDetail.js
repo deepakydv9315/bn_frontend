@@ -74,7 +74,7 @@ const ProductDetails = () => {
 
   const handleDecrease = () => {
 
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
@@ -152,8 +152,8 @@ const ProductDetails = () => {
                         <button
                           key={index}
                           className={`size-button ${data.weight === selectedVariant.weight
-                              ? "selected"
-                              : ""
+                            ? "selected"
+                            : ""
                             }`}
                           onClick={() => setSelectedVariant(data)}
                         >
