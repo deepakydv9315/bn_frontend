@@ -88,117 +88,121 @@ const ProductDetails = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="product-details-container contain">
-          <div className="left-section">
-            <div className="main-product-image">
-              <img
-                src={
-                  selectedVariant &&
-                  selectedVariant.images &&
-                  selectedVariant.images.length > 0 &&
-                  selectedVariant.images[0]?.url
-                }
-                alt="Main Product"
-              />
-              <div className="add-img-wrapper">
-                {selectedVariant &&
-                  selectedVariant.images &&
-                  selectedVariant.images.length > 0 &&
-                  selectedVariant.images.map((image, index) => (
-                    <div key={index} className="additional-image">
-                      <img
-                        src={image.url}
-                        alt={`AdditionalImage ${index + 1}`}
-                      />
-                    </div>
-                  ))}
+        <div className="product-details-container bn-sec">
+          <div className="pr-detail-top">
+            <div className="left-section">
+              <div className="main-product-image">
+                <img
+                  src={
+                    selectedVariant &&
+                    selectedVariant.images &&
+                    selectedVariant.images.length > 0 &&
+                    selectedVariant.images[0]?.url
+                  }
+                  alt="Main Product"
+                />
+                <div className="add-img-wrapper">
+                  {selectedVariant &&
+                    selectedVariant.images &&
+                    selectedVariant.images.length > 0 &&
+                    selectedVariant.images.map((image, index) => (
+                      <div key={index} className="additional-image">
+                        <img
+                          src={image.url}
+                          alt={`AdditionalImage ${index + 1}`}
+                        />
+                      </div>
+                    ))}
 
-                {/* <img src={chart} alt="Main Product" className='chart' /> */}
+                  {/* <img src={chart} alt="Main Product" className='chart' /> */}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="right-section">
-            <div className="product-info">
-              {/* <div className="name">{product?.category}</div> */}
-              <p className="head">{product?.name}</p>
-              <div className="price">
-                <span className="mrp" style={{ display: "flex" }}>
-                  ₹{selectedVariant.mrPrice}
-                </span>
-                {/* <br></br> */}
-                <span className="discounted-price">
-                  ₹{selectedVariant.price}
-                </span>
+            <div className="right-section">
+              <div className="product-info">
+                {/* <div className="name">{product?.category}</div> */}
+                <p className="head">{product?.name}</p>
+                <div className="product-description-reviews">
+                <p>{product?.description}</p>
               </div>
+                <div className="price">
+                  <span className="mrp" style={{ display: "flex" }}>
+                    ₹{selectedVariant.mrPrice}
+                  </span>
+                  &nbsp; &nbsp;
+                  <span className="discounted-price">
+                    ₹{selectedVariant.price}
+                  </span>
+                </div>
 
-              <div className="size-options">
-                <div className="flavour">Flavour</div>
-                <div className="btn-wrapper">
+                <div className="size-options">
+                  <div className="flavour">Flavour</div>
+                  <div className="btn-wrapper">
+                    <button
+                      className={`size-button ${product.productFlavour ? "selected" : ""
+                        }`}
+                    >
+                      {product.productFlavour}
+                    </button>
+                  </div>
+                </div>
+                <div className="size-options">
+                  <div className="flavour">Weight</div>
+                  <div className="btn-wrapper">
+                    {product?.productDetails &&
+                      product?.productDetails?.map((data, index) => {
+                        return (
+                          <button
+                            key={index}
+                            className={`size-button ${data.weight === selectedVariant.weight
+                              ? "selected"
+                              : ""
+                              }`}
+                            onClick={() => setSelectedVariant(data)}
+                          >
+                            {data.weight}
+                          </button>
+                        );
+                      })}
+                  </div>
+                </div>
+                <div className="quantity">
+                  <div className="quant">
+                    <button onClick={handleDecrease}>-</button>
+                    <span>{quantity}</span>
+                    <button onClick={handleIncrease}>+</button>
+                  </div>
+                </div>
+
+                <div className="b">
+                  {!isAddedOnCart ? (
+                    <button
+                      onClick={() => addToCart()}
+                      className="wishlist-button"
+                    >
+                      Add To Cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => dispatch(setCartOpen(true))}
+                      className="wishlist-button"
+                    >
+                      Go To Cart
+                    </button>
+                  )}
+                  <br></br>
                   <button
-                    className={`size-button ${product.productFlavour ? "selected" : ""
-                      }`}
-                  >
-                    {product.productFlavour}
-                  </button>
-                </div>
-              </div>
-              <div className="size-options">
-                <div className="flavour">Weight</div>
-                <div className="btn-wrapper">
-                  {product?.productDetails &&
-                    product?.productDetails?.map((data, index) => {
-                      return (
-                        <button
-                          key={index}
-                          className={`size-button ${data.weight === selectedVariant.weight
-                            ? "selected"
-                            : ""
-                            }`}
-                          onClick={() => setSelectedVariant(data)}
-                        >
-                          {data.weight}
-                        </button>
-                      );
-                    })}
-                </div>
-              </div>
-              <div className="quantity">
-                <div className="quant">
-                  <button onClick={handleDecrease}>-</button>
-                  <span>{quantity}</span>
-                  <button onClick={handleIncrease}>+</button>
-                </div>
-              </div>
-
-              <div className="b">
-                {!isAddedOnCart ? (
-                  <button
-                    onClick={() => addToCart()}
                     className="wishlist-button"
+                    onClick={() => {
+                      Navigate("/checkout");
+                    }}
                   >
-                    Add To Cart
+                    Buy Now
                   </button>
-                ) : (
-                  <button
-                    onClick={() => dispatch(setCartOpen(true))}
-                    className="wishlist-button"
-                  >
-                    Go To Cart
-                  </button>
-                )}
-                <br></br>
-                <button
-                  className="wishlist-button"
-                  onClick={() => {
-                    Navigate("/checkout");
-                  }}
-                >
-                  Buy Now
-                </button>
-              </div>
+                </div>
 
-              {/* <section className="delivery-section">
+                {/* <section className="delivery-section">
                 <div className="delivery-container">
                   <h2 className="delivery-heading">
                     <FontAwesomeIcon icon={faTruck} /> Deliver to
@@ -219,7 +223,7 @@ const ProductDetails = () => {
                 </div>
               </section> */}
 
-              {/* <section className="icon-section">
+                {/* <section className="icon-section">
                 <div className="icon-container">
                   <div className="icon-item">
                     <FontAwesomeIcon icon={faCoffee} className="icon" />
@@ -235,26 +239,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </section> */}
-            </div>
-            <br></br>
-            <div className="product-description-reviews">
-              <h3>Short Description</h3>
-              <p>{product?.description}</p>
-            </div>
-            <div className={`manufacturing-details ${isOpen ? "open" : ""}`}>
-              <div className="arrow">
-                <h3 onClick={(e) => setIsOpen(!isOpen)}>Long Description</h3>
-
-                <BsArrowDown
-                  onClick={(e) => setIsOpen(!isOpen)}
-                  style={{ fontSize: "20px", marginTop: "5px" }}
-                />
               </div>
-              <br></br>
-              <p>{product?.longDescription}</p>
             </div>
           </div>
+          <div className="pr-detail-btm">
+            <h4 className="head">About {product?.name}</h4>
+          <p>{product?.longDescription}</p>
+          </div>
+
         </div>
+
       )}
     </Fragment>
   );

@@ -49,8 +49,8 @@ function Card({ products }) {
           return (
             <div key={index} className="product-card">
               <div className="badge">
-                <span className="badge_top">50%</span>
-                <span className="badge_btm">OFF</span>
+                <span className="badge_top">50% OFF</span>
+                {/* <span className="badge_btm">OFF</span> */}
               </div>
               <div className="product-card-img">
                 <img
@@ -66,20 +66,20 @@ function Card({ products }) {
               <div className="product-card-details">
                 <p className="product-card-name">{product.name}</p>
                 <p className="product-card-title">
-                  2kg {product?.productFlavour}
+                  {product?.productDetails[0].weight} | {product?.productFlavour}
                 </p>
                 <div className="space">
                   <p className="product-card-price">
-                    ₹ {product.productDetails[0].mrPrice}
+                    ₹{product.productDetails[0].mrPrice}
                   </p>
                   <p className="d-price">
-                    {`₹ ${product.productDetails[0].price}`}
+                    {`₹${product.productDetails[0].price}`}
                   </p>
                 </div>
                 <div className="card-btns">
                   <button
                     onClick={() => handleAddCart(product._id)}
-                    className="he"
+                    className="card-btn"
                   >
                     Add To Cart
                   </button>

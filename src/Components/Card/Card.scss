@@ -27,23 +27,26 @@
       background-color: #00cf03;
       color: #ffffff;
       padding: 4px 6px;
-      border-radius: 0px 0px 0px 10px;
+      // border-radius: 0px 0px 0px 10px;
       font-weight: bold;
       display: flex;
       text-align: center;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      gap: 5px;
+      flex-direction: row;
+      gap: 1px;
       border-style: double;
+      border: none;
     }
     .badge .badge_top {
-      font-size: 20px;
+      font-size: 16px;
       margin-left: 0px;
+      font-weight: 500;
     }
     .badge .badge_btm {
       font-size: 16px;
       margin-left: 0px;
+      font-weight: 400;
     }
 
     .product-card-img {
@@ -68,7 +71,7 @@
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        gap: 10px 15px;
+        gap: 10px 10px;
         .product-card-price {
           font-weight: 400;
           color: #4d4d4d;
@@ -78,34 +81,43 @@
         }
         .d-price {
           font-size: 18px;
-          color: red;
+          color: #00cf03;
           display: inline-block;
+          font-weight: 500;
         }
       }
 
       .product-card-name {
         font-weight: bolder;
         color: #4d4d4d;
-        font-size: 17px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 600;
       }
       .product-card-title {
         font-weight: 400;
         margin-bottom: 4px;
         font-size: 16px;
+        color: black;
+        &:hover{
+          color: black;
+        }
       }
 
       .card-btns {
         justify-content: center;
         display: flex;
-        .he {
+        .card-btn {
           cursor: pointer;
           font-family: "rubik";
           border-radius: 5px;
-          font-size: 16px;
+          font-size: 17px;
+          font-weight: 400;
           width: 100%;
-          border: 1px solid black;
+          // border: 1px solid black;
+          border: none;
           background-color: rgb(232, 209, 0);
-          padding: 5px;
+          padding: 8px 5px;
           margin-top: 3px;
         }
       }
@@ -120,7 +132,7 @@
         .product-card-price {
           font-size: 14px;
         }
-        .he {
+        .card-btn {
           padding: 2px;
           color: #121212;
           font-size: 10px;
