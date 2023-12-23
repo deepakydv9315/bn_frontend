@@ -65,7 +65,7 @@ function UpdateCoupon() {
             <div className="row">
               <div className="col-lg-12">
                 <div className="add_product_wrapper">
-                  <h4>Update Coupon</h4>
+                  <h4>Update<span> Coupon</span></h4>
                   <form
                     className="add_product_form"
                     onSubmit={updateProductSubmitHandler}

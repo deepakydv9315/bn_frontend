@@ -168,7 +168,7 @@ function NewProduct() {
           className="add_product_form"
           onSubmit={(e) => createProductSubmitHandler(e)}
         >
-          <h3 className="adminhead">Create<span>Product</span></h3>
+          <h3 className="adminhead">Create<span> Product</span></h3>
           <div className="row cp-wrapper">
             <div className="cp-row">
               {/* product name  */}

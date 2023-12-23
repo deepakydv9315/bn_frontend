@@ -100,7 +100,7 @@ const Blogs = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 className="adminhead">ALL<span>BLOGS</span></h1>
+          <h1 className="adminhead">ALL<span> BLOGS</span></h1>
           <br></br>
           <div className="btn create">
             <Link

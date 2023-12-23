@@ -64,7 +64,7 @@ const UpdatePincode = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="add_product_wrapper">
-                    <h4>Update Pincode</h4>
+                    <h4>Update<span> Pincode</span></h4>
                     <form
                       className="add_product_form"
                       onSubmit={submitPincodeSubmitHandler}

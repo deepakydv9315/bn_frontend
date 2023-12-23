@@ -74,7 +74,7 @@ const CreateBlog = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="add_product_wrapper">
-                    <h3 className="adminhead">Create<span>Blog</span></h3>
+                    <h3 className="adminhead">Create<span> Blog</span></h3>
                     <form
                       className="add_product_form"
                       onSubmit={createBlogSubmitHandler}

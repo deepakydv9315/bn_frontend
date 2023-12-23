@@ -84,7 +84,7 @@ function UpdateBlog() {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="add_product_wrapper">
-                      <h4>Update Blog</h4>
+                      <h4>Update <span> Blog</span></h4>
                       <form
                         className="add_product_form"
                         onSubmit={updateBlogSubmitHandler}

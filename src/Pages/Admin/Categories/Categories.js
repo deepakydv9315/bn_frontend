@@ -119,7 +119,7 @@ const ProductList = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h3 className="adminhead">ALL<span>CATEGORIES</span></h3>
+          <h3 className="adminhead">ALL<span> CATEGORIES</span></h3>
           <div className="btn create">
             <Link
               to="/admin/categories/create"

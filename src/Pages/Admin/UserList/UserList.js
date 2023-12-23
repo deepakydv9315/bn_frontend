@@ -82,7 +82,7 @@ const UserList = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer ">
-          <h3 className="adminhead">ALL<span>USERS</span></h3>
+          <h3 className="adminhead">ALL<span> USERS</span></h3>
           <DataGrid
             rows={allUsers}
             columns={columns}

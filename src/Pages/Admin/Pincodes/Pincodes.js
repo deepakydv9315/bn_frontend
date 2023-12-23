@@ -82,7 +82,7 @@ const ProductList = ({ history }) => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer" style={{ width: "1270px" }}>
-          <h1 className="adminhead">ALL<span>PINCODES</span></h1>
+          <h1 className="adminhead">ALL<span> PINCODES</span></h1>
           <br></br>
           <div className="btn create">
             <Link

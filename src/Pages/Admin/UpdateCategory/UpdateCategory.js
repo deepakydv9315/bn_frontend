@@ -75,7 +75,7 @@ function UpdateCategory() {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="add_product_wrapper">
-                    <h4>Add Category</h4>
+                    <h4>Add<span> Category</span></h4>
                     <form
                       className="add_product_form"
                       onSubmit={handleSubmitForm}

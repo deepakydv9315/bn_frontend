@@ -2,11 +2,9 @@ import React, { Fragment, useEffect } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import swal2 from "sweetalert2";
 import Sidebar from "../Sidebar/Sidebar.js";
 import {
   deleteOrder, getOrders,
@@ -124,7 +122,7 @@ const Orders = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h3 className="adminhead">ALL<span>ORDERS</span></h3>
+          <h3 className="adminhead">ALL<span> ORDERS</span></h3>
 
           <DataGrid
             rows={rows}

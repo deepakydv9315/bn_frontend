@@ -60,9 +60,9 @@ const CouponList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/coupon/${params.id}`}>
+            {/* <Link to={`/admin/coupon/${params.id}`}>
               <EditIcon />
-            </Link>
+            </Link> */}
             <Button onClick={() => deleteCouponHandler(params.id)}>
               <DeleteIcon />
             </Button>
@@ -88,7 +88,7 @@ const CouponList = ({ history }) => {
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">
-          <h1 className="adminhead">ALL<span>COUPONS</span></h1>
+          <h1 className="adminhead">ALL<span> COUPONS</span></h1>
           <br></br>
           <div className="btn create">
             <Link

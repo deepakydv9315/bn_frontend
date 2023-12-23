@@ -60,7 +60,7 @@ function CreateCategory() {
           className="add_product_form"
           onSubmit={handleSubmitForm}
         >
-          <h3 className="adminhead">Create<span>Category</span></h3>
+          <h3 className="adminhead">Create<span> Category</span></h3>
           <div className="row">
             <div className="col-lg-12">
               <div className="image-input">
