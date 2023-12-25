@@ -22,7 +22,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <main className="checkout-page contain contain-bg">
+    <main className="checkout-page bn-sec contain-bg ">
       <div className="checkout-navigation">
         <button
           onClick={() => {

@@ -7,6 +7,7 @@ import whyCP from "../../Assets/Images/why-clean-protein.png";
 import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
+import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import bg from "../../Assets/Images/temp.png";
 import knowBurly from "../../Assets/Images/kburly.JPG"
 // import ReadBlogs from "../../Components/Blogs/ReadBlogs";
@@ -63,55 +64,55 @@ const Home = () => {
 
       {/* products */}
       <section className="bn-sec home-product">
-          <div className="sec-head">
-            Just <span>Launched</span>
-          </div>
-          <div className="home-pr-wrapper">
-            <div className="product-filter">
+        <div className="sec-head">
+          Just <span>Launched</span>
+        </div>
+        <div className="home-pr-wrapper">
+          <div className="product-filter">
+            <div
+              onClick={handleAllProduct}
+              className={` pr-filter-item ${activeFilter === "All" ? "item-active" : ""
+                }`}
+            >
+              All
+            </div>
+            {category.filter((item) => item.name !== "Best Selling").map((product, index) => (
               <div
-                onClick={handleAllProduct}
-                className={` pr-filter-item ${activeFilter === "All" ? "item-active" : ""
+                key={index}
+                onClick={() => categoryChangeHandler(product.name)}
+                className={` pr-filter-item  ${activeFilter === product.name ? "item-active" : ""
                   }`}
               >
-                All
+                {product.name}
               </div>
-              {category.filter((item) => item.name !== "Best Selling").map((product, index) => (
-                <div
-                  key={index}
-                  onClick={() => categoryChangeHandler(product.name)}
-                  className={` pr-filter-item  ${activeFilter === product.name ? "item-active" : ""
-                    }`}
-                >
-                  {product.name}
-                </div>
-              ))}
-            </div>
-
-            {isLoading ? (
-              <div
-                style={{
-                  width: "30vw",
-                  display: "flex",
-                  marginTop: "10px",
-                  fontSize: "20px",
-                  fontStyle: "italic",
-                  fontWeight: "600",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Please Wait products are loading!!!
-              </div>
-            ) : (
-              <div className="spr-wrapper">
-                {products.products && products.products.length !== 0 ? (
-                  <Card products={products?.products} />
-                ) : null}
-              </div>
-            )}
+            ))}
           </div>
-        </section>
-       {/* goals */}
+
+          {isLoading ? (
+            <div
+              style={{
+                width: "30vw",
+                display: "flex",
+                marginTop: "10px",
+                fontSize: "20px",
+                fontStyle: "italic",
+                fontWeight: "600",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Please Wait products are loading!!!
+            </div>
+          ) : (
+            <div className="spr-wrapper">
+              {products.products && products.products.length !== 0 ? (
+                <Card products={products?.products} />
+              ) : null}
+            </div>
+          )}
+        </div>
+      </section>
+      {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
           Shop by <span>Goal</span>
@@ -172,8 +173,8 @@ const Home = () => {
         <div className="why-container">
           {/* <h3>The promise of nothing artificial</h3> */}
           <p>
-          No matter how tired, lazy, or discouraged you are, KEEP GOING. 
-          We know it's tough, but at least you're closer to your goal now.
+            No matter how tired, lazy, or discouraged you are, KEEP GOING.
+            We know it's tough, but at least you're closer to your goal now.
           </p>
           <Link className="why-btn" to="/products">Shop Now</Link>
         </div>
@@ -206,14 +207,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* <section className="blog">
-        <div className="blog-page">
-          <h3>
-            Read<span>Blogs</span>
-          </h3>
+      <section className="blog bn-sec sec-blog">
+          <h4 className="sec-head">
+            Our <span>Blogs</span>
+          </h4>
+          <p className="sec-para">
+            Time to grab some information
+          </p>
           <ReadBlogs />
-        </div>
-      </section> */}
+      </section>
 
       {/* <div className="info-grid">
           <InfoGrid />

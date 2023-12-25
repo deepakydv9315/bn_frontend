@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 30px;
   width: 100%;
 
@@ -13,7 +14,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    width: 400px;
+    width: 500px;
 
     .ship-tittle {
       font-size: 19px;
@@ -50,12 +51,16 @@
       .ig {
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 10px 20px;
         .ig-1 {
-          width: 50%;
+          width: 45%;
+          input{
+            width: 95%;
+          }
         }
       }
 

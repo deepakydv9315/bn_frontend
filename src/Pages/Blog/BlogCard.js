@@ -10,13 +10,11 @@ const BlogCard = ({ data }) => {
 
   return (
     <div className="blog-card" onClick={handleNavigation}>
-      <img src={image} alt={title} className="blog-image" />
-      <h3 className="blog-title">{title}</h3>
-      <div className="blog-meta">
-        <span className="blog-date">{date}</span>
-        <span className="blog-author">{author}</span>
+      <img src={image} alt={title} className="bi-img" />
+      <div className='bi-content'>
+        <h3 className="bi-title">{title}</h3>
+        <span className="bi-desc">{description}</span>
       </div>
-      <p className="blog-description">{description}</p>
     </div>
   );
 };

@@ -6,9 +6,12 @@ import blog3 from '../../Assets/Images/blog3.jpg';
 
 const GridItem = ({ title, imageSrc, description, link }) => (
   <a href={link} className="blog-item">
-    <h2 className="h2">{title}</h2>
-    <img src={imageSrc} alt={title} />
-    <p>{description}</p>
+    <img className="bi-img" src={imageSrc} alt={title} />
+    <div className="bi-content">
+      <h2 className="bi-title">{title}</h2>
+      <span className="bi-desc">{description}</span>
+    </div>
+    {/* <button className="btn">Read More</button> */}
   </a>
 );
 
@@ -23,7 +26,8 @@ const ReadBlogs = () => {
     {
       title: '6 Effective Strategies To Improve Digestion Naturally',
       imageSrc: blog2,
-      description: 'Adopting a holistic perspective is necessary for improving digestion naturally...',
+      description: 'for improving digestion naturally...Adopting a holistic perspective is necessary for improving digestion naturally... naturally... naturally...',
+
       link: '',
     },
     {
@@ -31,21 +35,21 @@ const ReadBlogs = () => {
       imageSrc: blog3,
       description: 'These little rituals, when followed consistently, lead to a happier and healthier life...',
       link: '',
-      },
+    },
   ];
 
   return (
     <div className="blog-container">
-    {data.map((item, index) => (
-      <GridItem
-        key={index}
-        title={item.title}
-        imageSrc={item.imageSrc}
-        description={item.description}
-        link={item.link}
-      />
-    ))}
-  </div>
+      {data.map((item, index) => (
+        <GridItem
+          key={index}
+          imageSrc={item.imageSrc}
+          title={item.title}
+          description={item.description}
+          link={item.link}
+        />
+      ))}
+    </div>
   );
 };
 

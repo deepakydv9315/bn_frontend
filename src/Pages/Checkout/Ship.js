@@ -102,7 +102,7 @@ const Ship = () => {
   };
   return (
     <>
-      <section className="contain checkout-wrapper">
+      <section className="bn-sec checkout-wrapper">
         <div className="ship-address">
           <h5 className="ship-tittle">Ship to</h5>
           <form className="ship-form" onSubmit={(e) => hanldePlaceOrder(e)}>
