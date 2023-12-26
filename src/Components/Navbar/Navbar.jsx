@@ -81,9 +81,9 @@ const Navbar = () => {
           <ul className="app__navbar-links">
             <Link to="/">HOME</Link>
             <Link to="/products">PRODUCTS</Link>
+            <Link to="/blog">BLOGS</Link>
             <Link to="/about">ABOUT US</Link>
-            <Link to="/contact">CONTACT</Link>
-            <Link to="/authenticate">AUTHENTICATE/REPORT</Link>
+            <Link to="/contact">CONTACT US</Link>
           </ul>
           <div className="right">
             {/* <AiOutlineSearch /> */}
@@ -126,8 +126,8 @@ const Navbar = () => {
                   <Link to="/contact" onClick={handleResponse}>
                     CONTACT
                   </Link>
-                  <Link to="/authenticate" onClick={handleResponse}>
-                    AUTHENTICATE/REPORT
+                  <Link to="/blog" onClick={handleResponse}>
+                    Blogs
                   </Link>
                 </ul>
               </motion.div>

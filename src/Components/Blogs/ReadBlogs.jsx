@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const GridItem = ({ title, imageSrc, description, link }) => (
   <a href={link} className="blog-item">
-    <Link to="/blogdetail">
+    <Link to={link}>
       <img className="bi-img" src={imageSrc} alt={title} />
       <div className="bi-content">
         <h2 className="bi-title">{title}</h2>
@@ -19,26 +19,26 @@ const GridItem = ({ title, imageSrc, description, link }) => (
 const ReadBlogs = () => {
   const data = [
     {
-      title: "Low-Carb Vs Low-Fat – Which Is Better For Weight Loss?",
+      title: "How Creatine Helps You Gain Muscle and Strength",
       imageSrc: blog1,
       description:
-        "Diet diversity - explore which diet pattern works best for your weight loss goals...",
-      link: "",
+        "Burly Creatine Monohydrate is an ultimate workout supplement that is sure to boost your workout performance. It is an ideal source of pure and unadulterated creatine monohydrate.If you are into hardcore training and heavy weightlifting..",
+      link: "/Blog1",
     },
     {
-      title: "6 Effective Strategies To Improve Digestion Naturally",
+      title: "How Much Protein Are You Required To Eat Per Day For Muscle Building?",
       imageSrc: blog2,
       description:
-        "for improving digestion naturally...Adopting a holistic perspective is necessary for improving digestion naturally... naturally... naturally...",
+        "You’ve likely heard the age-old advice: “Eat more protein.” While this advice is undoubtedly true, it’s crucial to understand just how much Protein to eat per day to maximize your muscle-building efforts.",
 
-      link: "",
+      link: "/Blog2",
     },
     {
-      title: "5 Essential Self-Care Tips For a Stress-Free Life",
+      title: "5 Reasons You Should Start Going To The Gym Today",
       imageSrc: blog3,
       description:
-        "These little rituals, when followed consistently, lead to a happier and healthier life...",
-      link: "",
+        "In today’s world, people lead sedentary lifestyles due to various reasons like work demands, technology, and laziness. As a result, many of us are facing health problems such as obesity..",
+      link: "/Blog3",
     },
   ];
 
