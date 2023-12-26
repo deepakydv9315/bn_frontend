@@ -1,9 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./ProductDetail.scss";
-import { BsArrowDown } from "react-icons/bs";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faTruck } from "@fortawesome/free-solid-svg-icons";
-// import { faCoffee, faCode, faCogs } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetail } from "../../Redux/slices/productSlice";
@@ -26,7 +22,7 @@ const ProductDetails = () => {
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
 
   const [selectedVariant, setSelectedVariant] = useState({});
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   // ! To Get Product Details By Id
   useEffect(() => {
@@ -124,8 +120,8 @@ const ProductDetails = () => {
                 {/* <div className="name">{product?.category}</div> */}
                 <p className="head">{product?.name}</p>
                 <div className="product-description-reviews">
-                <p>{product?.description}</p>
-              </div>
+                  <p>{product?.description}</p>
+                </div>
                 <div className="price">
                   <span className="mrp" style={{ display: "flex" }}>
                     ₹{selectedVariant.mrPrice}
@@ -244,7 +240,7 @@ const ProductDetails = () => {
           </div>
           <div className="pr-detail-btm">
             <h4 className="head">About {product?.name}</h4>
-          <p>{product?.longDescription}</p>
+            <p>{product?.longDescription}</p>
           </div>
 
         </div>

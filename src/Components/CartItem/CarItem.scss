@@ -55,6 +55,10 @@
         padding: 0.3vmax 0.7vmax;
         cursor: pointer;
         border-radius: 50%;
+        @media (max-width: 480px) {
+          margin-left: 0.4rem;
+          padding: 0.4vmax 0.8vmax;
+        }
       }
     }
   }

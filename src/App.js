@@ -65,34 +65,34 @@ function App() {
       {/* <Router> */}
       <Navbar />
       <Routes>
-        {/* <Route element={<RequireUser type={"admin"} />}> */}
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/products" element={<ProductList />} />
-        <Route path="/admin/product/create" element={<CreateProduct />} />
-        <Route path="/admin/product/:id" element={<UpdateProduct />} />
+        <Route element={<RequireUser type={"admin"} />}>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/products" element={<ProductList />} />
+          <Route path="/admin/product/create" element={<CreateProduct />} />
+          <Route path="/admin/product/:id" element={<UpdateProduct />} />
 
-        <Route path="/admin/categories/create" element={<CreateCategory />} />
-        <Route path="/admin/categories" element={<Categories />} />
-        <Route path="/admin/category/:id" element={<UpdateCategory />} />
+          <Route path="/admin/categories/create" element={<CreateCategory />} />
+          <Route path="/admin/categories" element={<Categories />} />
+          <Route path="/admin/category/:id" element={<UpdateCategory />} />
 
-        <Route path="/admin/users" element={<UserList />} />
+          <Route path="/admin/users" element={<UserList />} />
 
-        <Route path="/admin/pincodes" element={<Pincodes />} />
-        <Route path="/admin/pincodes/create" element={<CreatePincode />} />
-        <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
+          <Route path="/admin/pincodes" element={<Pincodes />} />
+          <Route path="/admin/pincodes/create" element={<CreatePincode />} />
+          <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
 
-        <Route path="/admin/header" element={<HeaderOffer />} />
+          <Route path="/admin/header" element={<HeaderOffer />} />
 
-        <Route path="/admin/coupons" element={<CouponList />} />
-        <Route path="/admin/coupon/create" element={<CreateCoupon />} />
-        <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
+          <Route path="/admin/coupons" element={<CouponList />} />
+          <Route path="/admin/coupon/create" element={<CreateCoupon />} />
+          <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
 
-        <Route path="/admin/orders" element={<Orders />} />
+          <Route path="/admin/orders" element={<Orders />} />
 
-        <Route path="/admin/blog/create" element={<CreateBlog />} />
-        <Route path="/admin/blogs" element={<Blogs />} />
-        <Route path="/admin/blog/:id" element={<UpdateBlog />} />
-        {/* </Route> */}
+          <Route path="/admin/blog/create" element={<CreateBlog />} />
+          <Route path="/admin/blogs" element={<Blogs />} />
+          <Route path="/admin/blog/:id" element={<UpdateBlog />} />
+        </Route>
       </Routes>
       <Routes>
         <Route element={<RequireUser type="user" />}>
@@ -120,7 +120,8 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<><ScrollToTop /><Contact /></>} />
         <Route path="/about" element={<><ScrollToTop /><About /></>} />
-        <Route path="/blogdetail" element={<BlogDetail />} />
+        <Route path="/blogdetail" element={<>
+          <ScrollToTop /><BlogDetail /></>} />
         <Route path="/terms" element={<><ScrollToTop /><TermsCondition /></>} />
         <Route
           path="/products"
@@ -139,7 +140,8 @@ function App() {
             </>
           }
         />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" element={<>
+          <ScrollToTop /><Blog /></>} />
         <Route path="/recipes" element={<><ScrollToTop /><Recipes /></>} />
         <Route path="/authenticate" element={<Authenticate />} />
         <Route path="/report" element={<Report />} />

@@ -223,7 +223,7 @@ const productSlice = createSlice({
     removeCart: (state, action) => {
       let { id, sku } = action.payload;
       let arr = state.carts.filter(
-        (item) => item._id === id && item.productDefaultPrice.sku !== sku
+        (item) => item._id != id && item.productDefaultPrice.sku !== sku
       );
 
       state.carts = arr;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const BlogCard = ({ data }) => {
   const navigate = useNavigate();
+
   const handleNavigation = () => {
     navigate('/blogdetail');
   };

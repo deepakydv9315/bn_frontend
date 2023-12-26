@@ -27,7 +27,6 @@ function CartItem({ name, imgUrl, sku, price, id, weight }) {
       setQuantity(quantity - 1);
     }
   };
-
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };

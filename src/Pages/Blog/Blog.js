@@ -111,11 +111,10 @@ const Blog = () => {
         </div>
         <div className="blog-cards" >
           {blogData.map((blog) => (
-            <BlogCard key={blog.id} data={blog} />
+            <BlogCard key={blog.id} data={blog}/>
           ))}
         </div>
       </section>
-      {/* <Coming/> */}
     </div>
   );
 };
