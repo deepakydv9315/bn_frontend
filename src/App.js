@@ -8,6 +8,10 @@ import About from "./Pages/About/About.jsx";
 import Products from "./Pages/Product/Product.js";
 import "./style.scss";
 import Blog from "./Pages/Blog/Blog.js";
+// blogs 
+import Blog1 from "./Pages/Blog/blog1.js"
+import Blog2 from "./Pages/Blog/blog2.js"
+import Blog3 from "./Pages/Blog/blog3.js"
 import Contact from "./Pages/Contact/Contact";
 import Authenticate from "./Pages/Authenticate/Authenticate.js";
 import ErrorPage from "./Pages/Error/ErrorPage.js";
@@ -118,6 +122,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<><ScrollToTop /><Contact /></>} />
+        <Route path="/blog1" element={<Blog1 />} />
+        <Route path="/blog2" element={<Blog2 />} />
+        <Route path="/blog3" element={<Blog3 />} />
         <Route path="/about" element={<><ScrollToTop /><About /></>} />
         <Route path="/blogdetail" element={<>
           <ScrollToTop /><BlogDetail /></>} />
