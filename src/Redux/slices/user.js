@@ -23,7 +23,6 @@ export const getLoggedInrUser = createAsyncThunk(
 );
 
 export const createUser = createAsyncThunk(
-  // "/api/v1/register",
   "/api/v1/auth/register",
   async (body, thunkAPI) => {
     try {

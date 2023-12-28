@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosClient } from "../../utils/axios/axios";
 import { setLoading } from "./appConfigSlice";
 
-//Create a Blog:
+//Create a Blog
 export const createBlog = createAsyncThunk(
     "/api/v1/admin/blog/new",
     async (body, thunkAPI) => {

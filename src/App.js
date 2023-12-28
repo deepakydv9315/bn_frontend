@@ -62,7 +62,6 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      {/* <Router> */}
       <Navbar />
       <Routes>
         <Route element={<RequireUser type={"admin"} />}>
@@ -153,7 +152,6 @@ function App() {
         <Route path="/refund" element={<><ScrollToTop /><RefundPolicy /></>} />
       </Routes>
       <Footer />
-      {/* </ Router> */}
     </div>
   );
 }

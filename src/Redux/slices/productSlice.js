@@ -1,11 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import { ProductData } from "../../Data/productsData";
 import { axiosClient } from "../../utils/axios/axios";
 import { setLoading } from "./appConfigSlice";
-// import Swal from "sweetalert2";
-// import { positions, Provider } from "react-alert";
-// import AlertTemplate from "react-alert-template-basic";
-// import axios from "axios";
 import "./product.css";
 
 // to get all products
