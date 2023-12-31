@@ -9,6 +9,7 @@ import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
 import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import bg from "../../Assets/Images/temp.png";
+import bg1 from "../../Assets/Images/temp1.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -90,7 +91,7 @@ const Home = () => {
             <img src={bg} alt="" />
           </div>
           <div>
-            <img src={bg} alt="" />
+            <img src={bg1} alt="" />
           </div>
         </Slider>
       </div>
