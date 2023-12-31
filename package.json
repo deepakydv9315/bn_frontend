@@ -23,6 +23,7 @@
     "axios": "^1.5.1",
     "country-state-city": "^3.2.1",
     "faker": "^6.6.6",
+    "font-awesome": "^4.7.0",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.1",
     "js-cookie": "^3.0.5",

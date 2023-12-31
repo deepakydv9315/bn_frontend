@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Card.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";

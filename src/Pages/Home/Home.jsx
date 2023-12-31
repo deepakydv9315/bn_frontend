@@ -9,7 +9,11 @@ import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
 import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import bg from "../../Assets/Images/temp.png";
-import knowBurly from "../../Assets/Images/kburly.JPG";
+import bg1 from "../../Assets/Images/temp1.png";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "font-awesome/css/font-awesome.min.css";
 import {
   getAllCategories,
   getAllProducts,
@@ -27,6 +31,30 @@ const Home = () => {
   const { products } = useSelector((state) => state.products);
 
   const { isLoading } = useSelector((state) => state.app);
+
+  const CustomPrevArrow = (props) => (
+    <div className="custom-prev-arrow" onClick={props.onClick}>
+      <i className="fa fa-arrow-circle-left" style={{ fontSize: "24px" }}></i>
+    </div>
+  );
+
+  const CustomNextArrow = (props) => (
+    <div className="custom-next-arrow" onClick={props.onClick}>
+      <i className="fa fa-arrow-circle-right" style={{ fontSize: "24px" }}></i>
+    </div>
+  );
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+  };
 
   // const isInCart = (productId) => {
   //   console.log(typeof productId);
@@ -58,7 +86,14 @@ const Home = () => {
   return (
     <div className="home-page">
       <div className="hero-sec">
-        <img src={bg} alt="" />
+        <Slider {...sliderSettings}>
+          <div>
+            <img src={bg} alt="" />
+          </div>
+          <div>
+            <img src={bg1} alt="" />
+          </div>
+        </Slider>
       </div>
 
       {/* products */}
