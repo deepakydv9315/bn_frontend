@@ -22,7 +22,7 @@ function Cart() {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-        item.productDefaultPrice.price
+          item.productDefaultPrice.price
       );
     }, 0);
   };
@@ -61,7 +61,9 @@ function Cart() {
       dispatch(setCartOpen(false));
       navigate("/checkout");
     } else {
-      toast.error("You Need To Login To Proceed Further", { position: "top-right" });
+      toast.error("You Need To Login To Proceed Further", {
+        position: "top-right",
+      });
       dispatch(setCartOpen(false));
       navigate("/login");
     }
@@ -77,7 +79,6 @@ function Cart() {
     <>
       <div className={`Cart flex_center ${isCartOpen ? "active" : ""}`}>
         <div className="top__cart-section">
-          <h5></h5>
           <RxCross1 onClick={() => dispatch(setCartOpen(false))} />
         </div>
 
@@ -123,7 +124,7 @@ function Cart() {
             {carts.length} Items . {cartTotal()}
           </h5>
           <div>
-            <h5 >CheckOut</h5>
+            <h5>CheckOut</h5>
             <ToastContainer
               position="top-right"
               autoClose={5000}

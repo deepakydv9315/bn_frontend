@@ -32,7 +32,7 @@ const Ship = () => {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-        item.productDefaultPrice.price
+          item.productDefaultPrice.price
       );
     }, 0);
   };
@@ -51,12 +51,12 @@ const Ship = () => {
       } else {
         setCouponDetail((prevState) => {
           const { result } = responseData.payload;
-          const { code, min, discount } = result;
+          const { applyRate, couponNumber, discount } = result;
 
           return {
             ...prevState,
-            code,
-            minRate: min,
+            code: couponNumber,
+            minRate: applyRate,
             percent: discount,
           };
         });
@@ -205,8 +205,8 @@ const Ship = () => {
                   {isApplied === true
                     ? "Coupon Code Applied"
                     : isApplied === false
-                      ? "Invalid Coupon Code"
-                      : ""}
+                    ? "Invalid Coupon Code"
+                    : ""}
                   <input
                     type="text"
                     required={true}
@@ -247,8 +247,10 @@ const Ship = () => {
                           </span>
                         </td>
                         <td>
-                          ₹{data.productDefaultPrice.price} X ({data.productDefaultPrice.quantity || 1}) ={" "}
-                          {data.productDefaultPrice.price * (data.productDefaultPrice.quantity || 1)}
+                          ₹{data.productDefaultPrice.price} X (
+                          {data.productDefaultPrice.quantity || 1}) ={" "}
+                          {data.productDefaultPrice.price *
+                            (data.productDefaultPrice.quantity || 1)}
                         </td>
                       </tr>
                     ))}
@@ -263,7 +265,7 @@ const Ship = () => {
                       <td>
                         ₹
                         {couponDetail.percent > 0 &&
-                          cartTotal() >= couponDetail.minRate
+                        cartTotal() >= couponDetail.minRate
                           ? (cartTotal() * couponDetail.percent) / 100
                           : 0}
                         .00
