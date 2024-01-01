@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { axiosClient } from "../../utils/axios/axios";
 import { setLoading } from "./appConfigSlice";
 import "./product.css";
@@ -162,42 +162,58 @@ const productSlice = createSlice({
     },
     // ! To Add Product In Cart
     addToCart: (state, action) => {
-      let { from, productId, sku, price, weight, quantity } = action.payload;
-      let product = state.product;
+      let productId, sku, price, weight, quantity;
+      let product = {};
 
-      // ! Find item in cart with matching productId
-      let item = state.carts.find(
-        (item) => item._id === productId && item.productDefaultPrice.sku === sku
-      );
+      if (action.payload.from === "direct") {
+        // ! on Product List Page
+        product = action.payload.product;
+        productId = product._id;
+        sku = product.productDetails[0].sku;
+        price = product.productDetails[0].price;
+        weight = product.productDetails[0].weight;
+      } else {
+        // ! on Product Detail Page
+        product = state.product;
+        productId = action.payload.productId;
+        sku = action.payload.sku;
+        price = action.payload.price;
+        weight = action.payload.weight;
+        quantity = action.payload.quantity;
+      }
 
-      // ? If item doesn't exist, create new one
-      if (!item) {
-        if (from === "direct") {
-          var payloadProduct = action.payload.product;
-          var newPayloadProduct = {
-            ...payloadProduct,
-            productDefaultPrice: {
-              price: payloadProduct.productDetails[0].price,
-              quantity: 1,
-              sku: payloadProduct.productDetails[0].sku,
-              weight: payloadProduct.productDetails[0].weight,
-            },
-          };
-
-          state.carts.push(newPayloadProduct);
-        } else {
-          let arr = product.productDetails.find((item) => item.sku === sku);
-
-          if (arr) {
-            product.productDefaultPrice = { price, quantity, sku, weight };
-            state.carts.push(product);
+      // ! Find item in cart with matching productId and sku
+      let item =
+        state.carts &&
+        state.carts.find((item) => {
+          if (action.payload.from === "direct") {
           }
-        }
+          return item._id === productId && item.productDefaultPrice.sku === sku;
+        });
 
+      // ? If item doesn't exist in Cart, Then create new one
+      if (!item) {
+        var newPayloadProduct = {
+          ...product,
+          productDefaultPrice: {
+            price: price,
+            quantity: quantity ? quantity : 1,
+            sku: sku,
+            weight: weight,
+          },
+        };
+
+        state.carts.push(newPayloadProduct);
         localStorage.setItem("cartItems", JSON.stringify(state.carts));
       } else {
         // ? If item exist, update quantity
-        item.productDefaultPrice = { price, quantity, sku, weight };
+        item.productDefaultPrice = {
+          price,
+          quantity: quantity ? quantity : item.productDefaultPrice.quantity + 1,
+          sku,
+          weight,
+        };
+        state.carts = [...state.carts];
         localStorage.setItem("cartItems", JSON.stringify(state.carts));
       }
     },
@@ -205,6 +221,7 @@ const productSlice = createSlice({
     //Update Cart
     updateCart: (state, action) => {
       let { val, sku, id } = action.payload;
+      console.log("Update Cart >>>");
       state.carts.find(
         (item) =>
           item._id === id &&

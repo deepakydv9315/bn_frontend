@@ -55,9 +55,8 @@ function Card({ products }) {
               <div className="product-card-img">
                 <img
                   src={
-                    product.productDetails[0].images.length > 0
-                      ? product.productDetails[0].images[0].url
-                      : "https://squatdeadlift.com/wp-content/uploads/2021/04/71uwfbcAkYL._AC_SX679_.jpg"
+                    product.productDetails[0].images.length > 0 &&
+                    product.productDetails[0].images[0].url
                   }
                   alt={product.name}
                   onClick={() => handleImageClick(product._id)}
@@ -66,7 +65,8 @@ function Card({ products }) {
               <div className="product-card-details">
                 <p className="product-card-name">{product.name}</p>
                 <p className="product-card-title">
-                  {product?.productDetails[0].weight} | {product?.productFlavour}
+                  {product?.productDetails[0].weight} |{" "}
+                  {product?.productFlavour}
                 </p>
                 <div className="space">
                   <p className="product-card-price">
