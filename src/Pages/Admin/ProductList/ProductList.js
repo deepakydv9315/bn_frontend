@@ -40,7 +40,7 @@ const ProductList = () => {
   }, [dispatch, isDeleted, error]);
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    // { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
 
     {
       field: "name",

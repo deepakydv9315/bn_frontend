@@ -38,6 +38,7 @@ function Card({ products }) {
     }
   };
 
+
   const handleImageClick = (_id) => {
     navigate(`/productdetails/${_id}`);
   };

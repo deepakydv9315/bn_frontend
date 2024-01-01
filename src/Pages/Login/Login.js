@@ -31,7 +31,7 @@ export default function LoginForm() {
       dispatch(clearError());
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
     } else {
       toast.error("Incorrect Username or Password", { position: "top-right" });
     }
@@ -88,7 +88,7 @@ export default function LoginForm() {
               <input type="submit" className="btn" value="Log In" />
               <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={1000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -109,7 +109,7 @@ export default function LoginForm() {
             <div style={{ display: 'flex', alignItems: 'center' }} className="new-customer">
               <span style={{ marginLeft: '45px' }}>New here?</span>
               <Link to="/signup">
-                <p style={{ marginLeft: '4px', cursor: 'pointer',fontWeight:"bold" }}>Create new account</p>
+                <p style={{ marginLeft: '4px', cursor: 'pointer', fontWeight: "bold" }}>Create new account</p>
               </Link>
             </div>
           </form>

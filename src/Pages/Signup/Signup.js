@@ -31,7 +31,7 @@ export default function Form() {
       dispatch(clearError());
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
     } else {
       toast.error("Email is already registered!", { position: "top-right" });
     }
@@ -92,7 +92,7 @@ export default function Form() {
               <input type="submit" className="btn" value={"Sign Up"} />
               <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={1000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

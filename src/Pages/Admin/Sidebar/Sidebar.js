@@ -83,29 +83,14 @@ const Sidebar = () => {
           </li>
         </NavLink>
 
-        {/* no need for sub categories  */}
-        {/* <NavLink to="/admin/categories/create-sub" style={{ color: "white" }}>
-              <li>
-                <FontAwesomeIcon icon={faCreditCardAlt} />
-                Create Subcategory
-              </li>
-            </NavLink> */}
-
-        {/* <NavLink to="/admin/sizes" style={{ color: "white" }}>
-              <li>
-                <FontAwesomeIcon icon={faCreditCardAlt} />
-                Sizes
-              </li>
-            </NavLink> */}
-
-        <NavLink to="/admin/pincodes" style={{ color: "white" }}>
+        {/* <NavLink to="/admin/pincodes" style={{ color: "white" }}>
           <li>
             <span>
               <FontAwesomeIcon icon={faMapPin} />
             </span>
             Pincodes Manager
           </li>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink to="/admin/users" style={{ color: "white" }}>
           <li className="option">

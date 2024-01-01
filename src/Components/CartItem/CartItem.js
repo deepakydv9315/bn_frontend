@@ -3,7 +3,7 @@ import "./CarItem.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 
-function CartItem({ name, imgUrl, sku, price, id, weight }) {
+function CartItem({ name, imgUrl, sku, price, id, weight,quantity }) {
   const dispatch = useDispatch();
 
   const addToCart = (id) => {
@@ -27,16 +27,16 @@ function CartItem({ name, imgUrl, sku, price, id, weight }) {
     });
   };
 
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
 
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
+  // const handleDecrease = () => {
+  //   if (quantity > 1) {
+  //     setQuantity(quantity - 1);
+  //   }
+  // };
+  // const handleIncrease = () => {
+  //   setQuantity(quantity + 1);
+  // };
 
   return (
     <>

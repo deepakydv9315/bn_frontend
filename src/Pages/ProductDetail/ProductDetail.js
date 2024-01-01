@@ -79,6 +79,23 @@ const ProductDetails = () => {
     setQuantity(quantity + 1);
   };
 
+  const [mainImage, setMainImage] = useState('');
+
+  useEffect(() => {
+    // Set the default main image to the first image when selectedVariant changes
+    if (
+      selectedVariant &&
+      selectedVariant.images &&
+      selectedVariant.images.length > 0
+    ) {
+      setMainImage(selectedVariant.images[0]?.url);
+    }
+  }, [selectedVariant]);
+
+  const handleAdditionalImageClick = (image) => {
+    setMainImage(image.url);
+  };
+
   return (
     <Fragment>
       {isLoading ? (
@@ -88,29 +105,20 @@ const ProductDetails = () => {
           <div className="pr-detail-top">
             <div className="left-section">
               <div className="main-product-image">
-                <img
-                  src={
-                    selectedVariant &&
-                    selectedVariant.images &&
-                    selectedVariant.images.length > 0 &&
-                    selectedVariant.images[0]?.url
-                  }
-                  alt="Main Product"
-                />
+                <img src={mainImage} alt="Main Product" />
                 <div className="add-img-wrapper">
                   {selectedVariant &&
                     selectedVariant.images &&
                     selectedVariant.images.length > 0 &&
                     selectedVariant.images.map((image, index) => (
-                      <div key={index} className="additional-image">
-                        <img
-                          src={image.url}
-                          alt={`AdditionalImage ${index + 1}`}
-                        />
+                      <div
+                        key={index}
+                        className="additional-image"
+                        onClick={() => handleAdditionalImageClick(image)}
+                      >
+                        <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
                       </div>
                     ))}
-
-                  {/* <img src={chart} alt="Main Product" className='chart' /> */}
                 </div>
               </div>
             </div>
