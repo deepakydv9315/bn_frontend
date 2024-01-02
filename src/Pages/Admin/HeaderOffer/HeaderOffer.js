@@ -2,9 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./HeaderOffer.scss"
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import swal2 from "sweetalert2";
 import Sidebar from "../Sidebar/Sidebar.js";
-import Loader from "../../../Components/Loader/Loader";
 import { createAndUpdateHeader } from "../../../Redux/slices/utilsSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 function HeaderOffer() {
   const navigate = useNavigate();
   const { success } = useSelector((state) => state.categories);
-  const { isLoading } = useSelector((state) => state.app);
   const [Headline, setHeadline] = useState("");
   const dispatch = useDispatch();
 
@@ -36,9 +33,6 @@ function HeaderOffer() {
     <Fragment>
       <div className="dashboard">
         <Sidebar />
-        {/* {isLoading ? (
-          <Loader />
-        ) : ( */}
         <form className="add_product_form" onSubmit={handleSubmitForm}>
           <div>
             <h3 className="adminhead">Add<span> Header</span> Offer</h3>
@@ -76,7 +70,6 @@ function HeaderOffer() {
             </div>
           </div>
         </form>
-        {/* // )} */}
       </div>
     </Fragment>
   );

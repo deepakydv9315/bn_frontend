@@ -92,7 +92,7 @@ const CouponList = ({ history }) => {
           <br></br>
           <div className="btn create">
             <Link
-              style={{ color: "black" }}
+              style={{ color: "white" }}
               to="/admin/coupon/create"
               className="theme-btn-one bg-black btn_md"
             >

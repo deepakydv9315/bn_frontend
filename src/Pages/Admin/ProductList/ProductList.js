@@ -3,7 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./ProductList.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import swal2 from "sweetalert2";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -52,7 +51,7 @@ const ProductList = () => {
       field: "category",
       headerName: "Category",
       minWidth: 150,
-      flex: 0.3,
+      flex: 0.6,
     },
 
     {
@@ -70,6 +69,7 @@ const ProductList = () => {
       minWidth: 150,
       type: "number",
       sortable: false,
+
       renderCell: (params) => {
         return (
           <Fragment>

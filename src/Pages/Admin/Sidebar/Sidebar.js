@@ -65,14 +65,14 @@ const Sidebar = () => {
           </li>
         </NavLink>
 
-        <NavLink to="/admin/categories/create" style={{ color: "white" }}>
+        {/* <NavLink to="/admin/categories/create" style={{ color: "white" }}>
           <li>
             <span>
               <FontAwesomeIcon icon={faCartPlus} />
             </span>
             Create Category
           </li>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink to="/admin/coupons" style={{ color: "white" }}>
           <li>
