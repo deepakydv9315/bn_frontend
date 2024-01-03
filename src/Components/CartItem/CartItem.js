@@ -42,7 +42,7 @@ function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
           <p className="p-text">{weight}</p>
 
           <div className="price__functions">
-            <h5>₹{price * quantity || 1}</h5>
+            <h5>₹{Number((price * quantity || 1).toFixed(2))}</h5>
 
             <div className="function">
               <span onClick={() => updateCart(id)}>-</span>
