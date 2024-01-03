@@ -150,11 +150,11 @@ const ProductDetails = () => {
                 </div>
                 <div className="price">
                   <span className="mrp" style={{ display: "flex" }}>
-                    ₹{selectedVariant.mrPrice * quantity || 1}
+                    ₹{selectedVariant.mrPrice}
                   </span>
                   &nbsp; &nbsp;
                   <span className="discounted-price">
-                    ₹{selectedVariant.price * quantity || 1}
+                    ₹{selectedVariant.price}
                   </span>
                 </div>
 
