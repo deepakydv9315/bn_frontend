@@ -69,7 +69,6 @@ const ProductDetails = () => {
   };
 
   const handleDecrease = () => {
-
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
@@ -82,7 +81,6 @@ const ProductDetails = () => {
   const [mainImage, setMainImage] = useState('');
 
   useEffect(() => {
-    // Set the default main image to the first image when selectedVariant changes
     if (
       selectedVariant &&
       selectedVariant.images &&
@@ -94,6 +92,26 @@ const ProductDetails = () => {
 
   const handleAdditionalImageClick = (image) => {
     setMainImage(image.url);
+  };
+
+  const addedToCart = async () => {
+    if (
+      typeof selectedVariant.price === "string" &&
+      parseInt(selectedVariant.price) > 0
+    ) {
+      dispatch({
+        type: "ProductSlice/addToCart",
+        payload: {
+          productId: product._id,
+          sku: selectedVariant.sku,
+          price: selectedVariant.price,
+          weight: selectedVariant.weight,
+          quantity,
+        },
+      });
+      setIsAddedOnCart(true);
+    }
+    Navigate("/checkout");
   };
 
   return (
@@ -132,11 +150,11 @@ const ProductDetails = () => {
                 </div>
                 <div className="price">
                   <span className="mrp" style={{ display: "flex" }}>
-                    ₹{selectedVariant.mrPrice}
+                    ₹{selectedVariant.mrPrice * quantity || 1}
                   </span>
                   &nbsp; &nbsp;
                   <span className="discounted-price">
-                    ₹{selectedVariant.price}
+                    ₹{selectedVariant.price * quantity || 1}
                   </span>
                 </div>
 
@@ -199,7 +217,7 @@ const ProductDetails = () => {
                   <button
                     className="wishlist-button"
                     onClick={() => {
-                      Navigate("/checkout");
+                      addedToCart();
                     }}
                   >
                     Buy Now

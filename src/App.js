@@ -8,7 +8,6 @@ import About from "./Pages/About/About.jsx";
 import Products from "./Pages/Product/Product.js";
 import "./style.scss";
 import Blog from "./Pages/Blog/Blog.js";
-// blogs 
 import Blog1 from "./Pages/Blog/blog1.js"
 import Blog2 from "./Pages/Blog/blog2.js"
 import Blog3 from "./Pages/Blog/blog3.js"
@@ -68,7 +67,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        {/* <Route element={<RequireUser type={"admin"} />}> */}
+        <Route element={<RequireUser type={"admin"} />}>
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/products" element={<ProductList />} />
           <Route path="/admin/product/create" element={<CreateProduct />} />
@@ -95,7 +94,7 @@ function App() {
           <Route path="/admin/blog/create" element={<CreateBlog />} />
           <Route path="/admin/blogs" element={<Blogs />} />
           <Route path="/admin/blog/:id" element={<UpdateBlog />} />
-        {/* </Route> */}
+        </Route>
       </Routes>
       <Routes>
         <Route element={<RequireUser type="user" />}>

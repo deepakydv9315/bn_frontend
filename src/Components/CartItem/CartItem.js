@@ -3,20 +3,20 @@ import "./CarItem.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 
-function CartItem({ name, imgUrl, sku, price, id, weight,quantity }) {
+function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
   const dispatch = useDispatch();
 
-  const addToCart = (id) => {
+  const addToCart = () => {
     dispatch({
       type: "ProductSlice/updateCart",
-      payload: { val: Number(quantity) + 1, id },
+      payload: { val: Math.max(1, Number(quantity) + 1), sku, id },
     });
   };
 
-  const updateCart = (id, sign) => {
+  const updateCart = (sign) => {
     dispatch({
       type: "ProductSlice/updateCart",
-      payload: { val: Number(quantity) + (sign === "+" ? 1 : -1), sku, id },
+      payload: { val: Math.max(1, Number(quantity) + (sign === "+" ? 1 : -1)), sku, id },
     });
   };
 
@@ -26,17 +26,6 @@ function CartItem({ name, imgUrl, sku, price, id, weight,quantity }) {
       payload: { id, sku },
     });
   };
-
-  // const [quantity, setQuantity] = useState(1);
-
-  // const handleDecrease = () => {
-  //   if (quantity > 1) {
-  //     setQuantity(quantity - 1);
-  //   }
-  // };
-  // const handleIncrease = () => {
-  //   setQuantity(quantity + 1);
-  // };
 
   return (
     <>

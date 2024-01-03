@@ -18,14 +18,17 @@ function Cart() {
   const navigate = useNavigate();
 
   const cartTotal = () => {
-    return carts?.reduce(function (total, item) {
+    const total = carts?.reduce(function (total, item) {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-          item.productDefaultPrice.price
+        item.productDefaultPrice.price
       );
     }, 0);
+
+    return total.toFixed(2);
   };
+
 
   // On Load Add Product In Cart From Local Storage
   useEffect(() => {
