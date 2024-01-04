@@ -33,4 +33,10 @@ export const SidebarData = [
     icon: <FontAwesomeIcon icon={faShoppingCart} />,
     cName: "nav-text",
   },
+  // {
+  //   title: "Logout",
+  //   path: "/",
+  //   icon: <FontAwesomeIcon icon={faLongArrowAltRight} />,
+  //   cName: "nav-text",
+  // }
 ];

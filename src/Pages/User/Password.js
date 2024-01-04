@@ -28,35 +28,35 @@ const ProductList = () => {
           <form
             onSubmit={updatePasswordSubmitHandler}
           >
-          <div className="profile-container">
-            <div className="profile-items">
-              <label htmlFor="name">Current Password:</label>
-              <input type="password" id="oldPassword"
-                placeholder="Enter your current password" 
-                value={oldpassword}
-                onChange={(e) => setOldPassword(e.target.value)}/>
+            <div className="profile-container">
+              <div className="profile-items">
+                <label htmlFor="name">Current Password:</label>
+                <input type="password" id="oldPassword"
+                  placeholder="Enter your current password"
+                  value={oldpassword}
+                  onChange={(e) => setOldPassword(e.target.value)} />
+              </div>
+              <div className="profile-items">
+                <label htmlFor="email">New password:</label>
+                <input type="password"
+                  id="newPassword"
+                  placeholder="Enter your new password"
+                  value={newpassword}
+                  onChange={(e) => setNewPassword(e.target.value)} />
+              </div>
+              <div className="profile-items">
+                <label htmlFor="phone">Confirm new password:</label>
+                <input type="password"
+                  id="confirmPassword"
+                  placeholder="Confirm your new password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)} />
+              </div>
+              <div className="profile-buttons">
+                <button className="cancel-button">Cancel</button>
+                <button type="submit" className="save-button">Save</button>
+              </div>
             </div>
-            <div className="profile-items">
-              <label htmlFor="email">New password:</label>
-              <input type="password"
-                id="newPassword"
-                placeholder="Enter your new password"
-                value={newpassword}
-                onChange={(e) => setNewPassword(e.target.value)} />
-            </div>
-            <div className="profile-items">
-              <label htmlFor="phone">Confirm new password:</label>
-              <input type="password"
-                id="confirmPassword"
-                placeholder="Confirm your new password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)} />
-            </div>
-            <div className="profile-buttons">
-              <button className="cancel-button">Cancel</button>
-              <button type="submit" className="save-button">Save</button>
-            </div>
-          </div>
           </form>
         </div>
       </div>

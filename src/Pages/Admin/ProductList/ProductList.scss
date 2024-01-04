@@ -1,75 +1,70 @@
 .productListContainer {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border-left: 1px solid rgba(0, 0, 0, 0.158);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  .dashboard {
-    width: 100vw;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 20fr;
-    position: absolute;
-  }
-  
-  #productListHeading {
-    font: 400 2rem "Roboto";
-    padding: 0.5vmax;
-    box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.637);
-    transition: all 0.5s;
-    margin: 2rem;
-    text-align: center;
-  }
-  
-  .productListTable {
-    background-color: white;
-    border: none !important;
-  }
-  
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f5f5f5; /* Set a background color for the container */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.dashboard {
+  width: 100vw;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 20fr;
+  position: absolute;
+}
+
+#productListHeading {
+  font: 400 2rem "Roboto";
+  padding: 0.5vmax;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.8);
+  transition: all 0.5s;
+  margin: 2rem;
+  text-align: center;
+}
+
+.productListTable {
+  background-color: #fff; /* Set background color for the table */
+  border: 1px solid #ddd; /* Add a border for better visibility */
+}
+
+.productListTable div {
+  font: 300 1vmax "Roboto";
+  color: rgba(0, 0, 0, 0.8);
+  border: none !important;
+}
+
+.productListTable a,
+.productListTable button {
+  color: #555; /* Set a base color for links and buttons */
+  transition: all 0.5s;
+}
+
+.productListTable a:hover,
+.productListTable button:hover {
+  background-color: #ffd626;
+}
+
+.MuiDataGrid-columnHeader {
+  background-color: #ffd626;
+  color: #fff; /* Set text color for column headers */
+}
+
+.create {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.create .btn_md {
+  margin-left: 10px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
   .productListTable div {
-    font: 300 1vmax "Roboto";
-    color: rgba(0, 0, 0, 0.678);
-    border: none !important;
+    font: 300 4vw "Roboto";
   }
-  
-  .productListTable a,
-  .productListTable button {
-    color: rgba(0, 0, 0, 0.527);
-    transition: all 0.5s;
-  }
-  
-  .productListTable a:hover {
-    color: tomato;
-  }
-  .css-yrdy0g-MuiDataGrid-columnHeaderRow{
-    background-color: #88b226;
-  }
-  .productListTable button:hover {
-    color: rgb(236, 30, 30);
-  }
-  
-  .MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
-  }
-  
-  .create{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  .create .btn_md{
-    margin-left: 10px;
-    padding: 10px;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .productListTable div {
-      font: 300 4vw "Roboto";
-    }
-  }
-  
+}

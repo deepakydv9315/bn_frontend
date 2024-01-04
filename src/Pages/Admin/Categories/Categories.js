@@ -122,6 +122,7 @@ const ProductList = () => {
           <h3 className="adminhead">ALL<span> CATEGORIES</span></h3>
           <div className="btn create">
             <Link
+              style={{ color: "white" }}
               to="/admin/categories/create"
               className="theme-btn-one bg-black btn_md"
             >

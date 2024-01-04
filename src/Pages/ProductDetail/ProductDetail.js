@@ -69,7 +69,6 @@ const ProductDetails = () => {
   };
 
   const handleDecrease = () => {
-
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
@@ -77,6 +76,42 @@ const ProductDetails = () => {
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
+  };
+
+  const [mainImage, setMainImage] = useState('');
+
+  useEffect(() => {
+    if (
+      selectedVariant &&
+      selectedVariant.images &&
+      selectedVariant.images.length > 0
+    ) {
+      setMainImage(selectedVariant.images[0]?.url);
+    }
+  }, [selectedVariant]);
+
+  const handleAdditionalImageClick = (image) => {
+    setMainImage(image.url);
+  };
+
+  const addedToCart = async () => {
+    if (
+      typeof selectedVariant.price === "string" &&
+      parseInt(selectedVariant.price) > 0
+    ) {
+      dispatch({
+        type: "ProductSlice/addToCart",
+        payload: {
+          productId: product._id,
+          sku: selectedVariant.sku,
+          price: selectedVariant.price,
+          weight: selectedVariant.weight,
+          quantity,
+        },
+      });
+      setIsAddedOnCart(true);
+    }
+    Navigate("/checkout");
   };
 
   return (
@@ -88,29 +123,20 @@ const ProductDetails = () => {
           <div className="pr-detail-top">
             <div className="left-section">
               <div className="main-product-image">
-                <img
-                  src={
-                    selectedVariant &&
-                    selectedVariant.images &&
-                    selectedVariant.images.length > 0 &&
-                    selectedVariant.images[0]?.url
-                  }
-                  alt="Main Product"
-                />
+                <img src={mainImage} alt="Main Product" />
                 <div className="add-img-wrapper">
                   {selectedVariant &&
                     selectedVariant.images &&
                     selectedVariant.images.length > 0 &&
                     selectedVariant.images.map((image, index) => (
-                      <div key={index} className="additional-image">
-                        <img
-                          src={image.url}
-                          alt={`AdditionalImage ${index + 1}`}
-                        />
+                      <div
+                        key={index}
+                        className="additional-image"
+                        onClick={() => handleAdditionalImageClick(image)}
+                      >
+                        <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
                       </div>
                     ))}
-
-                  {/* <img src={chart} alt="Main Product" className='chart' /> */}
                 </div>
               </div>
             </div>
@@ -191,7 +217,7 @@ const ProductDetails = () => {
                   <button
                     className="wishlist-button"
                     onClick={() => {
-                      Navigate("/checkout");
+                      addedToCart();
                     }}
                   >
                     Buy Now

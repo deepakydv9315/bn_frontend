@@ -31,8 +31,14 @@
   border: 1px solid #e9ecef;
   padding: 0.5em 1em;
   border-radius: 5px;
-  background-color: #dabd00;
+  background-color: #ffd626;
   margin-bottom: 10px;
+}
+
+#form > input,
+.btn:hover {
+  background-color: #000000;
+  color: #ffd626;
 }
 
 #form > input:focus {

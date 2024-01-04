@@ -19,9 +19,10 @@ import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { useNavigate, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Sidebar = () => {
-  // i want to get path name
   const location = useLocation();
   const dispatch = useDispatch();
   const [sidebar, setSidebar] = useState(false);
@@ -29,20 +30,6 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
 
-  const handleLogout = () => {
-    dispatch(getLoggedoutUser());
-    Swal.fire({
-      position: "bottom-end",
-      title: "Logged Out Successfully",
-      timer: 1000,
-      showConfirmButton: false,
-      customClass: {
-        title: "custom-swal-title",
-      },
-      width: "270px",
-      height: "5px",
-    });
-  };
   // for profile photo
   const handlePhotoChange = (event) => {
     const file = event.target.files[0];
@@ -74,7 +61,13 @@ const Sidebar = () => {
     dispatch(getLoggedoutUser());
     Swal.fire({
       icon: "success",
+      width: "300px",
       title: "Logged Out Successfully",
+      timer: 1500,
+      timerProgressBar: true,
+      confirmButtonColor: "#5cb85c",
+      background: "#fff",
+      showConfirmButton: false,
     });
     navigate("/");
   };
@@ -97,9 +90,8 @@ const Sidebar = () => {
         <ul>
           <Link to="/user" style={{ color: "white" }}>
             <li
-              className={`option ${
-                location.pathname === "/user" ? "active" : ""
-              }`}
+              className={`option ${location.pathname === "/user" ? "active" : ""
+                }`}
             >
               <span>
                 {" "}
@@ -111,9 +103,8 @@ const Sidebar = () => {
 
           <Link to="/user/password" style={{ color: "white" }}>
             <li
-              className={`option ${
-                location.pathname === "/user/password" ? "active" : ""
-              }`}
+              className={`option ${location.pathname === "/user/password" ? "active" : ""
+                }`}
             >
               <span>
                 <FontAwesomeIcon icon={faListAlt} />
@@ -124,9 +115,8 @@ const Sidebar = () => {
 
           <Link to="/user/address" style={{ color: "white" }}>
             <li
-              className={`option ${
-                location.pathname === "/user/address" ? "active" : ""
-              }`}
+              className={`option ${location.pathname === "/user/address" ? "active" : ""
+                }`}
             >
               <span>
                 <FontAwesomeIcon icon={faAddressBook} />
@@ -137,9 +127,8 @@ const Sidebar = () => {
 
           <Link to="/user/orders" style={{ color: "white" }}>
             <li
-              className={`option ${
-                location.pathname === "/user/orders" ? "active" : ""
-              }`}
+              className={`option ${location.pathname === "/user/orders" ? "active" : ""
+                }`}
             >
               <span>
                 <FontAwesomeIcon icon={faShoppingCart} />
@@ -194,10 +183,26 @@ const Sidebar = () => {
                 </li>
               );
             })}
-            <li className="nav-text">
-              <FontAwesomeIcon icon={faLongArrowAltRight} />
-              <span>Logout</span>
-            </li>
+            <div onClick={handlLogout} style={{ color: "white", marginLeft: "20px", fontSize: "18px" }} className="nav-text">
+              <li className="option">
+                <span>
+                  <FontAwesomeIcon icon={faLongArrowAltRight} />
+                </span>
+                Logout
+              </li>
+              <ToastContainer
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
+            </div>
           </ul>
         </nav>
       </IconContext.Provider>

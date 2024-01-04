@@ -8,7 +8,6 @@ import About from "./Pages/About/About.jsx";
 import Products from "./Pages/Product/Product.js";
 import "./style.scss";
 import Blog from "./Pages/Blog/Blog.js";
-// blogs 
 import Blog1 from "./Pages/Blog/blog1.js"
 import Blog2 from "./Pages/Blog/blog2.js"
 import Blog3 from "./Pages/Blog/blog3.js"

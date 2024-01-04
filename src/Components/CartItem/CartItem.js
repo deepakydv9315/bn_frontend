@@ -3,13 +3,20 @@ import "./CarItem.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 
-function CartItem({ name, imgUrl, sku, price, id, weight }) {
+function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
   const dispatch = useDispatch();
 
-  const updateCart = (id, sign) => {
+  const addToCart = () => {
     dispatch({
       type: "ProductSlice/updateCart",
-      payload: { val: Number(quantity) + (sign === "+" ? 1 : -1), sku, id },
+      payload: { val: Math.max(1, Number(quantity) + 1), sku, id },
+    });
+  };
+
+  const updateCart = (sign) => {
+    dispatch({
+      type: "ProductSlice/updateCart",
+      payload: { val: Math.max(1, Number(quantity) + (sign === "+" ? 1 : -1)), sku, id },
     });
   };
 
@@ -18,17 +25,6 @@ function CartItem({ name, imgUrl, sku, price, id, weight }) {
       type: "ProductSlice/removeCart",
       payload: { id, sku },
     });
-  };
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
   };
 
   return (
@@ -46,12 +42,12 @@ function CartItem({ name, imgUrl, sku, price, id, weight }) {
           <p className="p-text">{weight}</p>
 
           <div className="price__functions">
-            <h5>₹{price * quantity || 1}</h5>
+            <h5>₹{Number((price * quantity || 1).toFixed(2))}</h5>
 
             <div className="function">
-              <span onClick={handleDecrease}>-</span>
+              <span onClick={() => updateCart(id)}>-</span>
               <span>{quantity}</span>
-              <span onClick={handleIncrease}>+</span>
+              <span onClick={() => addToCart(id)}>+</span>
             </div>
           </div>
         </div>
