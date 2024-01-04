@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import bgImg from "../../Assets/Images/product.png";
@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { createUser } from "../../Redux/slices/user";
 import { loginGoogleUser } from "../../Redux/slices/user";
 import { clearError } from "../../Redux/slices/user";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export default function Form() {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -35,6 +36,18 @@ export default function Form() {
     } else {
       toast.error("Email is already registered!", { position: "top-right" });
     }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const togglePasswordVisibility1 = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
@@ -64,29 +77,61 @@ export default function Form() {
             onSubmit={handleSubmit(onSubmit)}
           >
             <input
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: "transparent", color: 'black', padding: "12px" }}
               type="text"
               {...register("email", { required: true })}
               placeholder="email"
             />
             <input
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: "transparent", color: 'black', padding: "12px" }}
               type="text"
               {...register("username")}
               placeholder="username"
             />
-            <input
-              style={{ backgroundColor: "transparent" }}
-              type="password"
-              {...register("password")}
-              placeholder="password"
-            />
-            <input
-              style={{ backgroundColor: "transparent" }}
-              type="password"
-              {...register("confirmpwd")}
-              placeholder="confirm password"
-            />
+            <div style={{ position: 'relative' }} className="flex flex-col">
+              <input
+                className="pass"
+                style={{ backgroundColor: 'transparent', color: 'black' }}
+                type={showPassword ? 'text' : 'password'}
+                {...register('password')}
+                placeholder="Password"
+              />
+              <span
+                onClick={togglePasswordVisibility}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: '10px',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  border: "none"
+                }}
+              >
+                {showPassword ? <FaEyeSlash style={{ paddingBottom: "4px", fontSize: "18px" }} /> : <FaEye style={{ paddingBottom: "4px", fontSize: "18px" }} />}
+              </span>
+            </div>
+            <div style={{ position: 'relative' }} className="flex flex-col">
+              <input
+                className="pass"
+                style={{ backgroundColor: 'transparent', color: 'black' }}
+                type={showConfirmPassword ? 'text' : 'password'}
+                {...register("confirmpwd")}
+                placeholder="Confirm password"
+              />
+              <span
+                onClick={togglePasswordVisibility1}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: '10px',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  border: "none"
+                }}
+              >
+                {showConfirmPassword ? <FaEyeSlash style={{ paddingBottom: "4px", fontSize: "18px" }} /> : <FaEye style={{ paddingBottom: "4px", fontSize: "18px" }} />}
+              </span>
+            </div>
             {errors.email?.type === "required" && "Email is required"}
             <div>
               <input type="submit" className="btn" value={"Sign Up"} />

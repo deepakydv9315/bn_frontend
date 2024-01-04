@@ -31,7 +31,7 @@
 #form > input,
 .btn {
   border: 1px solid #e9ecef;
-  padding: 0.9em 1em;
+  padding: 0.5em 1em;
 }
 
 #form > .btn {
@@ -51,6 +51,12 @@
 .flex {
   display: flex;
   gap: 1em;
+}
+.pass {
+  border: 1px solid #e9ecef;
+  padding: 0.9em 1em;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .flex-col {

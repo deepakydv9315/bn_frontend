@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Card.scss";
 // import { Link } from "react-router-dom";
-// import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import Swal from "sweetalert2";
@@ -38,10 +37,11 @@ function Card({ products }) {
     }
   };
 
-
   const handleImageClick = (_id) => {
     navigate(`/productdetails/${_id}`);
   };
+
+
 
   return (
     <div className="Cards">
@@ -50,8 +50,8 @@ function Card({ products }) {
           return (
             <div key={index} className="product-card">
               <div className="badge">
-                <span className="badge_top">50% OFF</span>
-                {/* <span className="badge_btm">OFF</span> */}
+                <span className="badge_top">{(((product.productDetails[0].price) / (product.productDetails[0].mrPrice)) * 100).toFixed(2)}% OFF</span>
+                {/* <span className="badge_top">50% OFF</span> */}
               </div>
               <div className="product-card-img">
                 <img
