@@ -19,11 +19,17 @@ export default function Form() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isValid },
+    watch,
+  } = useForm({
+    mode: 'onChange', // Enable onChange mode for dynamic validation
+    criteriaMode: 'all', // Validate all fields on change
+    shouldFocusError: true, // Focus on the first field with an error
+  });
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const password = watch('password');
   const onSubmit = async (data) => {
     const signupRes = await dispatch(createUser(data));
     console.log("signup Response : ", signupRes);
@@ -39,7 +45,6 @@ export default function Form() {
   };
 
   const [showPassword, setShowPassword] = useState(false);
-
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -48,6 +53,11 @@ export default function Form() {
 
   const togglePasswordVisibility1 = () => {
     setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const validatePassword = (value) => {
+    // Add your password validation logic here
+    return value === password || 'Passwords do not match';
   };
 
   return (
@@ -76,17 +86,18 @@ export default function Form() {
             className="flex flex-col"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <input
-              style={{ backgroundColor: "transparent", color: 'black', padding: "12px" }}
-              type="text"
-              {...register("email", { required: true })}
-              placeholder="email"
-            />
+
             <input
               style={{ backgroundColor: "transparent", color: 'black', padding: "12px" }}
               type="text"
               {...register("username")}
-              placeholder="username"
+              placeholder="Name"
+            />
+            <input
+              style={{ backgroundColor: "transparent", color: 'black', padding: "12px" }}
+              type="text"
+              {...register("email", { required: true })}
+              placeholder="Email"
             />
             <div style={{ position: 'relative' }} className="flex flex-col">
               <input
@@ -115,9 +126,16 @@ export default function Form() {
                 className="pass"
                 style={{ backgroundColor: 'transparent', color: 'black' }}
                 type={showConfirmPassword ? 'text' : 'password'}
-                {...register("confirmpwd")}
+                {...register("confirmpwd", {
+                  validate: validatePassword,
+                })}
                 placeholder="Confirm password"
               />
+              {errors.confirmpwd && (
+                <p style={{ color: 'red', fontSize: '10px', marginTop: "-25px" }}>
+                  {errors.confirmpwd.message}
+                </p>
+              )}
               <span
                 onClick={togglePasswordVisibility1}
                 style={{

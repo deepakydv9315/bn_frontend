@@ -50,7 +50,7 @@ function Card({ products }) {
           return (
             <div key={index} className="product-card">
               <div className="badge">
-                <span className="badge_top">{(((product.productDetails[0].price) / (product.productDetails[0].mrPrice)) * 100).toFixed(2)}% OFF</span>
+                <span className="badge_top">{(((product.productDetails[0].mrPrice - product.productDetails[0].price) / (product.productDetails[0].mrPrice)) * 100).toFixed(0)}% OFF</span>
                 {/* <span className="badge_top">50% OFF</span> */}
               </div>
               <div className="product-card-img">

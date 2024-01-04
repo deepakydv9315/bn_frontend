@@ -46,8 +46,10 @@ const Navbar = () => {
   return (
     <div className="wrapper__nav ">
       <div className="top__nav nav-contain">
-        <p className="header-sale">हसल 4 मसल</p>
-        <div className="social__icon">
+        <p className="header-sale">
+          Use Coupon Code <b>"BURLYNEW"</b> to get 5% off on all orders
+        </p>
+        {/* <div className="social__icon">
           <a
             href="https://www.facebook.com/burlynutrition.in"
             target="_blank"
@@ -71,7 +73,7 @@ const Navbar = () => {
           >
             <BsYoutube />
           </a>
-        </div>
+        </div> */}
       </div>
       <nav className="navbar-items nav-contain">
         <div className="container nav__container">
