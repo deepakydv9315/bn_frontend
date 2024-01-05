@@ -9,6 +9,16 @@
   .header-sale {
     color: #121212;
     margin: 0;
+    animation: slideIn 20s linear infinite;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(350%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 
   .social__icon {

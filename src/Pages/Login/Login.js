@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import bgImg from "../../Assets/Images/product.png";
@@ -11,6 +11,7 @@ import { getLoggedInrUser, clearError } from "../../Redux/slices/user";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginGoogleUser } from "../../Redux/slices/user";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export default function LoginForm() {
   const { isAuthenticated, error } = useSelector((state) => state.user);
@@ -35,6 +36,12 @@ export default function LoginForm() {
     } else {
       toast.error("Incorrect Username or Password", { position: "top-right" });
     }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -64,22 +71,38 @@ export default function LoginForm() {
             onSubmit={handleSubmit(handleLogin)}
           >
             <input
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: "transparent", color: "black", padding: "12px" }}
               type="text"
               {...register("email")}
               placeholder="E-Mail"
             />
-            <input
-              style={{ backgroundColor: "transparent" }}
-              type="password"
-              {...register("password")}
-              placeholder="password"
-            />
-            <div className="forgotten">
+            <div style={{ position: 'relative' }} className="flex flex-col">
+              <input
+                className="pass"
+                style={{ backgroundColor: 'transparent', color: 'black'}}
+                type={showPassword ? 'text' : 'password'}
+                {...register('password')}
+                placeholder="Password"
+              />
+              <span
+                onClick={togglePasswordVisibility}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: '10px',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  border: "none"
+                }}
+              >
+                {showPassword ? <FaEyeSlash style={{ paddingBottom: "4px", fontSize: "18px" }} /> : <FaEye style={{ paddingBottom: "4px", fontSize: "18px" }} />}
+              </span>
+            </div>
+            {/* <div className="forgotten">
               <Link to="/forgot">
                 <p>Forgot your password?</p>
               </Link>
-            </div>
+            </div> */}
 
             <div>
               {/* <button className="btn" onClick={handleLogin}>
