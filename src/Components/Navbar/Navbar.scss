@@ -10,6 +10,9 @@
     color: #121212;
     margin: 0;
     animation: slideIn 20s linear infinite;
+    @media (max-width: 767px) {
+      animation: slideIn 10s linear infinite;
+    }
   }
 
   @keyframes slideIn {
@@ -18,6 +21,17 @@
     }
     to {
       transform: translateX(-100%);
+    }
+  }
+
+  @media (max-width: 767px) {
+    @keyframes slideIn {
+      from {
+        transform: translateX(130%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
     }
   }
 

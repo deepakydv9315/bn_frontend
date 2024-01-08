@@ -24,12 +24,13 @@ export default function Form() {
   } = useForm({
     mode: 'onChange', // Enable onChange mode for dynamic validation
     criteriaMode: 'all', // Validate all fields on change
-    shouldFocusError: true, // Focus on the first field with an error
+    shouldFocusError: true,
   });
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const password = watch('password');
+
   const onSubmit = async (data) => {
     const signupRes = await dispatch(createUser(data));
     console.log("signup Response : ", signupRes);
@@ -86,7 +87,6 @@ export default function Form() {
             className="flex flex-col"
             onSubmit={handleSubmit(onSubmit)}
           >
-
             <input
               style={{ backgroundColor: "transparent", color: 'black', padding: "12px" }}
               type="text"
@@ -152,7 +152,7 @@ export default function Form() {
             </div>
             {errors.email?.type === "required" && "Email is required"}
             <div>
-              <input type="submit" className="btn" value={"Sign Up"} />
+              <input type="submit" className="btn" value={"Sign Up"}  />
               <ToastContainer
                 position="top-right"
                 autoClose={1000}

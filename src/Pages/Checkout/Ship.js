@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { validateCoupon } from "../../Redux/slices/orderSlice";
 import { placeOrder } from "../../Redux/slices/orderSlice";
 import "./Ship.scss";
+import "./address.css";
 import "./Shipping.css";
 import { useSelector, useDispatch } from "react-redux";
+import { updateUser } from "../../Redux/slices/user";
+import swal from "sweetalert";
 
 const Ship = () => {
   let carts = useSelector((state) => state.products.carts);
-  const [coupon, setCoupon] = React.useState("");
-  const [isApplied, setApplied] = React.useState(null);
-  const [couponDetail, setCouponDetail] = React.useState({
+  const [coupon, setCoupon] = useState("");
+  const { user } = useSelector((state) => state.user);
+  const [selectAddress, setSelectAddress] = useState(0);
+  const [isApplied, setApplied] = useState(null);
+  const [couponDetail, setCouponDetail] = useState({
     code: "",
     minRate: 0,
     percent: 0,
   });
 
-  const [billingInfo, setBillingInfo] = React.useState({
+  // Instead of maintaining a separate 'order' state, we use 'billingInfo' directly
+  const [billingInfo, setBillingInfo] = useState({
     name: "",
     email: "",
     phone: "",
@@ -23,16 +29,18 @@ const Ship = () => {
     pincode: "",
     city: "",
     state: "",
-    country: "",
+    country: "India",
     notes: "",
   });
+
   const dispatch = useDispatch();
+
   const cartTotal = () => {
     return carts?.reduce(function (total, item) {
       return (
         total +
         (item.productDefaultPrice.quantity || 1) *
-          item.productDefaultPrice.price
+        item.productDefaultPrice.price
       );
     }, 0);
   };
@@ -41,7 +49,44 @@ const Ship = () => {
     setBillingInfo({ ...billingInfo, [e.target.name]: e.target.value });
   };
 
-  // To Validate The Copon Code
+  const handleOptionChange = (e) => {
+    setSelectAddress(parseInt(e.target.value));
+  };
+
+  const handleSaveAddress = async (e) => {
+    try {
+      e.preventDefault();
+
+      let userProfile = { ...user };
+      userProfile.shippingAddress = [
+        ...userProfile.shippingAddress,
+        {
+          name: billingInfo.name,
+          email: billingInfo.email,
+          phone: billingInfo.phone,
+          mobile: billingInfo.phone, // Assuming you want to use the same for mobile
+          address: billingInfo.address,
+          city: billingInfo.city,
+          state: billingInfo.state,
+          pincode: billingInfo.pincode,
+          country: "India",
+        },
+      ];
+
+      // Dispatch the updateUser action with the updated user profile
+      await dispatch(updateUser(userProfile));
+
+      swal({
+        title: "Address Saved!",
+        text: "Your shipping address has been successfully saved.",
+        icon: "success",
+        button: "OK",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const HandleCoupon = async () => {
     try {
       const responseData = await dispatch(validateCoupon(coupon));
@@ -77,35 +122,75 @@ const Ship = () => {
     }
   };
 
-  const hanldePlaceOrder = async (e) => {
-    e.preventDefault();
+  const handleShippingSubmit = async (e) => {
+    try {
+      e.preventDefault();
 
-    const orderData = {
-      ...billingInfo,
-      total: applyDiscount(cartTotal()),
-      coupon: couponDetail.code,
-      discount: couponDetail.percent,
-      products: carts,
-      orderID: `BN-${Date.now()}`,
-    };
-    const responseData = await dispatch(placeOrder(orderData));
-    if (responseData.payload.status === "error") {
-      alert(responseData.payload.message);
-    } else {
-      setTimeout(() => {
-        window.open(
-          responseData.payload.data.instrumentResponse.redirectInfo.url,
-          "_self"
-        );
-      }, 3000);
+      const orderData = {
+        ...billingInfo,
+        total: applyDiscount(cartTotal()),
+        coupon: couponDetail.code,
+        discount: couponDetail.percent,
+        products: carts,
+        orderID: `BN-${Date.now()}`,
+      };
+
+      const responseData = await dispatch(placeOrder(orderData));
+
+      if (responseData.payload.status === "error") {
+        alert(responseData.payload.message);
+      } else {
+        setTimeout(() => {
+          window.open(
+            responseData.payload.data.instrumentResponse.redirectInfo.url,
+            "_self"
+          );
+        }, 3000);
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
+
   return (
     <>
       <section className="bn-sec checkout-wrapper">
+        {/* Rest of your code */}
         <div className="ship-address">
           <h5 className="ship-tittle">Ship to</h5>
-          <form className="ship-form" onSubmit={(e) => hanldePlaceOrder(e)}>
+          <form
+            className="ship-form"
+            onSubmit={(e) => handleShippingSubmit(e)} // Changed to handleShippingSubmit
+          >
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div className="form-group">
+                <label htmlFor="fname">Select from your saved addresses</label>
+                <br />
+                <select
+                  className="dropdown"
+                  name="shippingAddress"
+                  value={selectAddress}
+                  onChange={(e) => handleOptionChange(e)}
+                >
+                  <option key={0} value={0}>
+                    Add New Address
+                  </option>
+                  {user &&
+                    user?.shippingAddress &&
+                    user?.shippingAddress?.map((item, index) => (
+                      <option
+                        key={index + 1}
+                        value={index + 1}
+                        className="selectedaddress"
+                      >
+                        {`${item.name}, ${item.address}, ${item.city}, ${item.state} - ${item.pincode}`}
+                      </option>
+                    ))}
+                </select>
+
+              </div>
+            </div>
+
             <div className="input-group">
               <div className="input-label">Full Name*</div>
               <input
@@ -184,12 +269,46 @@ const Ship = () => {
                 <input type="text" value="India" required disabled />
               </div>
             </div>
-            <div className="input-group checkbox">
+            {/* <div className="input-group checkbox">
               <input type="checkbox" />
               <div>Save my Address</div>
             </div>
-            <input type="submit" value={"Place Order"} className="ship-btn" />
+            <input type="submit" value={"Place Order"} className="ship-btn" /> */}
+            {selectAddress === 0 ? (
+              <div className="form-group">
+                <div className="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck1"
+                    required=""
+                  />
+                  <label
+                    className="custom-control-label"
+                    htmlFor="customCheck1"
+                  >
+                    Save this information for next time
+                  </label>
+                </div>
+                <br></br>
+                <button
+                  style={{ textAlign: "center" }}
+                  onClick={(e) => handleSaveAddress(e)}
+                  className="theme-btn-one btn-black-overlay btn_sm"
+                >
+                  Save Now
+                </button>
+              </div>
+            ) : (
+              <button
+                type="submit"
+                className="theme-btn-one btn-black-overlay btn_sm"
+              >
+                Place Order
+              </button>
+            )}
           </form>
+
         </div>
         <div className="ship-detail">
           <div className="ship-orders">
@@ -205,8 +324,8 @@ const Ship = () => {
                   {isApplied === true
                     ? "Coupon Code Applied"
                     : isApplied === false
-                    ? "Invalid Coupon Code"
-                    : ""}
+                      ? "Invalid Coupon Code"
+                      : ""}
                   <input
                     type="text"
                     required={true}
@@ -265,7 +384,7 @@ const Ship = () => {
                       <td>
                         ₹
                         {couponDetail.percent > 0 &&
-                        cartTotal() >= couponDetail.minRate
+                          cartTotal() >= couponDetail.minRate
                           ? (cartTotal() * couponDetail.percent) / 100
                           : 0}
                         .00
