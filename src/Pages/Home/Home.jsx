@@ -178,7 +178,7 @@ const Home = () => {
               intake efficiently. It offers high-quality protein at an
               affordable price, truly valuable for your fitness journey.Its main
               advantage lies in its quick absorption within the body, making it
-              an easily digestible protein option.
+              an easily digestible protein option.
             </p>
             <p>When taken over time with regular resistance training</p>
             <Link className="bn-btn" to="/products">

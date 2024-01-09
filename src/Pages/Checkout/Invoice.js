@@ -1,15 +1,22 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getOrderByID } from "../../Redux/slices/orderSlice";
 
 const EmailTemplate = () => {
+  let carts = useSelector((state) => state.products.carts);
   const dispatch = useDispatch();
   const params = useParams();
   const orderID = params.orderID;
+  const { user } = useSelector((state) => state.user);
   const [order, setOrder] = React.useState({});
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
   // const { order } = useSelector((state) => state.orders);
+
 
   React.useEffect(() => {
     const getInovice = async () => {
@@ -29,7 +36,7 @@ const EmailTemplate = () => {
     maxWidth: "38em",
     margin: "auto",
     width: "800px",
-    border: "none", // Updated to remove the border
+    border: "none",
   };
 
   const sectionStyle = {
@@ -63,14 +70,6 @@ const EmailTemplate = () => {
     margin: 0,
   };
 
-  const imgStyle = {
-    display: "block",
-    outline: "none",
-    border: "none",
-    textDecoration: "none",
-    margin: "auto",
-  };
-
   const h1Style = {
     fontSize: "32px",
     lineHeight: "1.3",
@@ -88,117 +87,12 @@ const EmailTemplate = () => {
     marginTop: "24px",
   };
 
-  const productInfoStyle = {
-    fontSize: "14px",
-    lineHeight: "2",
-    margin: 0,
-    color: "#747474",
-    fontWeight: 500,
-  };
-
-  const orderInfoStyle = {
-    fontSize: "14px",
-    lineHeight: "1.4",
-    margin: "12px 0 0 0",
-    fontWeight: 500,
-    color: "#6F6F6F",
-  };
-
-  const recommendationStyle = {
-    fontSize: "15px",
-    lineHeight: "1",
-    margin: 0,
-    padding: "10px",
-    fontWeight: 500,
-    color: "#747474",
-  };
-
-  const topPicksStyle = {
-    fontSize: "32px",
-    lineHeight: "1.3",
-    margin: "16px 0",
-    fontWeight: 700,
-    textAlign: "center",
-    letterSpacing: "-1px",
-  };
-
-  const footerLinkStyle = {
-    color: "#000",
-    textDecoration: "none",
-    fontWeight: 500,
-  };
-
-  const phoneNumberStyle = {
-    fontSize: "13.5px",
-    lineHeight: "24px",
-    margin: "16px 0",
-    marginTop: 0,
-    fontWeight: 500,
-    color: "#000",
-    marginBottom: 0,
-  };
-
   const addressStyle = {
     fontSize: "14px",
     lineHeight: "2",
     margin: 0,
     color: "#747474",
     fontWeight: 500,
-  };
-
-  const menu = {
-    container: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      paddingTop: "20px",
-      backgroundColor: "#F7F7F7",
-    },
-    content: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-    },
-    title: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      fontWeight: "bold",
-    },
-    text: {
-      fontSize: "13.5px",
-      marginTop: 0,
-      fontWeight: 500,
-      color: "#000",
-    },
-    tel: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      paddingTop: "32px",
-      paddingBottom: "22px",
-    },
-  };
-
-  const categories = {
-    container: {
-      width: "370px",
-      margin: "auto",
-      paddingTop: "12px",
-    },
-    text: {
-      fontWeight: "500",
-      color: "#000",
-    },
-  };
-
-  const footer = {
-    policy: {
-      width: "166px",
-      margin: "auto",
-    },
-    text: {
-      margin: "0",
-      color: "#AFAFAF",
-      fontSize: "13px",
-      textAlign: "center",
-    },
   };
 
   return (
@@ -315,10 +209,8 @@ const EmailTemplate = () => {
                   <tbody>
                     <tr>
                       <td>
-                        <p style={textStyle}>Shipping to: Zeno Rocha</p>
-                        <p style={addressStyle}>
-                          2125 Chestnut St, San Francisco, CA 94123
-                        </p>
+                        <p style={textStyle}>Shipping to: {user.name}</p>
+
                       </td>
                     </tr>
                   </tbody>
@@ -360,18 +252,9 @@ const EmailTemplate = () => {
                           <tbody style={{ width: "100%" }}>
                             <tr style={{ width: "100%" }}>
                               <td>
-                                <img
-                                  alt="Brazil 2022/23 Stadium Away Women's Nike Dri-FIT Soccer Jersey"
-                                  src="https://react-email-demo-ijnnx5hul-resend.vercel.app/static/nike-product.png"
-                                  width="260px"
-                                  style={{
-                                    display: "block",
-                                    outline: "none",
-                                    border: "none",
-                                    textDecoration: "none",
-                                    float: "left",
-                                  }}
-                                />
+                                {/* {carts.map((data) => (
+                                 
+                                ))} */}
                               </td>
                               <td
                                 style={{
@@ -387,19 +270,32 @@ const EmailTemplate = () => {
                                     fontWeight: "500",
                                   }}
                                 >
-                                  Brazil 2022/23 Stadium Away Women's Nike
-                                  Dri-FIT Soccer Jersey
-                                </p>
-                                <p
-                                  style={{
-                                    fontSize: "14px",
-                                    lineHeight: "2",
-                                    margin: "0",
-                                    color: "#747474",
-                                    fontWeight: "500",
-                                  }}
-                                >
-                                  Size L (12–14)
+                                  {carts.map((data) => (
+                                    <tr>
+                                      <td>
+                                        <img
+                                          src={
+                                            data.productDetails.find(
+                                              (item) =>
+                                                item.sku === data.productDefaultPrice.sku
+                                            )?.images[0].url || ""
+                                          }
+                                          alt={data.name}
+                                          style={{ width: "50px", height: "50px" }}
+                                        />
+                                        {data.name}
+                                        <span className="product-qty">
+                                          ({data.productDefaultPrice.quantity || 1})
+                                        </span>
+                                      </td>
+                                      <td>
+                                        ₹{data.productDefaultPrice.price} X (
+                                        {data.productDefaultPrice.quantity || 1}) ={" "}
+                                        {data.productDefaultPrice.price *
+                                          (data.productDefaultPrice.quantity || 1)}
+                                      </td>
+                                    </tr>
+                                  ))}
                                 </p>
                               </td>
                             </tr>
@@ -492,7 +388,7 @@ const EmailTemplate = () => {
                                     color: "#6F6F6F",
                                   }}
                                 >
-                                  Sep 22, 2022
+                                  {currentDate}
                                 </p>
                               </td>
                             </tr>

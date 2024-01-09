@@ -79,7 +79,7 @@ export default function LoginForm() {
             <div style={{ position: 'relative' }} className="flex flex-col">
               <input
                 className="pass"
-                style={{ backgroundColor: 'transparent', color: 'black'}}
+                style={{ backgroundColor: 'transparent', color: 'black' }}
                 type={showPassword ? 'text' : 'password'}
                 {...register('password')}
                 placeholder="Password"

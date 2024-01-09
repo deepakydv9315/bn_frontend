@@ -1,0 +1,29 @@
+.dropdown {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.selectedaddress {
+  color: black;
+  background-color: white;
+}
+.selectedaddress:hover {
+  color: black;
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+.fix {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .fix {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+    .fix {
+      display: block;
+    }
+  }

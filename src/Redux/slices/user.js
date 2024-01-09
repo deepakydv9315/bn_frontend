@@ -182,8 +182,8 @@ const userSlice = createSlice({
     isAdmin: false,
     isAuthenticated: false,
     error: null,
-    addresses: localStorage.getItem("EliniUserAddress")
-      ? JSON.parse(localStorage.getItem("EliniUserAddress"))
+    addresses: localStorage.getItem("BurlyUserAddress")
+      ? JSON.parse(localStorage.getItem("BurlyUserAddress"))
       : [],
   },
 
@@ -191,7 +191,7 @@ const userSlice = createSlice({
     createAddress: (state, action) => {
       const { name, title, address, HNO } = action.payload;
       state.addresses.push({ name, title, address, HNO });
-      localStorage.setItem("EliniUserAddress", JSON.stringify(state.addresses));
+      localStorage.setItem("BurlyUserAddress", JSON.stringify(state.addresses));
       Swal.fire({
         title: "Success!",
         text: "Successfully added Address",
