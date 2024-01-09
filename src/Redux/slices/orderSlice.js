@@ -39,11 +39,11 @@ export const getOrderByID = createAsyncThunk(
 
 //Get all Orders:
 export const getOrders = createAsyncThunk(
-  "api/v1/admin/orders",
+  "api/v1/admin/order",
   async (_, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
-      const response = await axiosClient.get("/api/v1/admin/orders");
+      const response = await axiosClient.get("/api/v1/admin/order");
       console.log(response);
       return response.data;
     } catch (e) {

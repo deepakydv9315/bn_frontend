@@ -81,7 +81,7 @@ const Orders = () => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/order/${params.getValue(params.id, "id")}`}>
+            <Link to={`/admin/order/${params.id}`}>
               <EditIcon />
             </Link>
 
@@ -102,10 +102,10 @@ const Orders = () => {
 
   orders &&
     orders.forEach((item) => {
-      console.log("aman", item);
       rows.push({
         id: item._id,
         itemsQty: item.orderItems.length,
+        amount: item.totalPrice,
         status: item.orderStatus,
       });
     });
@@ -118,7 +118,6 @@ const Orders = () => {
 
   return (
     <Fragment>
-
       <div className="dashboard">
         <Sidebar />
         <div className="productListContainer">

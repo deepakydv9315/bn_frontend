@@ -21,6 +21,7 @@ const CouponList = ({ history }) => {
     dispatch(deleteCoupon({ id }));
   };
 
+
   useEffect(() => {
     if (error) {
       toast.error("Error Occured", { position: "top-right" });

@@ -123,6 +123,7 @@ export const deleteProduct = createAsyncThunk(
   "/api/v1/product/admin/:id",
   async (body, thunkAPI) => {
     try {
+      console.log(body);
       const { data } = await axiosClient.delete(
         `/api/v1/admin/product/${body.id}`
       );

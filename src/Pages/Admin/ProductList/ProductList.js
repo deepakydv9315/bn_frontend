@@ -14,6 +14,7 @@ import {
 } from "../../../Redux/slices/productSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const ProductList = () => {
   const dispatch = useDispatch();
 
@@ -84,20 +85,30 @@ const ProductList = () => {
       },
     },
   ];
+  const rows = [];
+  // const [rows, setRows] = useState([]);
 
-  const [rows, setRows] = useState([]);
+  // useEffect(() => {
+  //   if (products && products.products) {
+  //     const newRows = products.products.map((item) => ({
+  //       id: item._id,
+  //       category: item.category,
+  //       price: item.price,
+  //       name: item.name,
+  //     }));
+  //     setRows(newRows);
+  //   }
+  // }, [products]);
 
-  useEffect(() => {
-    if (products && products.products) {
-      const newRows = products.products.map((item) => ({
+  products &&
+    products.forEach((item) => {
+      rows.push({
         id: item._id,
-        category: item.category,
+        stock: item.Stock,
         price: item.price,
         name: item.name,
-      }));
-      setRows(newRows);
-    }
-  }, [products]);
+      });
+    });
 
   return (
     <Fragment>
