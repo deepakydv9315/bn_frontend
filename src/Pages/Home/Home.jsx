@@ -150,7 +150,62 @@ const Home = () => {
           )}
         </div>
       </section>
-      
+
+      {/* products */}
+      <section className="bn-sec home-product">
+        <div className="sec-head">
+          Our <span>Merch</span>
+        </div>
+        <div className="home-pr-wrapper">
+          <div className="product-filter">
+            <div
+              onClick={handleAllProduct}
+              className={` pr-filter-item ${
+                activeFilter === "All" ? "item-active" : ""
+              }`}
+            >
+              All
+            </div>
+            {category
+              .filter((item) => item.name !== "Best Selling")
+              .map((product, index) => (
+                <div
+                  key={index}
+                  onClick={() => categoryChangeHandler(product.name)}
+                  className={` pr-filter-item  ${
+                    activeFilter === product.name ? "item-active" : ""
+                  }`}
+                >
+                  {product.name}
+                </div>
+              ))}
+          </div>
+
+          {isLoading ? (
+            <div
+              style={{
+                width: "30vw",
+                display: "flex",
+                marginTop: "10px",
+                fontSize: "20px",
+                fontStyle: "italic",
+                fontWeight: "600",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Please Wait products are loading!!!
+            </div>
+          ) : (
+            <div className="spr-wrapper">
+              {products.products && products.products.length !== 0 ? (
+                <Card products={products?.products} />
+              ) : null}
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
