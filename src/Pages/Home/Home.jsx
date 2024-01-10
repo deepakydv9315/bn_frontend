@@ -150,6 +150,7 @@ const Home = () => {
           )}
         </div>
       </section>
+      
       {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">

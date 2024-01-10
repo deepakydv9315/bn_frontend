@@ -60,9 +60,11 @@ import React from "react";
 
 function App() {
   const dispatch = useDispatch();
+
   React.useEffect(() => {
     dispatch(getUserDetail());
   }, [dispatch]);
+  
   return (
     <div className="App">
       <Navbar />
@@ -97,12 +99,12 @@ function App() {
         {/* </Route> */}
       </Routes>
       <Routes>
-        <Route element={<RequireUser type="user" />}>
-          <Route path="/user" element={<User />} />
-          <Route path="/user/password" element={<Password />} />
-          <Route path="/user/orders" element={<MyOrder />} />
-          <Route path="/user/address" element={<Address />} />
-        </Route>
+        {/* <Route element={<RequireUser type="user" />}> */}
+        <Route path="/user" element={<User />} />
+        <Route path="/user/password" element={<Password />} />
+        <Route path="/user/orders" element={<MyOrder />} />
+        <Route path="/user/address" element={<Address />} />
+        {/* </Route> */}
       </Routes>
       <Routes>
         <Route path="/" element={<><ScrollToTop /> <Home /></>} />

@@ -268,9 +268,7 @@ const ProductDetails = () => {
             <h4 className="head">About {product?.name}</h4>
             <p>{product?.longDescription}</p>
           </div>
-
         </div>
-
       )}
     </Fragment>
   );
