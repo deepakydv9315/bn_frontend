@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getLoggedoutUser } from "../../Redux/slices/user";
 import Swal from "sweetalert2";
 import { SidebarData } from "./SidebarData";
@@ -26,26 +26,40 @@ import { updateAvatar } from "../../Redux/slices/user";
 const Sidebar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   const [sidebar, setSidebar] = useState(false);
-  const [profilePhoto, setProfilePhoto] = useState(profile);
+  const [profilePhoto, setProfilePhoto] = useState(
+    user.avatar && user.avatar.url !== "DEmo img" ? user.avatar.url : profile
+  );
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
 
   // for profile photo
-  const handlePhotoChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  const handlePhotoChange = async (event) => {
+    event.preventDefault();
+    try {
+      const file = event.target.files[0];
+      const reader = new FileReader();
 
-    reader.onload = function (e) {
-      setProfilePhoto(e.target.result);
-    };
+      // Create a new promise that resolves when the reader has finished loading
+      const fileLoaded = new Promise((resolve, reject) => {
+        reader.onload = function (e) {
+          setProfilePhoto(e.target.result);
+          resolve(e.target.result);
+        };
+        reader.onerror = function (e) {
+          reject(new Error("Failed to load file"));
+        };
+      });
 
-    reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
 
-    const formData = new FormData();
-    formData.append("profilePhoto", file);
-
-    dispatch(updateAvatar(formData));
+      // Wait for the file to finish loading before dispatching the action
+      const loadedProfilePhoto = await fileLoaded;
+      await dispatch(updateAvatar({ avtar: loadedProfilePhoto }));
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handlLogout = () => {

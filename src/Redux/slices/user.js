@@ -57,12 +57,12 @@ export const updateUser = createAsyncThunk(
 
 export const updateAvatar = createAsyncThunk(
   "/api/v1/auth/me/updateAvtar",
-  async (body, thunkAPI) => {
+  async (formData, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
       const response = await axiosClient.put(
         "/api/v1/auth/me/updateAvtar",
-        body
+        formData
       );
       console.log("To Update User Avtar : ", response.data);
       return response.data;
