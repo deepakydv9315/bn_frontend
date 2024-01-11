@@ -124,7 +124,7 @@ function Cart() {
 
         <div onClick={checkoutHandler} className="place__order">
           <h5>
-            {carts.length} Items . {cartTotal()}
+            {carts.length} Items : ₹{cartTotal()}
           </h5>
           <div>
             <h5>CheckOut</h5>

@@ -77,6 +77,13 @@
 
     h5 {
       color: white;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        font-weight: bolder;
+        color: #fffb00;
+      }
     }
   }
   padding-bottom: 18px;

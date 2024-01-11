@@ -15,8 +15,9 @@ const Ship = () => {
   let carts = useSelector((state) => state.products.carts);
   const [coupon, setCoupon] = React.useState("");
   const { user } = useSelector((state) => state.user);
-  const [selectAddress, setSelectAddress] = useState(0);
+  const [selectAddress, setSelectAddress] = React.useState(0);
   const [isApplied, setApplied] = React.useState(null);
+  const [isAddressSaved, setAddressSaved] = useState(false);
   const [couponDetail, setCouponDetail] = React.useState({
     code: "",
     minRate: 0,
@@ -51,12 +52,7 @@ const Ship = () => {
 
   const handleChange = (e) => {
     setBillingInfo({ ...billingInfo, [e.target.name]: e.target.value });
-
   };
-
-  // const handleOptionChange = (e) => {
-  //   setSelectAddress(parseInt(e.target.value));
-  // };
 
   const handleOptionChange = (e) => {
     setSelectAddress(parseInt(e.target.value));
@@ -86,6 +82,7 @@ const Ship = () => {
       setBillingInfo(newOrder);
     }
     console.log("order : ", billingInfo);
+    console.log(selectAddress);
   };
 
   const handleSaveAddress = async (e) => {
@@ -110,11 +107,15 @@ const Ship = () => {
       // Dispatch the updateUser action with the updated user profile
       await dispatch(updateUser(userProfile));
 
-      swal({
-        title: "Address Saved!",
-        text: "Your shipping address has been successfully saved.",
-        icon: "success",
-        button: "OK",
+      setAddressSaved(true);
+
+      toast.success('successfully added', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
       });
     } catch (error) {
       console.log(error.message);
@@ -156,11 +157,6 @@ const Ship = () => {
           // Optionally, you can show an error message to the user
           toast.error('Coupon details not found. Please try again.', {
             position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
           });
 
           // You can also update the 'applied' state accordingly, depending on your logic
@@ -216,11 +212,6 @@ const Ship = () => {
     // Show toast notification
     toast.success('Please Wait ! Redirecting to payment!', {
       position: toast.POSITION.TOP_RIGHT,
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
     });
   };
 
@@ -346,7 +337,40 @@ const Ship = () => {
               <div>Save my Address</div>
             </div>
             <input type="submit" value={"Place Order"} className="ship-btn" /> */}
-            {selectAddress === 0 ? (
+
+            {/* {isAddressSaved ? ( */}
+            {(isAddressSaved && selectAddress !== 0) || selectAddress !== 0 || isAddressSaved ?(
+              <>
+                <button
+                  style={{
+                    textAlign: "center",
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    padding: "10px 20px",
+                    border: "none",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                  }}
+                  type="submit"
+                  className="theme-btn-one btn-black-overlay btn_sm"
+                  onClick={handlePlaceOrder}
+                >
+                  Place Order
+                </button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={2000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light" />
+              </>
+            ) : (
               <div className="form-group">
                 <div className="custom-control custom-checkbox">
                   <input
@@ -370,29 +394,21 @@ const Ship = () => {
                 >
                   Save Now
                 </button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={1000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                  closeButton={false} />
               </div>
-            ) : (
-              <>
-                <button
-                  style={{
-                    textAlign: "center",
-                    backgroundColor: "#000",
-                    color: "#fff",
-                    padding: "10px 20px",
-                    border: "none",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    fontSize: "14px",
-                  }}
-                  type="submit"
-                  className="theme-btn-one btn-black-overlay btn_sm"
-                  onClick={handlePlaceOrder}
-                >
-                  Place Order
-                </button>
-                <ToastContainer />
-              </>
             )}
+
           </form>
 
         </div>
