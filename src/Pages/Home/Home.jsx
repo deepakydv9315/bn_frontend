@@ -164,7 +164,7 @@ const Home = () => {
           )}
         </div>
       </section>
-      
+
       {/* <section className="bn-sec home-product">
         <div className="sec-head">
           Our <span>Merch</span>
@@ -226,7 +226,7 @@ const Home = () => {
       </section> */}
 
       {/* Our Merch */}
-      <OurMerch />
+      {/* <OurMerch /> */}
 
       {/* goals */}
       <section className="bn-sec content-of-goal">
