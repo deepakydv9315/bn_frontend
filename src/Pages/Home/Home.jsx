@@ -226,7 +226,7 @@ const Home = () => {
       </section> */}
 
       {/* Our Merch */}
-      {/* <OurMerch /> */}
+      <OurMerch />
 
       {/* goals */}
       <section className="bn-sec content-of-goal">
