@@ -22,6 +22,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
 
+import OurMerch from "./ourMerch.tsx"
+
 const Home = () => {
   const { categoryname } = useParams();
   let category = useSelector((state) => state.products.categories);
@@ -162,7 +164,7 @@ const Home = () => {
           )}
         </div>
       </section>
-
+      
       {/* <section className="bn-sec home-product">
         <div className="sec-head">
           Our <span>Merch</span>
@@ -222,6 +224,9 @@ const Home = () => {
           )}
         </div>
       </section> */}
+
+      {/* Our Merch */}
+      <OurMerch />
 
       {/* goals */}
       <section className="bn-sec content-of-goal">

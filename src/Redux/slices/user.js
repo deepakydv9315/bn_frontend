@@ -55,6 +55,25 @@ export const updateUser = createAsyncThunk(
   }
 );
 
+export const updateAvatar = createAsyncThunk(
+  "/api/v1/auth/me/updateAvtar",
+  async (body, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(setLoading(true));
+      const response = await axiosClient.put(
+        "/api/v1/auth/me/updateAvtar",
+        body
+      );
+      console.log("To Update User Avtar : ", response.data);
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.message);
+    } finally {
+      thunkAPI.dispatch(setLoading(false));
+    }
+  }
+);
+
 export const loginGoogleUser = createAsyncThunk(
   "/api/v1/auth/google",
   async (_, thunkAPI) => {
@@ -258,6 +277,15 @@ const userSlice = createSlice({
 
         if (action.payload.user?.isAdmin) {
           state.isAdmin = true;
+        }
+      })
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        if (action.payload.statusCode === 200) {
+          state.user = action.payload.result;
+          state.isAuthenticated = true;
+          if (action.payload.result?.isAdmin) {
+            state.isAdmin = true;
+          }
         }
       })
       .addCase(getLoggedoutUser.fulfilled, (state, action) => {

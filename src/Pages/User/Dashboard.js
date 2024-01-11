@@ -3,15 +3,16 @@ import Sidebar from "./Sidebar.js";
 import "./dashboard.scss";
 import { useDispatch, useSelector } from "react-redux";
 
+import { updateUser } from "../../Redux/slices/user";
+
 const Dashboard = () => {
-
   const { user } = useSelector((state) => state.user);
+  const [userData, setUserData] = useState(user);
+  const dispatch = useDispatch();
 
-  // Use the userData1 object to initialize the state
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [phone, setPhone] = useState(
-    user.phoneNumber);
+  const handleSave = async () => {
+    await dispatch(updateUser(userData));
+  };
 
   return (
     <div className="dashboard">
@@ -25,8 +26,10 @@ const Dashboard = () => {
               type="text"
               id="name"
               placeholder="John Doe"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={userData.name}
+              onChange={(e) =>
+                setUserData({ ...userData, name: e.target.value })
+              }
             />
           </div>
           <div className="profile-item">
@@ -35,8 +38,8 @@ const Dashboard = () => {
               type="email"
               id="email"
               placeholder="johndoe@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={userData.email}
+              readOnly
             />
           </div>
           <div className="profile-item">
@@ -45,13 +48,17 @@ const Dashboard = () => {
               type="tel"
               id="phone"
               placeholder="123-456-7890"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={userData.phone}
+              onChange={(e) =>
+                setUserData({ ...userData, phone: e.target.value })
+              }
             />
           </div>
           <div className="profile-buttons">
             <button className="cancel-button">Cancel</button>
-            <button className="save-button">Save</button>
+            <button className="save-button" onClick={handleSave}>
+              Save
+            </button>
           </div>
         </div>
       </div>

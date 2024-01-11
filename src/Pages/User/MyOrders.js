@@ -4,6 +4,7 @@ import SideBar from "./Sidebar";
 import { useSelector, useDispatch } from "react-redux";
 
 const ProductList = ({ history }) => {
+  console.log("MyOrder");
 
   let carts = useSelector((state) => state.products.carts);
 
@@ -20,10 +21,13 @@ const ProductList = ({ history }) => {
                 <div key={data.id} className="order-item">
                   <div className="order-details">
                     <div className="order-info">
-                      <p>Order Placed: {data.datePlaced}{" "}{"|"}</p>
-                      <p>Total Price:  ₹{data.price} X ({data.quantity || 1}) ={" "}
-                        {data.price * (data.quantity || 1)}
-                        {" "}{"|"}</p>
+                      <p>
+                        Order Placed: {data.datePlaced} {"|"}
+                      </p>
+                      <p>
+                        Total Price: ₹{data.price} X ({data.quantity || 1}) ={" "}
+                        {data.price * (data.quantity || 1)} {"|"}
+                      </p>
                       <p>ORDER ID: {data.id}</p>
                     </div>
                     <div className="order-status">
@@ -33,7 +37,9 @@ const ProductList = ({ history }) => {
                   <div className="product">
                     <div className="product-details">
                       <div className="productname">
-                        <p className="head-blog">{data.name}{" "}{data.quantity || 1}</p>
+                        <p className="head-blog">
+                          {data.name} {data.quantity || 1}
+                        </p>
                       </div>
                     </div>
                     <div className="order-actions">
@@ -46,7 +52,7 @@ const ProductList = ({ history }) => {
           </div>
         </div>
       </div>
-    </Fragment >
+    </Fragment>
   );
 };
 
