@@ -21,6 +21,7 @@ import { IconContext } from "react-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { updateAvatar } from "../../Redux/slices/user";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -44,17 +45,7 @@ const Sidebar = () => {
     const formData = new FormData();
     formData.append("profilePhoto", file);
 
-    fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Profile photo uploaded successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error uploading profile photo:", error);
-      });
+    dispatch(updateAvatar(formData));
   };
 
   const handlLogout = () => {
@@ -90,8 +81,9 @@ const Sidebar = () => {
         <ul>
           <Link to="/user" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user" ? "active" : ""
+              }`}
             >
               <span>
                 {" "}
@@ -103,8 +95,9 @@ const Sidebar = () => {
 
           <Link to="/user/password" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user/password" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user/password" ? "active" : ""
+              }`}
             >
               <span>
                 <FontAwesomeIcon icon={faListAlt} />
@@ -115,8 +108,9 @@ const Sidebar = () => {
 
           <Link to="/user/address" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user/address" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user/address" ? "active" : ""
+              }`}
             >
               <span>
                 <FontAwesomeIcon icon={faAddressBook} />
@@ -127,8 +121,9 @@ const Sidebar = () => {
 
           <Link to="/user/orders" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user/orders" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user/orders" ? "active" : ""
+              }`}
             >
               <span>
                 <FontAwesomeIcon icon={faShoppingCart} />
@@ -183,7 +178,11 @@ const Sidebar = () => {
                 </li>
               );
             })}
-            <div onClick={handlLogout} style={{ color: "white", marginLeft: "20px", fontSize: "18px" }} className="nav-text">
+            <div
+              onClick={handlLogout}
+              style={{ color: "white", marginLeft: "20px", fontSize: "18px" }}
+              className="nav-text"
+            >
               <li className="option">
                 <span>
                   <FontAwesomeIcon icon={faLongArrowAltRight} />
