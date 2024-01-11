@@ -483,7 +483,7 @@ const Ship = () => {
                     <tr>
                       <th>Total</th>
                       <td className="product-subtotal">
-                        ₹{applyDiscount(cartTotal())}.00
+                        ₹{applyDiscount(cartTotal())}
                       </td>
                     </tr>
                   </tfoot>
