@@ -22,7 +22,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
 
-import OurMerch from "./ourMerch.tsx"
+import OurMerch from "./ourMerch.tsx";
 
 const Home = () => {
   const { categoryname } = useParams();
@@ -126,7 +126,12 @@ const Home = () => {
               All
             </div>
             {category
-              .filter((item) => item.name !== "Best Selling")
+              .filter(
+                (item) =>
+                  item.name !== "Gym Bags" &&
+                  item.name !== "Shipper" &&
+                  item.name !== "T-Shirts"
+              )
               .map((product, index) => (
                 <div
                   key={index}
@@ -158,14 +163,21 @@ const Home = () => {
           ) : (
             <div className="spr-wrapper">
               {products.products && products.products.length !== 0 ? (
-                <Card products={products?.products} />
+                <Card
+                  products={products?.products.filter(
+                    (product) =>
+                      !["Gym Bags", "Shipper", "T-Shirts"].some((category) =>
+                        product.sellingCategory.includes(category)
+                      )
+                  )}
+                />
               ) : null}
             </div>
           )}
         </div>
       </section>
 
-      {/* <section className="bn-sec home-product">
+      {/*    <section className="bn-sec home-product">
         <div className="sec-head">
           Our <span>Merch</span>
         </div>
@@ -226,11 +238,12 @@ const Home = () => {
       </section> */}
 
       {/* Our Merch */}
-      {
-      products && products.products && products.products.length !== 0 && 
-      <OurMerch showCategory={["Gym Bags", "Shipper", "T-Shirts"]} productList={products.products} /> 
-      }
-
+      {products && products.products && products.products.length !== 0 && (
+        <OurMerch
+          showCategory={["T-Shirts", "Gym Bags", "Shipper"]}
+          productList={products.products}
+        />
+      )}
 
       {/* goals */}
       <section className="bn-sec content-of-goal">

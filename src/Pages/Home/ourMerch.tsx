@@ -54,7 +54,7 @@ export default function OurMerch({ showCategory, productList }) {
 
           <div className="spr-wrapper">
             {products && products.length !== 0 ? (
-              <Card products={products} />
+              <Card products={products} isShow={false} />
             ) : null}
           </div>
         </div>
