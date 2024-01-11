@@ -226,7 +226,11 @@ const Home = () => {
       </section> */}
 
       {/* Our Merch */}
-      <OurMerch />
+      {
+      products && products.products && products.products.length !== 0 && 
+      <OurMerch showCategory={["Gym Bags", "Shipper", "T-Shirts"]} productList={products.products} /> 
+      }
+
 
       {/* goals */}
       <section className="bn-sec content-of-goal">

@@ -1,36 +1,29 @@
 import React, { useEffect, useState } from "react";
 
 import Card from "../../Components/Card/Card";
-export default function OurMerch({ products, category }) {
-  const [productes, setProducts] = useState([]);
+export default function OurMerch({ showCategory, productList }) {
+  const [products, setProducts] = useState([]);
 
-  const [categories, setCategories] = useState([
-    { name: "All" },
-    { name: "Tshirt" },
-    { name: "Shekhar" },
-    { name: "Gym Bag" },
-  ]);
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [categories, setCategories] = useState(showCategory);
+  const [activeFilter, setActiveFilter] = useState(showCategory[0]);
 
-  // To Log And Update State
+  console.log("Categories >>> ", categories);
+  console.log("Active Filter >>> ", activeFilter);
+  console.log("Products List >>> ", productList);
+
+  // ?  Filter Products Based on Category
   useEffect(() => {
-    console.log(products);
-    console.log(category);
-    setProducts(products);
-    setCategories(category);
-  }, [products, category]);
-
-  // To Show And Filter Products By Category
-  const handleMerchProduct = () => {
-    setActiveFilter("All");
-    setProducts(products);
-  };
+    const filteredProducts = productList.filter(
+      (product) => product.sellingCategory === activeFilter
+    );
+    setProducts(filteredProducts);
+  }, [activeFilter, productList]);
 
   // ?  Change Category Handler
   const categoryChangeHandler = (categoryName) => {
     setActiveFilter(categoryName); // ! To Set Active Category Name
     // To Fetch All Product Related Matched Category
-    const filteredProducts = products.filter(
+    const filteredProducts = productList.filter(
       (product) => product.sellingCategory === categoryName
     );
     setProducts(filteredProducts);
@@ -44,25 +37,17 @@ export default function OurMerch({ products, category }) {
         </div>
         <div className="home-pr-wrapper">
           <div className="product-filter">
-            <div
-              onClick={handleMerchProduct}
-              className={` pr-filter-item ${
-                activeFilter === "All" ? "item-active" : ""
-              }`}
-            >
-              All
-            </div>
             {categories &&
               categories.length !== 0 &&
               categories.map((category, index) => (
                 <div
                   key={index}
-                  onClick={() => categoryChangeHandler(category.name)}
+                  onClick={() => categoryChangeHandler(category)}
                   className={` pr-filter-item  ${
-                    activeFilter === category.name ? "item-active" : ""
+                    activeFilter === category ? "item-active" : ""
                   }`}
                 >
-                  {category.name}
+                  {category}
                 </div>
               ))}
           </div>
