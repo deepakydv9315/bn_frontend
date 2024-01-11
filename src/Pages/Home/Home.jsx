@@ -19,8 +19,8 @@ import {
   getAllProducts,
 } from "../../Redux/slices/productSlice";
 import { useParams } from "react-router-dom";
-// import MinLoader from "../../Components/Loader/MinLoader.js";
 import { useDispatch, useSelector } from "react-redux";
+import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
 
 const Home = () => {
   const { categoryname } = useParams();
@@ -54,6 +54,18 @@ const Home = () => {
     autoplaySpeed: 2000,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    nextArrow: <ArrowButton type="next" />,
+    prevArrow: <ArrowButton type="prev" />,
+    autoplay: true,
+    autoplaySpeed: 5000,
   };
 
   // const isInCart = (productId) => {
@@ -151,8 +163,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* products */}
-      <section className="bn-sec home-product">
+      {/* <section className="bn-sec home-product">
         <div className="sec-head">
           Our <span>Merch</span>
         </div>
@@ -199,12 +210,18 @@ const Home = () => {
           ) : (
             <div className="spr-wrapper">
               {products.products && products.products.length !== 0 ? (
-                <Card products={products?.products} />
+                <Slider {...settings}>
+                  {products.products.map((product) => (
+                  <div key={product.id}>
+                  <Card products={products?.products} />
+                  </div>
+                  ))}
+                </Slider>
               ) : null}
             </div>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* goals */}
       <section className="bn-sec content-of-goal">
@@ -276,6 +293,16 @@ const Home = () => {
           </Link>
         </div>
       </section>
+
+      {/* <section className="bn-sec fitness-bracket">
+        <h4 className="sec-head">
+          Our <span>Merch</span>
+        </h4>
+        <p className="sec-para">
+          Get fasionable merches
+        </p>
+        
+      </section> */}
 
       {/* fitness bracket  */}
       <section className="bn-sec fitness-bracket">

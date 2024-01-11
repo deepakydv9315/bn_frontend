@@ -122,12 +122,12 @@ function Cart() {
           ))}
         </div>
 
-        <div onClick={checkoutHandler} className="place__order">
+        <div className="place__order">
           <h5>
             {carts.length} Items : ₹{cartTotal()}
           </h5>
-          <div>
-            <h5>CheckOut</h5>
+          <div onClick={checkoutHandler} >
+            <h5 className="h5">CheckOut</h5>
             <ToastContainer
               position="top-right"
               autoClose={5000}

@@ -1,0 +1,25 @@
+// ArrowButton.scss
+.arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #000000;
+    transition: color 0.3s;
+  
+    &.next {
+      right: -20px;
+    }
+  
+    &.prev {
+      left: -20px;
+    }
+  
+    &:hover {
+      color: #000;
+    }
+  }
+  

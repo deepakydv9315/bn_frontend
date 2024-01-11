@@ -46,6 +46,7 @@
     "slick-carousel": "^1.8.1",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.32",
+    "swiper": "^6.8.4",
     "web-vitals": "^2.1.4",
     "yup": "^1.3.2"
   },
