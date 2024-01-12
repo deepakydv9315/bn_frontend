@@ -107,6 +107,7 @@ export const getAllCoupons = createAsyncThunk(
     }
   }
 );
+
 //Get All Coupons
 export const createCoupon = createAsyncThunk(
   "/api/v1/admin/coupon/create",
@@ -126,6 +127,7 @@ export const createCoupon = createAsyncThunk(
     }
   }
 );
+
 //Update Coupons
 export const updateCoupon = createAsyncThunk(
   "/api/v1/admin/coupon/update",
@@ -200,6 +202,7 @@ export const createAndUpdateHeader = createAsyncThunk(
     }
   }
 );
+
 export const getHeaderTagLine = createAsyncThunk(
   "/api/v1/admin/util/get/header",
   async (body, thunkAPI) => {

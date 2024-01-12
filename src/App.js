@@ -64,47 +64,47 @@ function App() {
   React.useEffect(() => {
     dispatch(getUserDetail());
   }, [dispatch]);
-  
+
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        {/* <Route element={<RequireUser type={"admin"} />}> */}
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/products" element={<ProductList />} />
-        <Route path="/admin/product/create" element={<CreateProduct />} />
-        <Route path="/admin/product/:id" element={<UpdateProduct />} />
+        <Route element={<RequireUser type={"admin"} />}>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/products" element={<ProductList />} />
+          <Route path="/admin/product/create" element={<CreateProduct />} />
+          <Route path="/admin/product/:id" element={<UpdateProduct />} />
 
-        <Route path="/admin/categories/create" element={<CreateCategory />} />
-        <Route path="/admin/categories" element={<Categories />} />
-        <Route path="/admin/category/:id" element={<UpdateCategory />} />
+          <Route path="/admin/categories/create" element={<CreateCategory />} />
+          <Route path="/admin/categories" element={<Categories />} />
+          <Route path="/admin/category/:id" element={<UpdateCategory />} />
 
-        <Route path="/admin/users" element={<UserList />} />
+          <Route path="/admin/users" element={<UserList />} />
 
-        <Route path="/admin/pincodes" element={<Pincodes />} />
-        <Route path="/admin/pincodes/create" element={<CreatePincode />} />
-        <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
+          <Route path="/admin/pincodes" element={<Pincodes />} />
+          <Route path="/admin/pincodes/create" element={<CreatePincode />} />
+          <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
 
-        <Route path="/admin/header" element={<HeaderOffer />} />
+          <Route path="/admin/header" element={<HeaderOffer />} />
 
-        <Route path="/admin/coupons" element={<CouponList />} />
-        <Route path="/admin/coupon/create" element={<CreateCoupon />} />
-        <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
+          <Route path="/admin/coupons" element={<CouponList />} />
+          <Route path="/admin/coupon/create" element={<CreateCoupon />} />
+          <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
 
-        <Route path="/admin/orders" element={<Orders />} />
+          <Route path="/admin/orders" element={<Orders />} />
 
-        <Route path="/admin/blog/create" element={<CreateBlog />} />
-        <Route path="/admin/blogs" element={<Blogs />} />
-        <Route path="/admin/blog/:id" element={<UpdateBlog />} />
-        {/* </Route> */}
+          <Route path="/admin/blog/create" element={<CreateBlog />} />
+          <Route path="/admin/blogs" element={<Blogs />} />
+          <Route path="/admin/blog/:id" element={<UpdateBlog />} />
+        </Route>
       </Routes>
       <Routes>
-        {/* <Route element={<RequireUser type="user" />}> */}
-        <Route path="/user" element={<User />} />
-        <Route path="/user/password" element={<Password />} />
-        <Route path="/user/orders" element={<MyOrder />} />
-        <Route path="/user/address" element={<Address />} />
-        {/* </Route> */}
+        <Route element={<RequireUser type="user" />}>
+          <Route path="/user" element={<User />} />
+          <Route path="/user/password" element={<Password />} />
+          <Route path="/user/orders" element={<MyOrder />} />
+          <Route path="/user/address" element={<Address />} />
+        </Route>
       </Routes>
       <Routes>
         <Route path="/" element={<><ScrollToTop /> <Home /></>} />
