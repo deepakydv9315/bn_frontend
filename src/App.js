@@ -124,9 +124,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<><ScrollToTop /><Contact /></>} />
-        <Route path="/blog1" element={<Blog1 />} />
-        <Route path="/blog2" element={<Blog2 />} />
-        <Route path="/blog3" element={<Blog3 />} />
+        <Route path="/blog1" element={<><ScrollToTop /><Blog1 /></>} />
+        <Route path="/blog2" element={<><ScrollToTop /><Blog2 /></>} />
+        <Route path="/blog3" element={<><ScrollToTop /><Blog3 /></>} />
         <Route path="/about" element={<><ScrollToTop /><About /></>} />
         <Route path="/blogdetail" element={<>
           <ScrollToTop /><BlogDetail /></>} />

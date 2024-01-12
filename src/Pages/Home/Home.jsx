@@ -21,8 +21,8 @@ import {
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
-
 import OurMerch from "./ourMerch.tsx";
+import Combo from "./Combo.tsx";
 
 const Home = () => {
   const { categoryname } = useParams();
@@ -119,8 +119,9 @@ const Home = () => {
           <div className="product-filter">
             <div
               onClick={handleAllProduct}
-              className={` pr-filter-item ${activeFilter === "All" ? "item-active" : ""
-                }`}
+              className={` pr-filter-item ${
+                activeFilter === "All" ? "item-active" : ""
+              }`}
             >
               All
             </div>
@@ -129,14 +130,16 @@ const Home = () => {
                 (item) =>
                   item.name !== "Gym Bags" &&
                   item.name !== "Sipper" &&
-                  item.name !== "T-Shirts"
+                  item.name !== "T-Shirts" &&
+                  item.name !== "Combo"
               )
               .map((product, index) => (
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={` pr-filter-item  ${activeFilter === product.name ? "item-active" : ""
-                    }`}
+                  className={` pr-filter-item  ${
+                    activeFilter === product.name ? "item-active" : ""
+                  }`}
                 >
                   {product.name}
                 </div>
@@ -165,8 +168,8 @@ const Home = () => {
                 <Card
                   products={products?.products.filter(
                     (product) =>
-                      !["Gym Bags", "Sipper", "T-Shirts"].some((category) =>
-                        product.sellingCategory.includes(category)
+                      !["Gym Bags", "Sipper", "T-Shirts", "Combo"].some(
+                        (category) => product.sellingCategory.includes(category)
                       )
                   )}
                 />
@@ -175,7 +178,7 @@ const Home = () => {
           )}
         </div>
       </section>
-      
+
       {/* know our protein */}
       <section className="bn-sec know-sec">
         <h4 className="sec-head">
@@ -202,7 +205,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
+
       {/* combos */}
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
@@ -212,9 +215,10 @@ const Home = () => {
           A great deal has value for money, supplements and thus health.
         </p>
         <div className="level-cards">
-          <Levels />
+          {products && products.products && products.products.length !== 0 && (
+            <Combo showCategory={["Combo"]} productList={products.products} />
+          )}
         </div>
-
       </section>
 
       {/* merch */}
@@ -228,8 +232,6 @@ const Home = () => {
           )}
         </div>
       </section>
-
-
 
       {/* why hustle for muscle  */}
       <section className="why-page">
@@ -256,8 +258,8 @@ const Home = () => {
           Get fasionable merches
         </p>
         </section> */}
-        
-        {/* goals */}
+
+      {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
           Shop by <span>Goal</span>
@@ -287,11 +289,9 @@ const Home = () => {
         <div className="sec-combo-heading bn-sec">
           <h4 className="sec-head">
             Shop by <span>Level</span>
-
           </h4>
           <p className="sec-para">
             Get fit with precision. Explore now for the best results!
-
           </p>
         </div>
         <div className="img-slider">
