@@ -71,12 +71,25 @@
     width: 90%;
     border-radius: 1px;
     margin-bottom: 10px;
-    cursor: pointer;
+    cursor: default;
     color: white;
     padding: 13px;
 
     h5 {
+      padding: 3px;
       color: white;
+    }
+    .h5 {
+      padding: 3px 10px 3px 10px;
+      color: #231918;
+      background-color: #fbff00;
+      cursor: pointer;
+      transition: color 0.3s ease; /* Smooth transition effect on color change */
+
+      &:hover {
+        background-color: #231918;
+        color: #ffea00; /* Change the color to your desired hover color */
+      }
     }
   }
   padding-bottom: 18px;

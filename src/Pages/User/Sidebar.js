@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getLoggedoutUser } from "../../Redux/slices/user";
 import Swal from "sweetalert2";
 import { SidebarData } from "./SidebarData";
@@ -21,40 +21,45 @@ import { IconContext } from "react-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { updateAvatar } from "../../Redux/slices/user";
 
 const Sidebar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   const [sidebar, setSidebar] = useState(false);
-  const [profilePhoto, setProfilePhoto] = useState(profile);
+  const [profilePhoto, setProfilePhoto] = useState(
+    user.avatar && user.avatar.url !== "DEmo img" ? user.avatar.url : profile
+  );
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
 
   // for profile photo
-  const handlePhotoChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  const handlePhotoChange = async (event) => {
+    event.preventDefault();
+    try {
+      const file = event.target.files[0];
+      const reader = new FileReader();
 
-    reader.onload = function (e) {
-      setProfilePhoto(e.target.result);
-    };
-
-    reader.readAsDataURL(file);
-
-    const formData = new FormData();
-    formData.append("profilePhoto", file);
-
-    fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Profile photo uploaded successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error uploading profile photo:", error);
+      // Create a new promise that resolves when the reader has finished loading
+      const fileLoaded = new Promise((resolve, reject) => {
+        reader.onload = function (e) {
+          setProfilePhoto(e.target.result);
+          resolve(e.target.result);
+        };
+        reader.onerror = function (e) {
+          reject(new Error("Failed to load file"));
+        };
       });
+
+      reader.readAsDataURL(file);
+
+      // Wait for the file to finish loading before dispatching the action
+      const loadedProfilePhoto = await fileLoaded;
+      await dispatch(updateAvatar({ avtar: loadedProfilePhoto }));
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handlLogout = () => {
@@ -90,8 +95,9 @@ const Sidebar = () => {
         <ul>
           <Link to="/user" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user" ? "active" : ""
+              }`}
             >
               <span>
                 {" "}
@@ -103,8 +109,9 @@ const Sidebar = () => {
 
           <Link to="/user/password" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user/password" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user/password" ? "active" : ""
+              }`}
             >
               <span>
                 <FontAwesomeIcon icon={faListAlt} />
@@ -115,8 +122,9 @@ const Sidebar = () => {
 
           <Link to="/user/address" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user/address" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user/address" ? "active" : ""
+              }`}
             >
               <span>
                 <FontAwesomeIcon icon={faAddressBook} />
@@ -127,8 +135,9 @@ const Sidebar = () => {
 
           <Link to="/user/orders" style={{ color: "white" }}>
             <li
-              className={`option ${location.pathname === "/user/orders" ? "active" : ""
-                }`}
+              className={`option ${
+                location.pathname === "/user/orders" ? "active" : ""
+              }`}
             >
               <span>
                 <FontAwesomeIcon icon={faShoppingCart} />
@@ -183,7 +192,11 @@ const Sidebar = () => {
                 </li>
               );
             })}
-            <div onClick={handlLogout} style={{ color: "white", marginLeft: "20px", fontSize: "18px" }} className="nav-text">
+            <div
+              onClick={handlLogout}
+              style={{ color: "white", marginLeft: "20px", fontSize: "18px" }}
+              className="nav-text"
+            >
               <li className="option">
                 <span>
                   <FontAwesomeIcon icon={faLongArrowAltRight} />

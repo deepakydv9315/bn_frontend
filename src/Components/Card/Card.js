@@ -6,7 +6,7 @@ import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-function Card({ products }) {
+function Card({ products, isShow = true }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -41,8 +41,6 @@ function Card({ products }) {
     navigate(`/productdetails/${_id}`);
   };
 
-
-
   return (
     <div className="Cards">
       {products &&
@@ -50,7 +48,15 @@ function Card({ products }) {
           return (
             <div key={index} className="product-card">
               <div className="badge">
-                <span className="badge_top">{(((product.productDetails[0].mrPrice - product.productDetails[0].price) / (product.productDetails[0].mrPrice)) * 100).toFixed(0)}% OFF</span>
+                <span className="badge_top">
+                  {(
+                    ((product.productDetails[0].mrPrice -
+                      product.productDetails[0].price) /
+                      product.productDetails[0].mrPrice) *
+                    100
+                  ).toFixed(0)}
+                  % OFF
+                </span>
                 {/* <span className="badge_top">50% OFF</span> */}
               </div>
               <div className="product-card-img">
@@ -65,10 +71,12 @@ function Card({ products }) {
               </div>
               <div className="product-card-details">
                 <p className="product-card-name">{product.name}</p>
-                <p className="product-card-title">
-                  {product?.productDetails[0].weight} |{" "}
-                  {product?.productFlavour}
-                </p>
+                {isShow ? (
+                  <p className="product-card-title">
+                    {product?.productDetails[0].weight} |{" "}
+                    {product?.productFlavour}
+                  </p>
+                ) : null}
                 <div className="space">
                   <p className="product-card-price">
                     ₹{product.productDetails[0].mrPrice}
