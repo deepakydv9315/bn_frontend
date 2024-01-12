@@ -8,8 +8,9 @@ import Budget from "../../Components/Budget/Budget";
 import Carousel from "../../Components/ImageSlider/Carousel";
 import Card from "../../Components/Card/Card";
 import ReadBlogs from "../../Components/Blogs/ReadBlogs";
-import bg from "../../Assets/Images/temp.png";
-import bg1 from "../../Assets/Images/temp1.png";
+import bg from "../../Assets/Images/bn-banner01.png";
+import bg1 from "../../Assets/Images/bn-banner02.png";
+import bg2 from "../../Assets/Images/bn-banner03.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -106,6 +107,9 @@ const Home = () => {
           </div>
           <div>
             <img src={bg1} alt="" />
+          </div>
+          <div>
+            <img src={bg2} alt="" />
           </div>
         </Slider>
       </div>
