@@ -175,51 +175,11 @@ const Home = () => {
           )}
         </div>
       </section>
-
-      {/* Our Merch */}
-      {products && products.products && products.products.length !== 0 && (
-        <OurMerch
-          showCategory={["T-Shirts", "Gym Bags", "Sipper"]}
-          productList={products.products}
-        />
-      )}
-
-      {/* goals */}
-      <section className="bn-sec content-of-goal">
-        {/* <h4 className="sec-head">
-          Shop by <span>Goal</span>
-        </h4>
-        <div className="sec-para">
-          Get fit with precision. Explore now for the best results!
-        </div> */}
-        <div className="goals-section">
-          {products && products.products && products.products.length !== 0 && (
-            <OurMerch
-              showCategory={["Gym Bags", "Sipper", "T-Shirts"]}
-              productList={products.products}
-            />
-          )}
-        </div>
-
-      </section>
-
-      {/* <section className="bn-sec content-of-goal">
-        <h4 className="sec-head">
-          Shop by <span>Goal</span>
-        </h4>
-        <div className="sec-para">
-          Get fit with precision. Explore now for the best results!
-        </div>
-        <div className="goals-section">
-          <Goals />
-        </div>
-      </section> */}
-
+      
       {/* know our protein */}
-
       <section className="bn-sec know-sec">
         <h4 className="sec-head">
-          Know more about our <span>Product</span>
+          Know more about our <span>Protein</span>
         </h4>
 
         <div className="know-wrapper">
@@ -242,19 +202,34 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* shop by level */}
+      
+      {/* combos */}
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
-          Shop by <span>Level</span>
+          Our <span>Combos</span>
         </h4>
         <p className="sec-para">
-          Get fit with precision. Explore now for the best results!
+          A great deal has value for money, supplements and thus health.
         </p>
         <div className="level-cards">
           <Levels />
         </div>
+
       </section>
+
+      {/* merch */}
+      <section className="bn-sec content-of-goal">
+        <div className="goals-section">
+          {products && products.products && products.products.length !== 0 && (
+            <OurMerch
+              showCategory={["Gym Bags", "Sipper", "T-Shirts"]}
+              productList={products.products}
+            />
+          )}
+        </div>
+      </section>
+
+
 
       {/* why hustle for muscle  */}
       <section className="why-page">
@@ -280,8 +255,20 @@ const Home = () => {
         <p className="sec-para">
           Get fasionable merches
         </p>
+        </section> */}
         
-      </section> */}
+        {/* goals */}
+      <section className="bn-sec content-of-goal">
+        <h4 className="sec-head">
+          Shop by <span>Goal</span>
+        </h4>
+        <div className="sec-para">
+          Get fit with precision. Explore now for the best results!
+        </div>
+        <div className="goals-section">
+          <Goals />
+        </div>
+      </section>
 
       {/* fitness bracket  */}
       <section className="bn-sec fitness-bracket">
@@ -299,10 +286,12 @@ const Home = () => {
       <section className="sec-combo">
         <div className="sec-combo-heading bn-sec">
           <h4 className="sec-head">
-            Get <span>Combos</span>
+            Shop by <span>Level</span>
+
           </h4>
           <p className="sec-para">
-            A great deal has value for money, supplements and thus health.
+            Get fit with precision. Explore now for the best results!
+
           </p>
         </div>
         <div className="img-slider">

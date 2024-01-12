@@ -339,7 +339,7 @@ const Ship = () => {
             <input type="submit" value={"Place Order"} className="ship-btn" /> */}
 
             {/* {isAddressSaved ? ( */}
-            {(isAddressSaved && selectAddress !== 0) || selectAddress !== 0 || isAddressSaved ?(
+            {(isAddressSaved && selectAddress !== 0) || selectAddress !== 0 || isAddressSaved ? (
               <>
                 <button
                   style={{
@@ -382,12 +382,43 @@ const Ship = () => {
                   <label
                     className="custom-control-label"
                     htmlFor="customCheck1"
+                    onClick={(e) => handleSaveAddress(e)}
                   >
                     Save this information for next time
                   </label>
                 </div>
                 <br></br>
-                <button
+                <>
+                  <button
+                    style={{
+                      textAlign: "center",
+                      backgroundColor: "#000",
+                      color: "#fff",
+                      padding: "10px 20px",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                      fontSize: "14px",
+                    }}
+                    type="submit"
+                    className="theme-btn-one btn-black-overlay btn_sm"
+                    onClick={handlePlaceOrder}
+                  >
+                    Place Order
+                  </button>
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light" />
+                </>
+                {/* <button
                   style={{ textAlign: "center" }}
                   onClick={(e) => handleSaveAddress(e)}
                   className="theme-btn-one btn-black-overlay btn_sm"
@@ -405,13 +436,13 @@ const Ship = () => {
                   draggable
                   pauseOnHover
                   theme="light"
-                  closeButton={false} />
+                  closeButton={false} /> */}
               </div>
             )}
 
           </form>
 
-        </div>
+        </div >
         <div className="ship-detail">
           <div className="ship-orders">
             <div className="order_review box-shadow bg-white">
@@ -508,7 +539,7 @@ const Ship = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 };
