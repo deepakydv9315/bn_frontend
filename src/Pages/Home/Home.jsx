@@ -129,7 +129,7 @@ const Home = () => {
               .filter(
                 (item) =>
                   item.name !== "Gym Bags" &&
-                  item.name !== "Shipper" &&
+                  item.name !== "Sipper" &&
                   item.name !== "T-Shirts"
               )
               .map((product, index) => (
@@ -166,7 +166,7 @@ const Home = () => {
                 <Card
                   products={products?.products.filter(
                     (product) =>
-                      !["Gym Bags", "Shipper", "T-Shirts"].some((category) =>
+                      !["Gym Bags", "Sipper", "T-Shirts"].some((category) =>
                         product.sellingCategory.includes(category)
                       )
                   )}
@@ -177,70 +177,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/*    <section className="bn-sec home-product">
-        <div className="sec-head">
-          Our <span>Merch</span>
-        </div>
-        <div className="home-pr-wrapper">
-          <div className="product-filter">
-            <div
-              onClick={handleAllProduct}
-              className={` pr-filter-item ${
-                activeFilter === "All" ? "item-active" : ""
-              }`}
-            >
-              All
-            </div>
-            {category
-              .filter((item) => item.name !== "Best Selling")
-              .map((product, index) => (
-                <div
-                  key={index}
-                  onClick={() => categoryChangeHandler(product.name)}
-                  className={` pr-filter-item  ${
-                    activeFilter === product.name ? "item-active" : ""
-                  }`}
-                >
-                  {product.name}
-                </div>
-              ))}
-          </div>
-
-          {isLoading ? (
-            <div
-              style={{
-                width: "30vw",
-                display: "flex",
-                marginTop: "10px",
-                fontSize: "20px",
-                fontStyle: "italic",
-                fontWeight: "600",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              Please Wait products are loading!!!
-            </div>
-          ) : (
-            <div className="spr-wrapper">
-              {products.products && products.products.length !== 0 ? (
-                <Slider {...settings}>
-                  {products.products.map((product) => (
-                  <div key={product.id}>
-                  <Card products={products?.products} />
-                  </div>
-                  ))}
-                </Slider>
-              ) : null}
-            </div>
-          )}
-        </div>
-      </section> */}
-
       {/* Our Merch */}
       {products && products.products && products.products.length !== 0 && (
         <OurMerch
-          showCategory={["T-Shirts", "Gym Bags", "Shipper"]}
+          showCategory={["T-Shirts", "Gym Bags", "Sipper"]}
           productList={products.products}
         />
       )}

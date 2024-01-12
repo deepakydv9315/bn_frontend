@@ -7,7 +7,7 @@ import Loader from "../../Components/Loader/Loader";
 import Swal from "sweetalert2";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 
-const ProductDetails = () => {
+const ProductDetails = (isShow = true) => {
   const params = useParams();
   const id = params.id;
 
@@ -18,9 +18,7 @@ const ProductDetails = () => {
     (state) => state.products
   );
   // const { carts } = useSelector((state) => state);
-
   const [isAddedOnCart, setIsAddedOnCart] = useState(false);
-
   const [selectedVariant, setSelectedVariant] = useState({});
   const [quantity, setQuantity] = useState(1);
 
@@ -143,7 +141,6 @@ const ProductDetails = () => {
 
             <div className="right-section">
               <div className="product-info">
-                {/* <div className="name">{product?.category}</div> */}
                 <p className="head">{product?.name}</p>
                 <div className="product-description-reviews">
                   <p>{product?.description}</p>
@@ -158,37 +155,84 @@ const ProductDetails = () => {
                   </span>
                 </div>
 
-                <div className="size-options">
-                  <div className="flavour">Flavour</div>
-                  <div className="btn-wrapper">
-                    <button
-                      className={`size-button ${product.productFlavour ? "selected" : ""
-                        }`}
-                    >
-                      {product.productFlavour}
-                    </button>
+                {product.productCategory === "T-Shirts" || product.productCategory === "Gym Bags" || product.productCategory === "Sipper" ? (
+                  <div className="size-options">
+                    <div className="flavour">Color</div>
+                    <div className="btn-wrapper">
+                      <button
+                        className={`size-button ${product.productFlavour ? "selected" : ""
+                          }`}
+                      >
+                        {product.productFlavour}
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="size-options">
-                  <div className="flavour">Weight</div>
-                  <div className="btn-wrapper">
-                    {product?.productDetails &&
-                      product?.productDetails?.map((data, index) => {
-                        return (
-                          <button
-                            key={index}
-                            className={`size-button ${data.weight === selectedVariant.weight
-                              ? "selected"
-                              : ""
-                              }`}
-                            onClick={() => setSelectedVariant(data)}
-                          >
-                            {data.weight}
-                          </button>
-                        );
-                      })}
+                ) : (
+                  <div className="size-options">
+                    <div className="flavour">Flavour</div>
+                    <div className="btn-wrapper">
+                      <button
+                        className={`size-button ${product.productFlavour ? "selected" : ""
+                          }`}
+                      >
+                        {product.productFlavour}
+                      </button>
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {
+                  product.productCategory === "T-Shirts" || product.productCategory === "Gym Bags" ? (
+                    <div className="size-options">
+                      <div className="flavour">Size</div>
+                      <div className="btn-wrapper">
+                        {product?.productDetails &&
+                          product?.productDetails?.map((data, index) => (
+                            <button
+                              key={index}
+                              className={`size-button ${data.weight === selectedVariant.weight ? "selected" : ""}`}
+                              onClick={() => setSelectedVariant(data)}
+                            >
+                              {data.weight}
+                            </button>
+                          ))}
+                      </div>
+                    </div>
+                  ) : product.productCategory === "Sipper" ? (
+                    <div className="size-options">
+                      <div className="flavour">Capacity</div>
+                      <div className="btn-wrapper">
+                        {product?.productDetails &&
+                          product?.productDetails?.map((data, index) => (
+                            <button
+                              key={index}
+                              className={`size-button ${data.capacity === selectedVariant.capacity ? "selected" : ""}`}
+                              onClick={() => setSelectedVariant(data)}
+                            >
+                              {data.weight}
+                            </button>
+                          ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="size-options">
+                      <div className="flavour">Weight</div>
+                      <div className="btn-wrapper">
+                        {product?.productDetails &&
+                          product?.productDetails?.map((data, index) => (
+                            <button
+                              key={index}
+                              className={`size-button ${data.weight === selectedVariant.weight ? "selected" : ""}`}
+                              onClick={() => setSelectedVariant(data)}
+                            >
+                              {data.weight}
+                            </button>
+                          ))}
+                      </div>
+                    </div>
+                  )
+                }
+
                 <div className="quantity">
                   <div className="quant">
                     <button onClick={handleDecrease}>-</button>
