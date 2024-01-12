@@ -232,6 +232,12 @@ function NewProduct() {
                   <option value={"Chocolate Caramel"}>Chocolate Caramel</option>
                   <option value={"Unflavoured"}>Unflavoured</option>
                   <option value={"Blueberry Muffin"}>Blueberry Muffin</option>
+                  <option value={"Red"}>Red</option>
+                  <option value={"Black"}>Black</option>
+                  <option value={"Blue"}>Blue</option>
+                  <option value={"Orange"}>Orange</option>
+                  <option value={"White"}>White</option>
+                  <option value={"Yellow"}>Yellow</option>
                 </select>
               </div>
             </div>

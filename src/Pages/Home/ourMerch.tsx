@@ -31,7 +31,7 @@ export default function OurMerch({ showCategory, productList }) {
 
   return (
     <>
-      <section className="bn-sec home-product">
+      <section className="bn-sec home-product merch-product">
         <div className="sec-head">
           Our <span>Merch</span>
         </div>

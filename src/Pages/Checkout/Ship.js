@@ -4,7 +4,7 @@ import { placeOrder } from "../../Redux/slices/orderSlice";
 import "./Ship.scss";
 import "./address.css";
 import "./Shipping.css";
-// import { navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux/slices/user";
 import swal from "sweetalert";
@@ -392,8 +392,7 @@ const Ship = () => {
                   onClick={(e) => handleSaveAddress(e)}
                   className="theme-btn-one btn-black-overlay btn_sm"
                 >
-                  {/* Save Now */}
-                  Proceed to Payment
+                  Save Now
                 </button>
                 <ToastContainer
                   position="top-right"

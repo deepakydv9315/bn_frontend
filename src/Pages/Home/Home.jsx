@@ -119,9 +119,8 @@ const Home = () => {
           <div className="product-filter">
             <div
               onClick={handleAllProduct}
-              className={` pr-filter-item ${
-                activeFilter === "All" ? "item-active" : ""
-              }`}
+              className={` pr-filter-item ${activeFilter === "All" ? "item-active" : ""
+                }`}
             >
               All
             </div>
@@ -136,9 +135,8 @@ const Home = () => {
                 <div
                   key={index}
                   onClick={() => categoryChangeHandler(product.name)}
-                  className={` pr-filter-item  ${
-                    activeFilter === product.name ? "item-active" : ""
-                  }`}
+                  className={` pr-filter-item  ${activeFilter === product.name ? "item-active" : ""
+                    }`}
                 >
                   {product.name}
                 </div>
@@ -158,7 +156,8 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              Please Wait products are loading!!!
+              {/* Please Wait products are  */}
+              Loading..
             </div>
           ) : (
             <div className="spr-wrapper">
@@ -247,6 +246,24 @@ const Home = () => {
 
       {/* goals */}
       <section className="bn-sec content-of-goal">
+        {/* <h4 className="sec-head">
+          Shop by <span>Goal</span>
+        </h4>
+        <div className="sec-para">
+          Get fit with precision. Explore now for the best results!
+        </div> */}
+        <div className="goals-section">
+          {products && products.products && products.products.length !== 0 && (
+            <OurMerch
+              showCategory={["Gym Bags", "Sipper", "T-Shirts"]}
+              productList={products.products}
+            />
+          )}
+        </div>
+
+      </section>
+
+      {/* <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
           Shop by <span>Goal</span>
         </h4>
@@ -256,7 +273,7 @@ const Home = () => {
         <div className="goals-section">
           <Goals />
         </div>
-      </section>
+      </section> */}
 
       {/* know our protein */}
 
