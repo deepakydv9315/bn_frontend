@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-
 import Card from "../../Components/Card/Card";
+
 export default function OurMerch({ showCategory, productList }) {
   const [products, setProducts] = useState([]);
-
   const [categories, setCategories] = useState(showCategory);
   const [activeFilter, setActiveFilter] = useState(showCategory[0]);
 

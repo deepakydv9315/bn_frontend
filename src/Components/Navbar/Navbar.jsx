@@ -1,8 +1,4 @@
-import {
-  AiOutlineShoppingCart,
-  AiOutlineUser,
-  // AiOutlineSearch,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -83,6 +79,7 @@ const Navbar = () => {
           <ul className="app__navbar-links">
             <Link to="/">HOME</Link>
             <Link to="/products">PRODUCTS</Link>
+            <Link to="/combo">COMBO</Link>
             <Link to="/blog">BLOGS</Link>
             <Link to="/about">ABOUT US</Link>
             <Link to="/contact">CONTACT US</Link>
@@ -121,6 +118,9 @@ const Navbar = () => {
                   </Link>
                   <Link to="/products" onClick={handleResponse}>
                     PRODUCTS
+                  </Link>
+                  <Link to="/combo" onClick={handleResponse}>
+                    COMBO
                   </Link>
                   <Link to="/about" onClick={handleResponse}>
                     ABOUT US
