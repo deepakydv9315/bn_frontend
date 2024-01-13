@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import Logo from "../../Assets/Images/Logo.png";
 import "./Navbar.scss";
-import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
+// import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import Cart from "../Cart/Cart";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import { Link, useNavigate } from "react-router-dom";

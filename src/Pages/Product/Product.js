@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./Product.scss";
 import Sidebar from "../../Components/Filter/Filter";
 import SearchBar from "../../Components/SearchBar/SearchBar";
@@ -8,7 +8,7 @@ import {
   getAllCategories,
 } from "../../../src/Redux/slices/productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Card from "../../Components/Card/Card";
 import product from "../../Assets/Images/pr.png";
 
@@ -17,10 +17,35 @@ export default function Product() {
   const { categoryname } = useParams();
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const { products, categories } = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.products);
   let category = useSelector((state) => state.products.categories);
-
   const { isLoading } = useSelector((state) => state.app);
+
+  const [productList, setProductList] = useState([]);
+
+  // ! To Get Query Params
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+  };
+
+  const query = useQuery();
+  const productUnder = query.get("under");
+
+  const filteredProduct = useMemo(() => {
+    if (productUnder > 0) {
+      return (
+        products?.products &&
+        products.products.length > 0 &&
+        products.products.filter(
+          (product) => product.productDetails[0].price <= productUnder
+        )
+      );
+    }
+  }, [productUnder, products.products]);
+
+  useEffect(() => {
+    setProductList(filteredProduct);
+  }, [filteredProduct]);
 
   // ! Code is Used To Fetch And Store Products
   useEffect(() => {
@@ -41,8 +66,7 @@ export default function Product() {
 
   const categoryChangeHandler = async (filterName) => {
     setActiveFilter(filterName);
-    let productCat = await dispatch(getAllProducts({ category: filterName }));
-    console.log("Product Cat ] + ", productCat);
+    await dispatch(getAllProducts({ category: filterName }));
   };
 
   return (
@@ -104,8 +128,9 @@ export default function Product() {
                 <div
                   style={{ padding: "10px", cursor: "pointer" }}
                   onClick={handleAllProduct}
-                  className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
-                    }`}
+                  className={`app__work-filter-item app__flex p-text ${
+                    activeFilter === "All" ? "item-active" : ""
+                  }`}
                 >
                   All
                 </div>
@@ -116,8 +141,9 @@ export default function Product() {
                       style={{ padding: "10px", cursor: "pointer" }}
                       key={index}
                       onClick={() => categoryChangeHandler(product.name)}
-                      className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
-                        }`}
+                      className={`app__work-filter-item app__flex p-text ${
+                        activeFilter === product.name ? "item-active" : ""
+                      }`}
                     >
                       {product.name}
                     </div>
@@ -141,8 +167,14 @@ export default function Product() {
                 </div>
               ) : (
                 <div className="spr-wrapper">
-                  {products.products && products.products.length !== 0 ? (
-                    <Card products={products?.products} />
+                  {products?.products && products.products.length !== 0 ? (
+                    <Card
+                      products={
+                        productList && productList.length > 0
+                          ? productList
+                          : products?.products
+                      }
+                    />
                   ) : null}
                 </div>
               )}

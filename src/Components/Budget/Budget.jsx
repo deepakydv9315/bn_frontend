@@ -10,17 +10,30 @@ const Card = ({ imageSrc, title }) => {
 };
 
 export default function Budget() {
+  const budgets = [
+    {
+      imageSrc: "https://i.ibb.co/0j0hZCp/2999.jpg",
+      link: "/products?under=2999",
+      title: "₹2999",
+    },
+    {
+      imageSrc: "https://i.ibb.co/0j0hZCp/2999.jpg",
+      link: "/products?under=3999",
+      title: "₹3999",
+    },
+    {
+      imageSrc: "https://i.ibb.co/0j0hZCp/2999.jpg",
+      link: "/products?under=4999",
+      title: "₹4999",
+    },
+  ];
   return (
     <div className="budgets-container">
-      <Link to={"/products"}>
-        <Card title="₹2999" />
-      </Link>
-      <Link to={"/products"}>
-        <Card title="₹3999" />
-      </Link>
-      <Link to={"/coming"}>
-        <Card title="₹4999" />
-      </Link>
+      {budgets.map((budget) => (
+        <Link to={budget.link}>
+          <Card imageSrc={budget.imageSrc} title={budget.title} />
+        </Link>
+      ))}
     </div>
   );
 }

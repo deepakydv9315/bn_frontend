@@ -216,7 +216,7 @@ const Ship = () => {
   return (
     <>
       <section className="bn-sec checkout-wrapper">
-
+        {/* Rest of your code */}
         <div className="ship-address">
           <h5 className="ship-tittle">Ship to</h5>
           <form
@@ -441,102 +441,7 @@ const Ship = () => {
           </form>
 
         </div >
-        <div className="ship-detail">
-          <div className="ship-orders">
-            <div className="order_review box-shadow bg-white">
-              <div className="check-heading">
-                <h3>Your Orders</h3>
-              </div>
-              {carts.length > 0 ? (
-                <div className="form-group">
-                  <label htmlFor="fname" style={{ marginTop: "20px" }}>
-                    Coupon Code :
-                  </label>
-                  {isApplied === true
-                    ? "Coupon Code Applied"
-                    : isApplied === false
-                      ? "Invalid Coupon Code"
-                      : ""}
-                  <input
-                    type="text"
-                    required={true}
-                    className="form-control"
-                    id="coupon"
-                    placeholder="Enter Coupon Code"
-                    name="coupon"
-                    onChange={handleChangeCoupon}
-                  />
-                  <button
-                    type="submit"
-                    style={{ marginTop: "10px" }}
-                    onClick={(e) => {
-                      HandleCoupon(e);
-                    }}
-                    className="theme-btn-one btn-black-overlay btn_sm"
-                  >
-                    Validate
-                  </button>
-                </div>
-              ) : null}
-
-              <div className="table-responsive order_table">
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th style={{ color: "black" }}>Product</th>
-                      <th style={{ color: "black" }}>Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {carts.map((data) => (
-                      <tr>
-                        <td>
-                          {data.name}
-                          <span className="product-qty">
-                            ({data.productDefaultPrice.quantity || 1})
-                          </span>
-                        </td>
-                        <td>
-                          ₹{data.productDefaultPrice.price} X (
-                          {data.productDefaultPrice.quantity || 1}) ={" "}
-                          {data.productDefaultPrice.price *
-                            (data.productDefaultPrice.quantity || 1)}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>SubTotal</th>
-                      <td className="product-subtotal">₹{cartTotal()}0</td>
-                    </tr>
-                    <tr>
-                      <th>Discount</th>
-                      <td>
-                        ₹
-                        {couponDetail.percent > 0 &&
-                          cartTotal() >= couponDetail.minRate
-                          ? (cartTotal() * couponDetail.percent) / 100
-                          : 0}
-
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Shipping</th>
-                      <td>Free Shipping</td>
-                    </tr>
-                    <tr>
-                      <th>Total</th>
-                      <td className="product-subtotal">
-                        ₹{applyDiscount(cartTotal())}
-                      </td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </section >
     </>
   );
