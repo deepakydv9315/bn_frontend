@@ -4,10 +4,8 @@ import { placeOrder } from "../../Redux/slices/orderSlice";
 import "./Ship.scss";
 import "./address.css";
 import "./Shipping.css";
-import { navigate } from '@reach/router';
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux/slices/user";
-import swal from "sweetalert";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -95,7 +93,7 @@ const Ship = () => {
           name: billingInfo.name,
           email: billingInfo.email,
           phone: billingInfo.phone,
-          mobile: billingInfo.phone, // Assuming you want to use the same for mobile
+          mobile: billingInfo.phone,
           address: billingInfo.address,
           city: billingInfo.city,
           state: billingInfo.state,
@@ -149,9 +147,9 @@ const Ship = () => {
         } else {
           setCouponDetail((prevState) => ({
             ...prevState,
-            code: "DefaultCouponCode", // Set a default coupon code
-            minRate: 0, // Set a default minimum rate
-            percent: 0, // Set a default discount percentage
+            code: "DefaultCouponCode",
+            minRate: 0,
+            percent: 0,
           }));
 
           // Optionally, you can show an error message to the user
@@ -161,7 +159,6 @@ const Ship = () => {
 
           // You can also update the 'applied' state accordingly, depending on your logic
           setApplied(false);
-
         }
       }
     } catch (error) {
@@ -170,6 +167,7 @@ const Ship = () => {
   };
 
   const applyDiscount = (subtotal) => {
+    
     if (cartTotal() >= couponDetail.minRate) {
       const discountAmount = (subtotal * couponDetail.percent) / 100;
       return subtotal - discountAmount;
@@ -218,7 +216,7 @@ const Ship = () => {
   return (
     <>
       <section className="bn-sec checkout-wrapper">
-        {/* Rest of your code */}
+
         <div className="ship-address">
           <h5 className="ship-tittle">Ship to</h5>
           <form

@@ -56,6 +56,7 @@ import ComingSoon from "./Pages/ComingSoon/ComingSoon";
 import ScrollToTop from "./utils/ScrollToTop";
 import { getUserDetail } from "./Redux/slices/user";
 import { useDispatch } from "react-redux";
+import Combo from "./Pages/Combo/Combo";
 import React from "react";
 
 function App() {
@@ -69,34 +70,34 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route element={<RequireUser type={"admin"} />}>
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/products" element={<ProductList />} />
-          <Route path="/admin/product/create" element={<CreateProduct />} />
-          <Route path="/admin/product/:id" element={<UpdateProduct />} />
+        {/* <Route element={<RequireUser type={"admin"} />}> */}
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/products" element={<ProductList />} />
+        <Route path="/admin/product/create" element={<CreateProduct />} />
+        <Route path="/admin/product/:id" element={<UpdateProduct />} />
 
-          <Route path="/admin/categories/create" element={<CreateCategory />} />
-          <Route path="/admin/categories" element={<Categories />} />
-          <Route path="/admin/category/:id" element={<UpdateCategory />} />
+        <Route path="/admin/categories/create" element={<CreateCategory />} />
+        <Route path="/admin/categories" element={<Categories />} />
+        <Route path="/admin/category/:id" element={<UpdateCategory />} />
 
-          <Route path="/admin/users" element={<UserList />} />
+        <Route path="/admin/users" element={<UserList />} />
 
-          <Route path="/admin/pincodes" element={<Pincodes />} />
-          <Route path="/admin/pincodes/create" element={<CreatePincode />} />
-          <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
+        <Route path="/admin/pincodes" element={<Pincodes />} />
+        <Route path="/admin/pincodes/create" element={<CreatePincode />} />
+        <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
 
-          <Route path="/admin/header" element={<HeaderOffer />} />
+        <Route path="/admin/header" element={<HeaderOffer />} />
 
-          <Route path="/admin/coupons" element={<CouponList />} />
-          <Route path="/admin/coupon/create" element={<CreateCoupon />} />
-          <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
+        <Route path="/admin/coupons" element={<CouponList />} />
+        <Route path="/admin/coupon/create" element={<CreateCoupon />} />
+        <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
 
-          <Route path="/admin/orders" element={<Orders />} />
+        <Route path="/admin/orders" element={<Orders />} />
 
-          <Route path="/admin/blog/create" element={<CreateBlog />} />
-          <Route path="/admin/blogs" element={<Blogs />} />
-          <Route path="/admin/blog/:id" element={<UpdateBlog />} />
-        </Route>
+        <Route path="/admin/blog/create" element={<CreateBlog />} />
+        <Route path="/admin/blogs" element={<Blogs />} />
+        <Route path="/admin/blog/:id" element={<UpdateBlog />} />
+        {/* </Route> */}
       </Routes>
       <Routes>
         <Route element={<RequireUser type="user" />}>
@@ -108,6 +109,7 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/" element={<><ScrollToTop /> <Home /></>} />
+        <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
         <Route path="/invoice" element={<Invoice />} />
         <Route
