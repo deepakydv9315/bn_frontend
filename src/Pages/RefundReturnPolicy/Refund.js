@@ -4,31 +4,35 @@ import "./Refund.scss";
 const RefundPolicy = () => {
     return (
         <div className="refund-policy bn-sec contain-bg">
-            <h1 className='title1'>Return & Refund Policy</h1>
-            <h4 className='title1 sub-title'><span>Return Policy</span></h4>
-            <p className='sec-para'>
-                Our teams work hard to deliver you a product of elevated design and quality in a timely manner.
-                However, in case you receive a product from us that is damaged or defective, or if the product
-                delivered is different from what you had ordered, you may request a return.
-                For all returns, the product must be unused, unwashed and in sellable condition.
-                It must be in its original packaging with all its original tags and labels intact.
-                <b> All returns must be made within 7 days(If you have unboxing video) of the product’s actual date of delivery. </b>
-                If a product return is requested, the returns will be picked within 4-7 working days.
-                In case of returns, the refunds will be credited to your account within 10-14 working days.
-                Discounted products can not be returned.
-                Note: Burly Nutrition does not provide exchange of products.
-                If a customer wants to exchange, they must return the product and then place a new order.
+            <h1>Return & Refund Policy</h1>
+            <p>
+                <b>Return & Refund Policy </b>
+                <p>
+                    Our teams work hard to deliver you a product of elevated design and quality in a timely manner. However, sometimes the products may not be able to deliver in appropriate manner. Therefore, we will accept return requests in the following conditions –
+                </p>
+                <p>
+                    1. The product is damaged <br></br>
+                    2. The product is expired<br></br>
+                    3. The product is different from what you ordered
+                    <br></br><br></br>
+                </p>
+                <b>
+                    Prerequisites for demanding a return –
+                </b>
             </p>
-            <br></br>
-            <h4 className='title1'><span>Refund Policy</span></h4>
+            1.	Reason to return must be among the among mentioned reasons <br></br>
+            2.	You must have an unboxing video of the delivery packet <br></br>
+            3.	The product must be unused, unwashed and in sellable condition <br></br>
+            4.	The product must be in its original packaging with all its original tags and labels intact <br></br>
+            5.	The time of delivery must not be more than 72 hrs than the time of request for return <br></br> 
             <p className='sec-para'>
-                Refund will be initiated only if the product is no more in stock with us or the product
-                has manufacturing defect which will be checked by Burly Nutrition quality team.
-                The refund process will initiate within 2 working days of receiving the request at our Head Office
-                (Plot No.119, 120 qutub vihar Ph-1, Dwarka sec-19, Delhi-110071)
-                & as soon as refund approval from quality team is received.
-                Refunds will be credited back to customer account,
-                within 10-14 days of initiation of refund which is dependent on the mode of payment.
+                <b>
+                Procedure to return –
+                </b> <br></br>
+                1.	If you fulfil all the criteria’s mentioned above & your reason to return is among the listed reasons then you must drop a mail at burlynutrition@gmail.com along with your order Id, explanation of the issue, 2 pics of the product (1 front angle & 1 top angle) & the video of unboxing. <br></br>
+                2.	After you have mailed, our team will take 72 hours to review the request. You will receive a mail in the next 24 hours informing about the approval or rejection of your request. <br></br>
+                3.	If the request is approved then the product will be picked from your address within 3 working days. <br></br>
+                4.	Then after the team has received the product & is satisfied with the condition then the amount that you have paid will be refunded to the source account within 10-14 working days.
             </p>
         </div>
     );
