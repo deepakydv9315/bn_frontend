@@ -45,7 +45,7 @@ function Card({ products, isShow = true }) {
       {products &&
         products.map((product, index) => {
           return (
-            <div key={index} className="product-card">
+            <div key={index} className="product-card" >
               <div className="badge">
                 <span className="badge_top">
                   {(
@@ -68,15 +68,15 @@ function Card({ products, isShow = true }) {
                   onClick={() => handleImageClick(product._id)}
                 />
               </div>
-              <div className="product-card-details">
-                <p className="product-card-name">{product.name}</p>
+              <div className="product-card-details" >
+                <p className="product-card-name" onClick={() => handleImageClick(product._id)}>{product.name}</p>
                 {isShow ? (
-                  <p className="product-card-title">
+                  <p className="product-card-title" onClick={() => handleImageClick(product._id)}>
                     {product?.productDetails[0].weight} |{" "}
                     {product?.productFlavour}
                   </p>
                 ) : null}
-                <div className="space">
+                <div className="space" onClick={() => handleImageClick(product._id)}>
                   <p className="product-card-price">
                     ₹{product.productDetails[0].mrPrice}
                   </p>
