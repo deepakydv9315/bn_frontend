@@ -33,14 +33,14 @@ const Home = () => {
       <div className="image-with-text-container">
         <img src={bg} alt="YourImage" className="image" />
         <div className="text" style={{ marginBottom: "-40px" }}>
-          All <span> Combo's</span>
+          All <span> Combos</span>
         </div>
       </div>
 
       {/* combos */}
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
-          Our <span>Combo's</span>
+          Our <span>Combos</span>
         </h4>
         <p className="sec-para">
           A great deal has value for money, supplements and thus health.
