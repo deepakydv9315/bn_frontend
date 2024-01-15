@@ -29,7 +29,6 @@ function Cart() {
     return total.toFixed(2);
   };
 
-
   // On Load Add Product In Cart From Local Storage
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cartItems"));

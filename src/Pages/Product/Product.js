@@ -78,7 +78,7 @@ export default function Product() {
         </div>
       </div>
 
-      <section className="contain" style={{ padding: "0px" }}>
+      <section className="contain sec-level" style={{ padding: "0px" }} >
         <div className="app">
           <section className="content-of-goal">
             <div className="sec-head">
