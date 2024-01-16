@@ -7,6 +7,8 @@ import Loader from "../../Components/Loader/Loader";
 import Swal from "sweetalert2";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import ReactImageMagnify from 'react-image-magnify';
+import VegIcon from '../../Assets/Images/veg.png';
+
 const ProductDetails = (isShow = true) => {
   const params = useParams();
   const id = params.id;
@@ -112,11 +114,18 @@ const ProductDetails = (isShow = true) => {
     Navigate("/checkout");
   };
 
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleHover = () => {
-    setIsHovered(!isHovered);
+  const smallImageStyle = {
+    alt: 'Main Product',
+    src: mainImage,
+    width: 450,
+    height: 400,
   };
+
+  const isSmallScreen = window.innerWidth <= 468; // Adjust the screen width as needed
+  if (isSmallScreen) {
+    smallImageStyle.width = 280; // Set the width for small screens
+    smallImageStyle.height = 300; // Set the height for small screens
+  }
 
   return (
     <Fragment>
@@ -127,19 +136,16 @@ const ProductDetails = (isShow = true) => {
           <div className="pr-detail-top">
             <div className="left-section">
               <div className="main-product-image">
-                <ReactImageMagnify {...{
-                  smallImage: {
-                    alt: 'Main Product',
+                <ReactImageMagnify
+                  smallImage={smallImageStyle}
+                  largeImage={{
                     src: mainImage,
-                    isFluidWidth: true
-                  },
-                  largeImage: {
-                    src: mainImage,
-                    width: 1000,
-                    height: 1500
-                  },
-                  enlargedImagePosition: "over"
-                }} />
+                    width: 1400,
+                    height: 1500,
+                  }}
+                  enlargedImagePosition="right"
+                />
+                <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
                 <div className="add-img-wrapper">
                   {selectedVariant &&
                     selectedVariant.images &&
@@ -159,20 +165,32 @@ const ProductDetails = (isShow = true) => {
 
             <div className="right-section">
               <div className="product-info">
+                <p className="name">{product?.productCategory}</p>
                 <p className="head">{product?.name}</p>
                 <div className="product-description-reviews">
                   <p>{product?.description}</p>
                 </div>
                 <div className="price">
                   <span className="mrp" style={{ display: "flex" }}>
-                    ₹{selectedVariant.mrPrice}
+                    MRP: ₹{selectedVariant.mrPrice}
                   </span>
-                  &nbsp; &nbsp;
+                  {/* &nbsp; &nbsp; */}
                   <span className="discounted-price">
-                    ₹{selectedVariant.price}
+                    Price: ₹{selectedVariant.price}&nbsp;
+                    {/* <div style={{ fontSize: "10px" }}>
+                      ({(
+                        ((product.productDetails[0].mrPrice -
+                          product.productDetails[0].price) /
+                          product.productDetails[0].mrPrice) *
+                        100
+                      ).toFixed(0)}
+                      % OFF)
+                    </div> */}
+
                   </span>
                 </div>
-
+                <p className="name" style={{ marginTop: "-20px" }}>Excluding all Taxes</p>
+                <br></br>
                 {product.productCategory === "T-Shirts" || product.productCategory === "Gym Bags" || product.productCategory === "Sipper" ? (
                   <div className="size-options">
                     <div className="flavour">Color</div>
