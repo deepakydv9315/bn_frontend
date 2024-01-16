@@ -24,11 +24,14 @@ import { useDispatch, useSelector } from "react-redux";
 import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
 import OurMerch from "./ourMerch.tsx";
 import Combo from "./Combo.tsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsappSquare } from "@fortawesome/free-brands-svg-icons";
 
 const Home = () => {
   const { categoryname } = useParams();
   let category = useSelector((state) => state.products.categories);
   const [activeFilter, setActiveFilter] = useState("All");
+  const whatsappNumber = "1234567890";
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
@@ -115,7 +118,7 @@ const Home = () => {
       </div>
 
       {/* products */}
-      <section className="bn-sec home-product">
+      <section className="bn-sec home-product sec-level">
         <div className="sec-head">
           Just <span>Launched</span>
         </div>
@@ -318,6 +321,17 @@ const Home = () => {
       {/* <div className="info-grid">
           <InfoGrid />
         </div> */}
+
+      {/* WhatsApp icon */}
+      <div className="whatsapp-icon">
+        <a
+          href={`https://wa.me/${whatsappNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon icon={faWhatsappSquare} size="3x" color="#25D366" />
+        </a>
+      </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { getProductDetail } from "../../Redux/slices/productSlice";
 import Loader from "../../Components/Loader/Loader";
 import Swal from "sweetalert2";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
-
+import ReactImageMagnify from 'react-image-magnify';
 const ProductDetails = (isShow = true) => {
   const params = useParams();
   const id = params.id;
@@ -112,6 +112,12 @@ const ProductDetails = (isShow = true) => {
     Navigate("/checkout");
   };
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(!isHovered);
+  };
+
   return (
     <Fragment>
       {isLoading ? (
@@ -121,7 +127,19 @@ const ProductDetails = (isShow = true) => {
           <div className="pr-detail-top">
             <div className="left-section">
               <div className="main-product-image">
-                <img src={mainImage} alt="Main Product" />
+                <ReactImageMagnify {...{
+                  smallImage: {
+                    alt: 'Main Product',
+                    src: mainImage,
+                    isFluidWidth: true
+                  },
+                  largeImage: {
+                    src: mainImage,
+                    width: 1000,
+                    height: 1500
+                  },
+                  enlargedImagePosition: "over"
+                }} />
                 <div className="add-img-wrapper">
                   {selectedVariant &&
                     selectedVariant.images &&
