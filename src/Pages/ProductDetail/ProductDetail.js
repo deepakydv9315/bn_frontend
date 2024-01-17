@@ -145,7 +145,10 @@ const ProductDetails = (isShow = true) => {
                   }}
                   enlargedImagePosition="right"
                 />
-                <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
+                {/* <img src={VegIcon} alt="Veg Icon" className="veg-icon" /> */}
+                {product.productCategory === "Burly Whey" || product.productCategory === "Creatine" ? (
+                  <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
+                ) : null}
                 <div className="add-img-wrapper">
                   {selectedVariant &&
                     selectedVariant.images &&
