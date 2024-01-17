@@ -11,6 +11,7 @@ import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import bg from "../../Assets/Images/bn_banner_1.png";
 import bg1 from "../../Assets/Images/bn_banner_2.png";
 import bg2 from "../../Assets/Images/bn-banner03.png";
+import waIcon from "../../Assets/Images/wa.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -120,7 +121,7 @@ const Home = () => {
       {/* products */}
       <section className="bn-sec home-product sec-level">
         <div className="sec-head">
-          Just <span>Launched</span>
+            Our <span>Products</span>
         </div>
         <div className="home-pr-wrapper">
           <div className="product-filter">
@@ -292,7 +293,7 @@ const Home = () => {
 
       {/* combos sec  */}
 
-      <section className="sec-combo">
+      {/* <section className="sec-combo">
         <div className="sec-combo-heading bn-sec">
           <h4 className="sec-head">
             Shop by <span>Level</span>
@@ -304,7 +305,7 @@ const Home = () => {
         <div className="img-slider">
           <Carousel />
         </div>
-      </section>
+      </section> */}
 
       <section className="blog bn-sec sec-blog">
         <h4 className="sec-head">
@@ -325,11 +326,16 @@ const Home = () => {
       {/* WhatsApp icon */}
       <div className="whatsapp-icon">
         <a
-          href={`https://wa.me/${whatsappNumber}`}
+          href={`https://wa.me/${9540378443}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faWhatsappSquare} size="3x" color="#25D366" />
+          <img
+              src={waIcon}
+              alt="whatsapp icon"
+              // style={{ height: "100px" }}
+            />
+          {/* <FontAwesomeIcon icon={faWhatsappSquare} size="3x" color="#25D366" /> */}
         </a>
       </div>
     </div>
