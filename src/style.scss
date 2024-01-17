@@ -4,11 +4,14 @@
 // font rubik  and cookie
 @import url("https://fonts.googleapis.com/css2?family=Cookie&family=Rubik:wght@300;400;500;600;700&display=swap");
 
+// font mont
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {

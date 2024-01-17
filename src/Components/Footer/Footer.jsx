@@ -1,109 +1,177 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
 import Master from "../../Assets/svgs/master.svg";
 import AmericanExpress from "../../Assets/svgs/american_express.svg";
 import DinersClub from "../../Assets/svgs/diners_club.svg";
 import Maestro from "../../Assets/svgs/maestro.svg";
 import Visa from "../../Assets/svgs/visa.svg";
-import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsYoutube, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Subscribed with email:", email);
-    setEmail("");
-  };
 
   return (
-    <footer>
-      <div className="bn-sec top">
-        <div className="pages">
-          <ul>
-            <h3>EXPLORE</h3>
-            <li>
-              <Link to="/about">Track Order</Link>
-            </li>
-            <li>
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              <Link to="/about">Contact Us</Link>
-            </li>
-            <li>
-              <Link to="/about">Terms & Conditions</Link>
-            </li>
-            <li>
-              <Link to="/about">Privacy Policy</Link>
-            </li>
-            <li>
-              <Link to="/about">Frequently Asked Questions on Whey</Link>
-            </li>
-            <li>
-              <Link to="/about">Terms of Service</Link>
-            </li>
-            <li>
-              <Link to="/about">Return & Refund Policy</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="newsletter">
-          <h4>100% Safe & Secure payments:</h4>
-          <div className="payment-cards">
-            <img src={Master} alt="Master" />
-            <img src={AmericanExpress} alt="American Express" />
-            <img src={DinersClub} alt="Donirs CLub" />
-            <img src={Maestro} alt="MaestroCard" />
-            <img src={Visa} alt="Visa" />
+    <footer className="bn-sec">
+      <div className="top f-top">
+        <div className="ft-link-sec">
+          <div className="link-sec-head">
+            Quick Links
           </div>
-          <br></br>
-          <h4>Quick Links</h4>
-          <div className="social__icon">
-            <a
-              href="https://www.facebook.com/burlynutrition.in"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsFacebook />
-            </a>
+          <div className="link-sec-link">
+            <span><Link to="/about">Contact Us</Link></span>
+            <span><Link to="/about">About Us</Link></span>
+            <span><Link to="/about">Our Blogs</Link></span>
+            <span><Link to="/about">Lab Reports</Link></span>
+            <span><Link to="/about">Terms of Service</Link></span>
+            <span><Link to="/about">Why Burly Nutrition</Link></span>
+            <span><Link to="/about">Refund & Return Policy</Link></span>
+          </div>
+        </div>
+        <div className="ft-link-sec">
+          <div className="link-sec-head">
+            Products
+          </div>
+          <div className="link-sec-link">
+            <span><Link to="/about">Whey Protein</Link></span>
+            <span><Link to="/about">Burly Creatine</Link></span>
+            <span><Link to="/about">Duffle Bags</Link></span>
+            <span><Link to="/about">Shakers</Link></span>
+            <span><Link to="/about">Our Combos</Link></span>
+            <span><Link to="/about">Our Bestsellers</Link></span>
+          </div>
+        </div>
 
-            <a
-              href="https://www.instagram.com/burlynutrition_"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsInstagram />
-            </a>
+        <div className="ft-link-sec ft-contact">
+          <div className="link-sec-head">
+            Contact us
+          </div>
+          <div className="link-sec-link">
+            <span className="sec-link-head">
+              <div>
+                <span className="ft-l-head">Call us at:</span>
+                <span className="ft-l-text">(11:00 AM - 6:00 PM)</span>
+              </div>
+              <div className="ft-l-content">9315022990</div>
+            </span>
 
-            <a
-              href="https://www.youtube.com/@BurlyNutrition"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsYoutube />
-            </a>
+            <span className="sec-link-head">
+              <div>
+                <span className="ft-l-head">Mail us at:</span>
+              </div>
+              <div className="ft-l-content">burlynutrition@gmail.com | support@burlynutrition.com</div>
+            </span>
+
+            <span className="sec-link-head">
+              <div>
+                <span className="ft-l-head">WhatsApp Messaging:</span>
+              </div>
+              <div className="ft-l-content">Mon to Fri (9:30 AM - 6:30 PM)
+                <br />
+                Please note: No calls will be entertained on WhatsApp</div>
+            </span>
+          </div>
+        </div>
+        <div className="ft-link-sec ft-contact">
+          {/* <div className="link-sec-head">
+            Contact us
+          </div> */}
+          <div className="link-sec-link">
+            <div className="ft-text">
+              Follow us on:
+            </div>
+            <div className="ft-social">
+
+              {/* facebook  */}
+              <a
+                href="https://www.facebook.com/burlynutrition.in"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsFacebook />
+              </a>
+
+              {/* instagram  */}
+              <a
+                href="https://www.instagram.com/burlynutrition_"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsInstagram />
+              </a>
+
+              {/* youtube  */}
+              <a
+                href="https://www.youtube.com/@BurlyNutrition"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsYoutube />
+              </a>
+
+              {/* linkedin */}
+              <a
+                href="https://www.youtube.com/@BurlyNutrition"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsLinkedin />
+              </a>
+
+              {/* twiter */}
+              <a
+                href="https://www.youtube.com/@BurlyNutrition"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsTwitter />
+              </a>
+            </div>
+          </div>
+          <div className="link-sec-link">
+            <div className="ft-text">
+              100% Safe & Secure Payments:
+            </div>
+            <div className="payment-cards">
+              <img src={Master} alt="Master" />
+              <img src={AmericanExpress} alt="American Express" />
+              <img src={DinersClub} alt="Donirs CLub" />
+              <img src={Maestro} alt="MaestroCard" />
+              <img src={Visa} alt="Visa" />
+            </div>
           </div>
         </div>
       </div>
-      <div className="bottom">
-        <div className="copyright">Burly Nutrition &copy; 2024</div>
-        <div className="develop">
-          Designed & Developed by &nbsp;
-          <span>
-            <a
-              href="https://www.instagram.com/analyassist/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Analy Assist{" "}
-            </a>
-          </span>
+
+
+      <div className="f-btm">
+        <div className="f-btm-top">
+          All Burly Nutrition products are manufactured at FSSAI approved manufacturing facilities and are not intended to diagnose, treat, cure, or prevent any Disease
+        </div>
+        <div className="f-btm-btm">
+          <div className="copyright">
+            <span>
+              Burly Nutrition&copy; 2024
+            </span>
+            <span> | </span>
+            <span className="ft-link">
+              <Link to="/about"> T&C</Link>
+
+              <span> | </span>
+              <Link to="/about">Privacy Policy</Link>
+            </span>
+          </div>
+          <div className="develop">
+            Designed & Developed by &nbsp;
+            <span className="ft-link">
+              <a
+                href="https://www.instagram.com/analyassist/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Analy Assist{" "}
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
