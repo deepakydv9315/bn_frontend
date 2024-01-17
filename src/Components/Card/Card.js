@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import VegIcon from '../../Assets/Images/veg.png';
 
 function Card({ products, isShow = true }) {
   const navigate = useNavigate();
@@ -68,12 +67,7 @@ function Card({ products, isShow = true }) {
                   alt={product.name}
                   onClick={() => handleImageClick(product._id)}
                 />
-                {/* <FontAwesomeIcon
-                  icon={faLeaf}
-                  className="veg-icon"
-                  size="1x"
-                  color="#4CAF50"
-                /> */}
+                <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
               </div>
               <div className="product-card-details" >
                 <p className="product-card-name" onClick={() => handleImageClick(product._id)}>{product.name}</p>
