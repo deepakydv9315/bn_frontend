@@ -314,12 +314,12 @@ const Ship = () => {
           </div>
         </div>
         <div className="ship-address">
-          <h5 className="ship-tittle">Ship to</h5>
+          <h5 className="ship-tittle">Billing Details</h5>
           <form
             className="ship-form"
             onSubmit={(e) => handleShippingSubmit(e)}
           >
-            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+            {/* <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className="form-group">
                 <label htmlFor="fname">Select from your saved addresses</label>
                 <br />
@@ -346,8 +346,9 @@ const Ship = () => {
                 </select>
 
               </div>
-            </div>
+            </div> */}
 
+            {/* name  */}
             <div className="input-group">
               <div className="input-label">Full Name*</div>
               <input
@@ -368,6 +369,7 @@ const Ship = () => {
                 required
               />
             </div>
+            {/* email  */}
             <div className="input-group">
               <div className="input-label">Email*</div>
               <input
@@ -378,6 +380,7 @@ const Ship = () => {
                 required
               />
             </div>
+            {/* street address  */}
             <div className="input-group">
               <div className="input-label">Street Address*</div>
               <input
@@ -388,6 +391,8 @@ const Ship = () => {
                 required
               />
             </div>
+
+            {/* state  */}
             <div className="input-group ig">
               <div className="ig-1">
                 <div className="input-label">State*</div>
@@ -399,6 +404,7 @@ const Ship = () => {
                   required
                 />
               </div>
+              {/* pincode  */}
               <div className="ig-1">
                 <div className="input-label">Pincode Code*</div>
                 <input
@@ -426,6 +432,20 @@ const Ship = () => {
                 <input type="text" value="India" required disabled />
               </div>
             </div>
+
+            <div className="radio-group">
+              <div className="input-group">
+                <input type='radio' name="payment" value="cod"></input>
+                <div className="input-label radio-label">Cash on Devivery</div>
+              </div>
+              <div className="input-group">
+                <input type='radio' name="payment" value="paid"></input>
+                <div className="input-label radio-label">Proceed to Payment</div>
+              </div>
+            </div>
+
+
+
             {/* <div className="input-group checkbox">
               <input type="checkbox" />
               <div>Save my Address</div>

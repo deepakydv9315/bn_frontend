@@ -1,28 +1,29 @@
 .top__nav {
-  padding: 5px 40px 3px 20px;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 35px;
+  height: 40px;
   background-color: #ffd626;
 
   .header-sale {
     color: #121212;
     margin: 0;
-    animation: slideIn 20s linear infinite;
-    @media (max-width: 767px) {
-      animation: slideIn 10s linear infinite;
-    }
+    // animation: slideIn 20s linear infinite;
+    // @media (max-width: 767px) {
+    //   animation: slideIn 10s linear infinite;
+    // }
   }
 
-  @keyframes slideIn {
-    from {
-      transform: translateX(350%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
+  // @keyframes slideIn {
+  //   from {
+  //     transform: translateX(350%);
+  //   }
+  //   to {
+  //     transform: translateX(-100%);
+  //   }
+  // }
 
   @media (max-width: 767px) {
     @keyframes slideIn {
@@ -35,14 +36,19 @@
     }
   }
 
-  .social__icon {
-    .track_order {
-      color: #121212;
-      font-size: small;
-    }
-    svg {
-      color: #121212;
-      margin-left: 20px;
+  .ft-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 8px;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      background-color: black;
+      padding: 6px;
+      color: white;
       font-size: 15px;
       cursor: pointer;
     }

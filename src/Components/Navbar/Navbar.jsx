@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import Logo from "../../Assets/Images/Logo.png";
 import "./Navbar.scss";
-// import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsYoutube, BsLinkedin, BsTwitter } from "react-icons/bs";
 import Cart from "../Cart/Cart";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -41,11 +41,12 @@ const Navbar = () => {
 
   return (
     <div className="wrapper__nav ">
-      <div className="top__nav nav-contain">
+      <div className="top__nav nav-contain bn-sec">
         <p className="header-sale">
-          Use Coupon Code <b>"BURLYNEW"</b> to get 5% off on all orders
+          Use <b>"BURLYNEW"</b> for extra 5% off
         </p>
-        {/* <div className="social__icon">
+        <div className="ft-social">
+          {/* facebook  */}
           <a
             href="https://www.facebook.com/burlynutrition.in"
             target="_blank"
@@ -54,6 +55,7 @@ const Navbar = () => {
             <BsFacebook />
           </a>
 
+          {/* instagram  */}
           <a
             href="https://www.instagram.com/burlynutrition_"
             target="_blank"
@@ -62,6 +64,7 @@ const Navbar = () => {
             <BsInstagram />
           </a>
 
+          {/* youtube  */}
           <a
             href="https://www.youtube.com/@BurlyNutrition"
             target="_blank"
@@ -69,7 +72,25 @@ const Navbar = () => {
           >
             <BsYoutube />
           </a>
-        </div> */}
+
+          {/* linkedin */}
+          <a
+            href="https://www.youtube.com/@BurlyNutrition"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsLinkedin />
+          </a>
+
+          {/* twiter */}
+          <a
+            href="https://www.youtube.com/@BurlyNutrition"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsTwitter />
+          </a>
+        </div>
       </div>
       <nav className="navbar-items nav-contain">
         <div className="container nav__container">

@@ -13,64 +13,7 @@ const Footer = () => {
   return (
     <footer className="bn-sec">
       <div className="top f-top">
-        <div className="ft-link-sec">
-          <div className="link-sec-head">
-            Quick Links
-          </div>
-          <div className="link-sec-link">
-            <span><Link to="/about">Contact Us</Link></span>
-            <span><Link to="/about">About Us</Link></span>
-            <span><Link to="/about">Our Blogs</Link></span>
-            <span><Link to="/about">Lab Reports</Link></span>
-            <span><Link to="/about">Terms of Service</Link></span>
-            <span><Link to="/about">Why Burly Nutrition</Link></span>
-            <span><Link to="/about">Refund & Return Policy</Link></span>
-          </div>
-        </div>
-        <div className="ft-link-sec">
-          <div className="link-sec-head">
-            Products
-          </div>
-          <div className="link-sec-link">
-            <span><Link to="/about">Whey Protein</Link></span>
-            <span><Link to="/about">Burly Creatine</Link></span>
-            <span><Link to="/about">Duffle Bags</Link></span>
-            <span><Link to="/about">Shakers</Link></span>
-            <span><Link to="/about">Our Combos</Link></span>
-            <span><Link to="/about">Our Bestsellers</Link></span>
-          </div>
-        </div>
-
-        <div className="ft-link-sec ft-contact">
-          <div className="link-sec-head">
-            Contact us
-          </div>
-          <div className="link-sec-link">
-            <span className="sec-link-head">
-              <div>
-                <span className="ft-l-head">Call us at:</span>
-                <span className="ft-l-text">(11:00 AM - 6:00 PM)</span>
-              </div>
-              <div className="ft-l-content">9315022990</div>
-            </span>
-
-            <span className="sec-link-head">
-              <div>
-                <span className="ft-l-head">Mail us at:</span>
-              </div>
-              <div className="ft-l-content">burlynutrition@gmail.com | support@burlynutrition.com</div>
-            </span>
-
-            <span className="sec-link-head">
-              <div>
-                <span className="ft-l-head">WhatsApp Messaging:</span>
-              </div>
-              <div className="ft-l-content">Mon to Fri (9:30 AM - 6:30 PM)
-                <br />
-                Please note: No calls will be entertained on WhatsApp</div>
-            </span>
-          </div>
-        </div>
+        {/* follow and payments  */}
         <div className="ft-link-sec ft-contact">
           {/* <div className="link-sec-head">
             Contact us
@@ -140,6 +83,67 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        {/* quick links  */}
+        <div className="ft-link-sec">
+          <div className="link-sec-head">
+            Quick Links
+          </div>
+          <div className="link-sec-link">
+            <span><Link to="/about">Contact Us</Link></span>
+            <span><Link to="/about">About Us</Link></span>
+            <span><Link to="/about">Our Blogs</Link></span>
+            <span><Link to="/about">Lab Reports</Link></span>
+            <span><Link to="/about">Terms of Service</Link></span>
+            <span><Link to="/about">Why Burly Nutrition</Link></span>
+            <span><Link to="/about">Refund & Return Policy</Link></span>
+          </div>
+        </div>
+        {/* products  */}
+        <div className="ft-link-sec">
+          <div className="link-sec-head">
+            Products
+          </div>
+          <div className="link-sec-link">
+            <span><Link to="/about">Whey Protein</Link></span>
+            <span><Link to="/about">Burly Creatine</Link></span>
+            <span><Link to="/about">Duffle Bags</Link></span>
+            <span><Link to="/about">Shakers</Link></span>
+            <span><Link to="/about">Our Combos</Link></span>
+            <span><Link to="/about">Our Bestsellers</Link></span>
+          </div>
+        </div>
+        {/* contact us  */}
+        <div className="ft-link-sec ft-contact">
+          <div className="link-sec-head">
+            Contact us
+          </div>
+          <div className="link-sec-link">
+            <span className="sec-link-head">
+              <div>
+                <span className="ft-l-head">Call us at:</span>
+                <span className="ft-l-text">(11:00 AM - 6:00 PM)</span>
+              </div>
+              <div className="ft-l-content">9315022990</div>
+            </span>
+
+            <span className="sec-link-head">
+              <div>
+                <span className="ft-l-head">Mail us at:</span>
+              </div>
+              <div className="ft-l-content">burlynutrition@gmail.com | support@burlynutrition.com</div>
+            </span>
+
+            <span className="sec-link-head">
+              <div>
+                <span className="ft-l-head">WhatsApp Messaging:</span>
+              </div>
+              <div className="ft-l-content">Mon to Fri (9:30 AM - 6:30 PM)
+                <br />
+                Please note: No calls will be entertained on WhatsApp</div>
+            </span>
+          </div>
+        </div>
+
       </div>
 
 
