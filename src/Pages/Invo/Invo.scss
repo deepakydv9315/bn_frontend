@@ -1,0 +1,111 @@
+.invoice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+
+  .invoice {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        font-size: 24px;
+        color: #333;
+      }
+
+      .invoice-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 14px;
+
+        div {
+          margin-bottom: 5px;
+
+          strong {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+
+    section {
+      margin-top: 20px;
+
+      .client-details {
+        h2 {
+          font-size: 18px;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        div {
+          margin-bottom: 5px;
+
+          strong {
+            margin-right: 5px;
+          }
+        }
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+
+        th,
+        td {
+          border: 1px solid #ccc;
+          padding: 10px;
+          text-align: left;
+        }
+
+        th {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+
+    foot {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+
+      .subtotal,
+      .discount,
+      .total {
+        margin-left: 20px;
+        font-size: 16px;
+
+        strong {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

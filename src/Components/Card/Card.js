@@ -67,7 +67,7 @@ function Card({ products, isShow = true }) {
                   alt={product.name}
                   onClick={() => handleImageClick(product._id)}
                 />
-                {product.productCategory === "Burly Whey" || product.productCategory === "Creatine" ? (
+                {product.productCategory === "Burly Whey" || product.productCategory === "Creatine" || product.productCategory === "Combo" ? (
                   <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
                 ) : null}
               </div>

@@ -58,6 +58,7 @@ import { getUserDetail } from "./Redux/slices/user";
 import { useDispatch } from "react-redux";
 import Combo from "./Pages/Combo/Combo";
 import React from "react";
+import Invo from "./Pages/Invo/Invo.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -109,6 +110,7 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/" element={<><ScrollToTop /> <Home /></>} />
+        <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
         <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
         <Route path="/invoice" element={<Invoice />} />
