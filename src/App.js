@@ -59,6 +59,11 @@ import { useDispatch } from "react-redux";
 import Combo from "./Pages/Combo/Combo";
 import React from "react";
 import Invo from "./Pages/Invo/Invo.js";
+import Burly from "./Pages/Product/Burlywhey";
+import Creatine from "./Pages/Product/Creatine.js";
+import Bags from "./Pages/Product/Bags.js";
+import Tshirts from "./Pages/Product/Tshirts.js";
+import Shekar from "./Pages/Product/Shekar.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -110,6 +115,11 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/" element={<><ScrollToTop /> <Home /></>} />
+        <Route path="/burly" element={<><ScrollToTop /> <Burly /></>} />
+        <Route path="/creatine" element={<><ScrollToTop /> <Creatine /></>} />
+        <Route path="/bags" element={<><ScrollToTop /> <Bags /></>} />
+        <Route path="/tshirts" element={<><ScrollToTop /> <Tshirts /></>} />
+        <Route path="/shekar" element={<><ScrollToTop /> <Shekar /></>} />
         <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
         <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />

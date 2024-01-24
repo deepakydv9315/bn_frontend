@@ -5,10 +5,22 @@ import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import Logo from "../../Assets/Images/Logo.png";
 import "./Navbar.scss";
-import { BsFacebook, BsInstagram, BsYoutube, BsLinkedin, BsTwitter } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsInstagram,
+  BsYoutube,
+  BsLinkedin,
+  BsTwitter,
+} from "react-icons/bs";
 import Cart from "../Cart/Cart";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import { Link, useNavigate } from "react-router-dom";
+import p1 from "../../Assets/Images/main.png";
+import shekar from "../../Assets/Images/shekar.jpg";
+import bag from "../../Assets/Images/bag.jpg";
+import shirt from "../../Assets/Images/tshirt.jpg";
+import creatine from "../../Assets/Images/creatine.jpg";
+import whey from "../../Assets/Images/whey.jpg";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -37,6 +49,20 @@ const Navbar = () => {
   };
   const handleResponse = () => {
     setToggle(false);
+  };
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const handleHover = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleLeave = () => {
+    setDropdownVisible(false);
+  };
+
+  const handleClick = () => {
+    setDropdownVisible(!dropdownVisible);
   };
 
   return (
@@ -99,7 +125,60 @@ const Navbar = () => {
           </div>
           <ul className="app__navbar-links">
             <Link to="/">HOME</Link>
-            <Link to="/products">PRODUCTS</Link>
+            <div className="navbar">
+              <div
+                className="nav-link"
+                onMouseEnter={handleHover}
+                onMouseLeave={handleLeave}
+                onClick={handleClick}
+              >
+                PRODUCTS
+                {dropdownVisible && (
+                  <div className="dropdown">
+                    <a href="/burly">
+                      <img
+                        src={whey}
+                        alt="Burly Product"
+                        style={{ borderRadius: "50%" }}
+                      />
+                      <span>Burly Whey</span>
+                    </a>
+                    <a href="/creatine">
+                      <img
+                        src={creatine}
+                        alt="Burly Product"
+                        style={{ borderRadius: "50%" }}
+                      />
+                      <span>Creatine</span>
+                    </a>
+                    <a href="/tshirts">
+                      <img
+                        src={shirt}
+                        alt="Burly Product"
+                        style={{ borderRadius: "50%" }}
+                      />
+                      <span>T-Shirts</span>
+                    </a>
+                    <a href="/shekar">
+                      <img
+                        src={shekar}
+                        alt="Burly Product"
+                        style={{ borderRadius: "50%" }}
+                      />
+                      <span>Shekar</span>
+                    </a>
+                    <a href="/bags">
+                      <img
+                        src={bag}
+                        alt="Burly Product"
+                        style={{ borderRadius: "50%" }}
+                      />
+                      <span>Gym Bags</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
             <Link to="/combo">COMBO</Link>
             <Link to="/blog">BLOGS</Link>
             <Link to="/about">ABOUT US</Link>

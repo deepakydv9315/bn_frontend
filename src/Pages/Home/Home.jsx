@@ -25,6 +25,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
 import OurMerch from "./ourMerch.tsx";
 import Combo from "./Combo.tsx";
+import InfoGrid from "../../Components/InfoGrid/InfoGrid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsappSquare } from "@fortawesome/free-brands-svg-icons";
 
@@ -258,15 +259,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* <section className="bn-sec fitness-bracket">
-        <h4 className="sec-head">
-          Our <span>Merch</span>
-        </h4>
-        <p className="sec-para">
-          Get fasionable merches
-        </p>
-        </section> */}
-
       {/* goals */}
       <section className="bn-sec content-of-goal">
         <h4 className="sec-head">
@@ -319,9 +311,9 @@ const Home = () => {
         </Link>
       </section>
 
-      {/* <div className="info-grid">
+      <div className="info-grid">
           <InfoGrid />
-        </div> */}
+        </div>
 
       {/* WhatsApp icon */}
       <div className="whatsapp-icon">
