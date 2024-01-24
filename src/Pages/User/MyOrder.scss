@@ -6,7 +6,7 @@
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 100vh;
 
     // @media screen and (max-width: 950px) {
     //   height: 110vh;
@@ -24,7 +24,7 @@
     // }
 
     #productListHeading {
-      font: 400 2rem "Roboto";
+      // font: 400 2rem "";
       margin-top: 20px;
       box-sizing: border-box;
       color: rgba(0, 0, 0, 0.637);
@@ -35,7 +35,7 @@
 
     .order-section {
       // padding: 20px;
-
+        width: 90%;
       .order-categories {
         display: flex;
         justify-content: space-between;

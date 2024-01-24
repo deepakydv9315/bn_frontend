@@ -42,6 +42,7 @@ export const createUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   "/api/v1/auth/me/update",
   async (body, thunkAPI) => {
+    console.log(body);
     try {
       thunkAPI.dispatch(setLoading(true));
       const response = await axiosClient.put("/api/v1/auth/me/update", body);
@@ -189,6 +190,20 @@ export const updatePassword = createAsyncThunk(
   }
 );
 
+//Get userOrders: @dev kunal
+export const getUserOrders = createAsyncThunk("/api/v1/auth/me/orders",  async (body, thunkAPI) => {
+  
+  try {
+    thunkAPI.dispatch(setLoading(true));
+    const response = await axiosClient.put(`/api/v1/auth/me/orders`, body);
+    return await response.data;
+  } catch (e) {
+    console.log(e.response.data);
+    return Promise.reject(e);
+  } finally {
+    thunkAPI.dispatch(setLoading(false));
+  }
+})
 //Load User:
 
 // User Slice

@@ -34,6 +34,8 @@ export default function Form() {
   const onSubmit = async (data) => {
     const signupRes = await dispatch(createUser(data));
     console.log("signup Response : ", signupRes);
+    console.log(signupRes.payload);
+    
     if (signupRes.payload.success) {
       toast.success("🦄 Registration successful!", { position: "top-right" });
       dispatch(clearError());

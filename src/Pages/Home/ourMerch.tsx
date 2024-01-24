@@ -6,9 +6,9 @@ export default function OurMerch({ showCategory, productList }) {
   const [categories, setCategories] = useState(showCategory);
   const [activeFilter, setActiveFilter] = useState(showCategory[0]);
 
-  console.log("Categories >>> ", categories);
-  console.log("Active Filter >>> ", activeFilter);
-  console.log("Products List >>> ", productList);
+  // console.log("Categories >>> ", categories);
+  // console.log("Active Filter >>> ", activeFilter);
+  // console.log("Products List >>> ", productList);
 
   // ?  Filter Products Based on Category
   useEffect(() => {

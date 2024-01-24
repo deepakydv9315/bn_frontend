@@ -1,12 +1,23 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import "./MyOrder.scss";
 import SideBar from "./Sidebar";
 import { useSelector, useDispatch } from "react-redux";
+import { getUserOrders } from "../../Redux/slices/user";
 
 const ProductList = ({ history }) => {
-  console.log("MyOrder");
+  const [MyOrders, setMyOrders] = useState([]);
 
-  let carts = useSelector((state) => state.products.carts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetching = async () => {
+      const orders = await dispatch(getUserOrders());
+      setMyOrders(orders.payload.result);
+    };
+    fetching();
+  }, []);
+
+  console.log(MyOrders);
 
   return (
     <Fragment>
@@ -17,21 +28,16 @@ const ProductList = ({ history }) => {
           <div className="order-section">
             <hr />
             <div className="order-list">
-              {carts.map((data) => (
+              {MyOrders.map((data) => (
                 <div key={data.id} className="order-item">
                   <div className="order-details">
                     <div className="order-info">
-                      <p>
-                        Order Placed: {data.datePlaced} {"|"}
-                      </p>
-                      <p>
-                        Total Price: ₹{data.price} X ({data.quantity || 1}) ={" "}
-                        {data.price * (data.quantity || 1)} {"|"}
-                      </p>
-                      <p>ORDER ID: {data.id}</p>
+                      <p>ORDER ID: {data.orderId}</p>
                     </div>
                     <div className="order-status">
-                      <p>Status: {data.status}</p>
+                      <p>
+                        Total Price: ₹{data.totalPrice}
+                      </p>
                     </div>
                   </div>
                   <div className="product">
@@ -43,7 +49,15 @@ const ProductList = ({ history }) => {
                       </div>
                     </div>
                     <div className="order-actions">
-                      <button>View Invoice</button>
+                      {/* <button>View Invoice</button> */}
+                    </div>
+                    <div className="order-actions">
+                      <a
+                        href={`https://shiprocket.co/tracking/order/${data.orderId}?company_id=3946029`}
+                        target="_blank"
+                      >
+                        <button>Track Order</button>
+                      </a>
                     </div>
                   </div>
                 </div>

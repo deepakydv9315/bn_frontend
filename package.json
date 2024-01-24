@@ -29,11 +29,10 @@
     "font-awesome": "^4.7.0",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.1",
+    "fs": "^0.0.1-security",
     "html2canvas": "^1.4.1",
     "js-cookie": "^3.0.5",
-    "jspdf": "^2.5.1",
     "line": "^0.1.8",
-    "pdfjs-dist": "^2.10.377",
     "react": "^18.2.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
@@ -64,12 +63,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [

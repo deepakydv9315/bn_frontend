@@ -36,6 +36,7 @@ function NewProduct() {
     description: "",
     longDescription: "",
   });
+
   const { success, error, message } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.categories);
 
@@ -134,8 +135,8 @@ function NewProduct() {
 
   const createProductImagesChange = (e, index) => {
     console.log("index", index);
-    if (index < 0 || index > 3) {
-      console.log("Invalid index. Index must be between 0 and 2.");
+    if (index < 0 || index > 4) {
+      console.log("Invalid index. Index must be between 0 and 3.");
       return;
     }
 
@@ -148,7 +149,6 @@ function NewProduct() {
     reader.onload = () => {
       if (reader.readyState === 2) {
         imagePreview[index] = reader.result;
-
         setProductDetails((preState) => ({
           ...preState,
           images: imagePreview,
@@ -168,7 +168,9 @@ function NewProduct() {
           className="add_product_form"
           onSubmit={(e) => createProductSubmitHandler(e)}
         >
-          <h3 className="adminhead">Create<span> Product</span></h3>
+          <h3 className="adminhead">
+            Create<span> Product</span>
+          </h3>
           <div className="row cp-wrapper">
             <div className="cp-row">
               {/* product name  */}
@@ -210,11 +212,9 @@ function NewProduct() {
                   onChange={handleChange}
                 >
                   <option>---Select Category---</option>
-                  {categories.map((item, index) => (
-                    <option key={item._id} value={item.name}>
-                      {item.name}
-                    </option>
-                  ))}
+
+                  <option value="bestSelling">Best Selling</option>
+                  <option value="newLaunch">New Launch</option>
                 </select>
               </div>
 
@@ -353,6 +353,26 @@ function NewProduct() {
                       )}
                     </label>
                   </div>
+
+                  <div className="image-input">
+                    <input
+                      onChange={(e) => createProductImagesChange(e, 3)}
+                      type="file"
+                      accept="image/*"
+                      id="imageInputFour"
+                      name="imageFour"
+                    />
+                    <label htmlFor="imageInputFour" className="cp-img-pw ">
+                      {/* Choose image */}
+                      {imagesPreview.length > 1 && (
+                        <img
+                          src={imagesPreview[3]}
+                          className="img-pw"
+                          alt="img"
+                        />
+                      )}
+                    </label>
+                  </div>
                 </div>
               </div>
 
@@ -424,7 +444,6 @@ function NewProduct() {
                   required
                   onChange={handleChange}
                 />
-
               </div>
               <div className="cp-input-group">
                 <label htmlFor="product_desc">Long Description</label>

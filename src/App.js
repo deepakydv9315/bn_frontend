@@ -113,7 +113,7 @@ function App() {
         <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
         <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
-        <Route path="/invoice" element={<Invoice />} />
+        {/* <Route path="/invoice/:id" element={<Invoice />} /> */}
         <Route
           path="/coming"
           element={
