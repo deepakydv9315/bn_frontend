@@ -121,7 +121,7 @@ const Home = () => {
       {/* products */}
       <section className="bn-sec home-product sec-level">
         <div className="sec-head">
-            Our <span>Products</span>
+          Our <span>Products</span>
         </div>
         <div className="home-pr-wrapper">
           <div className="product-filter">
@@ -131,7 +131,7 @@ const Home = () => {
                 activeFilter === "All" ? "item-active" : ""
               }`}
             >
-              All
+              Best Selling
             </div>
             {category
               .filter(
@@ -331,10 +331,10 @@ const Home = () => {
           rel="noopener noreferrer"
         >
           <img
-              src={waIcon}
-              alt="whatsapp icon"
-              // style={{ height: "100px" }}
-            />
+            src={waIcon}
+            alt="whatsapp icon"
+            // style={{ height: "100px" }}
+          />
           {/* <FontAwesomeIcon icon={faWhatsappSquare} size="3x" color="#25D366" /> */}
         </a>
       </div>
