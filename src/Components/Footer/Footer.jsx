@@ -123,7 +123,7 @@ const Footer = () => {
                 <span className="ft-l-head">Call us at:</span>
                 <span className="ft-l-text">(11:00 AM - 6:00 PM)</span>
               </div>
-              <div className="ft-l-content">9315022990</div>
+              <div className="ft-l-content">+91 9540378443</div>
             </span>
 
             <span className="sec-link-head">

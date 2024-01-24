@@ -88,49 +88,15 @@ export default function Product() {
               Get fit with precision. Explore now for the best results!
             </div>
           </section>
-          {/* <Sidebar
-            filters={filters}
-            selectedFilters={selectedFilters}
-            handleFilterChange={handleFilterChange}
-          /> */}
           <div className="main-content">
-            {/* <div className="top-bar">
-              <div className="search-bar">
-                
-                 <SearchBar
-                  searchQuery={searchQuery}
-                  setSearchQuery={setSearchQuery}
-                 />
-               
-              </div>
-            </div> */}
-            {/* <div className="filters">
-              <div className="product-count">
-                {products.products
-                  ? `${products.products.length} Products`
-                  : ""}
-              </div>
-              <div className="sort-by">
-                <select
-                  value={sortBy}
-                  onChange={(e) => handleSortChange(e.target.value)}
-                >
-                  <option value="">Sort By</option>
-                  <option value="lowToHigh">Price: Low to High</option>
-                  <option value="highToLow">Price: High to Low</option>
-                </select>
-              </div>
-            </div> */}
             <br></br>
-
             <div className="container menu__container">
               <div className="product-filter">
                 <div
                   style={{ padding: "10px", cursor: "pointer" }}
                   onClick={handleAllProduct}
-                  className={`app__work-filter-item app__flex p-text ${
-                    activeFilter === "All" ? "item-active" : ""
-                  }`}
+                  className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? "item-active" : ""
+                    }`}
                 >
                   All
                 </div>
@@ -141,9 +107,8 @@ export default function Product() {
                       style={{ padding: "10px", cursor: "pointer" }}
                       key={index}
                       onClick={() => categoryChangeHandler(product.name)}
-                      className={`app__work-filter-item app__flex p-text ${
-                        activeFilter === product.name ? "item-active" : ""
-                      }`}
+                      className={`app__work-filter-item app__flex p-text ${activeFilter === product.name ? "item-active" : ""
+                        }`}
                     >
                       {product.name}
                     </div>
@@ -179,10 +144,6 @@ export default function Product() {
                 </div>
               )}
             </div>
-
-            {/* {products.products && products.products.length !== 0 ? (
-              <Card products={products?.products} />
-            ) : null} */}
           </div>
         </div>
       </section>
