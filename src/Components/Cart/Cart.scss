@@ -10,7 +10,7 @@
   height: 100vh;
   z-index: 11;
   flex-direction: column;
-  transition: var(--transition);
+  transition: all 0.3s ease-in;
 
   .top__cart-section {
     position: sticky;
