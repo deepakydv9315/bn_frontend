@@ -66,20 +66,20 @@
     }
   }
 
-  .whatsapp-icon {
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    z-index: 1000; /* Ensure it appears above other elements if needed */
-  }
+  // .whatsapp-icon {
+  //   position: fixed;
+  //   bottom: 25px;
+  //   right: 20px;
+  //   z-index: 1000; /* Ensure it appears above other elements if needed */
+  // }
 
-  .whatsapp-icon img {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px; /* Adjust the size as needed */
-    border-radius: 50%; /* Optional: make it circular */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
-    cursor: pointer;
-  }
+  // .whatsapp-icon img {
+  //   width: 50px; /* Adjust the size as needed */
+  //   height: 50px; /* Adjust the size as needed */
+  //   border-radius: 50%; /* Optional: make it circular */
+  //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  //   cursor: pointer;
+  // }
 }
 
 .custom-prev-arrow,

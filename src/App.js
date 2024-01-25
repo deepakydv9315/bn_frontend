@@ -63,7 +63,7 @@ import Burly from "./Pages/Product/Burlywhey";
 import Creatine from "./Pages/Product/Creatine.js";
 import Bags from "./Pages/Product/Bags.js";
 import Tshirts from "./Pages/Product/Tshirts.js";
-import Shekar from "./Pages/Product/Shekar.js";
+import Shaker from "./Pages/Product/Shaker.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -119,7 +119,7 @@ function App() {
         <Route path="/creatine" element={<><ScrollToTop /> <Creatine /></>} />
         <Route path="/bags" element={<><ScrollToTop /> <Bags /></>} />
         <Route path="/tshirts" element={<><ScrollToTop /> <Tshirts /></>} />
-        <Route path="/shekar" element={<><ScrollToTop /> <Shekar /></>} />
+        <Route path="/shaker" element={<><ScrollToTop /> <Shaker /></>} />
         <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
         <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />

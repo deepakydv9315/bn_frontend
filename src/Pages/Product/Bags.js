@@ -42,9 +42,9 @@ const Home = (product) => {
         <h4 className="sec-head">
           Gym <span>Bags </span>
         </h4>
-        <p className="sec-para">
+        {/* <p className="sec-para">
           A great deal has value for money, supplements and thus health.
-        </p>
+        </p> */}
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
             <Burly showCategory={["Gym Bags"]} productList={products.products} />

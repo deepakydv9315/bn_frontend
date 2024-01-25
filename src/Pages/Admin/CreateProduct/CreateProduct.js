@@ -13,11 +13,14 @@ import { RxCross1 } from "react-icons/rx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { useAlert } from "react-alert";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function NewProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // ? Need To Work Here
+  
   const [productDetails, setProductDetails] = useState({
     sku: "",
     weight: 0,
@@ -26,7 +29,9 @@ function NewProduct() {
     mrPrice: 0,
     price: 0,
   });
+
   const [imagesPreview, setImagesPreview] = useState([]);
+
   const [productData, setProductData] = useState({
     name: "",
     productCategory: "",
@@ -67,6 +72,7 @@ function NewProduct() {
     setImagesPreview([]);
 
     // ! Need To Work Here
+    console.log(success);
 
     if (success) {
       toast.success("Product Added Successfully", { position: "top-right" });
@@ -78,15 +84,15 @@ function NewProduct() {
     }
   };
 
-  useEffect(() => {
-    console.log("[Product Data] => ", productData);
-  }, [productData]);
-  useEffect(() => {
-    console.log("[Product Details] => ", productDetails);
-  }, [productDetails]);
-  useEffect(() => {
-    console.log("[Images Privew] => ", imagesPreview, imagesPreview.length);
-  }, [imagesPreview]);
+  // useEffect(() => {
+  //   console.log("[Product Data] => ", productData);
+  // }, [productData]);
+  // useEffect(() => {
+  //   console.log("[Product Details] => ", productDetails);
+  // }, [productDetails]);
+  // useEffect(() => {
+  //   console.log("[Images Privew] => ", imagesPreview, imagesPreview.length);
+  // }, [imagesPreview]);
 
   useEffect(() => {
     if (success) {
@@ -445,8 +451,18 @@ function NewProduct() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="cp-input-group">
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "1pc" }}
+              >
                 <label htmlFor="product_desc">Long Description</label>
+                <ReactQuill
+                  value={productData.longDescription}
+                  onChange={(e) => {
+                    setProductData({ ...productData, longDescription: e });
+                  }}
+                />
+              </div>
+              {/* <div className="cp-input-group">
                 <textarea
                   rows={5}
                   cols={12}
@@ -455,7 +471,7 @@ function NewProduct() {
                   placeholder="Enter Long Description"
                   onChange={handleChange}
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className="cp-row">
@@ -477,7 +493,6 @@ function NewProduct() {
                 />
               </div>
             </div>
-
             {/* <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img

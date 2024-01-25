@@ -316,7 +316,7 @@ const Home = () => {
         </div>
 
       {/* WhatsApp icon */}
-      <div className="whatsapp-icon">
+      {/* <div className="whatsapp-icon">
         <a
           href={`https://wa.me/${9540378443}`}
           target="_blank"
@@ -325,11 +325,9 @@ const Home = () => {
           <img
             src={waIcon}
             alt="whatsapp icon"
-            // style={{ height: "100px" }}
           />
-          {/* <FontAwesomeIcon icon={faWhatsappSquare} size="3x" color="#25D366" /> */}
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

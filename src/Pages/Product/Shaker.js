@@ -40,11 +40,11 @@ const Home = (product) => {
       {/* combos */}
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
-          Shekar <span> </span>
+          BN <span>Shaker</span>
         </h4>
-        <p className="sec-para">
+        {/* <p className="sec-para">
           A great deal has value for money, supplements and thus health.
-        </p>
+        </p> */}
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
             <Burly showCategory={["Sipper"]} productList={products.products} />

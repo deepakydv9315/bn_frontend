@@ -349,7 +349,7 @@ const ProductDetails = (isShow = true) => {
           </div>
           <div className="pr-detail-btm">
             <h4 className="head">About {product?.name}</h4>
-            <p>{product?.longDescription}</p>
+            <p dangerouslySetInnerHTML={{ __html: product?.longDescription }} />
           </div>
         </div>
       )}

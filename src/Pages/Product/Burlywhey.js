@@ -38,13 +38,13 @@ const Home = (product) => {
       </div> */}
 
       {/* combos */}
-      <section className="bn-sec sec-level ">
+      <section className="bn-sec sec-level p-page ">
         <h4 className="sec-head">
-          Burly <span>Whey </span>
+          Burly Whey Protein
         </h4>
-        <p className="sec-para">
-          A great deal has value for money, supplements and thus health.
-        </p>
+        {/* <p className="sec-para">
+        Burly Whey Protein is crafted exclusively for fitness and muscle-building champions who want their protein supplement to be as effective as their efforts. It is scientifically designed with Enhanced Absorption Formula (EAF®) to maximize the bioavailability of protein for the Indian bodies. It’s a part of BN’s pioneering innovation- the BURLY WHEY series.
+        </p> */}
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
             <Burly showCategory={["Burly Whey"]} productList={products.products} />

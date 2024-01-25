@@ -1,3 +1,43 @@
+.whatsapp-icon {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  z-index: 1000;
+  /* Ensure it appears above other elements if needed */
+}
+
+.whatsapp-icon img {
+  width: 50px;
+  /* Adjust the size as needed */
+  height: 50px;
+  /* Adjust the size as needed */
+  border-radius: 50%;
+  /* Optional: make it circular */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Optional: add a subtle shadow */
+  cursor: pointer;
+}
+
+.app__navbar-links{
+  padding: 2px;
+  a{
+    border-bottom: 1px solid transparent;
+    padding-bottom:5px;
+    &:hover{
+      border-bottom: 1px solid #ffd626;
+    }
+  }
+  .navbar{
+    .nav-link{
+        border-bottom: 1px solid transparent;
+        padding-bottom:5px;
+        &:hover{
+          border-bottom: 1px solid #ffd626;
+        }
+    }
+  }
+}
+
 .top__nav {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
@@ -17,6 +57,7 @@
       from {
         transform: translateX(130%);
       }
+
       to {
         transform: translateX(-100%);
       }
@@ -28,6 +69,7 @@
     justify-content: center;
     align-items: center;
     gap: 0px 8px;
+
     a {
       display: flex;
       justify-content: center;
@@ -77,6 +119,7 @@ nav {
       gap: 40px;
       font-size: 14px;
       font-weight: 300;
+
       li {
         list-style: none;
 
@@ -100,12 +143,13 @@ nav {
         color: #fff;
         cursor: pointer;
 
+
         &:hover .dropdown {
           display: flex;
         }
 
         .dropdown {
-          width: 270px;
+          width: 350px;
           display: flex;
           justify-content: flex-start;
           align-items: flex-start;
@@ -115,29 +159,38 @@ nav {
           position: absolute;
           top: 85%;
           left: 0;
-          background-color: #323232;
-          padding: 10px;
+          background-color: #212321;
+          padding: 10px 10px;
           border-radius: 4px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
-          span {
-            color: white;
-          }
+          // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
           a {
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            gap: 5px 10px;
             justify-content: center;
+            border: none !important;
             align-items: center;
             color: #000000;
             text-decoration: none;
-            padding: 30px;
-            width: 40px;
-            height: 115px;
+            // padding: 30px;
+            // width: 40px;
+            // height: 115px;
 
             img {
-              width: 50px; // Adjust the width as needed
-              height: 50px; // Adjust the height as needed
+              width: 70px; // Adjust the width as needed
+              height: 70px; // Adjust the height as needed
               // margin-right: 10px; // Adjust the spacing between image and text
+              transition: all 0.1s linear;
+              &:hover{
+                transform: scale(1.005);
+                border: 0.5px solid white;
+              }
+            }
+
+            span {
+              color: white;
             }
           }
         }
@@ -158,6 +211,7 @@ nav {
         font-size: 20px;
         cursor: pointer;
       }
+
       @media screen and (max-width: 1000px) {
         display: none;
       }
@@ -223,6 +277,7 @@ nav {
       color: #313bac;
       margin: 0.5rem 1rem;
     }
+
     ul {
       list-style: none;
       margin: 0;
@@ -254,15 +309,18 @@ nav {
       display: none;
     }
   }
+
   @media screen and (min-width: 1000px) {
     display: none;
   }
 }
+
 .responsive__menu {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
   svg {
     color: white;
   }
@@ -284,6 +342,7 @@ nav {
       font-size: 11px !important;
       color: #121212;
     }
+
     .social__icon {
       svg {
         color: #121212;

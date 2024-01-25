@@ -21,6 +21,7 @@ import bag from "../../Assets/Images/bag.jpg";
 import shirt from "../../Assets/Images/tshirt.jpg";
 import creatine from "../../Assets/Images/creatine.jpg";
 import whey from "../../Assets/Images/whey.jpg";
+import waIcon from "../../Assets/Images/wa.png";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,20 @@ const Navbar = () => {
 
   return (
     <div className="wrapper__nav ">
+      <div className="whatsapp-icon">
+        <a
+          href={`https://wa.me/${9540378443}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={waIcon}
+            alt="whatsapp icon"
+          />
+        </a>
+      </div>
+
+
       <div className="top__nav nav-contain bn-sec">
         <p className="header-sale">
           Use <b>"BURLYNEW"</b> for extra 5% off
@@ -141,7 +156,7 @@ const Navbar = () => {
                         alt="Burly Product"
                         style={{ borderRadius: "50%" }}
                       />
-                      <span>Burly Whey</span>
+                      <span>Proteins</span>
                     </a>
                     <a href="/creatine">
                       <img
@@ -159,13 +174,13 @@ const Navbar = () => {
                       />
                       <span>T-Shirts</span>
                     </a>
-                    <a href="/shekar">
+                    <a href="/shaker">
                       <img
                         src={shekar}
                         alt="Burly Product"
                         style={{ borderRadius: "50%" }}
                       />
-                      <span>Shekar</span>
+                      <span>Shaker</span>
                     </a>
                     <a href="/bags">
                       <img
@@ -179,10 +194,10 @@ const Navbar = () => {
                 )}
               </div>
             </div>
-            <Link to="/combo">COMBO</Link>
+            <Link to="/combo">COMBOS</Link>
             <Link to="/blog">BLOGS</Link>
             <Link to="/about">ABOUT US</Link>
-            <Link to="/contact">CONTACT US</Link>
+            {/* <Link to="/contact">CONTACT US</Link> */}
           </ul>
           <div className="right">
             {/* <AiOutlineSearch /> */}
@@ -220,7 +235,7 @@ const Navbar = () => {
                     PRODUCTS
                   </Link>
                   <Link to="/combo" onClick={handleResponse}>
-                    COMBO
+                    COMBOS
                   </Link>
                   <Link to="/about" onClick={handleResponse}>
                     ABOUT US
