@@ -433,7 +433,7 @@ const Ship = () => {
               </div>
             </div>
 
-            <div className="radio-group">
+            {/* <div className="radio-group">
               <div className="input-group">
                 <input type='radio' name="payment" value="cod"></input>
                 <div className="input-label radio-label">Cash on Devivery</div>
@@ -442,7 +442,7 @@ const Ship = () => {
                 <input type='radio' name="payment" value="paid"></input>
                 <div className="input-label radio-label">Proceed to Payment</div>
               </div>
-            </div>
+            </div> */}
 
 
 

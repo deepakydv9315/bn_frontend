@@ -116,7 +116,7 @@ const Navbar = () => {
 
           {/* linkedin */}
           <a
-            href="https://www.youtube.com/@BurlyNutrition"
+            href="https://www.linkedin.com/company/burly-nutrition/"
             target="_blank"
             rel="noreferrer"
           >
@@ -125,7 +125,7 @@ const Navbar = () => {
 
           {/* twiter */}
           <a
-            href="https://www.youtube.com/@BurlyNutrition"
+            href="https://twitter.com/BurlyNutrition"
             target="_blank"
             rel="noreferrer"
           >
