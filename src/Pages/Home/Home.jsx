@@ -37,7 +37,6 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
-
   const { isLoading } = useSelector((state) => state.app);
 
   const CustomPrevArrow = (props) => (
@@ -75,11 +74,6 @@ const Home = () => {
     autoplay: true,
     autoplaySpeed: 5000,
   };
-
-  // const isInCart = (productId) => {
-  //   console.log(typeof productId);
-  //   return carts?.some((item) => item._id === productId);
-  // };
 
   useEffect(() => {
     if (categoryname) {
@@ -128,7 +122,7 @@ const Home = () => {
           <div className="product-filter">
             <div
               onClick={handleAllProduct}
-              className={` pr-filter-item ${
+              className={`pr-filter-item ${
                 activeFilter === "All" ? "item-active" : ""
               }`}
             >
@@ -168,7 +162,6 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              {/* Please Wait products are  */}
               Loading..
             </div>
           ) : (
@@ -312,8 +305,8 @@ const Home = () => {
       </section>
 
       <div className="info-grid">
-          <InfoGrid />
-        </div>
+        <InfoGrid />
+      </div>
 
       {/* WhatsApp icon */}
       {/* <div className="whatsapp-icon">

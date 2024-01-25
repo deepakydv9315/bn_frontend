@@ -6,11 +6,11 @@
   justify-content: flex-start;
   background-color: white;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  transform: translateX(100%);
+  transform: translateX(0);
   height: 100vh;
   z-index: 11;
   flex-direction: column;
-  transition: all 0.3s ease-in;
+  transition: transform 0.3s ease-in;
 
   .top__cart-section {
     position: sticky;
@@ -84,11 +84,11 @@
       color: #231918;
       background-color: #fbff00;
       cursor: pointer;
-      transition: color 0.3s ease; /* Smooth transition effect on color change */
+      transition: color 0.3s ease;
 
       &:hover {
         background-color: #231918;
-        color: #ffea00; /* Change the color to your desired hover color */
+        color: #ffea00;
       }
     }
   }
