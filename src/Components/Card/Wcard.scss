@@ -1,4 +1,4 @@
-.Cards {
+.w-Cards {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -18,7 +18,9 @@
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.264);
     overflow-x: hidden;
     cursor: pointer;
-    background-color: #0d0d0b;
+    // background-color: #0d0d0b;
+    background-color: #eee;
+    // background-color: #151212;
 
     .badge {
       position: absolute;
@@ -78,8 +80,6 @@
       padding: 8px 0px;
       text-align: left;
       width: 100%;
-
-
       .space {
         width: 100%;
         display: flex;
@@ -87,7 +87,7 @@
         gap: 8px 8px;
         .product-card-price {
           font-weight: 400;
-          color: #8a8a8a;
+          color: #4d4d4d;
           font-size: 16px;
           text-decoration: line-through;
           display: inline-block;
@@ -95,8 +95,7 @@
         .d-price {
           font-size: 17px;
           // color: #00cf03;
-          color: #ffd626;
-          color: #eee;
+          color: #277833;
           display: inline-block;
           font-weight: 500;
         }
@@ -104,7 +103,8 @@
 
       .product-card-name {
         font-weight: bolder;
-        color: #eee;
+        color: #4d4d4d;
+        color: #000000;
         font-size: 15px;
         text-transform: uppercase;
         font-weight: 600;
@@ -113,7 +113,7 @@
         font-weight: 400;
         margin-bottom: 4px;
         font-size: 16px;
-        color: #989797;
+        color: black;
         &:hover {
           color: black;
         }

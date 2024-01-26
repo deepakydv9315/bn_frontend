@@ -114,10 +114,10 @@ const Footer = () => {
           <div className="link-sec-head">Products</div>
           <div className="link-sec-link">
             <span>
-              <Link to="/creatine">Whey Protein</Link>
+              <Link to="/burly">Whey Protein</Link>
             </span>
             <span>
-              <Link to="/burly">Burly Creatine</Link>
+              <Link to="/creatine">Burly Creatine</Link>
             </span>
             <span>
               <Link to="/bags">Duffle Bags</Link>

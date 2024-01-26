@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../../Components/Card/Card";
+import Wcard from "../../Components/Card/Wcard";
 
 export default function OurMerch({ showCategory, productList }) {
   const [products, setProducts] = useState([]);
@@ -53,7 +53,7 @@ export default function OurMerch({ showCategory, productList }) {
 
           <div className="spr-wrapper">
             {products && products.length !== 0 ? (
-              <Card products={products} isShow={false} />
+              <Wcard products={products} isShow={false} />
             ) : null}
           </div>
         </div>
