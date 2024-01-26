@@ -92,10 +92,10 @@ const Home = () => {
     console.log("Product Cat ] + ", productCat);
   };
 
-  const handleAllProduct = () => {
-    dispatch(getAllProducts());
-    setActiveFilter("All");
-  };
+  // const handleAllProduct = () => {
+  //   dispatch(getAllProducts());
+  //   setActiveFilter("All");
+  // };
 
   return (
     <div className="home-page">
@@ -120,14 +120,14 @@ const Home = () => {
         </div>
         <div className="home-pr-wrapper">
           <div className="product-filter">
-            <div
+            {/* <div
               onClick={handleAllProduct}
               className={`pr-filter-item ${
                 activeFilter === "All" ? "item-active" : ""
               }`}
             >
               Best Selling
-            </div>
+            </div> */}
             {category
               .filter(
                 (item) =>

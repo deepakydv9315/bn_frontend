@@ -274,10 +274,14 @@ nav {
         top: 60%;
         left: 0;
         z-index: 10;
-        width: 290px;
-        max-height: 110px;
+        width: 410px;
+        max-height: 105px;
         padding: 0px 10px 0px 10px;
         overflow-x: auto;
+
+        @media screen and (max-width: 720px) {
+          width: 170px;
+        }
 
         a {
           display: flex;
@@ -298,7 +302,7 @@ nav {
           }
 
           span {
-            font-size: 12px;
+            font-size: 11px;
             display: inline-block;
             vertical-align: middle;
           }
