@@ -257,7 +257,11 @@ nav {
       box-shadow: none;
       cursor: pointer;
       margin-top: 10px;
-      margin-bottom: 90px;
+      margin-bottom: 230px;
+
+      @media screen and (min-width: 600px) {
+        margin-bottom: 150px;
+      }
 
       &:hover .dropdown {
         display: flex;
@@ -269,18 +273,18 @@ nav {
         align-items: flex-start;
         gap: 10px;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         position: absolute;
-        top: 60%;
+        top: 70%;
         left: 0;
         z-index: 10;
-        width: 410px;
-        max-height: 105px;
+        width: 190px;
+        height: 240px;
         padding: 0px 10px 0px 10px;
-        overflow-x: auto;
 
-        @media screen and (max-width: 720px) {
-          width: 170px;
+        @media screen and (min-width: 600px) {
+          width: 350px;
+          height: 160px;
         }
 
         a {
@@ -291,6 +295,7 @@ nav {
           justify-content: center;
           border: none !important;
           align-items: center;
+          margin: 0px 10px 0px 10px;
           color: #000000;
           text-decoration: none;
 
@@ -302,7 +307,7 @@ nav {
           }
 
           span {
-            font-size: 11px;
+            font-size: 12px;
             display: inline-block;
             vertical-align: middle;
           }
