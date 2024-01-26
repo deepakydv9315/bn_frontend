@@ -7,13 +7,7 @@ import Icon from "../../Assets/Images/abouticon.png";
 const AboutPage = () => {
   return (
     <div className="about-container ">
-      <div className="image-with-text-container">
-        <img src={About} alt="YourImage" className="image" />
-        <div className="text">
-          About <span> Us</span>
-        </div>
-      </div>
-      <div className="bn-sec ab contain">
+      <div className="ab contain bn-sec">
         <div className="about-text">
           <h3>Our Story</h3>
           <p>
@@ -45,7 +39,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-      <div className="center-heading">
+      <div className="center-heading bn-sec">
         <div className="title1">
           If you want an Active life, it Begins with{" "}
           <span>
