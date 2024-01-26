@@ -3,18 +3,13 @@
   bottom: 25px;
   right: 20px;
   z-index: 1000;
-  /* Ensure it appears above other elements if needed */
 }
 
 .whatsapp-icon img {
   width: 50px;
-  /* Adjust the size as needed */
   height: 50px;
-  /* Adjust the size as needed */
   border-radius: 50%;
-  /* Optional: make it circular */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* Optional: add a subtle shadow */
   cursor: pointer;
 }
 
@@ -51,7 +46,7 @@
   height: 40px;
   background-color: #ffd626;
 
-  @media (max-width:400px) {
+  @media (max-width: 400px) {
     justify-content: center;
   }
 
@@ -78,7 +73,7 @@
     align-items: center;
     gap: 0px 8px;
 
-    @media (max-width:400px) {
+    @media (max-width: 400px) {
       display: none;
     }
 
@@ -93,7 +88,6 @@
       font-size: 15px;
       cursor: pointer;
     }
-
   }
 
   p {
@@ -156,7 +150,6 @@ nav {
         color: #fff;
         cursor: pointer;
 
-
         &:hover .dropdown {
           display: flex;
         }
@@ -175,7 +168,6 @@ nav {
           background-color: #212321;
           padding: 10px 10px;
           border-radius: 4px;
-          // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
           a {
             display: flex;
@@ -187,14 +179,10 @@ nav {
             align-items: center;
             color: #000000;
             text-decoration: none;
-            // padding: 30px;
-            // width: 40px;
-            // height: 115px;
 
             img {
-              width: 70px; // Adjust the width as needed
-              height: 70px; // Adjust the height as needed
-              // margin-right: 10px; // Adjust the spacing between image and text
+              width: 70px;
+              height: 70px;
               transition: all 0.1s linear;
 
               &:hover {
@@ -259,6 +247,67 @@ nav {
   .mobile {
     font-weight: 500;
     gap: 4px;
+
+    .nav-link {
+      background-color: none;
+      position: relative;
+      width: 124px;
+      height: 10px;
+      color: #6b7688;
+      box-shadow: none;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: -10px;
+
+      &:hover .dropdown {
+        display: flex;
+      }
+
+      .dropdown {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        z-index: 10;
+        width: 290px;
+        height: 250px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          width: 40px;
+          gap: 5px 10px;
+          justify-content: center;
+          border: none !important;
+          align-items: center;
+          color: #000000;
+          text-decoration: none;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+
+          span {
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
   }
 
   svg {
