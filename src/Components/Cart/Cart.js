@@ -3,7 +3,6 @@ import { RxCross1 } from "react-icons/rx";
 import CartItem from "../CartItem/CartItem.js";
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.scss";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import { ToastContainer, toast } from "react-toastify";

@@ -257,7 +257,7 @@ nav {
       box-shadow: none;
       cursor: pointer;
       margin-top: 10px;
-      margin-bottom: -10px;
+      margin-bottom: 90px;
 
       &:hover .dropdown {
         display: flex;
@@ -269,18 +269,15 @@ nav {
         align-items: flex-start;
         gap: 10px;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         position: absolute;
-        top: 80%;
+        top: 60%;
         left: 0;
         z-index: 10;
         width: 290px;
-        height: 250px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        padding: 10px;
+        max-height: 110px;
+        padding: 0px 10px 0px 10px;
+        overflow-x: auto;
 
         a {
           display: flex;
@@ -305,6 +302,9 @@ nav {
             display: inline-block;
             vertical-align: middle;
           }
+        }
+        &:hover .dropdown {
+          display: flex;
         }
       }
     }

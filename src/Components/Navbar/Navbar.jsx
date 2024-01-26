@@ -237,7 +237,7 @@ const Navbar = () => {
                     onClick={handleClick}
                   >
                     PRODUCTS
-                    {dropdownVisible && (
+                    {/* {dropdownVisible && ( */}
                       <div className="dropdown">
                         <Link to="/burly" onClick={handleResponse}>
                           <img
@@ -280,7 +280,7 @@ const Navbar = () => {
                           <span>Gym Bags</span>
                         </Link>
                       </div>
-                    )}
+                    {/* )} */}
                   </div>
                   <Link to="/combo" onClick={handleResponse}>
                     COMBOS
