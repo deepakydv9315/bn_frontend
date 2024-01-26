@@ -74,13 +74,9 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src={waIcon}
-            alt="whatsapp icon"
-          />
+          <img src={waIcon} alt="whatsapp icon" />
         </a>
       </div>
-
 
       <div className="top__nav nav-contain bn-sec">
         <p className="header-sale">
@@ -231,9 +227,61 @@ const Navbar = () => {
                   <Link to="/" onClick={handleResponse}>
                     HOME
                   </Link>
-                  <Link to="/products" onClick={handleResponse}>
+                  {/* <Link to="/products" onClick={handleResponse}>
                     PRODUCTS
-                  </Link>
+                  </Link> */}
+                  <div
+                    className="nav-link"
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleLeave}
+                    onClick={handleClick}
+                  >
+                    PRODUCTS
+                    {dropdownVisible && (
+                      <div className="dropdown">
+                        <Link to="/burly" onClick={handleResponse}>
+                          <img
+                            src={whey}
+                            alt="Burly Product"
+                            style={{ borderRadius: "50%" }}
+                          />
+                          <span>Proteins</span>
+                        </Link>
+                        <Link to="/creatine" onClick={handleResponse}>
+                          <img
+                            src={creatine}
+                            alt="Burly Product"
+                            style={{ borderRadius: "50%" }}
+                          />
+                          <span>Creatine</span>
+                        </Link>
+                        <Link to="/tshirts" onClick={handleResponse}>
+                          <img
+                            src={shirt}
+                            alt="Burly Product"
+                            style={{ borderRadius: "50%" }}
+                          />
+                          <span>T-Shirts</span>
+                        </Link>
+                        <Link to="/shaker" onClick={handleResponse}>
+                          <img
+                            src={shekar}
+                            alt="Burly Product"
+                            style={{ borderRadius: "50%" }}
+                          />
+                          <span>Shaker</span>
+                        </Link>
+                        <Link to="/bags" onClick={handleResponse}>
+                          <img
+                            src={bag}
+                            alt="Burly Product"
+                            style={{ borderRadius: "50%" }}
+                          />
+                          <span>Gym Bags</span>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
                   <Link to="/combo" onClick={handleResponse}>
                     COMBOS
                   </Link>
