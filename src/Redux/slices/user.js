@@ -80,7 +80,7 @@ export const loginGoogleUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
-      window.location.href = "https://bn-backend-latest.onrender.com/api/v1/auth/login"; //Change this base Url to Your Backend URL
+      window.location.href = "https://api.burlynutrition.com/api/v1/auth/login"; //Change this base Url to Your Backend URL
       // return response;
     } catch (error) {
       return Promise.reject(error.message);
