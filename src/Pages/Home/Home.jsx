@@ -32,7 +32,7 @@ import { faWhatsappSquare } from "@fortawesome/free-brands-svg-icons";
 const Home = () => {
   const { categoryname } = useParams();
   let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Best Selling");
   const whatsappNumber = "1234567890";
 
   const dispatch = useDispatch();
@@ -132,7 +132,7 @@ const Home = () => {
               .filter(
                 (item) =>
                   item.name !== "Gym Bags" &&
-                  item.name !== "Sipper" &&
+                  item.name !== "Shaker" &&
                   item.name !== "T-Shirts" &&
                   item.name !== "Combo"
               )
@@ -170,8 +170,8 @@ const Home = () => {
                 <Card
                   products={products?.products.filter(
                     (product) =>
-                      !["Gym Bags", "Sipper", "T-Shirts", "Combo"].some(
-                        (category) => product.sellingCategory.includes(category)
+                      !["Gym Bags", "Shaker", "T-Shirts", "Combo"].some(
+                        (category) => product.productCategory.includes(category)
                       )
                   )}
                 />
@@ -228,7 +228,7 @@ const Home = () => {
         <div className="goals-section">
           {products && products.products && products.products.length !== 0 && (
             <OurMerch
-              showCategory={["Gym Bags", "Sipper", "T-Shirts"]}
+              showCategory={["Gym Bags", "Shaker", "T-Shirts"]}
               productList={products.products}
             />
           )}

@@ -11,8 +11,6 @@ import Burly from "./Products.tsx";
 
 const Home = (product) => {
   const { categoryname } = useParams();
-  let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("All");
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
@@ -35,7 +33,7 @@ const Home = (product) => {
         <h4 className="sec-head">
           Creatine <span></span>
         </h4>
-        
+
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
             <Burly showCategory={["Creatine"]} productList={products.products} />

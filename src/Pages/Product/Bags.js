@@ -11,8 +11,6 @@ import Burly from "./Products.tsx";
 
 const Home = (product) => {
   const { categoryname } = useParams();
-  let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("All");
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);

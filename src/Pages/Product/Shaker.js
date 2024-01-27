@@ -11,9 +11,7 @@ import Burly from "./Products.tsx";
 
 const Home = (product) => {
   const { categoryname } = useParams();
-  let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("All");
-
+  
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
 
@@ -30,15 +28,15 @@ const Home = (product) => {
 
   return (
     <div className="home-page">
-   
+
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
           BN <span>Shaker</span>
         </h4>
-       
+
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
-            <Burly showCategory={["Sipper"]} productList={products.products} />
+            <Burly showCategory={["Shaker"]} productList={products.products} />
           )}
         </div>
       </section>
