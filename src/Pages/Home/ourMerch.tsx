@@ -6,14 +6,10 @@ export default function OurMerch({ showCategory, productList }) {
   const [categories, setCategories] = useState(showCategory);
   const [activeFilter, setActiveFilter] = useState(showCategory[0]);
 
-  // console.log("Categories >>> ", categories);
-  // console.log("Active Filter >>> ", activeFilter);
-  // console.log("Products List >>> ", productList);
-
   // ?  Filter Products Based on Category
   useEffect(() => {
     const filteredProducts = productList.filter(
-      (product) => product.sellingCategory === activeFilter
+      (product) => product.productCategory === activeFilter
     );
     setProducts(filteredProducts);
   }, [activeFilter, productList]);
@@ -23,7 +19,7 @@ export default function OurMerch({ showCategory, productList }) {
     setActiveFilter(categoryName); // ! To Set Active Category Name
     // To Fetch All Product Related Matched Category
     const filteredProducts = productList.filter(
-      (product) => product.sellingCategory === categoryName
+      (product) => product.productCategory === categoryName
     );
     setProducts(filteredProducts);
   };

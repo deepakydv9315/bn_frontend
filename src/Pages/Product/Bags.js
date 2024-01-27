@@ -11,8 +11,6 @@ import Burly from "./Products.tsx";
 
 const Home = (product) => {
   const { categoryname } = useParams();
-  let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("All");
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
@@ -30,21 +28,10 @@ const Home = (product) => {
 
   return (
     <div className="home-page">
-      {/* <div className="image-with-text-container">
-        <img src={bg} alt="YourImage" className="image" />
-        <div className="text" style={{ marginBottom: "-40px" }}>
-          Home / Products / <span> Burly Whey</span>
-        </div>
-      </div> */}
-
-      {/* combos */}
       <section className="bn-sec sec-level ">
         <h4 className="sec-head">
           Gym <span>Bags </span>
         </h4>
-        {/* <p className="sec-para">
-          A great deal has value for money, supplements and thus health.
-        </p> */}
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
             <Burly showCategory={["Gym Bags"]} productList={products.products} />

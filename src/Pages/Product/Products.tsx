@@ -6,7 +6,7 @@ export default function Combo({ showCategory, productList }) {
   const [activeFilter, setActiveFilter] = useState(showCategory[0]);
 
   const products = productList.filter(
-    (product) => product.sellingCategory === activeFilter
+    (product) => product.productCategory === activeFilter
   );
 
   return (
