@@ -164,11 +164,8 @@ const Home = () => {
             <div className="spr-wrapper">
               {products.products && products.products.length !== 0 ? (
                 <Card
-                  products={products?.products.filter(
-                    (product) =>
-                      !["Gym Bags", "Shaker", "T-Shirts", "Combo"].some(
-                        (category) => product.productCategory.includes(category)
-                      )
+                  products={products?.products.filter((product) =>
+                    product.productCategory.includes(activeFilter)
                   )}
                 />
               ) : null}
