@@ -6,8 +6,11 @@ import { getProductDetail } from "../../Redux/slices/productSlice";
 import Loader from "../../Components/Loader/Loader";
 import Swal from "sweetalert2";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
-import ReactImageMagnify from 'react-image-magnify';
-import VegIcon from '../../Assets/Images/veg.png';
+import ReactImageMagnify from "react-image-magnify";
+import VegIcon from "../../Assets/Images/veg.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const ProductDetails = (isShow = true) => {
   const params = useParams();
@@ -75,10 +78,14 @@ const ProductDetails = (isShow = true) => {
   };
 
   const handleIncrease = () => {
-    setQuantity(quantity + 1);
+    if (quantity < 3) {
+      setQuantity(quantity + 1);
+      return null;
+    }
+    toast.error("You can only add atmost 3 quantity", { position: "top-right" });
   };
 
-  const [mainImage, setMainImage] = useState('');
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
     if (
@@ -115,7 +122,7 @@ const ProductDetails = (isShow = true) => {
   };
 
   const smallImageStyle = {
-    alt: 'Main Product',
+    alt: "Main Product",
     src: mainImage,
     width: 450,
     height: 400,
@@ -145,8 +152,8 @@ const ProductDetails = (isShow = true) => {
                   }}
                   enlargedImagePosition="right"
                 />
-                {/* <img src={VegIcon} alt="Veg Icon" className="veg-icon" /> */}
-                {product.productCategory === "Burly Whey" || product.productCategory === "Creatine" ? (
+                {product.productCategory === "Burly Whey" ||
+                  product.productCategory === "Creatine" ? (
                   <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
                 ) : null}
                 <div className="add-img-wrapper">
@@ -159,7 +166,10 @@ const ProductDetails = (isShow = true) => {
                         className="additional-image"
                         onClick={() => handleAdditionalImageClick(image)}
                       >
-                        <img src={image.url} alt={`AdditionalImage ${index + 1}`} />
+                        <img
+                          src={image.url}
+                          alt={`AdditionalImage ${index + 1}`}
+                        />
                       </div>
                     ))}
                 </div>
@@ -189,12 +199,15 @@ const ProductDetails = (isShow = true) => {
                       ).toFixed(0)}
                       % OFF)
                     </div> */}
-
                   </span>
                 </div>
-                <p className="name" style={{ marginTop: "-20px" }}>Excluding all Taxes</p>
+                <p className="name" style={{ marginTop: "-20px" }}>
+                  Excluding all Taxes
+                </p>
                 <br></br>
-                {product.productCategory === "T-Shirts" || product.productCategory === "Gym Bags" || product.productCategory === "Sipper" ? (
+                {product.productCategory === "T-Shirts" ||
+                  product.productCategory === "Gym Bags" ||
+                  product.productCategory === "Sipper" ? (
                   <div className="size-options">
                     <div className="flavour">Color</div>
                     <div className="btn-wrapper">
@@ -220,63 +233,83 @@ const ProductDetails = (isShow = true) => {
                   </div>
                 )}
 
-                {
-                  product.productCategory === "T-Shirts" || product.productCategory === "Gym Bags" ? (
-                    <div className="size-options">
-                      <div className="flavour">Size</div>
-                      <div className="btn-wrapper">
-                        {product?.productDetails &&
-                          product?.productDetails?.map((data, index) => (
-                            <button
-                              key={index}
-                              className={`size-button ${data.weight === selectedVariant.weight ? "selected" : ""}`}
-                              onClick={() => setSelectedVariant(data)}
-                            >
-                              {data.weight}
-                            </button>
-                          ))}
-                      </div>
+                {product.productCategory === "T-Shirts" ||
+                  product.productCategory === "Gym Bags" ? (
+                  <div className="size-options">
+                    <div className="flavour">Size</div>
+                    <div className="btn-wrapper">
+                      {product?.productDetails &&
+                        product?.productDetails?.map((data, index) => (
+                          <button
+                            key={index}
+                            className={`size-button ${data.weight === selectedVariant.weight
+                              ? "selected"
+                              : ""
+                              }`}
+                            onClick={() => setSelectedVariant(data)}
+                          >
+                            {data.weight}
+                          </button>
+                        ))}
                     </div>
-                  ) : product.productCategory === "Sipper" ? (
-                    <div className="size-options">
-                      <div className="flavour">Capacity</div>
-                      <div className="btn-wrapper">
-                        {product?.productDetails &&
-                          product?.productDetails?.map((data, index) => (
-                            <button
-                              key={index}
-                              className={`size-button ${data.capacity === selectedVariant.capacity ? "selected" : ""}`}
-                              onClick={() => setSelectedVariant(data)}
-                            >
-                              {data.weight}
-                            </button>
-                          ))}
-                      </div>
+                  </div>
+                ) : product.productCategory === "Sipper" ? (
+                  <div className="size-options">
+                    <div className="flavour">Capacity</div>
+                    <div className="btn-wrapper">
+                      {product?.productDetails &&
+                        product?.productDetails?.map((data, index) => (
+                          <button
+                            key={index}
+                            className={`size-button ${data.capacity === selectedVariant.capacity
+                              ? "selected"
+                              : ""
+                              }`}
+                            onClick={() => setSelectedVariant(data)}
+                          >
+                            {data.weight}
+                          </button>
+                        ))}
                     </div>
-                  ) : (
-                    <div className="size-options">
-                      <div className="flavour">Weight</div>
-                      <div className="btn-wrapper">
-                        {product?.productDetails &&
-                          product?.productDetails?.map((data, index) => (
-                            <button
-                              key={index}
-                              className={`size-button ${data.weight === selectedVariant.weight ? "selected" : ""}`}
-                              onClick={() => setSelectedVariant(data)}
-                            >
-                              {data.weight}
-                            </button>
-                          ))}
-                      </div>
+                  </div>
+                ) : (
+                  <div className="size-options">
+                    <div className="flavour">Weight</div>
+                    <div className="btn-wrapper">
+                      {product?.productDetails &&
+                        product?.productDetails?.map((data, index) => (
+                          <button
+                            key={index}
+                            className={`size-button ${data.weight === selectedVariant.weight
+                              ? "selected"
+                              : ""
+                              }`}
+                            onClick={() => setSelectedVariant(data)}
+                          >
+                            {data.weight}
+                          </button>
+                        ))}
                     </div>
-                  )
-                }
+                  </div>
+                )}
 
                 <div className="quantity">
                   <div className="quant">
                     <button onClick={handleDecrease}>-</button>
                     <span>{quantity}</span>
                     <button onClick={handleIncrease}>+</button>
+                    <ToastContainer
+                      position="top-right"
+                      autoClose={1000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                      theme="light"
+                    />
                   </div>
                 </div>
 

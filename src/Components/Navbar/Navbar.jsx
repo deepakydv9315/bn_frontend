@@ -1,4 +1,8 @@
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+  AiOutlineSearch,
+} from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -29,6 +33,10 @@ const Navbar = () => {
   const { carts } = useSelector((state) => state.products);
   const { isAuthenticated, isAdmin } = useSelector((state) => state.user);
   const { isCartOpen } = useSelector((state) => state.app);
+
+  const { products } = useSelector((state) => state.products);
+  const [searchProducts, setSearchProducts] = useState({});
+
   const navigate = useNavigate();
 
   const openCartDialog = () => {
@@ -66,6 +74,22 @@ const Navbar = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
+  const searchProduct = (event) => {
+    const searchQuery = event.target.value.toLowerCase();
+    try {
+      const filter = products.products.filter((e) =>
+        e.name.toLowerCase().includes(searchQuery)
+      );
+
+      setSearchProducts(filter);
+    } catch (error) {
+      window.location = "/";
+    }
+  };
+
+  // window.addEventListener("click", () => {
+  //   document.getElementById("search-box").style.display = "none";
+  // });
   return (
     <div className="wrapper__nav ">
       <div className="whatsapp-icon">
@@ -195,15 +219,80 @@ const Navbar = () => {
             <Link to="/about">ABOUT US</Link>
             {/* <Link to="/contact">CONTACT US</Link> */}
           </ul>
+
           <div className="right">
-            {/* <AiOutlineSearch /> */}
+            <input
+              title="search"
+              onClick={() =>
+                (document.getElementById("search-box").style.display = "flex")
+              }
+              onChange={() =>
+                (document.getElementById("search-box").style.display = "flex")
+              }
+              placeholder="search product here"
+              className="navbar-search"
+            />
             <AiOutlineUser onClick={open} />
             <AiOutlineShoppingCart onClick={openCartDialog} />
+          </div>
+          <div id="search-box" className="search-box">
+            <div style={{ display: "flex", gap: "1pc", alignItems: "center" }}>
+              <input
+                type="text"
+                onChange={searchProduct}
+                onClick={() =>
+                  (document.getElementById("search-box").style.display = "flex")
+                }
+                placeholder="search product here"
+                className="navbar-search"
+              />
+              <button
+                class="btn"
+                onClick={() =>
+                  (document.getElementById("search-box").style.display = "none")
+                }
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="product-output">
+              {searchProducts.length > 0
+                ? searchProducts.map((items, index) => (
+                    <Link
+                      key={items._id}
+                      to={`/productdetails/${items._id}`}
+                      onClick={() =>
+                        (document.getElementById("search-box").style.display =
+                          "none")
+                      }
+                      className="product-box"
+                    >
+                      <img src={items.productDetails[0].images[0].url} alt="" />
+                      <div>
+                        <h1>{items.name}</h1>
+                        <p>
+                          {items.productDetails[0].weight} |{" "}
+                          {items.productFlavour}
+                        </p>
+                        <span>{`₹ ${items.productDetails[0].price}.0`}</span>
+                        <b>{items.productCategory}</b>
+                      </div>
+                    </Link>
+                  ))
+                : null}
+            </div>
           </div>
         </div>
 
         <div className="responsive__menu">
-          {/* <AiOutlineSearch size={25} style={{ marginRight: "10px" }} /> */}
+          <AiOutlineSearch
+            size={25}
+            style={{ marginRight: "10px" }}
+            onClick={() =>
+              (document.getElementById("search-box").style.display = "flex")
+            }
+          />
           <AiOutlineShoppingCart
             size={25}
             style={{ marginRight: "10px" }}
@@ -238,48 +327,48 @@ const Navbar = () => {
                   >
                     PRODUCTS
                     {/* {dropdownVisible && ( */}
-                      <div className="dropdown">
-                        <Link to="/burly" onClick={handleResponse}>
-                          <img
-                            src={whey}
-                            alt="Burly Product"
-                            style={{ borderRadius: "50%" }}
-                          />
-                          <span>Proteins</span>
-                        </Link>
-                        <Link to="/creatine" onClick={handleResponse}>
-                          <img
-                            src={creatine}
-                            alt="Burly Product"
-                            style={{ borderRadius: "50%" }}
-                          />
-                          <span>Creatine</span>
-                        </Link>
-                        <Link to="/tshirts" onClick={handleResponse}>
-                          <img
-                            src={shirt}
-                            alt="Burly Product"
-                            style={{ borderRadius: "50%" }}
-                          />
-                          <span>T-Shirts</span>
-                        </Link>
-                        <Link to="/shaker" onClick={handleResponse}>
-                          <img
-                            src={shekar}
-                            alt="Burly Product"
-                            style={{ borderRadius: "50%" }}
-                          />
-                          <span>Shaker</span>
-                        </Link>
-                        <Link to="/bags" onClick={handleResponse}>
-                          <img
-                            src={bag}
-                            alt="Burly Product"
-                            style={{ borderRadius: "50%" }}
-                          />
-                          <span>Gym Bags</span>
-                        </Link>
-                      </div>
+                    <div className="dropdown">
+                      <Link to="/burly" onClick={handleResponse}>
+                        <img
+                          src={whey}
+                          alt="Burly Product"
+                          style={{ borderRadius: "50%" }}
+                        />
+                        <span>Proteins</span>
+                      </Link>
+                      <Link to="/creatine" onClick={handleResponse}>
+                        <img
+                          src={creatine}
+                          alt="Burly Product"
+                          style={{ borderRadius: "50%" }}
+                        />
+                        <span>Creatine</span>
+                      </Link>
+                      <Link to="/tshirts" onClick={handleResponse}>
+                        <img
+                          src={shirt}
+                          alt="Burly Product"
+                          style={{ borderRadius: "50%" }}
+                        />
+                        <span>T-Shirts</span>
+                      </Link>
+                      <Link to="/shaker" onClick={handleResponse}>
+                        <img
+                          src={shekar}
+                          alt="Burly Product"
+                          style={{ borderRadius: "50%" }}
+                        />
+                        <span>Shaker</span>
+                      </Link>
+                      <Link to="/bags" onClick={handleResponse}>
+                        <img
+                          src={bag}
+                          alt="Burly Product"
+                          style={{ borderRadius: "50%" }}
+                        />
+                        <span>Gym Bags</span>
+                      </Link>
+                    </div>
                     {/* )} */}
                   </div>
                   <Link to="/combo" onClick={handleResponse}>

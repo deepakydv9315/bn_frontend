@@ -129,7 +129,7 @@ const Footer = () => {
               <Link to="/combo">Our Combos</Link>
             </span>
             <span>
-              <Link to="/product">Our Bestsellers</Link>
+              <Link to="/bestselling">Our Bestsellers</Link>
             </span>
           </div>
         </div>

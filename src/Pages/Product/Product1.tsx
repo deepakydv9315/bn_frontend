@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Card from "../../Components/Card/Card";
+import Wcard from "../../Components/Card/Card";
 
 export default function Combo({ showCategory, productList }) {
   const [categories] = useState(showCategory);
   const [activeFilter, setActiveFilter] = useState(showCategory[0]);
 
   const products = productList.filter(
-    (product) => product.sellingCategory === activeFilter
+    (product) => product.productCategory === activeFilter
   );
 
   return (
@@ -14,7 +14,7 @@ export default function Combo({ showCategory, productList }) {
       <section className="bn-sec home-product merch-product">
         <div className="home-pr-wrapper">
           <div className="spr-wrapper">
-            {products.length !== 0 && <Card products={products} isShow={false} />}
+            {products.length !== 0 && <Wcard products={products}/>}
           </div>
         </div>
       </section>

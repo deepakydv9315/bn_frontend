@@ -64,6 +64,7 @@ import Creatine from "./Pages/Product/Creatine.js";
 import Bags from "./Pages/Product/Bags.js";
 import Tshirts from "./Pages/Product/Tshirts.js";
 import Shaker from "./Pages/Product/Shaker.js";
+import BestSelling from "./Pages/Product/BestSelling.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -76,7 +77,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        {/* <Route element={<RequireUser type={"admin"} />}> */}
+        <Route element={<RequireUser type={"admin"} />}>
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/products" element={<ProductList />} />
           <Route path="/admin/product/create" element={<CreateProduct />} />
@@ -103,14 +104,14 @@ function App() {
           <Route path="/admin/blog/create" element={<CreateBlog />} />
           <Route path="/admin/blogs" element={<Blogs />} />
           <Route path="/admin/blog/:id" element={<UpdateBlog />} />
-        {/* </Route> */}
+        </Route>
       </Routes>
       <Routes>
         <Route element={<RequireUser type="user" />}>
-        <Route path="/user" element={<User />} />
-        <Route path="/user/password" element={<Password />} />
-        <Route path="/user/orders" element={<MyOrder />} />
-        <Route path="/user/address" element={<Address />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/user/password" element={<Password />} />
+          <Route path="/user/orders" element={<MyOrder />} />
+          <Route path="/user/address" element={<Address />} />
         </Route>
       </Routes>
       <Routes>
@@ -120,6 +121,7 @@ function App() {
         <Route path="/bags" element={<><ScrollToTop /> <Bags /></>} />
         <Route path="/tshirts" element={<><ScrollToTop /> <Tshirts /></>} />
         <Route path="/shaker" element={<><ScrollToTop /> <Shaker /></>} />
+        <Route path="/bestselling" element={<><ScrollToTop /> <BestSelling /></>} />
         <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
         <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
@@ -133,10 +135,10 @@ function App() {
             </>
           }
         />
-        <Route path="/ship" element={<Ship />} />
+        <Route path="/ship" element={<><ScrollToTop /><Ship /></>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<><ScrollToTop /><Checkout /></>} />
         <Route path="/contact" element={<><ScrollToTop /><Contact /></>} />
         <Route path="/blog1" element={<><ScrollToTop /><Blog1 /></>} />
         <Route path="/blog2" element={<><ScrollToTop /><Blog2 /></>} />
@@ -166,8 +168,8 @@ function App() {
           <ScrollToTop /><Blog /></>} />
         <Route path="/recipes" element={<><ScrollToTop /><Recipes /></>} />
         <Route path="/authenticate" element={<Authenticate />} />
-        <Route path="/report" element={<Report />} />
-        <Route path="/faq" element={<FAQ />} />
+        <Route path="/report" element={<><ScrollToTop /><Report /></>} />
+        <Route path="/faq" element={<><ScrollToTop /><FAQ /></>} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/privacy" element={<><ScrollToTop /><PrivacyPolicy /></>} />
         <Route path="/shipping" element={<><ScrollToTop /><Shipping /></>} />
