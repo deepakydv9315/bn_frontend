@@ -77,8 +77,11 @@ const Navbar = () => {
   const searchProduct = (event) => {
     const searchQuery = event.target.value.toLowerCase();
     try {
-      const filter = products.products.filter((e) =>
-        e.name.toLowerCase().includes(searchQuery)
+      
+         const filter = products.products.filter(
+        (e) =>
+          e.name.toLowerCase().includes(searchQuery) &&
+          e.productCategory !== "Best Selling"
       );
 
       setSearchProducts(filter);
