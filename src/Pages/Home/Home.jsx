@@ -11,7 +11,6 @@ import ReadBlogs from "../../Components/Blogs/ReadBlogs";
 import bg from "../../Assets/Images/bn_banner_1.png";
 import bg1 from "../../Assets/Images/bn_banner_2.png";
 import bg2 from "../../Assets/Images/bn-banner03.png";
-import waIcon from "../../Assets/Images/wa.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,16 +23,13 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowButton from "../../Components/Arrowbutton/ArrowButton";
 import OurMerch from "./ourMerch.tsx";
-import Combo from "./Combo.tsx";
+import Combo from "./Combo.js";
 import InfoGrid from "../../Components/InfoGrid/InfoGrid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsappSquare } from "@fortawesome/free-brands-svg-icons";
 
 const Home = () => {
   const { categoryname } = useParams();
   let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("Best Selling");
-  const whatsappNumber = "1234567890";
+  const [activeFilter, setActiveFilter] = useState("All");
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
@@ -92,10 +88,10 @@ const Home = () => {
     console.log("Product Cat ] + ", productCat);
   };
 
-  // const handleAllProduct = () => {
-  //   dispatch(getAllProducts());
-  //   setActiveFilter("All");
-  // };
+  const handleAllProduct = () => {
+    dispatch(getAllProducts());
+    setActiveFilter("All");
+  };
 
   return (
     <div className="home-page">
@@ -120,21 +116,21 @@ const Home = () => {
         </div>
         <div className="home-pr-wrapper">
           <div className="product-filter">
-            {/* <div
+            <div
               onClick={handleAllProduct}
               className={`pr-filter-item ${
                 activeFilter === "All" ? "item-active" : ""
               }`}
             >
-              Best Selling
-            </div> */}
+              All
+            </div>
             {category
               .filter(
                 (item) =>
                   item.name !== "Gym Bags" &&
                   item.name !== "Shaker" &&
                   item.name !== "T-Shirts" &&
-                  item.name !== "Combo"
+                  item.name !== "Combo" 
               )
               .map((product, index) => (
                 <div
@@ -184,7 +180,7 @@ const Home = () => {
       {/* know our protein */}
       <section className="bn-sec know-sec">
         <h4 className="sec-head">
-          Know more about our <span>Protein</span>
+          Why <span>Burly Whey</span>
         </h4>
 
         <div className="know-wrapper">
@@ -208,20 +204,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* combos */}
-      <section className="bn-sec sec-level ">
-        <h4 className="sec-head">
-          Our <span>Combos</span>
-        </h4>
-        <p className="sec-para">
-          A great deal has value for money, supplements and thus health.
-        </p>
-        <div className="level-cards">
-          {products && products.products && products.products.length !== 0 && (
-            <Combo showCategory={["Combo"]} productList={products.products} />
-          )}
-        </div>
-      </section>
+      <Combo />
 
       {/* merch */}
       <section className="bn-sec content-of-goal">

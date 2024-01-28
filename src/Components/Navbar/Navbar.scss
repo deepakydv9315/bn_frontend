@@ -218,6 +218,84 @@ nav {
         display: none;
       }
     }
+
+    .navbar-search {
+      background: #212321;
+      outline: none;
+      padding: 0.4pc;
+      border: solid 0.5px #ffd7265b;
+      color: #fff;
+    }
+
+    .search-box {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: 100dvh;
+      width: 100dvw;
+      background: #000000ad;
+      backdrop-filter: blur(5px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 2pc;
+
+      button {
+        border: 0px solid #e9ecef;
+        padding: 0.3em 0.6em;
+        border-radius: 5px;
+        background-color: #ffd626;
+        margin-bottom: 0px;
+      }
+
+      button:hover {
+        background: #000;
+      }
+
+      .product-output {
+        height: 38pc;
+        width: 30%;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 3px;
+
+        @media screen and (max-width: 460px) {
+          width: 90%;
+        }
+        .product-box {
+          display: flex;
+          flex-wrap: wrap;
+          background-color: #fff;
+          padding: 1pc;
+          gap: 5px;
+          cursor: pointer;
+          width: 40%;
+
+          img {
+            height: 100px;
+            width: 100px;
+          }
+
+          div {
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+            color: #212321;
+
+            h1 {
+              font-size: 1.1rem;
+            }
+          }
+        }
+
+        .product-box:hover {
+          background-color: #ffd626;
+        }
+      }
+    }
   }
 
   .app__navbar-menu-icon {
@@ -237,7 +315,7 @@ nav {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  position: relative;
+  // position: relative;
   right: 12px;
   display: flex;
   justify-content: center;

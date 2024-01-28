@@ -64,6 +64,7 @@ import Creatine from "./Pages/Product/Creatine.js";
 import Bags from "./Pages/Product/Bags.js";
 import Tshirts from "./Pages/Product/Tshirts.js";
 import Shaker from "./Pages/Product/Shaker.js";
+import BestSelling from "./Pages/Product/BestSelling.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -120,6 +121,7 @@ function App() {
         <Route path="/bags" element={<><ScrollToTop /> <Bags /></>} />
         <Route path="/tshirts" element={<><ScrollToTop /> <Tshirts /></>} />
         <Route path="/shaker" element={<><ScrollToTop /> <Shaker /></>} />
+        <Route path="/bestselling" element={<><ScrollToTop /> <BestSelling /></>} />
         <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
         <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />

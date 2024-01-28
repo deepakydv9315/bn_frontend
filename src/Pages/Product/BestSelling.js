@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Combo.scss";
-import bg from "../../Assets/Images/cat.png";
 import {
   getAllCategories,
   getAllProducts,
 } from "../../Redux/slices/productSlice.js";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Burly from "./Product1.tsx";
+import BestSelling from "./Product1.tsx";
 
 const Home = (product) => {
   const { categoryname } = useParams();
@@ -28,15 +27,13 @@ const Home = (product) => {
 
   return (
     <div className="home-page">
-
-      <section className="bn-sec sec-level ">
+      <section className="bn-sec sec-level p-page ">
         <h4 className="sec-head">
-          Creatine <span></span>
+          Best Selling Products
         </h4>
-
         <div className="level-cards">
           {products && products.products && products.products.length !== 0 && (
-            <Burly showCategory={["Creatine"]} productList={products.products} />
+            <BestSelling showCategory={["Best Selling"]} productList={products.products} />
           )}
         </div>
       </section>

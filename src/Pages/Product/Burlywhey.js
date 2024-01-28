@@ -6,7 +6,7 @@ import {
 } from "../../Redux/slices/productSlice.js";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Whey from "./Products.tsx";
+import Whey from "./Product1.tsx";
 
 const Home = (product) => {
   const { categoryname } = useParams();

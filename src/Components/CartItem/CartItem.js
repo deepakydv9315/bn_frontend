@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CarItem.scss";
+import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
 
@@ -7,6 +8,15 @@ function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
   const dispatch = useDispatch();
 
   const addToCart = () => {
+    if ((quantity) >= 3) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You can add only 5 quantity",
+      });
+      return null;
+    }
+
     dispatch({
       type: "ProductSlice/updateCart",
       payload: { val: Math.max(1, Number(quantity) + 1), sku, id },
@@ -16,7 +26,11 @@ function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
   const updateCart = (sign) => {
     dispatch({
       type: "ProductSlice/updateCart",
-      payload: { val: Math.max(1, Number(quantity) + (sign === "+" ? 1 : -1)), sku, id },
+      payload: {
+        val: Math.max(1, Number(quantity) + (sign === "+" ? 1 : -1)),
+        sku,
+        id,
+      },
     });
   };
 

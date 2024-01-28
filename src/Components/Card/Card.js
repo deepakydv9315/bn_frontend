@@ -25,7 +25,8 @@ function Card({ products, isShow = true }) {
         title: "Oops...",
         text: "Product Details Not Found",
       });
-    } else {
+    }
+    else {
       await dispatch({
         type: "ProductSlice/addToCart",
         payload: {
