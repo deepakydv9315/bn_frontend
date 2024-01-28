@@ -116,14 +116,14 @@ const Home = () => {
         </div>
         <div className="home-pr-wrapper">
           <div className="product-filter">
-            <div
+            {/*<div
               onClick={handleAllProduct}
               className={`pr-filter-item ${
                 activeFilter === "All" ? "item-active" : ""
               }`}
             >
               All
-            </div>
+            </div> */}
             {category
               .filter(
                 (item) =>
