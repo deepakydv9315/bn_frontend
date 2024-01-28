@@ -255,7 +255,7 @@ nav {
 
       .product-output {
         height: 38pc;
-        width: 30%;
+        width: 90%;
         overflow-y: auto;
         display: flex;
         flex-wrap: wrap;
@@ -272,11 +272,12 @@ nav {
           padding: 1pc;
           gap: 5px;
           cursor: pointer;
-          width: 40%;
+          width: 200px;
+          height: 420px;
 
           img {
-            height: 100px;
-            width: 100px;
+            width: 170px;
+            height: 200px;
           }
 
           div {
