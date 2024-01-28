@@ -3,17 +3,15 @@ import "./CarItem.scss";
 import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDeleteOutline } from "react-icons/md";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
   const dispatch = useDispatch();
 
   const addToCart = () => {
     if ((quantity) >= 3) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "You can add only 5 quantity",
-      });
+      toast.error("You can only add atmost 3 quantity", { position: "top-right" });
       return null;
     }
 
@@ -62,6 +60,18 @@ function CartItem({ name, imgUrl, sku, price, id, weight, quantity }) {
               <span onClick={() => updateCart(id)}>-</span>
               <span>{quantity}</span>
               <span onClick={() => addToCart(id)}>+</span>
+              <ToastContainer
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
             </div>
           </div>
         </div>

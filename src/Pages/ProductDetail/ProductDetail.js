@@ -11,7 +11,6 @@ import VegIcon from "../../Assets/Images/veg.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const ProductDetails = (isShow = true) => {
   const params = useParams();
   const id = params.id;
