@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import VegIcon from '../../Assets/Images/veg.png';
+import VegIcon from "../../Assets/Images/veg.png";
 
 function Card({ products, isShow = true }) {
   const navigate = useNavigate();
@@ -12,6 +12,22 @@ function Card({ products, isShow = true }) {
 
   const handleAddCart = async (_id) => {
     const product = products?.find((product) => product._id === _id);
+
+    var cartItem = localStorage.getItem("cartItems");
+
+    if (typeof cartItem === "string") {
+      var JsonCartItem = JSON.parse(cartItem).filter((i) => i._id == _id);
+      if (JsonCartItem.length > 0) {
+        if (!(JsonCartItem[0].productDefaultPrice.quantity < 5)) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "You can add only 5 quantity",
+          });
+          return null;
+        }
+      }
+    }
 
     if (!product) {
       return Swal.fire({
@@ -25,8 +41,7 @@ function Card({ products, isShow = true }) {
         title: "Oops...",
         text: "Product Details Not Found",
       });
-    }
-    else {
+    } else {
       await dispatch({
         type: "ProductSlice/addToCart",
         payload: {
@@ -47,7 +62,7 @@ function Card({ products, isShow = true }) {
       {products &&
         products.map((product, index) => {
           return (
-            <div key={index} className="product-card" >
+            <div key={index} className="product-card">
               <div className="badge">
                 <span className="badge_top">
                   {(
@@ -68,19 +83,32 @@ function Card({ products, isShow = true }) {
                   alt={product.name}
                   onClick={() => handleImageClick(product._id)}
                 />
-                {product.productCategory === "Burly Whey" || product.productCategory === "Creatine" || product.productCategory === "Combo" ? (
+                {product.productCategory === "Burly Whey" ||
+                product.productCategory === "Creatine" ||
+                product.productCategory === "Combo" ? (
                   <img src={VegIcon} alt="Veg Icon" className="veg-icon" />
                 ) : null}
               </div>
-              <div className="product-card-details" >
-                <p className="product-card-name" onClick={() => handleImageClick(product._id)}>{product.name}</p>
+              <div className="product-card-details">
+                <p
+                  className="product-card-name"
+                  onClick={() => handleImageClick(product._id)}
+                >
+                  {product.name}
+                </p>
                 {isShow ? (
-                  <p className="product-card-title" onClick={() => handleImageClick(product._id)}>
+                  <p
+                    className="product-card-title"
+                    onClick={() => handleImageClick(product._id)}
+                  >
                     {product?.productDetails[0].weight} |{" "}
                     {product?.productFlavour}
                   </p>
                 ) : null}
-                <div className="space" onClick={() => handleImageClick(product._id)}>
+                <div
+                  className="space"
+                  onClick={() => handleImageClick(product._id)}
+                >
                   <p className="product-card-price">
                     ₹{product.productDetails[0].mrPrice}
                   </p>
