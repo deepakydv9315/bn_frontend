@@ -29,7 +29,7 @@ import InfoGrid from "../../Components/InfoGrid/InfoGrid";
 const Home = () => {
   const { categoryname } = useParams();
   let category = useSelector((state) => state.products.categories);
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Best Selling");
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
