@@ -18,11 +18,11 @@ function Card({ products, isShow = true }) {
     if (typeof cartItem === "string") {
       var JsonCartItem = JSON.parse(cartItem).filter((i) => i._id == _id);
       if (JsonCartItem.length > 0) {
-        if (!(JsonCartItem[0].productDefaultPrice.quantity < 5)) {
+        if (!(JsonCartItem[0].productDefaultPrice.quantity < 3)) {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "You can add only 5 quantity",
+            text: "You can add only 3 quantity",
           });
           return null;
         }

@@ -224,7 +224,8 @@ const Navbar = () => {
           </ul>
 
           <div className="right">
-            <input
+            {/* laptop navbar  search */}
+            {/* <input
               title="search"
               onClick={() =>
                 (document.getElementById("search-box").style.display = "flex")
@@ -234,19 +235,29 @@ const Navbar = () => {
               }
               placeholder="search product here"
               className="navbar-search"
-            />
+            /> */}
+            <AiOutlineSearch
+            // size={25}
+            onClick={() =>
+              (document.getElementById("search-box").style.display = "flex")
+            }
+          />
             <AiOutlineUser onClick={open} />
             <AiOutlineShoppingCart onClick={openCartDialog} />
           </div>
+
           <div id="search-box" className="search-box">
-            <div style={{ display: "flex", gap: "1pc", alignItems: "center" }}>
+            {/* open search  */}
+            {/* <div style={{display: "flex", gap: "2px 5px", alignItems: "center" }}> */}
+            <div className="in-btn-wrapper">
               <input
                 type="text"
                 onChange={searchProduct}
                 onClick={() =>
                   (document.getElementById("search-box").style.display = "flex")
+
                 }
-                placeholder="search product here"
+                placeholder="Type a Product name"
                 className="navbar-search"
               />
               <button
@@ -272,14 +283,15 @@ const Navbar = () => {
                       className="product-box"
                     >
                       <img src={items.productDetails[0].images[0].url} alt="" />
-                      <div>
+                      <div className="s-p-t">
+                      <span className="s-p-c">{items.productCategory}</span>
                         <h1>{items.name}</h1>
-                        <p>
+                        <p className="s-p-f">
                           {items.productDetails[0].weight} |{" "}
                           {items.productFlavour}
                         </p>
-                        <span>{`₹ ${items.productDetails[0].price}.0`}</span>
-                        <b>{items.productCategory}</b>
+                        {/* <span>{`₹ ${items.productDetails[0].price}.0`}</span> */}
+                        
                       </div>
                     </Link>
                   ))
@@ -303,7 +315,7 @@ const Navbar = () => {
           />
           <AiOutlineUser
             size={25}
-            style={{ marginRight: "35px" }}
+            style={{ marginRight: "10px" }}
             onClick={open}
           />
 
