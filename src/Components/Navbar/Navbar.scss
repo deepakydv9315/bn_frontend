@@ -244,6 +244,9 @@ nav {
         justify-content: center;
         align-items: center;
         gap: 10px 15px;
+        @media (max-width:570px) {
+        flex-direction: column;
+        }
 
         .navbar-search {
           font-family: rubik;
@@ -288,9 +291,7 @@ nav {
         flex-direction: row;
         gap: 10px;
 
-        @media screen and (max-width: 460px) {
-          width: 90%;
-        }
+      
         .product-box {
           display: flex;
           flex-direction:row;
@@ -318,11 +319,19 @@ nav {
               font-size: 13px;
               margin-bottom: 2px;
               text-transform: uppercase;
+              @media (max-width:350px) {
+                font-size: 12px;
+                display: none;
+                }
+                
             }
 
             h1 {
               font-size: 14.5px;
               text-transform: uppercase;
+              @media (max-width:350px) {
+                font-size: 13px;
+                }
             }
             .s-p-f{
               font-size: 13px;
