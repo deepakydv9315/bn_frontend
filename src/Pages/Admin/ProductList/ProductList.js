@@ -54,7 +54,6 @@ const ProductList = () => {
       minWidth: 150,
       flex: 0.6,
     },
-
     {
       field: "price",
       headerName: "Price",
@@ -62,7 +61,13 @@ const ProductList = () => {
       minWidth: 270,
       flex: 0.5,
     },
-
+    {
+      field: "disprice",
+      headerName: "Discounted Price",
+      type: "number",
+      minWidth: 270,
+      flex: 0.5,
+    },
     {
       field: "actions",
       flex: 0.3,
@@ -104,8 +109,9 @@ const ProductList = () => {
     products.forEach((item) => {
       rows.push({
         id: item._id,
-        stock: item.Stock,
-        price: item.price,
+        category: item.productCategory,
+        price: item.productDetails[0].mrPrice,
+        disprice:item.productDetails[0].price,
         name: item.name,
       });
     });
