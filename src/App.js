@@ -77,7 +77,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route element={<RequireUser type={"admin"} />}>
+        {/* <Route element={<RequireUser type={"admin"} />}> */}
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/products" element={<ProductList />} />
           <Route path="/admin/product/create" element={<CreateProduct />} />
@@ -104,7 +104,7 @@ function App() {
           <Route path="/admin/blog/create" element={<CreateBlog />} />
           <Route path="/admin/blogs" element={<Blogs />} />
           <Route path="/admin/blog/:id" element={<UpdateBlog />} />
-        </Route>
+        {/* </Route> */}
       </Routes>
       <Routes>
         <Route element={<RequireUser type="user" />}>

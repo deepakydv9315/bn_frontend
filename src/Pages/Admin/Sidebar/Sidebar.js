@@ -51,14 +51,14 @@ const Sidebar = () => {
           </li>
         </NavLink>
 
-        <NavLink to="/admin/orders" style={{ color: "white" }}>
+        {/* <NavLink to="/admin/orders" style={{ color: "white" }}>
           <li className="option">
             <span>
               <FontAwesomeIcon icon={faShoppingCart} />
             </span>
             All Orders
           </li>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink to="/admin/products" style={{ color: "white" }}>
           <li>
@@ -123,14 +123,14 @@ const Sidebar = () => {
           </li>
         </NavLink>
 
-        <NavLink to="/admin/blogs" style={{ color: "white" }}>
+        {/* <NavLink to="/admin/blogs" style={{ color: "white" }}>
           <li className="option">
             <span>
               <FontAwesomeIcon icon={faStar} />
             </span>
             Blogs
           </li>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink to="/admin/header" style={{ color: "white" }}>
           <li className="option">
