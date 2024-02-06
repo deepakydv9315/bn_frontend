@@ -1,7 +1,7 @@
 .about-container {
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-image: url(../../Assets/Images/bg1.jpg);
 
   .image-with-text-container {
     position: relative;
@@ -55,14 +55,14 @@
 
   .center-heading {
     text-align: center;
-    .title1{
+    .title1 {
       font-size: 30px;
-      @media (max-width:600px) {
+      @media (max-width: 600px) {
         font-size: 20px;
       }
-      span{
+      span {
         font-size: 35px;
-        @media (max-width:600px) {
+        @media (max-width: 600px) {
           font-size: 30px;
         }
       }
@@ -73,7 +73,7 @@
     display: flex;
     justify-content: center;
     padding: 30px 0px;
-  
+
     background-color: transparent;
   }
 }

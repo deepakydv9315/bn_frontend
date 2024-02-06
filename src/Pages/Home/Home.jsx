@@ -130,7 +130,7 @@ const Home = () => {
                   item.name !== "Gym Bags" &&
                   item.name !== "Shaker" &&
                   item.name !== "T-Shirts" &&
-                  item.name !== "Combo" 
+                  item.name !== "Combo"
               )
               .map((product, index) => (
                 <div
@@ -175,7 +175,7 @@ const Home = () => {
       </section>
 
       {/* know our protein */}
-      <section className="bn-sec know-sec">
+      <section className="bn-sec know-sec sec-level">
         <h4 className="sec-head">
           Why <span>Burly Whey</span>
         </h4>
@@ -272,7 +272,7 @@ const Home = () => {
         </div>
       </section> */}
 
-      <section className="blog bn-sec sec-blog">
+      <section className="blog bn-sec sec-blog sec-level">
         <h4 className="sec-head">
           Our <span>Blogs</span>
         </h4>

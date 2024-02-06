@@ -40,7 +40,7 @@ const Home = (product) => {
       </section>
 
       {/* know our protein */}
-      <section className="bn-sec know-sec">
+      <section className="bn-sec know-sec sec-level">
         <h4 className="sec-head">
           Why <span>Burly Whey</span>
         </h4>
