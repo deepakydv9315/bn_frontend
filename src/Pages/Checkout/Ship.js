@@ -6,8 +6,8 @@ import "./address.css";
 import "./Shipping.css";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux/slices/user";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Ship = () => {
   let carts = useSelector((state) => state.products.carts);
@@ -19,7 +19,7 @@ const Ship = () => {
   const [couponDetail, setCouponDetail] = React.useState({
     code: "",
     minRate: 0,
-    percent: 0
+    percent: 0,
   });
 
   // Instead of maintaining a separate 'order' state, we use 'billingInfo' directly
@@ -42,10 +42,14 @@ const Ship = () => {
   const dispatch = useDispatch();
 
   const cartTotal = () => {
-    return carts?.reduce(function (total, item) {
-      const itemTotal = (item.productDefaultPrice.quantity || 1) * item.productDefaultPrice.price;
-      return total + itemTotal;
-    }, 0)?.toFixed(1);
+    return carts
+      ?.reduce(function (total, item) {
+        const itemTotal =
+          (item.productDefaultPrice.quantity || 1) *
+          item.productDefaultPrice.price;
+        return total + itemTotal;
+      }, 0)
+      ?.toFixed(1);
   };
 
   const handleChange = (e) => {
@@ -107,7 +111,7 @@ const Ship = () => {
 
       setAddressSaved(true);
 
-      toast.success('successfully added', {
+      toast.success("successfully added", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
         hideProgressBar: false,
@@ -153,7 +157,7 @@ const Ship = () => {
           }));
 
           // Optionally, you can show an error message to the user
-          toast.error('Coupon details not found. Please try again.', {
+          toast.error("Coupon details not found. Please try again.", {
             position: toast.POSITION.TOP_RIGHT,
           });
 
@@ -167,7 +171,6 @@ const Ship = () => {
   };
 
   const applyDiscount = (subtotal) => {
-
     if (cartTotal() >= couponDetail.minRate) {
       const discountAmount = (subtotal * couponDetail.percent) / 100;
       return subtotal - discountAmount;
@@ -179,9 +182,13 @@ const Ship = () => {
   const handleShippingSubmit = async (e) => {
     try {
       e.preventDefault();
+      toast.success("Please Wait ! Redirecting to payment!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
 
       const orderData = {
         ...billingInfo,
+        paymentMethod: e.target.payment.value,
         total: applyDiscount(cartTotal()),
         coupon: couponDetail.code,
         discount: couponDetail.percent,
@@ -194,23 +201,25 @@ const Ship = () => {
       if (responseData.payload.status === "error") {
         alert(responseData.payload.message);
       } else {
-        setTimeout(() => {
-          window.open(
-            responseData.payload.data.instrumentResponse.redirectInfo.url,
-            "_self"
-          );
-        }, 3000);
+        if (orderData.paymentMethod === "COD") {
+          toast.success("Order Placed Successfully", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          setTimeout(() => {
+            window.location.href = `/orderSuccess/${responseData.payload.result.orderId}`;
+          }, 3000);
+        } else {
+          toast.success("Redirecting to payment gateway", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          setTimeout(() => {
+            window.open(responseData.payload.result.url, "_self");
+          }, 3000);
+        }
       }
     } catch (error) {
       console.log(error.message);
     }
-  };
-
-  const handlePlaceOrder = () => {
-    // Show toast notification
-    toast.success('Please Wait ! Redirecting to payment!', {
-      position: toast.POSITION.TOP_RIGHT,
-    });
   };
 
   return (
@@ -231,8 +240,8 @@ const Ship = () => {
                   {isApplied === true
                     ? "Coupon Code Applied"
                     : isApplied === false
-                      ? "Invalid Coupon Code"
-                      : ""}
+                    ? "Invalid Coupon Code"
+                    : ""}
                   <input
                     type="text"
                     required={true}
@@ -291,10 +300,9 @@ const Ship = () => {
                       <td>
                         ₹
                         {couponDetail.percent > 0 &&
-                          cartTotal() >= couponDetail.minRate
+                        cartTotal() >= couponDetail.minRate
                           ? (cartTotal() * couponDetail.percent) / 100
                           : 0}
-
                       </td>
                     </tr>
                     <tr>
@@ -315,10 +323,7 @@ const Ship = () => {
         </div>
         <div className="ship-address">
           <h5 className="ship-tittle">Billing Details</h5>
-          <form
-            className="ship-form"
-            onSubmit={(e) => handleShippingSubmit(e)}
-          >
+          <form className="ship-form" onSubmit={(e) => handleShippingSubmit(e)}>
             {/* <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className="form-group">
                 <label htmlFor="fname">Select from your saved addresses</label>
@@ -433,18 +438,18 @@ const Ship = () => {
               </div>
             </div>
 
-            {/* <div className="radio-group">
+            <div className="radio-group">
               <div className="input-group">
-                <input type='radio' name="payment" value="cod"></input>
+                <input type="radio" name="payment" value="COD" />
                 <div className="input-label radio-label">Cash on Devivery</div>
               </div>
               <div className="input-group">
-                <input type='radio' name="payment" value="paid"></input>
-                <div className="input-label radio-label">Proceed to Payment</div>
+                <input type="radio" name="payment" value="Online" />
+                <div className="input-label radio-label">
+                  Proceed to Payment
+                </div>
               </div>
-            </div> */}
-
-
+            </div>
 
             {/* <div className="input-group checkbox">
               <input type="checkbox" />
@@ -453,7 +458,9 @@ const Ship = () => {
             <input type="submit" value={"Place Order"} className="ship-btn" /> */}
 
             {/* {isAddressSaved ? ( */}
-            {(isAddressSaved && selectAddress !== 0) || selectAddress !== 0 || isAddressSaved ? (
+            {(isAddressSaved && selectAddress !== 0) ||
+            selectAddress !== 0 ||
+            isAddressSaved ? (
               <>
                 <button
                   style={{
@@ -468,7 +475,6 @@ const Ship = () => {
                   }}
                   type="submit"
                   className="theme-btn-one btn-black-overlay btn_sm"
-                  onClick={handlePlaceOrder}
                 >
                   Place Order
                 </button>
@@ -482,7 +488,8 @@ const Ship = () => {
                   pauseOnFocusLoss
                   draggable
                   pauseOnHover
-                  theme="light" />
+                  theme="light"
+                />
               </>
             ) : (
               <div className="form-group">
@@ -516,7 +523,6 @@ const Ship = () => {
                     }}
                     type="submit"
                     className="theme-btn-one btn-black-overlay btn_sm"
-                    onClick={handlePlaceOrder}
                   >
                     Place Order
                   </button>
@@ -530,7 +536,8 @@ const Ship = () => {
                     pauseOnFocusLoss
                     draggable
                     pauseOnHover
-                    theme="light" />
+                    theme="light"
+                  />
                 </>
                 {/* <button
                   style={{ textAlign: "center" }}
@@ -554,9 +561,8 @@ const Ship = () => {
               </div>
             )}
           </form>
-        </div >
-
-      </section >
+        </div>
+      </section>
     </>
   );
 };
