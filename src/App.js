@@ -8,9 +8,9 @@ import About from "./Pages/About/About.jsx";
 import Products from "./Pages/Product/Product.js";
 import "./style.scss";
 import Blog from "./Pages/Blog/Blog.js";
-import Blog1 from "./Pages/Blog/blog1.js"
-import Blog2 from "./Pages/Blog/blog2.js"
-import Blog3 from "./Pages/Blog/blog3.js"
+import Blog1 from "./Pages/Blog/blog1.js";
+import Blog2 from "./Pages/Blog/blog2.js";
+import Blog3 from "./Pages/Blog/blog3.js";
 import Contact from "./Pages/Contact/Contact";
 import Authenticate from "./Pages/Authenticate/Authenticate.js";
 import ErrorPage from "./Pages/Error/ErrorPage.js";
@@ -65,6 +65,7 @@ import Bags from "./Pages/Product/Bags.js";
 import Tshirts from "./Pages/Product/Tshirts.js";
 import Shaker from "./Pages/Product/Shaker.js";
 import BestSelling from "./Pages/Product/BestSelling.js";
+import ResetPasswordPage from "./Pages/ForgetPassword/ResetPassword.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -78,32 +79,32 @@ function App() {
       <Navbar />
       <Routes>
         {/* <Route element={<RequireUser type={"admin"} />}> */}
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/products" element={<ProductList />} />
-          <Route path="/admin/product/create" element={<CreateProduct />} />
-          <Route path="/admin/product/:id" element={<UpdateProduct />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/products" element={<ProductList />} />
+        <Route path="/admin/product/create" element={<CreateProduct />} />
+        <Route path="/admin/product/:id" element={<UpdateProduct />} />
 
-          <Route path="/admin/categories/create" element={<CreateCategory />} />
-          <Route path="/admin/categories" element={<Categories />} />
-          <Route path="/admin/category/:id" element={<UpdateCategory />} />
+        <Route path="/admin/categories/create" element={<CreateCategory />} />
+        <Route path="/admin/categories" element={<Categories />} />
+        <Route path="/admin/category/:id" element={<UpdateCategory />} />
 
-          <Route path="/admin/users" element={<UserList />} />
+        <Route path="/admin/users" element={<UserList />} />
 
-          <Route path="/admin/pincodes" element={<Pincodes />} />
-          <Route path="/admin/pincodes/create" element={<CreatePincode />} />
-          <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
+        <Route path="/admin/pincodes" element={<Pincodes />} />
+        <Route path="/admin/pincodes/create" element={<CreatePincode />} />
+        <Route path="/admin/pincodes/:id" element={<UpdatePincode />} />
 
-          <Route path="/admin/header" element={<HeaderOffer />} />
+        <Route path="/admin/header" element={<HeaderOffer />} />
 
-          <Route path="/admin/coupons" element={<CouponList />} />
-          <Route path="/admin/coupon/create" element={<CreateCoupon />} />
-          <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
+        <Route path="/admin/coupons" element={<CouponList />} />
+        <Route path="/admin/coupon/create" element={<CreateCoupon />} />
+        <Route path="/admin/coupon/:id" element={<UpdateCoupon />} />
 
-          <Route path="/admin/orders" element={<Orders />} />
+        <Route path="/admin/orders" element={<Orders />} />
 
-          <Route path="/admin/blog/create" element={<CreateBlog />} />
-          <Route path="/admin/blogs" element={<Blogs />} />
-          <Route path="/admin/blog/:id" element={<UpdateBlog />} />
+        <Route path="/admin/blog/create" element={<CreateBlog />} />
+        <Route path="/admin/blogs" element={<Blogs />} />
+        <Route path="/admin/blog/:id" element={<UpdateBlog />} />
         {/* </Route> */}
       </Routes>
       <Routes>
@@ -115,15 +116,78 @@ function App() {
         </Route>
       </Routes>
       <Routes>
-        <Route path="/" element={<><ScrollToTop /> <Home /></>} />
-        <Route path="/burly" element={<><ScrollToTop /> <Burly /></>} />
-        <Route path="/creatine" element={<><ScrollToTop /> <Creatine /></>} />
-        <Route path="/bags" element={<><ScrollToTop /> <Bags /></>} />
-        <Route path="/tshirts" element={<><ScrollToTop /> <Tshirts /></>} />
-        <Route path="/shaker" element={<><ScrollToTop /> <Shaker /></>} />
-        <Route path="/bestselling" element={<><ScrollToTop /> <BestSelling /></>} />
-        <Route path="/invo" element={<><ScrollToTop /> <Invo /></>} />
-        <Route path="/combo" element={<><ScrollToTop /> <Combo /></>} />
+        <Route
+          path="/"
+          element={
+            <>
+              <ScrollToTop /> <Home />
+            </>
+          }
+        />
+        <Route
+          path="/burly"
+          element={
+            <>
+              <ScrollToTop /> <Burly />
+            </>
+          }
+        />
+        <Route
+          path="/creatine"
+          element={
+            <>
+              <ScrollToTop /> <Creatine />
+            </>
+          }
+        />
+        <Route
+          path="/bags"
+          element={
+            <>
+              <ScrollToTop /> <Bags />
+            </>
+          }
+        />
+        <Route
+          path="/tshirts"
+          element={
+            <>
+              <ScrollToTop /> <Tshirts />
+            </>
+          }
+        />
+        <Route
+          path="/shaker"
+          element={
+            <>
+              <ScrollToTop /> <Shaker />
+            </>
+          }
+        />
+        <Route
+          path="/bestselling"
+          element={
+            <>
+              <ScrollToTop /> <BestSelling />
+            </>
+          }
+        />
+        <Route
+          path="/invo"
+          element={
+            <>
+              <ScrollToTop /> <Invo />
+            </>
+          }
+        />
+        <Route
+          path="/combo"
+          element={
+            <>
+              <ScrollToTop /> <Combo />
+            </>
+          }
+        />
         <Route path="/orderSuccess/:orderID" element={<Invoice />} />
         {/* <Route path="/invoice/:id" element={<Invoice />} /> */}
         <Route
@@ -135,18 +199,89 @@ function App() {
             </>
           }
         />
-        <Route path="/ship" element={<><ScrollToTop /><Ship /></>} />
+        <Route
+          path="/ship"
+          element={
+            <>
+              <ScrollToTop />
+              <Ship />
+            </>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/checkout" element={<><ScrollToTop /><Checkout /></>} />
-        <Route path="/contact" element={<><ScrollToTop /><Contact /></>} />
-        <Route path="/blog1" element={<><ScrollToTop /><Blog1 /></>} />
-        <Route path="/blog2" element={<><ScrollToTop /><Blog2 /></>} />
-        <Route path="/blog3" element={<><ScrollToTop /><Blog3 /></>} />
-        <Route path="/about" element={<><ScrollToTop /><About /></>} />
-        <Route path="/blogdetail" element={<>
-          <ScrollToTop /><BlogDetail /></>} />
-        <Route path="/terms" element={<><ScrollToTop /><TermsCondition /></>} />
+        <Route
+          path="/checkout"
+          element={
+            <>
+              <ScrollToTop />
+              <Checkout />
+            </>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <ScrollToTop />
+              <Contact />
+            </>
+          }
+        />
+        <Route
+          path="/blog1"
+          element={
+            <>
+              <ScrollToTop />
+              <Blog1 />
+            </>
+          }
+        />
+        <Route
+          path="/blog2"
+          element={
+            <>
+              <ScrollToTop />
+              <Blog2 />
+            </>
+          }
+        />
+        <Route
+          path="/blog3"
+          element={
+            <>
+              <ScrollToTop />
+              <Blog3 />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <ScrollToTop />
+              <About />
+            </>
+          }
+        />
+        <Route
+          path="/blogdetail"
+          element={
+            <>
+              <ScrollToTop />
+              <BlogDetail />
+            </>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <>
+              <ScrollToTop />
+              <TermsCondition />
+            </>
+          }
+        />
         <Route
           path="/products"
           element={
@@ -164,17 +299,73 @@ function App() {
             </>
           }
         />
-        <Route path="/blog" element={<>
-          <ScrollToTop /><Blog /></>} />
-        <Route path="/recipes" element={<><ScrollToTop /><Recipes /></>} />
+        <Route
+          path="/blog"
+          element={
+            <>
+              <ScrollToTop />
+              <Blog />
+            </>
+          }
+        />
+        <Route
+          path="/recipes"
+          element={
+            <>
+              <ScrollToTop />
+              <Recipes />
+            </>
+          }
+        />
         <Route path="/authenticate" element={<Authenticate />} />
-        <Route path="/report" element={<><ScrollToTop /><Report /></>} />
-        <Route path="/faq" element={<><ScrollToTop /><FAQ /></>} />
+        <Route
+          path="/report"
+          element={
+            <>
+              <ScrollToTop />
+              <Report />
+            </>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <>
+              <ScrollToTop />
+              <FAQ />
+            </>
+          }
+        />
         <Route path="*" element={<ErrorPage />} />
-        <Route path="/privacy" element={<><ScrollToTop /><PrivacyPolicy /></>} />
-        <Route path="/shipping" element={<><ScrollToTop /><Shipping /></>} />
+        <Route
+          path="/privacy"
+          element={
+            <>
+              <ScrollToTop />
+              <PrivacyPolicy />
+            </>
+          }
+        />
+        <Route
+          path="/shipping"
+          element={
+            <>
+              <ScrollToTop />
+              <Shipping />
+            </>
+          }
+        />
         <Route path="/forgot" element={<ForgetPasswordPage />} />
-        <Route path="/refund" element={<><ScrollToTop /><RefundPolicy /></>} />
+        <Route path="/resetPassword/:token" element={<ResetPasswordPage />} />
+        <Route
+          path="/refund"
+          element={
+            <>
+              <ScrollToTop />
+              <RefundPolicy />
+            </>
+          }
+        />
       </Routes>
       <Footer />
     </div>

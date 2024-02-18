@@ -182,9 +182,6 @@ const Ship = () => {
   const handleShippingSubmit = async (e) => {
     try {
       e.preventDefault();
-      toast.success("Please Wait ! Redirecting to payment!", {
-        position: toast.POSITION.TOP_RIGHT,
-      });
 
       const orderData = {
         ...billingInfo,

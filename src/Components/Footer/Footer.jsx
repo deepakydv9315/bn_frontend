@@ -102,7 +102,7 @@ const Footer = () => {
               <Link to="/terms">Terms of Service</Link>
             </span>
             <span>
-              <Link to="/about">Why Burly Nutrition</Link>
+              <Link to="/shipping">Shipping Policy</Link>
             </span>
             <span>
               <Link to="/refund">Refund & Return Policy</Link>
