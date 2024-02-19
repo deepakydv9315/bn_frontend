@@ -90,7 +90,7 @@ export default function LoginForm() {
               />
               <span
                 onClick={togglePasswordVisibility}
-                style={{
+                style={{ 
                   position: "absolute",
                   top: "50%",
                   right: "10px",
