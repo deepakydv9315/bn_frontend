@@ -10,6 +10,10 @@ import reportWebVitals from "./reportWebVitals";
 import { positions, transitions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
+import ReactGA from 'react-ga';
+// Initialize React Ga with your tracking ID
+ReactGA.initialize('G-7VKXGD25CZ');
+
 const options = {
   timeout: 5000,
   position: positions.TOP_RIGHT,

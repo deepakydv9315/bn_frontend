@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ReactGA from 'react-ga'
+
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import Home from "./Pages/Home/Home.jsx";
@@ -68,6 +70,10 @@ import BestSelling from "./Pages/Product/BestSelling.js";
 import ResetPasswordPage from "./Pages/ForgetPassword/ResetPassword.js";
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
