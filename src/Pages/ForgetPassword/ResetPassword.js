@@ -15,6 +15,12 @@ const ResetPasswordPage = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const [showPasswords, setShowPasswords] = useState(false);
+
+  const togglePasswordVisibile = () => {
+    setShowPasswords(!showPasswords);
+  };
   // ? get token from url
   const { token } = useParams();
 
@@ -75,11 +81,10 @@ const ResetPasswordPage = () => {
                 <label htmlFor="email">New password:</label>
                 <div className="in-wrapper">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="newPassword"
                     placeholder=""
                   />
-
                   <span className="eye-icon"
                     onClick={togglePasswordVisibility}
                     style={{
@@ -101,18 +106,17 @@ const ResetPasswordPage = () => {
                 <label htmlFor="phone">Confirm new password:</label>
                 <div className="in-wrapper">
                   <input
-                    type="password"
+                    type={showPasswords ? "text" : "password"}
                     name="confirmPassword"
                     placeholder=""
                   />
-
                   <span className="eye-icon"
-                    onClick={togglePasswordVisibility}
+                    onClick={togglePasswordVisibile}
                     style={{
                       cursor: "pointer",
                     }}
                   >
-                    {showPassword ? (
+                    {showPasswords ? (
                       <FaEyeSlash
                         style={{ paddingBottom: "4px", fontSize: "18px" }}
                       />
