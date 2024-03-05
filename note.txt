@@ -1,0 +1,6 @@
+[post] https://graph.facebook.com/{API_VERSION}/{PIXEL_ID}/events?access_token={TOKEN}
+
+https://graph.facebook.com/v19.0/298652909890278/events
+
+Access Token :
+EABiORO8mmOEBO0BGLHF0O3svtziQsZBDu8aZAGWHV3NewIpsZCDQWlE0rRC2QJLrtDH5cOJP19SZAdfz3ieZBZAmTVnsD6VWIrp2xHDmiMqWO7rFlxdjMmmwoUychbaGYNixRiy2kGZBcnTiMCZAd8fpdwKthKL6sSktZBNPZBDbdqjd7zSBk7upJAW72ZCU5fZC0QgICQZDZD
