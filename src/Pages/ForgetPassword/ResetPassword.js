@@ -6,8 +6,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./Password.scss";
 import { useDispatch } from "react-redux";
 import { resetPassword } from "../../Redux/slices/user";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const ResetPasswordPage = () => {
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const [showPasswords, setShowPasswords] = useState(false);
+
+  const togglePasswordVisibile = () => {
+    setShowPasswords(!showPasswords);
+  };
   // ? get token from url
   const { token } = useParams();
 
@@ -61,29 +74,62 @@ const ResetPasswordPage = () => {
       />
       <div className="clientSide">
         <div className="productListContainer">
-          <h1 id="productListHeading">Change Password</h1>
+          <h1 id="productListHeading">Reset your Password</h1>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="profile-container">
               <div className="profile-items">
                 <label htmlFor="email">New password:</label>
-                <input
-                  type="password"
-                  name="newPassword"
-                  placeholder="Enter your new password"
-                />
+                <div className="in-wrapper">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="newPassword"
+                    placeholder=""
+                  />
+                  <span className="eye-icon"
+                    onClick={togglePasswordVisibility}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    {showPassword ? (
+                      <FaEyeSlash
+                        style={{ paddingBottom: "4px", fontSize: "18px" }}
+                      />
+                    ) : (
+                      <FaEye style={{ paddingBottom: "4px", fontSize: "18px" }} />
+                    )}
+                  </span>
+                </div>
+
               </div>
               <div className="profile-items">
                 <label htmlFor="phone">Confirm new password:</label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm your new password"
-                />
+                <div className="in-wrapper">
+                  <input
+                    type={showPasswords ? "text" : "password"}
+                    name="confirmPassword"
+                    placeholder=""
+                  />
+                  <span className="eye-icon"
+                    onClick={togglePasswordVisibile}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    {showPasswords ? (
+                      <FaEyeSlash
+                        style={{ paddingBottom: "4px", fontSize: "18px" }}
+                      />
+                    ) : (
+                      <FaEye style={{ paddingBottom: "4px", fontSize: "18px" }} />
+                    )}
+                  </span>
+                </div>
               </div>
               <div className="profile-buttons">
                 <input
                   type="submit"
-                  value="submit"
+                  value="Submit"
                   name="submit"
                   className="save-button"
                 />
