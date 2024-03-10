@@ -5,6 +5,7 @@ import { setCartOpen } from "../../Redux/slices/appConfigSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import VegIcon from "../../Assets/Images/veg.png";
+import Pixel from 'react-facebook-pixel';
 
 function Card({ products, isShow = true }) {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ function Card({ products, isShow = true }) {
     const product = products?.find((product) => product._id === _id);
 
     var cartItem = localStorage.getItem("cartItems");
+    Pixel.track('AddToCart', {
+      content_name: product.name });
 
     if (typeof cartItem === "string") {
       var JsonCartItem = JSON.parse(cartItem).filter((i) => i._id == _id);

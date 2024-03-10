@@ -8,8 +8,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../Redux/slices/user";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Pixel from 'react-facebook-pixel';
 
 const Ship = () => {
+  Pixel.track('Checkout')
   let carts = useSelector((state) => state.products.carts);
   const [coupon, setCoupon] = React.useState("");
   const { user } = useSelector((state) => state.user);
@@ -129,6 +131,8 @@ const Ship = () => {
   };
 
   const HandleCoupon = async () => {
+    Pixel.track('CouponApplied');
+
     try {
       const responseData = await dispatch(validateCoupon(coupon));
 
@@ -217,6 +221,9 @@ const Ship = () => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+  const handlePixel1 = () => {
+    Pixel.track('Checkout1');
   };
 
   return (
@@ -321,35 +328,7 @@ const Ship = () => {
         <div className="ship-address">
           <h5 className="ship-tittle">Billing Details</h5>
           <form className="ship-form" onSubmit={(e) => handleShippingSubmit(e)}>
-            {/* <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-              <div className="form-group">
-                <label htmlFor="fname">Select from your saved addresses</label>
-                <br />
-                <select
-                  className="dropdown"
-                  name="shippingAddress"
-                  value={selectAddress}
-                  onChange={(e) => handleOptionChange(e)}
-                >
-                  <option key={0} value={0}>
-                    Add New Address
-                  </option>
-                  {user &&
-                    user?.shippingAddress &&
-                    user?.shippingAddress?.map((item, index) => (
-                      <option
-                        key={index + 1}
-                        value={index + 1}
-                        className="selectedaddress"
-                      >
-                        {`${item.name}, ${item.address}, ${item.city}, ${item.state} - ${item.pincode}`}
-                      </option>
-                    ))}
-                </select>
-
-              </div>
-            </div> */}
-
+           
             {/* name  */}
             <div className="input-group">
               <div className="input-label">Full Name*</div>
@@ -460,6 +439,7 @@ const Ship = () => {
             isAddressSaved ? (
               <>
                 <button
+                onClick={handlePixel1}
                   style={{
                     textAlign: "center",
                     backgroundColor: "#000",
@@ -508,6 +488,7 @@ const Ship = () => {
                 <br></br>
                 <>
                   <button
+                  onClick={handlePixel1}
                     style={{
                       textAlign: "center",
                       backgroundColor: "#000",
@@ -561,6 +542,7 @@ const Ship = () => {
         </div>
       </section>
     </>
+    
   );
 };
 

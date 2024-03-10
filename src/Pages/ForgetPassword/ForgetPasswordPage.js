@@ -3,6 +3,7 @@ import "./ForgetPasswordPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../../Redux/slices/user";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const ForgetPasswordPage = () => {
   const [email, setEmail] = useState("");
@@ -14,16 +15,13 @@ const ForgetPasswordPage = () => {
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to send email with OTP
-
     const forgetRes = await dispatch(forgotPassword({ email }));
-    console.log("Forget Response >>> ", forgetRes);
     if (forgetRes.payload.success) {
-      setShowAlert(true);
+      toast.success("Password Reset Link has been sent to your Email", { position: "top-right" });
       navigate("/");
+    } else {
+      toast.error("Please register before proceeding", { position: "top-right" });
     }
-
-    // setIsEmailSent(true);
   };
 
   return (
@@ -39,12 +37,20 @@ const ForgetPasswordPage = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <button type="submit">Send</button>
+        <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          closeButton={false}
+        />
       </form>
-      {showAlert && (
-        <div className="alert">
-          Password Reset Link has sent to your Email :)
-        </div>
-      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./invoice.scss";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrderByID } from "../../Redux/slices/orderSlice";
+import Pixel from 'react-facebook-pixel';
 
 const EmailTemplate = () => {
   let carts = useSelector((state) => state.products.carts);
@@ -54,6 +55,7 @@ const EmailTemplate = () => {
           </div>
         </div>
       </section>
+      Pixel.track('Order_placed');
     </>
   );
 };
