@@ -17,15 +17,33 @@ const ForgetPasswordPage = () => {
     e.preventDefault();
     const forgetRes = await dispatch(forgotPassword({ email }));
     if (forgetRes.payload.success) {
-      toast.success("Password Reset Link has been sent to your Email", { position: "top-right" });
-      navigate("/");
+      toast.success("Password Reset Link has been sent to your Email", {
+        position: "top-right",
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } else {
-      toast.error("Please register before proceeding", { position: "top-right" });
+      toast.error("Please register before proceeding", {
+        position: "top-right",
+      });
     }
   };
 
   return (
     <div className="forget-password-page contain contain-bg">
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <h2 className="sec-head sec-head-ul">Forgot Password</h2>
 
       <form onSubmit={handleEmailSubmit}>
