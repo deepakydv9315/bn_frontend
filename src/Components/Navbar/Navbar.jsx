@@ -27,9 +27,6 @@ import creatine from "../../Assets/Images/creatine.jpg";
 import whey from "../../Assets/Images/whey.jpg";
 import waIcon from "../../Assets/Images/wa.png";
 
-import { Helmet } from "react-helmet";
-import MetaPixel from "../../utils/pixel/metaPixel";
-
 const Navbar = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
@@ -97,10 +94,6 @@ const Navbar = () => {
   // });
   return (
     <>
-      <Helmet>
-        <MetaPixel />
-      </Helmet>
-
       <div className="wrapper__nav ">
         <div className="whatsapp-icon">
           <a

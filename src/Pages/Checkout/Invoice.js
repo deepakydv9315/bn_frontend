@@ -28,6 +28,7 @@ const EmailTemplate = () => {
     };
     getInovice();
   }, [dispatch, orderID]);
+  Pixel.track('Order_placed');
 
   // https://apiv2.shiprocket.in/tracking-form-check?track_type=order_id&track_id=BN-1706122107202&cust_key=9022126326
 
@@ -55,7 +56,7 @@ const EmailTemplate = () => {
           </div>
         </div>
       </section>
-      Pixel.track('Order_placed');
+      
     </>
   );
 };
