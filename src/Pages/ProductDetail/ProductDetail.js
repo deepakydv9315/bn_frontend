@@ -313,30 +313,37 @@ const ProductDetails = (isShow = true) => {
                 </div>
 
                 <div className="b">
-                  {!isAddedOnCart ? (
-                    <button
-                      onClick={() => addToCart()}
-                      className="wishlist-button"
-                    >
-                      Add To Cart
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => dispatch(setCartOpen(true))}
-                      className="wishlist-button"
-                    >
-                      Go To Cart
-                    </button>
-                  )}
-                  <br></br>
-                  <button
-                    className="wishlist-button"
-                    onClick={() => {
-                      addedToCart();
-                    }}
-                  >
-                    Buy Now
-                  </button>
+                  {product?.productDetails &&
+                    product?.productDetails[0]?.stock !== "In Stock" ?
+                      (<>Out of Stock</>) :
+                      !isAddedOnCart ? (
+                        <button
+                          onClick={() => addToCart()}
+                          className="wishlist-button"
+                        >
+                          Add To Cart
+                        </button>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => dispatch(setCartOpen(true))}
+                            className="wishlist-button"
+                          >
+                            Go To Cart
+                          </button>
+
+                          <br></br>
+                          <button
+                            className="wishlist-button"
+                            onClick={() => {
+                              addedToCart();
+                            }}
+                          >
+                            Buy Now
+                          </button>
+                        </>
+                      )}
+
                 </div>
 
                 {/* <section className="delivery-section">

@@ -121,10 +121,14 @@ function Card({ products, isShow = true }) {
                 </div>
                 <div className="card-btns">
                   <button
-                    onClick={() => handleAddCart(product._id)}
-                    className="card-btn"
+                    onClick={() => 
+                      product.productDetails[0].stock == "In Stock" ?
+                      handleAddCart(product._id)
+                      : null
+                    }
+                    className={`card-btn ${product.productDetails[0].stock == "In Stock" ? "In stock" : "Out of stock"}`}
                   >
-                    Add To Cart
+                    {product.productDetails[0].stock == "In Stock" ? "Add To Cart" : "Out of Stock"}
                   </button>
                 </div>
               </div>
